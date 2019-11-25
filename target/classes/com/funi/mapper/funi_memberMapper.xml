@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원가입 -->
+<mapper namespace="funi_memberMapper">	
+	<insert id="insertData" parameterType="com.funi.domain.MemberDTO">
+		insert into fumember (email,pwd,name,phone) 
+		values (#{email},#{pwd},#{name},#{phone})
+	</insert>
+	<select id="getReadData" parameterType="Integer" resultType="com.funi.domain.MemberDTO">
+		select email from fumember where email=#{email}
+	</select>
+	<!-- 회원 조회  -->
+	<select id ="searchMember" parameterType="Map" resultType="com.funi.domain.MemberDTO">
+		select email,pwd,name,phone from fumember where email=#{email}
+	</select>
+</mapper>
