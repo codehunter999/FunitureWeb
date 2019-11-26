@@ -20,7 +20,7 @@ public class DiningDAO {
 	}	
 	public List<FurnitureDTO> getLists(){
 		List<FurnitureDTO> lists = sessionTemplate.selectList("diningMapper.getLists");
-		return lists;
+		return lists; 
 	}
 	public List<FurnitureDTO> getCateLists(HashMap<String, Object> diningmap){
 		List<FurnitureDTO> catelists = sessionTemplate.selectList("diningMapper.getCateLists", diningmap);
