@@ -680,13 +680,14 @@ public class FurnitureController {
 	public ModelAndView dining_desk(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
-		
+
 		String cate = request.getParameter("cate");
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("cate", cate);
 
 		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		System.out.println("여기를 지나갑니다. ");
 		
 		mav.setViewName("dining_desk");
 		mav.addObject("catelists", catelists);

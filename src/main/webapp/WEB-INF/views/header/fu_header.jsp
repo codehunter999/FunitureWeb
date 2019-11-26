@@ -170,37 +170,37 @@
                                                             </a>
                                                             <ul> 
                                                                 <li>
-                                                                    <a href="dining_sunbrella.fu">
+                                                                    <a href="dining_sunbrella.fu?cate=선브렐라 체어">
                                                                         <span class="mm-text">선브렐라 체어</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_clean.fu">
+                                                                    <a href="dining_clean.fu?cate=클린터치 테이블">
                                                                         <span class="mm-text">클린터치 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_rnl.fu">
+                                                                    <a href="dining_rnl.fu?cate=리놀륨 테이블">
                                                                         <span class="mm-text">리놀륨 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_table.fu">
+                                                                    <a href="dining_table.fu?cate=테이블 / 식탁">
                                                                         <span class="mm-text">테이블 / 식탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_chair.fu">
+                                                                    <a href="dining_chair.fu?cate=체어 / 의자">
                                                                         <span class="mm-text">체어 / 의자</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_deco.fu">
+                                                                    <a href="dining_deco.fu?cate=장식장">
                                                                         <span class="mm-text">장식장</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_desk.fu">
+                                                                    <a href="dining_desk.fu?cate=책상 / 선반">
                                                                         <span class="mm-text">책상 / 선반</span>
                                                                     </a>
                                                                 </li>
@@ -239,17 +239,17 @@
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="deco_monthly.fu">
+                                                                    <a href="deco_monthly.fu?cate=월간 카레클린트">
                                                                         <span class="mm-text">월간 카레클린트</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="deco_light.fu">
+                                                                    <a href="deco_light.fu?cate=조명">
                                                                         <span class="mm-text">조명</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="deco_plasticch.fu">
+                                                                    <a href="deco_plasticch.fu?cate=PLASTIC 체어">
                                                                         <span class="mm-text">PLASTIC 체어</span>
                                                                     </a>
                                                                 </li>
