@@ -108,6 +108,7 @@ public class FurnitureController {
 				loginmav.addObject("message",message);
 				loginmav.setViewName("member/login");
 				System.out.println("여기 통과하면 안됨 ");
+				System.out.println("여기 통과하면 안됨 ");
 				return loginmav;
 			}	
 		} catch (Exception e) {
