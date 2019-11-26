@@ -463,18 +463,38 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=61&cate=장식장">
-                                                	<img src="<%=cp %>/resources/images/dining/로그사이드보드장.jpg" style="max-width: 70%;" alt="">
+                                                <a href="dining_desk_details.fu?imageIndex=64&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/베이직테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=62&cate=장식장">
-                                                	<img src="<%=cp %>/resources/images/dining/201와이드오크선반.jpg" style="max-width: 70%;" alt="">
+                                                <a href="dining_desk_details.fu?imageIndex=65&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/304오크서랍형책상.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=63&cate=장식장">
-                                                	<img src="<%=cp %>/resources/images/dining/301철제오크광파오븐장.jpg" style="max-width: 70%;" alt="">
+                                                <a href="dining_desk_details.fu?imageIndex=66&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/304오크서랍형책상.jpg" style="max-width: 70%;" alt="">
+                                                </a>
+                                            </figure>
+                                            <figure class="product-gallery__nav-image--single">
+                                                <a href="dining_desk_details.fu?imageIndex=68&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/301철제오크월넛사다리선반.jpg" style="max-width: 70%;" alt="">
+                                                </a>
+                                            </figure>
+                                            <figure class="product-gallery__nav-image--single">
+                                                <a href="dining_desk_details.fu?imageIndex=70&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/트러스코너선반.png" style="max-width: 70%;" alt="">
+                                                </a>
+                                            </figure>
+                                            <figure class="product-gallery__nav-image--single">
+                                                <a href="dining_desk_details.fu?imageIndex=71&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/302철제오크스툴.jpg" style="max-width: 70%;" alt="">
+                                                </a>
+                                            </figure>
+                                            <figure class="product-gallery__nav-image--single">
+                                                <a href="dining_desk_details.fu?imageIndex=72&cate=책상 / 선반">
+                                                	<img src="<%=cp %>/resources/images/dining/001북케이스벤치.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                         </div>
