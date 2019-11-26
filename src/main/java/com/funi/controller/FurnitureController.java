@@ -251,6 +251,7 @@ public class FurnitureController {
 		Path path1 = 
 				Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\dining");
 				
+		System.out.println("test ¿‘¥œ¥Ÿ");
 		
 		String path = 
 				request.getSession()
