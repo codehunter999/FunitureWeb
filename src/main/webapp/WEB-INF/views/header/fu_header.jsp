@@ -333,24 +333,36 @@
                                                 <li class="mainmenu__item menu-item-has-children">
                                                    <span class="mm-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                 </li>
-                                                
-                                                
-	                                                <li class="mainmenu__item menu-item-has-children">
-	                                                    <a href="login.fu" class="mainmenu__link">
-	                                                        <span class="mm-text">로그인</span>
-	                                                    </a>
-	                                                </li>
-	                                                <li class="mainmenu__item menu-item-has-children">
-	                                                    <a href="register.fu" class="mainmenu__link">
-	                                                        <span class="mm-text">회원가입</span>
-	                                                    </a>
-	                                                </li>
-                                                
-                                                
+
+                                                <c:choose> 
+												    <c:when test="${not empty sessionScope.email }">   
+												        <li class="mainmenu__item menu-item-has-children">
+												        	<a href="${pageContext.request.contextPath }/users/info.do" class="mainmenu__link">
+												        		<span class="mm-text">${sessionScope.email } 님</span>
+												        	</a>
+												        </li>
+												        <li class="mainmenu__item menu-item-has-children">
+												        	<a href="${pageContext.request.contextPath }/logout.fu" class="mainmenu__link"> 
+												        		<span class="mm-text">로그아웃</span>
+												        	 </a>
+												        </li>            
+												    </c:when>
+												    <c:otherwise>    
+													    <li class="mainmenu__item menu-item-has-children">
+		                                                    <a href="login.fu" class="mainmenu__link">
+		                                                        <span class="mm-text">로그인</span>
+		                                                    </a>
+		                                                </li>
+		                                                <li class="mainmenu__item menu-item-has-children">
+		                                                    <a href="register.fu" class="mainmenu__link">
+		                                                        <span class="mm-text">회원가입</span>
+		                                                    </a>
+		                                                </li>
+												    </c:otherwise>                  
+												</c:choose>
                                             </ul>
                                         </nav>
-                                    </div>
-                                    
+                                    </div>     t
                                     <div class="header__main-right">
                                         <div class="header-toolbar-wrap">
                                             <div class="header-toolbar">

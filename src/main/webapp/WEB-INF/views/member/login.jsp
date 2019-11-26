@@ -1,6 +1,16 @@
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-        
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        var responseMessage = "<c:out value="${message}" />";
+        if(responseMessage != ""){
+            alert(responseMessage)
+        }
+    }) 
+</script>
+   
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
             <div class="container">
@@ -25,14 +35,14 @@
                 		<div class="col-md-4">
                 			<div class="login-box">
                 				<h3 class="heading__terriary mb--30" style="text-align: center">로그인</h3>
-               					<form class="form form--login" action="<%=cp%>/login_ok.fu">
+               					<form class="form form--login" action="<%=cp%>/login_ok.fu" method="post">
                						  <div class="form__group mb--20">
                                         <label class="form__label" for="username_email"><b>이메일주소</b></label>
-                                        <input type="text" class="form__input" id="username_email" name="username_email" style="size: 50px">
+                                        <input type="text" class="form__input" id="username_email" name="email" style="size: 50px">
                                     </div>
                                     <div class="form__group mb--20">
                                        <label class="form__label" for="login_password"><b>패스워드</b></label>
-                                        <input type="password" class="form__input" id="login_password" name="login_password">
+                                        <input type="password" class="form__input" id="login_password" name="pwd">
                                     </div>
                                     <div class="d-flex align-items-center mb--20">
                                         <div class="form__group mr--30">
