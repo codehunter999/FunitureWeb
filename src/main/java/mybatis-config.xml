@@ -26,7 +26,7 @@ PUBLIC "-/mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/funi/mapper/funi_memberMapper.xml"/>
 		<mapper resource="com/funi/mapper/livingMapper.xml"/>
 		<mapper resource="com/funi/mapper/diningMapper.xml"/>
-	<!-- 	<mapper resource="com/funi/mapper/cartMapper.xml"/> -->
+	 	<mapper resource="com/funi/mapper/cartMapper.xml"/>
 		
 	</mappers>
 </configuration> 

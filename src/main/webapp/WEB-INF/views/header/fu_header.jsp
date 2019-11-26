@@ -362,7 +362,7 @@
 												</c:choose>
                                             </ul>
                                         </nav>
-                                    </div>     t
+                                    </div> 
                                     <div class="header__main-right">
                                         <div class="header-toolbar-wrap">
                                             <div class="header-toolbar">

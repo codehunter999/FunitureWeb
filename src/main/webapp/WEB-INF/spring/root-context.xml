@@ -38,9 +38,9 @@
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
 	
-<!-- 	<bean id="cartdao" class="com.funi.dao.CartDAO">
+ 	<bean id="cartdao" class="com.funi.dao.CartDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
-	</bean> -->
+	</bean>
 	
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
