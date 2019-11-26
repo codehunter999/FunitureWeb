@@ -109,6 +109,9 @@ public class FurnitureController {
 				loginmav.setViewName("member/login");
 				System.out.println("여기 통과하면 안됨 ");
 				System.out.println("여기 통과하면 안됨 ");
+				System.out.println("여기 통과하면 안됨 ");
+				System.out.println("여기 통과하면 안됨 ");
+				System.out.println("여기 통과하면 안됨 ");
 				return loginmav;
 			}	
 		} catch (Exception e) {
