@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.BedDAO;
+import com.funi.dao.CartDAO;
 import com.funi.dao.DiningDAO;
 import com.funi.dao.MemberDAO;
 import com.funi.domain.MemberDTO;
@@ -47,6 +48,9 @@ public class FurnitureController {
 	@Qualifier("diningdao")
 	DiningDAO diningdao;
 
+	@Autowired
+	@Qualifier("cartdao")
+	CartDAO cartdao;
 	
 
 	@Autowired
@@ -624,9 +628,11 @@ public class FurnitureController {
 		return "payment";
 	}
 
+	
+	//장바구니
 	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
 	public String cart(Locale locale, Model model) {
-		return "cart";
+		return "cart/cart";
 	}
 
 

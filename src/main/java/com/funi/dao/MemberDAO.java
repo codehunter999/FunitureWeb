@@ -18,6 +18,7 @@ public class MemberDAO {
 	public void insertData(MemberDTO dto) {
 		sessionTemplate.insert("funi_memberMapper.insertData", dto);
 	}	
+	
 	public MemberDTO searchMember(String email) {
 		//sessionTemplate.insert("funi_memberMapper.insertData", dto);
 		HashMap<String,String> hMap = new HashMap();
