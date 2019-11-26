@@ -13,6 +13,10 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 		select email from fumember where email=#{email}
 	</select>
 	<!-- 회원 조회  -->
+	<select id ="searchID" parameterType="Map" resultType="String">
+		select email from fumember where email=#{email}
+	</select>
+	<!-- 회원 조회  -->
 	<select id ="searchMember" parameterType="Map" resultType="com.funi.domain.MemberDTO">
 		select email,pwd,name,phone from fumember where email=#{email}
 	</select>
