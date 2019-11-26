@@ -14,6 +14,7 @@ public class MemberDAO {
 	
 	private SqlSessionTemplate sessionTemplate;
 
+
 	public void insertData(MemberDTO dto) {
 		sessionTemplate.insert("funi_memberMapper.insertData", dto);
 	}	

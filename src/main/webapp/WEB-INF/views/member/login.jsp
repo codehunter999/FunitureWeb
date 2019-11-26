@@ -1,6 +1,7 @@
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     $(function(){
         var responseMessage = "<c:out value="${message}" />";

@@ -25,11 +25,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.BedDAO;
+
 import com.funi.dao.DiningDAO;
 import com.funi.dao.MemberDAO;
 import com.funi.domain.MemberDTO;
 import com.funi.domain.FurnitureDTO;
 import com.funi.util.MyUtil;
+
 
 
 @Controller
@@ -47,8 +49,7 @@ public class FurnitureController {
 	@Qualifier("diningdao")
 	DiningDAO diningdao;
 
-	
-
+		
 	@Autowired
 	@Qualifier("myUtil")
 	MyUtil myUtil;
@@ -58,7 +59,6 @@ public class FurnitureController {
 	//HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public String home1(Locale locale, Model model) {
-
 		return "index";
 	}
 
@@ -66,6 +66,7 @@ public class FurnitureController {
 	public String home2(Locale locale, Model model) {
 		return "index-02";
 	}
+
 
 	//login-register
 	@RequestMapping(value = "/login.fu", method = RequestMethod.GET)
@@ -146,8 +147,8 @@ public class FurnitureController {
 	@RequestMapping(value = "/register_ok.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
 	public String register_ok(MemberDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception {
 
-		String phone1 = request.getParameter("phone1");	
-		String phone2 = request.getParameter("phone2");	
+		String phone1 = request.getParameter("phone1");
+		String phone2 = request.getParameter("phone2");
 		String phone = phone1 + phone2;		
 		//dto.setPhone(phone);
 
@@ -673,10 +674,11 @@ public class FurnitureController {
 		return "payment";
 	}
 
+	
+	//장바구니
 	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
 	public String cart(Locale locale, Model model) {
-		return "cart";
+		return "cart/cart";
 	}
-
 
 }

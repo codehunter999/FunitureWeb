@@ -177,7 +177,7 @@
                         </div>
                         <div class="mini-cart__buttons">
                             <a href="cart.fu" class="btn btn-fullwidth btn-bg-primary mb--20">View Cart</a>
-                            <a href="checkout.fu" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
+                            <a href="#" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
                         </div>
                     </div>
                 </div>

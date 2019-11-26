@@ -333,6 +333,7 @@
                                                 <li class="mainmenu__item menu-item-has-children">
                                                    <span class="mm-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                 </li>
+
                                                 <c:choose> 
 												    <c:when test="${not empty sessionScope.email }">   
 												        <li class="mainmenu__item menu-item-has-children">
@@ -361,7 +362,7 @@
 												</c:choose>
                                             </ul>
                                         </nav>
-                                    </div>     
+                                    </div>     t
                                     <div class="header__main-right">
                                         <div class="header-toolbar-wrap">
                                             <div class="header-toolbar">
