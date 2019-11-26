@@ -58,6 +58,7 @@ public class FurnitureController {
 	//HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public String home1(Locale locale, Model model) {
+		System.out.println("test123");
 		return "index";
 	}
 
