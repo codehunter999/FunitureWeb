@@ -50,7 +50,7 @@
                                 <div class="header__main-inner">
                                     <div class="header__main-left">
                                         <div class="logo">
-                                            <a href="/furnitureweb/" class="logo--normal">
+                                            <a href="<%=cp %>/" class="logo--normal">
                                                 <img src="<%=cp %>/resources/assets/img/logo/logo.png" alt="Logo">
                                             </a>
                                         </div>
@@ -59,151 +59,161 @@
                                         <nav class="main-navigation text-center d-none d-lg-block">
                                             <ul class="mainmenu">
                                                 <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="index.html" class="mainmenu__link">
-                                                        <span class="mm-text">Home</span>
+                                                    <a href="company.fu" class="mainmenu__link">
+                                                        <span class="mm-text">회사소개</span>
                                                     </a>
-                                                    <ul class="sub-menu">
+                                                    <!-- <ul class="sub-menu">
                                                         <li>
-                                                            <a href="index.html">
+                                                            <a href="home.fu">
                                                                 <span class="mm-text">Home One</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="index-02.html">
+                                                            <a href="home2.fu">
                                                                 <span class="mm-text">Home Two</span>
                                                             </a>
                                                         </li>
-                                                    </ul>
+                                                    </ul> -->
                                                 </li>
                                                 <li class="mainmenu__item menu-item-has-children megamenu-holder">
-                                                    <a href="shop.html" class="mainmenu__link">
-                                                        <span class="mm-text">Shop</span>
+                                                    <a href="" class="mainmenu__link">
+                                                        <span class="mm-text">제 품</span>
                                                     </a>
                                                     <ul class="megamenu">
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Shop Grid</span>
+                                                            <a class="megamenu-title" href="living_total.fu">
+                                                                <span class="mm-text">거실 / 리빙룸</span>
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="shop-fullwidth.html">
-                                                                        <span class="mm-text">Full Width</span>
+                                                                    <a href="living_sunb.fu">
+                                                                        <span class="mm-text">선브렐라 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="mm-text">Left Sidebar</span>
+                                                                    <a href="living_fabric.fu">
+                                                                        <span class="mm-text">패브릭 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-right-sidebar.html">
-                                                                        <span class="mm-text">Right Sidebar</span>
+                                                                    <a href="living_leather.fu">
+                                                                        <span class="mm-text">가죽 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-three-columns.html">
-                                                                        <span class="mm-text">Three Columns</span>
+                                                                    <a href="living_deus.fu">
+                                                                        <span class="mm-text">데우스 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-four-columns.html">
-                                                                        <span class="mm-text">Four Columns</span>
+                                                                    <a href="living_sideTable.fu">
+                                                                        <span class="mm-text">사이드 테이블</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="living_TV">
+                                                                        <span class="mm-text">TV 장</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="living_shelf.fu">
+                                                                        <span class="mm-text">선 반</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="living_bookcase.fu">
+                                                                        <span class="mm-text">북케이스</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Shop List</span>
+                                                            <a class="megamenu-title" href="diningfull.fu">
+                                                                <span class="mm-text">주방/다이닝룸</span>
                                                             </a>
                                                             <ul> 
                                                                 <li>
-                                                                    <a href="shop-list.html">
-                                                                        <span class="mm-text">Full Width</span>
+                                                                    <a href="dining_sunbrella.fu?cate=선브렐라 체어">
+                                                                        <span class="mm-text">선브렐라 체어</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-list-sidebar.html">
-                                                                        <span class="mm-text">Left Sidebar</span>
+                                                                    <a href="dining_clean.fu?cate=클린터치 테이블">
+                                                                        <span class="mm-text">클린터치 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-list-right-sidebar.html">
-                                                                        <span class="mm-text">Right Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Product Details</span>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="product-details.html">
-                                                                        <span class="mm-text">Tab Style 1</span>
+                                                                    <a href="dining_rnl.fu?cate=리놀륨 테이블">
+                                                                        <span class="mm-text">리놀륨 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-tab-style-2.html">
-                                                                        <span class="mm-text">Tab Style 2</span>
+                                                                    <a href="dining_table.fu?cate=테이블 / 식탁">
+                                                                        <span class="mm-text">테이블 / 식탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-tab-style-3.html">
-                                                                        <span class="mm-text">Tab Style 3</span>
+                                                                    <a href="dining_chair.fu?cate=체어 / 의자">
+                                                                        <span class="mm-text">체어 / 의자</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-gallery-left.html">
-                                                                        <span class="mm-text">Gallery Left</span>
+                                                                    <a href="dining_deco.fu?cate=장식장">
+                                                                        <span class="mm-text">장식장</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-gallery-right.html">
-                                                                        <span class="mm-text">Gallery Right</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-sticky-left.html">
-                                                                        <span class="mm-text">Sticky Left</span>
+                                                                    <a href="dining_desk.fu?cate=책상 / 선반">
+                                                                        <span class="mm-text">책상 / 선반</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Product Details</span>
+                                                            <a class="megamenu-title" href="bed_total.fu">
+                                                                <span class="mm-text">침실 / 베드룸</span>
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="product-details-sticky-right.html">
-                                                                        <span class="mm-text">Sticky Right</span>
+                                                                    <a href="bed_bed.fu">
+                                                                        <span class="mm-text">침 대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-slider-box.html">
-                                                                        <span class="mm-text">Slider Box</span>
+                                                                    <a href="bed_ht.fu">
+                                                                        <span class="mm-text">협 탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-slider-full-width.html">
-                                                                        <span class="mm-text">Slider Box Full Width</span>
+                                                                    <a href="bed_dressingTable.fu">
+                                                                        <span class="mm-text">화장대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-affiliate.html">
-                                                                        <span class="mm-text">Affiliate Proudct</span>
+                                                                    <a href="bed_chiff.fu">
+                                                                        <span class="mm-text">서랍장</span>
                                                                     </a>
-                                                                </li>                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <a class="megamenu-title" href="decofull.fu">
+                                                                <span class="mm-text">홈데코 / 리빙</span>
+                                                            </a>
+                                                            <ul>
                                                                 <li>
-                                                                    <a href="product-details-variable.html">
-                                                                        <span class="mm-text">Variable Proudct</span>
+                                                                    <a href="deco_monthly.fu?cate=월간 카레클린트">
+                                                                        <span class="mm-text">월간 카레클린트</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-group.html">
-                                                                        <span class="mm-text">Group Product</span>
+                                                                    <a href="deco_light.fu?cate=조명">
+                                                                        <span class="mm-text">조명</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="deco_plasticch.fu?cate=PLASTIC 체어">
+                                                                        <span class="mm-text">PLASTIC 체어</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -211,63 +221,60 @@
                                                     </ul>
                                                 </li>
                                                 <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="blog.html" class="mainmenu__link">
-                                                        <span class="mm-text">Blog</span>
+                                                    <a href="#" class="mainmenu__link">
+                                                        <span class="mm-text">지점안내</span>
                                                     </a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item-has-children">
-                                                            <a href="#">
-                                                                <span class="mm-text">Blog Grid</span>
+                                                    <ul class="megamenu">
+                                                        <li>
+                                                            <a class="megamenu-title" href="#">
+                                                                <span class="mm-text">서울</span>
                                                             </a>
-                                                            <ul class="sub-menu">
+                                                            <ul>
                                                                 <li>
-                                                                    <a href="blog-left-sidebar.html">
-                                                                        <span class="mm-text">Left Sidebar</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">청담</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog.html">
-                                                                        <span class="mm-text">Right Sidebar</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">홍대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-01-column.html">
-                                                                        <span class="mm-text">One Column</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-02-columns.html">
-                                                                        <span class="mm-text">Two Columns</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-03-columns.html">
-                                                                        <span class="mm-text">Three Columns</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">목동</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
-                                                        <li class="menu-item-has-children">
-                                                            <a href=""><span class="mm-text">Blog Details</span></a>
-                                                            <ul class="sub-menu">
+                                                        <li>
+                                                            <a class="megamenu-title" href="#">
+                                                                <span class="mm-text">경기도</span>
+                                                            </a>
+                                                            <ul>
                                                                 <li>
-                                                                    <a href="blog-details-image.html">
-                                                                        <span class="mm-text">Image Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">하남</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-details-audio.html">
-                                                                        <span class="mm-text">Audio Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">분당</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-details-video.html">
-                                                                        <span class="mm-text">Video Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">동탄</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-details-gallery.html">
-                                                                        <span class="mm-text">Gallery Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">안양</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">평택</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -280,40 +287,57 @@
                                                     </a>
                                                     <ul class="sub-menu">
                                                         <li>
-                                                            <a href="my-account.html">
+                                                            <a href="my-account.fu">
                                                                 <span class="mm-text">My Account</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="checkout.html">
+                                                            <a href="checkout.fu">
                                                                 <span class="mm-text">Checkout</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="cart.html">
+                                                            <a href="cart.fu">
                                                                 <span class="mm-text">Cart</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="compare.html">
+                                                            <a href="compare.fu">
                                                                 <span class="mm-text">Compare</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="order-tracking.html">
+                                                            <a href="order-tracking.fu">
                                                                 <span class="mm-text">Track Order</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="wishlist.html">
+                                                            <a href="wishlist.fu">
                                                                 <span class="mm-text">Wishlist</span>
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="mainmenu__item">
-                                                    <a href="contact-us.html" class="mainmenu__link">
-                                                        <span class="mm-text">Contact Us</span>
+                                                <li class="mainmenu__item menu-item-has-children">
+                                                    <a href="contact-us.fu" class="mainmenu__link">
+                                                        <span class="mm-text">커뮤니티</span>
+                                                    </a>
+                                                    <ul class="sub-menu">
+                                                    	<li>
+                                                            <a href="#">
+                                                                <span class="mm-text">Q&A</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <span class="mm-text">상품평</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="mainmenu__item menu-item-has-children">
+                                                    <a href="event_list.fu" class="mainmenu__link">
+                                                        <span class="mm-text">Event</span>
                                                     </a>
                                                 </li>
                                             </ul>
