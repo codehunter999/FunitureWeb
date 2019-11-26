@@ -30,7 +30,7 @@
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.16.27:1521:TestDB"/>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.16.12:1521:TestDB"/>
 		<property name="username" value="suzi"/>
 		<property name="password" value="a123"/>
 	</bean>

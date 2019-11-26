@@ -12,7 +12,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -58,6 +58,7 @@ public class FurnitureController {
 	//HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public String home1(Locale locale, Model model) {
+
 		return "index";
 	}
 
@@ -68,16 +69,63 @@ public class FurnitureController {
 
 	//login-register
 	@RequestMapping(value = "/login.fu", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-		return "member/login";
+	public ModelAndView login(Locale locale, Model model,String message) {
+		
+		ModelAndView loginmav = new ModelAndView();
+		loginmav.setViewName("member/login");
+		
+		if(message != null) {
+			loginmav.addObject("message",message);
+		}
+		
+		
+		return loginmav;
 	}
 
-	@RequestMapping(value = "/login_ok.fu", method = RequestMethod.GET)
-	public String login_ok(Locale locale, Model model,String email,String password) {
-		memberdao.searchMember(email);			
-		return "member/login";
+	@RequestMapping(value = "/login_ok.fu", method = RequestMethod.POST)
+	public ModelAndView login_ok(HttpServletRequest request, Model model,MemberDTO paramdto) {
+		
+		ModelAndView loginmav = new ModelAndView();
+		MemberDTO memberdto = null;
+		try {
+			boolean flag = memberdao.searchID(paramdto.getEmail());
+			String message = null;
+			if(!flag) {
+				message = "회원 정보를 찾을수 없습니다.";
+				loginmav.addObject("message",message);
+				loginmav.setViewName("member/login");
+				return loginmav;
+			}
+			
+			memberdto = memberdao.searchMember(paramdto.getEmail());
+			
+			System.out.println("memberdto getPwd () : "+memberdto.getPwd());
+			System.out.println("paramdto  getPwd () : "+paramdto.getPwd());
+			System.out.println("if 첫번째 조건 : "+ !memberdto.getPwd().equals(paramdto.getPwd()));
+		
+			if(!memberdto.getPwd().equals(paramdto.getPwd())) {
+				message = "계정 패스워드를 확인해주세요.";
+				loginmav.addObject("message",message);
+				loginmav.setViewName("member/login");
+				System.out.println("여기 통과하면 안됨 ");
+				return loginmav;
+			}	
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		HttpSession session = request.getSession();
+		session.setAttribute("email",memberdto.getEmail());
+		loginmav.setViewName("redirect:/home.fu");
+		return loginmav;
 	}
-
+	@RequestMapping(value = "/logout.fu", method = RequestMethod.GET) 
+	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response,HttpSession session) throws IOException {
+		ModelAndView logoutmav = new ModelAndView();
+		session.removeAttribute("email");
+		logoutmav.setViewName("redirect:/login.fu");
+		return logoutmav;
+	}
+	
 
 
 	//회원가입
@@ -97,8 +145,8 @@ public class FurnitureController {
 	@RequestMapping(value = "/register_ok.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
 	public String register_ok(MemberDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception {
 
-		String phone1 = request.getParameter("phone1");
-		String phone2 = request.getParameter("phone2");
+		String phone1 = request.getParameter("phone1");	
+		String phone2 = request.getParameter("phone2");	
 		String phone = phone1 + phone2;		
 		//dto.setPhone(phone);
 
