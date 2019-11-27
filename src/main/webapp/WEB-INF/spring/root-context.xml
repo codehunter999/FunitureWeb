@@ -42,6 +42,16 @@
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>
 	
+	<bean class="com.funi.dao.ReviewDAO" id="ReviewDAO">
+		<property ref="sqlSession" name="sessionTemplate"/>
+	</bean>
+
+	<bean class="com.funi.dao.QnADAO" id="QnADAO">
+		<property ref="sqlSession" name="sessionTemplate"/>
+	</bean>
+
+	<bean class="com.funi.util.MyUtil1" id="myUtil1"/>
+	
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
