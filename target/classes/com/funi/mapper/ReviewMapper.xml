@@ -7,7 +7,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	<select id="maxNum" resultType="int">
 	select nvl(max(id),0) from review
 	</select>
-	<insert id="insertData" parameterType="com.funi.dto.ReviewDTO">
+	<insert id="insertData" parameterType="com.funi.domain.ReviewDTO">
 	insert into review(id,name,subject,content,ipaddr,created_at,photo) 
 	values (#{id},#{name},#{subject},#{content},
 	#{ipaddr},sysdate,#{photo})	
@@ -15,7 +15,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getDataCount" parameterType="map" resultType="int">
 	select nvl(count(*),0) from review
 	</select>
-	<select id="getLists" parameterType="map" resultType="com.funi.dto.ReviewDTO">
+	<select id="getLists" parameterType="map" resultType="com.funi.domain.ReviewDTO">
 	select * from (
 	select rownum rnum,data.* from(
 	select id,name,subject,content,ipaddr,photo,
@@ -26,10 +26,10 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 		where rnum>=#{start} and rnum<=#{end}
 	]]>
 	</select>
-	<select id="getReadData" parameterType="int" resultType="com.funi.dto.ReviewDTO">
+	<select id="getReadData" parameterType="int" resultType="com.funi.domain.ReviewDTO">
 		select id,name,subject,content,ipaddr,created_at,photo from review where id=#{id}
 	</select>
-	<update id="updateData" parameterType="com.funi.dto.ReviewDTO">
+	<update id="updateData" parameterType="com.funi.domain.ReviewDTO">
 	update review set subject=#{subject},content=#{content} where id=#{id}
 	</update>
 	<delete id="deleteData" parameterType="int">
@@ -40,12 +40,12 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	<select id="re_maxNum" resultType="int">
 	select nvl(max(id),0) from review_re
 	</select>
-	<insert id="re_insertData" parameterType="com.funi.dto.Re_ReviewDTO">
+	<insert id="re_insertData" parameterType="com.funi.domain.Re_ReviewDTO">
 	insert into review_re(id,name,content,ipaddr,created_at,qaboard_id) 
 	values (#{id},#{name},#{content},
 	#{ipaddr},sysdate,#{qaboard_id})	
 	</insert>
-	<select id="re_getLists" parameterType="int" resultType="com.funi.dto.Re_ReviewDTO">
+	<select id="re_getLists" parameterType="int" resultType="com.funi.domain.Re_ReviewDTO">
 	select id,name,content,ipaddr,qaboard_id,
 	created_at 
 	from review_re 
