@@ -50,7 +50,7 @@
                                 <div class="header__main-inner">
                                     <div class="header__main-left">
                                         <div class="logo">
-                                            <a href="/furnitureweb/" class="logo--normal">
+                                            <a href="<%=cp %>/" class="logo--normal">
                                                 <img src="<%=cp %>/resources/assets/img/logo/logo.png" alt="Logo">
                                             </a>
                                         </div>
@@ -59,151 +59,161 @@
                                         <nav class="main-navigation text-center d-none d-lg-block">
                                             <ul class="mainmenu">
                                                 <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="index.jsp" class="mainmenu__link">
-                                                        <span class="mm-text">Home</span>
+                                                    <a href="company.fu" class="mainmenu__link">
+                                                        <span class="mm-text">회사소개</span>
                                                     </a>
-                                                    <ul class="sub-menu">
+                                                    <!-- <ul class="sub-menu">
                                                         <li>
-                                                            <a href="index.jsp">
+                                                            <a href="home.fu">
                                                                 <span class="mm-text">Home One</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="index-02.jsp">
+                                                            <a href="home2.fu">
                                                                 <span class="mm-text">Home Two</span>
                                                             </a>
                                                         </li>
-                                                    </ul>
+                                                    </ul> -->
                                                 </li>
                                                 <li class="mainmenu__item menu-item-has-children megamenu-holder">
-                                                    <a href="shop.jsp" class="mainmenu__link">
-                                                        <span class="mm-text">Shop</span>
+                                                    <a href="" class="mainmenu__link">
+                                                        <span class="mm-text">제 품</span>
                                                     </a>
                                                     <ul class="megamenu">
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Shop Grid</span>
+                                                            <a class="megamenu-title" href="living_total.fu">
+                                                                <span class="mm-text">거실 / 리빙룸</span>
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="shop-fullwidth.jsp">
-                                                                        <span class="mm-text">Full Width</span>
+                                                                    <a href="living_sunb.fu">
+                                                                        <span class="mm-text">선브렐라 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop.jsp">
-                                                                        <span class="mm-text">Left Sidebar</span>
+                                                                    <a href="living_fabric.fu">
+                                                                        <span class="mm-text">패브릭 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-right-sidebar.jsp">
-                                                                        <span class="mm-text">Right Sidebar</span>
+                                                                    <a href="living_leather.fu">
+                                                                        <span class="mm-text">가죽 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-three-columns.jsp">
-                                                                        <span class="mm-text">Three Columns</span>
+                                                                    <a href="living_deus.fu">
+                                                                        <span class="mm-text">데우스 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-four-columns.jsp">
-                                                                        <span class="mm-text">Four Columns</span>
+                                                                    <a href="living_sideTable.fu">
+                                                                        <span class="mm-text">사이드 테이블</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="living_TV">
+                                                                        <span class="mm-text">TV 장</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="living_shelf.fu">
+                                                                        <span class="mm-text">선 반</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="living_bookcase.fu">
+                                                                        <span class="mm-text">북케이스</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Shop List</span>
+                                                            <a class="megamenu-title" href="diningfull.fu">
+                                                                <span class="mm-text">주방/다이닝룸</span>
                                                             </a>
                                                             <ul> 
                                                                 <li>
-                                                                    <a href="shop-list.jsp">
-                                                                        <span class="mm-text">Full Width</span>
+                                                                    <a href="dining_sunbrella.fu?cate=선브렐라 체어">
+                                                                        <span class="mm-text">선브렐라 체어</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-list-sidebar.jsp">
-                                                                        <span class="mm-text">Left Sidebar</span>
+                                                                    <a href="dining_clean.fu?cate=클린터치 테이블">
+                                                                        <span class="mm-text">클린터치 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-list-right-sidebar.jsp">
-                                                                        <span class="mm-text">Right Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Product Details</span>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="product-details.jsp">
-                                                                        <span class="mm-text">Tab Style 1</span>
+                                                                    <a href="dining_rnl.fu?cate=리놀륨 테이블">
+                                                                        <span class="mm-text">리놀륨 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-tab-style-2.jsp">
-                                                                        <span class="mm-text">Tab Style 2</span>
+                                                                    <a href="dining_table.fu?cate=테이블 / 식탁">
+                                                                        <span class="mm-text">테이블 / 식탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-tab-style-3.jsp">
-                                                                        <span class="mm-text">Tab Style 3</span>
+                                                                    <a href="dining_chair.fu?cate=체어 / 의자">
+                                                                        <span class="mm-text">체어 / 의자</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-gallery-left.jsp">
-                                                                        <span class="mm-text">Gallery Left</span>
+                                                                    <a href="dining_deco.fu?cate=장식장">
+                                                                        <span class="mm-text">장식장</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-gallery-right.jsp">
-                                                                        <span class="mm-text">Gallery Right</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-sticky-left.jsp">
-                                                                        <span class="mm-text">Sticky Left</span>
+                                                                    <a href="dining_desk.fu?cate=책상 / 선반">
+                                                                        <span class="mm-text">책상 / 선반</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Product Details</span>
+                                                            <a class="megamenu-title" href="bed_total.fu">
+                                                                <span class="mm-text">침실 / 베드룸</span>
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="product-details-sticky-right.jsp">
-                                                                        <span class="mm-text">Sticky Right</span>
+                                                                    <a href="bed_bed.fu">
+                                                                        <span class="mm-text">침 대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-slider-box.jsp">
-                                                                        <span class="mm-text">Slider Box</span>
+                                                                    <a href="bed_ht.fu">
+                                                                        <span class="mm-text">협 탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-slider-full-width.jsp">
-                                                                        <span class="mm-text">Slider Box Full Width</span>
+                                                                    <a href="bed_dressingTable.fu">
+                                                                        <span class="mm-text">화장대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-affiliate.jsp">
-                                                                        <span class="mm-text">Affiliate Proudct</span>
+                                                                    <a href="bed_chiff.fu">
+                                                                        <span class="mm-text">서랍장</span>
                                                                     </a>
-                                                                </li>                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <a class="megamenu-title" href="decofull.fu">
+                                                                <span class="mm-text">홈데코 / 리빙</span>
+                                                            </a>
+                                                            <ul>
                                                                 <li>
-                                                                    <a href="product-details-variable.jsp">
-                                                                        <span class="mm-text">Variable Proudct</span>
+                                                                    <a href="deco_monthly.fu?cate=월간 카레클린트">
+                                                                        <span class="mm-text">월간 카레클린트</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-details-group.jsp">
-                                                                        <span class="mm-text">Group Product</span>
+                                                                    <a href="deco_light.fu?cate=조명">
+                                                                        <span class="mm-text">조명</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="deco_plasticch.fu?cate=PLASTIC 체어">
+                                                                        <span class="mm-text">PLASTIC 체어</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -211,63 +221,60 @@
                                                     </ul>
                                                 </li>
                                                 <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="blog.jsp" class="mainmenu__link">
-                                                        <span class="mm-text">Blog</span>
+                                                    <a href="#" class="mainmenu__link">
+                                                        <span class="mm-text">지점안내</span>
                                                     </a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item-has-children">
-                                                            <a href="#">
-                                                                <span class="mm-text">Blog Grid</span>
+                                                    <ul class="megamenu">
+                                                        <li>
+                                                            <a class="megamenu-title" href="#">
+                                                                <span class="mm-text">서울</span>
                                                             </a>
-                                                            <ul class="sub-menu">
+                                                            <ul>
                                                                 <li>
-                                                                    <a href="blog-left-sidebar.jsp">
-                                                                        <span class="mm-text">Left Sidebar</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">청담</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog.jsp">
-                                                                        <span class="mm-text">Right Sidebar</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">홍대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-01-column.jsp">
-                                                                        <span class="mm-text">One Column</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-02-columns.jsp">
-                                                                        <span class="mm-text">Two Columns</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-03-columns.jsp">
-                                                                        <span class="mm-text">Three Columns</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">목동</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
-                                                        <li class="menu-item-has-children">
-                                                            <a href=""><span class="mm-text">Blog Details</span></a>
-                                                            <ul class="sub-menu">
+                                                        <li>
+                                                            <a class="megamenu-title" href="#">
+                                                                <span class="mm-text">경기도</span>
+                                                            </a>
+                                                            <ul>
                                                                 <li>
-                                                                    <a href="blog-details-image.jsp">
-                                                                        <span class="mm-text">Image Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">하남</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-details-audio.jsp">
-                                                                        <span class="mm-text">Audio Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">분당</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-details-video.jsp">
-                                                                        <span class="mm-text">Video Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">동탄</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog-details-gallery.jsp">
-                                                                        <span class="mm-text">Gallery Post</span>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">안양</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">
+                                                                        <span class="mm-text">평택</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -280,40 +287,57 @@
                                                     </a>
                                                     <ul class="sub-menu">
                                                         <li>
-                                                            <a href="my-account.jsp">
+                                                            <a href="my-account.fu">
                                                                 <span class="mm-text">My Account</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="checkout.jsp">
+                                                            <a href="checkout.fu">
                                                                 <span class="mm-text">Checkout</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="cart.jsp">
+                                                            <a href="cart.fu">
                                                                 <span class="mm-text">Cart</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="compare.jsp">
+                                                            <a href="compare.fu">
                                                                 <span class="mm-text">Compare</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="order-tracking.jsp">
+                                                            <a href="order-tracking.fu">
                                                                 <span class="mm-text">Track Order</span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="wishlist.jsp">
+                                                            <a href="wishlist.fu">
                                                                 <span class="mm-text">Wishlist</span>
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="mainmenu__item">
-                                                    <a href="contact-us.jsp" class="mainmenu__link">
-                                                        <span class="mm-text">Contact Us</span>
+                                                <li class="mainmenu__item menu-item-has-children">
+                                                    <a href="contact-us.fu" class="mainmenu__link">
+                                                        <span class="mm-text">커뮤니티</span>
+                                                    </a>
+                                                    <ul class="sub-menu">
+                                                    	<li>
+                                                            <a href="#">
+                                                                <span class="mm-text">Q&A</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <span class="mm-text">상품평</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="mainmenu__item menu-item-has-children">
+                                                    <a href="event_list.fu" class="mainmenu__link">
+                                                        <span class="mm-text">Event</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -396,7 +420,7 @@
                                                     <span class="product-badge sale">Sale</span>
                                                     <div class="product-gallery__actions">
                                                         <button class="action-btn btn-zoom-popup"><i class="la la-eye"></i></button>
-                                                        <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="la la-play"></i></a>
+                                                        <!-- <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="la la-play"></i></a> -->
                                                     </div>
                                                 </figure>
                                                 <figure class="product-gallery__image zoom">
@@ -411,7 +435,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-gallery__nav-image">
+                                  <%--   <div class="product-gallery__nav-image">
                                         <div class="element-carousel nav-slider product-slide-nav slick-vertical-center" 
                                         data-slick-options='{
                                             "spaceBetween": 30,
@@ -452,23 +476,24 @@
                                             </figure>
                                       </c:forEach>
                                         </div>
-                                    </div>
+                                    </div> --%>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-4 offset-xl-1 col-lg-5 product-main-details mt-md--50">
                             <div class="product-summary pl-lg--30 pl-md--0">
-                                <div class="product-navigation text-right mb--20">
+                                <!-- <div class="product-navigation text-right mb--20">
                                     <a href="#" class="prev"><i class="la la-angle-double-left"></i></a>
                                     <a href="#" class="next"><i class="la la-angle-double-right"></i></a>
                                 </div>
-                                <!-- <div class="product-rating d-flex mb--20">
+                                <div class="product-rating d-flex mb--20">
                                     <div class="star-rating star-four">
                                         <span>Rated <strong class="rating">5.00</strong> out of 5</span>
                                     </div>
                                 </div> -->
                                 <h3 class="product-title mb--20">${dto.productName }</h3>
                                 <div class="product-price-wrapper mb--25">
+                                <hr/>
                                     <span class="money">${dto.price }원</span>
                                 </div>
                                 <form action="#" class="variation-form mb--20">
@@ -557,9 +582,17 @@
                                 <!-- 상품상세정보 -->
                                     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                         <div class="product-description">
-                                            <img alt="product" src="<%=cp %>/resources/images/dining/detail/${dto.productName}_details_5.jpg"><br/>
-                                            <img alt="product" src="<%=cp %>/resources/images/dining/detail/${dto.productName}_details_6.jpg"><br/>
-                                            <img alt="product" src="<%=cp %>/resources/images/dining/detail/${dto.productName}_details_7.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_3.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_4.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_5.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_6.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_7.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_8.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_9.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_10.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_11.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_12.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/dining/detail/clean/${dto.imageIndex}_details_13.jpg"><br/>
                                         </div>
                                     </div>
                                     
@@ -570,7 +603,8 @@
                                                 <tbody>
                                                     <tr>
                                                      <td>
-                                                     	<img alt="" src="<%=cp %>/resources/images/dining/detail/${dto.productName}_buydetails.jpg">
+                                                     	<img alt="" src="<%=cp %>/resources/images/dining/detail/clean/3_buydetails.jpg"><br/>
+                                                     	<img alt="" src="<%=cp %>/resources/images/dining/detail/clean/3_buydetails_2.jpg">
                                                      </td>
                                                     </tr>
                                                 </tbody>
@@ -684,7 +718,7 @@
                                                 <figure class="product-image--holder">
                                                     <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                 </figure>
-                                                <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}" class="product-overlay"></a>
+                                                <a href="dining_clean_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}" class="product-overlay"></a>
                                                 <div class="product-action">
                                                     <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                         <i class="la la-eye"></i>
@@ -699,9 +733,9 @@
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-category">
-                                                    <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}">${dto.cate }</a>
+                                                    <a href="dining_clean_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}">${dto.cate }</a>
                                                 </div>
-                                                <h3 class="product-title"><a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}">${dto.productName }</a></h3>
+                                                <h3 class="product-title"><a href="dining_clean_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}">${dto.productName }</a></h3>
                                                 <div class="product-info-bottom">
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>

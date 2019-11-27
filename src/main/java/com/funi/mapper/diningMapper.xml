@@ -17,7 +17,7 @@ select nvl(max(eventIndex),0) from diningroom
  -->
  
 <select id="getDataCount" resultType="int"> 
-	select nvl(count(*),0) from diningroom 
+select nvl(count(*),0) from diningroom 
 </select>
 
  <!-- 전체목록 -->

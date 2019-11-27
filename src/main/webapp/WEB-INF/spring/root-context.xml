@@ -38,6 +38,10 @@
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
 	
+	<bean id="decodao" class="com.funi.dao.DecoDAO">
+		<property name="sessionTemplate" ref="sqlSession"/>
+	</bean>
+	
  	<bean id="cartdao" class="com.funi.dao.CartDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>
@@ -78,4 +82,3 @@
  	
 	
 </beans>
-
