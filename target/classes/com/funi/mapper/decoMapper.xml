@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="decoMapper">
+
+<!-- 이미지와 DB등록 -->
+<insert id="insertData" parameterType="com.funi.dto.FurnitureDTO"> 
+	insert into deco (imageIndex,productName,cate,cateEn,price,saveFileName) 
+	values (#{imageIndex},#{productName},#{cate},#{cateEn},#{price},#{saveFileName})
+</insert>
+
+<!--
+<select id="maxNum" resultType="int"> 
+select nvl(max(eventIndex),0) from deco 
+</select>
+ -->
+ 
+<select id="getDataCount" resultType="int"> 
+select nvl(count(*),0) from deco 
+</select>
+
+ <!-- 전체목록 -->
+<select id="getLists" resultType="com.funi.dto.FurnitureDTO"> 
+	select * from deco order by imageIndex asc
+</select>
+ 
+ <!-- 카테고리별 목록 -->
+<select id="getCateLists" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
+	select * from deco where cate=#{cate} order by imageIndex asc
+</select>
+
+<!-- 한개데이터출력 -->
+<select id="getReadData" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
+	select * from deco where imageIndex=#{imageIndex} and cate=#{cate}
+</select>
+
+</mapper>
