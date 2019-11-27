@@ -38,14 +38,14 @@
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
 	
-<!-- 	<bean id="cartdao" class="com.funi.dao.CartDAO">
+ 	<bean id="cartdao" class="com.funi.dao.CartDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
-	</bean> -->
+	</bean>
 	
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.16.27:1521:TestDB"/>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:TestDB"/>
 		<property name="username" value="suzi"/>
 		<property name="password" value="a123"/>
 	</bean>
@@ -68,3 +68,4 @@
  	
 	
 </beans>
+

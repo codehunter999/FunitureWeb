@@ -1,0 +1,100 @@
+[33mcommit 633ddcbf697ed2d5321c59b184568b8b9781f80f[m[33m ([m[1;36mHEAD -> [m[1;32mkimd[m[33m, [m[1;31morigin/kimd[m[33m)[m
+Author: KDC <ages3408@gmail.com>
+Date:   Tue Nov 26 14:58:13 2019 +0900
+
+    commit dao/dto
+
+[33mcommit cff1c8119c89e93d6301c12c10397f98003eafa3[m
+Author: KDC <ages3408@gmail.com>
+Date:   Tue Nov 26 14:57:57 2019 +0900
+
+    commit
+
+[33mcommit 7ac8dabbb028cfb2069f5abbe47e49985de153d1[m
+Merge: 5555498 de22bda
+Author: KDC <ages3408@gmail.com>
+Date:   Tue Nov 26 13:41:28 2019 +0900
+
+    Merge branch 'kimd' of https://github.com/codehunter999/FunitureWeb.git
+    into kimd
+    
+    Conflicts:
+            src/main/java/com/funi/controller/FurnitureController.java
+            src/main/java/com/funi/dao/MemberDAO.java
+            src/main/java/com/funi/mapper/funi_memberMapper.xml
+            src/main/java/mybatis-config.xml
+            src/main/webapp/WEB-INF/spring/root-context.xml
+            src/main/webapp/WEB-INF/views/footer/fu_footer.jsp
+            src/main/webapp/WEB-INF/views/header/fu_header.jsp
+            src/main/webapp/WEB-INF/views/member/login.jsp
+            src/main/webapp/WEB-INF/views/member/register.jsp
+            src/main/webapp/WEB-INF/views/mini-cart/mini_cart.jsp
+            target/classes/com/funi/controller/FurnitureController.class
+            target/classes/com/funi/dao/MemberDAO.class
+            target/classes/com/funi/mapper/funi_memberMapper.xml
+            target/classes/mybatis-config.xml
+            target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+            target/m2e-wtp/web-resources/META-INF/maven/com.funi/controller/pom.properties
+            target/m2e-wtp/web-resources/META-INF/maven/com.funi/dao/pom.properties
+            target/m2e-wtp/web-resources/META-INF/maven/com.funi/dao/pom.xml
+
+[33mcommit 5555498a15fb5a617e03564fb02d235c41466b7b[m
+Author: KDC <ages3408@gmail.com>
+Date:   Tue Nov 26 11:37:46 2019 +0900
+
+    testcommit
+
+[33mcommit de22bdaa70932931de51429d35ac84efefced81d[m
+Merge: dbe1629 6efa9f0
+Author: codehunter999 <49275951+codehunter999@users.noreply.github.com>
+Date:   Tue Nov 26 11:23:50 2019 +0900
+
+    Merge pull request #2 from codehunter999/master
+    
+    master merge
+
+[33mcommit 6efa9f074c4aedbeb26ec1478934f46db45d9452[m[33m ([m[1;31morigin/master[m[33m)[m
+Merge: dbe1629 39058b3
+Author: codehunter999 <49275951+codehunter999@users.noreply.github.com>
+Date:   Tue Nov 26 11:14:53 2019 +0900
+
+    Merge pull request #1 from codehunter999/junseok
+    
+    Junseok
+
+[33mcommit 39058b3a05608af1cf95b161fad0a56a53456e0a[m[33m ([m[1;31morigin/junseok[m[33m)[m
+Author: tb2527 <tb25271@gmail.com>
+Date:   Tue Nov 26 11:06:33 2019 +0900
+
+    login 및 logout 구현
+    header session 생성
+
+[33mcommit b66ef9bfd5a9d30f895b1dceeef7a4aed30b9017[m
+Author: tb2527 <tb25271@gmail.com>
+Date:   Tue Nov 26 09:40:20 2019 +0900
+
+    commit test
+
+[33mcommit 2ec3a39146581a6faff778fdafa23273b3927538[m
+Author: tb2527 <tb25271@gmail.com>
+Date:   Tue Nov 26 09:39:36 2019 +0900
+
+    commit 2 test 입니다.
+
+[33mcommit 6e8ae6d387e3efc6d6e0397bd92681dfe5ec0a1b[m
+Author: tb2527 <tb25271@gmail.com>
+Date:   Tue Nov 26 09:33:57 2019 +0900
+
+    test commit
+
+[33mcommit f7546cc0a636fd9faca079905fa19feb2a0c58d4[m
+Author: tb2527 <tb25271@gmail.com>
+Date:   Tue Nov 26 09:31:16 2019 +0900
+
+    commit test
+
+[33mcommit dbe16291a06b55b40a6a4b656258c2584d781be5[m
+Author: KDC <ages3408@gmail.com>
+Date:   Mon Nov 25 18:09:34 2019 +0900
+
+    first
