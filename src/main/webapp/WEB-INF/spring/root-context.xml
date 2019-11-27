@@ -42,11 +42,11 @@
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>
 	
-	<bean class="com.funi.dao.ReviewDAO" id="ReviewDAO">
+	<bean class="com.funi.dao.ReviewDAO" id="reviewdao">
 		<property ref="sqlSession" name="sessionTemplate"/>
 	</bean>
 
-	<bean class="com.funi.dao.QnADAO" id="QnADAO">
+	<bean class="com.funi.dao.QnADAO" id="qnadao">
 		<property ref="sqlSession" name="sessionTemplate"/>
 	</bean>
 

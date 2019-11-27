@@ -29,7 +29,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getReadData" parameterType="int" resultType="com.funi.domain.QnADTO">
 		select id,name,subject,content,ipaddr,created_at from qaboard where id=#{id}
 	</select>
-	<update id="updateData" parameterType="com.funi.dto.QnADTO">
+	<update id="updateData" parameterType="com.funi.domain.QnADTO">
 	update qaboard set subject=#{subject},content=#{content} where id=#{id}
 	</update>
 	<delete id="deleteData" parameterType="int">

@@ -309,7 +309,7 @@
                                                     </a>
                                                     <ul class="sub-menu">
                                                     	<li>
-                                                            <a href="#">
+                                                            <a href="qnamain.fu">
                                                                 <span class="mm-text">Q&A</span>
                                                             </a>
                                                         </li>
