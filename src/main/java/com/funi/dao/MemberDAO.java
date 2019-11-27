@@ -46,7 +46,8 @@ public class MemberDAO {
 
 		return flag;
 	}
-	public int update_pw(MemberDTO member) throws Exception{
-		return sessionTemplate.update("funi_memberMapper.update_pw", member);
+	
+	public int update_pw(MemberDTO memberdto) throws Exception{
+		return sessionTemplate.update("funi_memberMapper.update_pw", memberdto);
 	}
 }

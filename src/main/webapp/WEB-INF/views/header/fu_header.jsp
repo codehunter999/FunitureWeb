@@ -1,7 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ prefix="c" taglib uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();

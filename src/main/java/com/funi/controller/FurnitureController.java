@@ -203,7 +203,7 @@ public class FurnitureController {
 		String phone1 = request.getParameter("phone1");
 		String phone2 = request.getParameter("phone2");	
 		String phone = phone1 + phone2;		
-		//String salt = SHA256
+		// salt SHA256 암호화 저장 
 		memberdto.setPhone(phone);
 		String salt = SHA256Util.generateSalt();
 		memberdto.setSalt(salt);
