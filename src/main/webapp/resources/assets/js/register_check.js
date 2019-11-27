@@ -1,10 +1,12 @@
-function check(){
+function check(cp){
 	
 	var f = document.register;
+	//var cp = cp;
 	
+	alert(cp);
 	var email = f.email.value;
 	if(email=="" || email==null){
-		alert("Email을 입력하세요");
+		alert("Email을 입력");
 		f.email.focus();
 		return;
 	}
@@ -17,6 +19,7 @@ function check(){
 	}
 	
 	var name = f.name.value;
+	alert(name)
 	if(name=="" || name==null){
 		alert("이름을 입력하세요");
 		f.name.focus();
@@ -30,6 +33,6 @@ function check(){
 		return;
 	}
 	
-	f.action = "register_ok.fu";
+	f.action = cp+"/register_ok.fu";
 	f.submit();
 }
