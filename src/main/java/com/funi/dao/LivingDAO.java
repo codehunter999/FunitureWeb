@@ -20,7 +20,7 @@ public class LivingDAO {
 	//카테고리 리스트
 	public List<FurnitureDTO> cateEImageList(HashMap<String,Object> livingMap) {
 		
-		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingmapper.CateimageList",livingMap);
+		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.CateimageList",livingMap);
 		
 		return Lists;
 	}
@@ -28,25 +28,25 @@ public class LivingDAO {
 	//침실 전체 리스트
 	public List<FurnitureDTO> livingImageList() {
 		
-		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingmapper.livingimageList");
+		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.livingimageList");
 		
 		return Lists;
 	}
 	
 	//침실 이미지 인서트
 	public void insertlivingData(FurnitureDTO dto) {
-		sessionTemplate.insert("livingmapper.insertData", dto);
+		sessionTemplate.insert("livingMapper.insertData", dto);
 	}
 	
-	public FurnitureDTO getReadData(int imageIndex, String cateE) {
+	public FurnitureDTO getReadData(int imageIndex, String cateEn) {
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("imageIndex", imageIndex);
-		params.put("cateE", cateE);
+		params.put("cateE", cateEn);
 		
 		
-		FurnitureDTO dto = sessionTemplate.selectOne("livingmapper.getReadData",params);
+		FurnitureDTO dto = sessionTemplate.selectOne("livingMapper.getReadData",params);
 		
 		/*
 		 * System.out.println(dto.getImageIndex());
