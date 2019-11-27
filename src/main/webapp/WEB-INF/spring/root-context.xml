@@ -27,22 +27,13 @@
 	<bean id="diningdao" class="com.funi.dao.DiningDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
-	<bean id="ReviewDAO" class="com.funi.dao.ReviewDAO">
-		<property name="sessionTemplate" ref="sqlSession"/>
-	</bean>
-	<bean id="QnADAO" class="com.funi.dao.QnADAO">
-		<property name="sessionTemplate" ref="sqlSession"/>
-	</bean>
-	
-	
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.16.25:1521:TestDB"/>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.16.12:1521:TestDB"/>
 		<property name="username" value="suzi"/>
 		<property name="password" value="a123"/>
 	</bean>
-	
 	
    <!-- HikariCP 설정  -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
@@ -59,6 +50,5 @@
  	</bean>
  	
  	<bean id="myUtil" class="com.funi.util.MyUtil"/>
- 	<bean id="myUtil1" class="com.funi.util.MyUtil1"/>
 	
 </beans>
