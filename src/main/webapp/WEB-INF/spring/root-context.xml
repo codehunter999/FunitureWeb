@@ -36,7 +36,7 @@
 	</bean>	
 	<bean id="diningdao" class="com.funi.dao.DiningDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
-	</bean>
+	</bean>	
 	
 	<bean id="decodao" class="com.funi.dao.DecoDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
@@ -82,4 +82,3 @@
  	
 	
 </beans>
-

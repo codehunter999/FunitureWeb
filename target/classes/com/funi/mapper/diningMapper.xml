@@ -5,7 +5,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-map
 <mapper namespace="diningMapper">
 
 <!-- 이미지와 DB등록 -->
-<insert id="insertData" parameterType="com.funi.dto.FurnitureDTO"> 
+<insert id="insertData" parameterType="com.funi.domain.FurnitureDTO"> 
 	insert into diningroom (imageIndex,productName,cate,cateEn,price,saveFileName) 
 	values (#{imageIndex},#{productName},#{cate},#{cateEn},#{price},#{saveFileName})
 </insert>
@@ -21,17 +21,17 @@ select nvl(count(*),0) from diningroom
 </select>
 
  <!-- 전체목록 -->
-<select id="getLists" resultType="com.funi.dto.FurnitureDTO"> 
+<select id="getLists" resultType="com.funi.domain.FurnitureDTO"> 
 	select * from diningroom order by imageIndex asc
 </select>
  
  <!-- 카테고리별 목록 -->
-<select id="getCateLists" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
+<select id="getCateLists" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
 	select * from diningroom where cate=#{cate} order by imageIndex asc
 </select>
 
 <!-- 한개데이터출력 -->
-<select id="getReadData" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
+<select id="getReadData" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
 	select * from diningroom where imageIndex=#{imageIndex} and cate=#{cate}
 </select>
 

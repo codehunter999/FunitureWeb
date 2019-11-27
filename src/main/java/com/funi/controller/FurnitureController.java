@@ -59,7 +59,7 @@ public class FurnitureController {
 	DiningDAO diningdao;
 	
 	@Autowired
-	@Qualifier("decoDAO")
+	@Qualifier("decodao")
 	DecoDAO decodao;
 
 	@Autowired
