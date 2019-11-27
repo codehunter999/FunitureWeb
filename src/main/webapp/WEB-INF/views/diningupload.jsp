@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Home</title>
+<title>diningroom upload</title>
 <script type="text/javascript">
 function sendIt(){
 	
@@ -19,6 +19,8 @@ function sendIt(){
 </script>
 </head>
 <body>
+
+<h2>다이닝룸 업로드</h2>
 
 <br/><br/><br/>
 

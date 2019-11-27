@@ -7,10 +7,8 @@ public class FurnitureDTO {
 	
 	private int imageIndex;
 	private String productName;
-	private String cateE;
-	private String cateK;
-	private String cafe;
-	private String cafeEn;
+	private String cateEn;
+	private String cate;
 	private int price;
 	private String saveFileName;
 
