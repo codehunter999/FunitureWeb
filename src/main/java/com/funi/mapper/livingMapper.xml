@@ -3,28 +3,28 @@
 PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="livingmapper">
+<mapper namespace="livingMapper">
 
 	<!-- 이미지 넣어놓기 -->
 	<insert id="insertData" parameterType="com.funi.domain.FurnitureDTO">
-		insert into livingroom (imageIndex, productName, cate, price, saveFileName)
-		values (#{imageIndex}, #{productName}, #{cate}, #{price}, #{saveFileName})
+		insert into livingroom (imageIndex, productName, cateEn, cate, price, saveFileName)
+		values (#{imageIndex}, #{productName}, #{cateEn}, #{cate}, #{price}, #{saveFileName})
 	</insert>
 	
 	<!-- 전체 데이터 -->
 	<select id="livingimageList" resultType="com.funi.domain.FurnitureDTO">
-		select productName, cate, price, saveFileName from livingroom
+		select productName, cateEn, cate, price, saveFileName from livingroom
 		order by imageIndex desc
 	</select>
 	<!-- 한 개의 데이터 -->
 	<select id="getReadData" resultType="com.funi.domain.FurnitureDTO" parameterType="Map">
-		select  imageIndex, productName, cateE, cateK, price, saveFileName from bedroom where imageIndex=#{imageIndex} and cateE=#{cateE} 
+		select  imageIndex, productName, cateEn, cate, price, saveFileName from livingroom where imageIndex=#{imageIndex} and cateE=#{cateE} 
 	</select>
 	
 	<!-- 카테고리 데이터 -->
 	<select id="CateimageList" resultType="com.funi.domain.FurnitureDTO" parameterType="Map">
-		select imageIndex, productName, cateE, cateK, price, saveFileName from bedroom
-		where cateE=#{cateE} order by imageIndex desc
+		select imageIndex, productName, cateEn, cate, price, saveFileName from livingroom
+		where cateEn=#{cateEn} order by imageIndex desc
 	</select>
 	
 </mapper>
