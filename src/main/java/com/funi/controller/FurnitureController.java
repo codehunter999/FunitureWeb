@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.BedDAO;
+import com.funi.dao.DecoDAO;
 import com.funi.dao.DiningDAO;
 import com.funi.dao.MemberDAO;
 import com.funi.domain.MemberDTO;
@@ -46,6 +47,10 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("diningdao")
 	DiningDAO diningdao;
+	
+	@Autowired
+	@Qualifier("decoDAO")
+	DecoDAO decodao;
 
 	
 
@@ -293,75 +298,75 @@ public class FurnitureController {
 		return "redirect:/diningupload.fu";
 	}
 	
-//	@RequestMapping(value = "/decoupload.fu", method= {RequestMethod.GET,RequestMethod.POST})
-//	public ModelAndView decoupload() {
-//
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("decoupload");
-//
-//		return mav;
-//	}
+	@RequestMapping(value = "/decoupload.fu", method= {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView decoupload() {
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("decoupload");
+
+		return mav;
+	}
 	
-//	@RequestMapping(value = "/decoupload_ok.fu", method= {RequestMethod.GET,RequestMethod.POST})
-//	public String decoupload_ok(MultipartHttpServletRequest request, HttpServletResponse response, String str) {
-//
-//
-//		MultipartFile file = request.getFile("decoImageUpload");
-//
-//		FurnitureDTO dto = new FurnitureDTO();
-//		dto.setImageIndex(Integer.parseInt(request.getParameter("imageIndex")));
-//		dto.setProductName(request.getParameter("productName"));
-//		dto.setCate(request.getParameter("cate"));
-//		dto.setCateEn(request.getParameter("cateEn"));
-//		dto.setPrice(Integer.parseInt(request.getParameter("price")));
-//		dto.setSaveFileName(file.getOriginalFilename());
-//		
-//		decodao.insertData(dto);
-//		
-//		//실제경로: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
-//		Path path1 = 
-//				Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\deco");
-//				
-//		
-//		String path = 
-//				request.getSession()
-//				.getServletContext()
-//				.getRealPath("/image/deco");
-//
-//
-//		if(file!=null&&file.getSize()>0) { //파일이 있으면
-//
-//			try {
-//
-//				FileOutputStream fos =
-//						new FileOutputStream(path +
-//								"/" + file.getOriginalFilename());
-//
-//				InputStream is = file.getInputStream();
-//
-//				byte[] buffer = new byte[512];
-//
-//				while(true) {
-//
-//					int data = is.read(buffer,0,buffer.length);
-//
-//					if(data==-1) { 
-//						break; 
-//
-//					}
-//					fos.write(buffer,0,data);
-//				}
-//				is.close();
-//				fos.close();
-//
-//			} catch (Exception e) {
-//				System.out.println(e.toString());
-//			}
-//		}
-//		System.out.println("dto:"+dto);
-//
-//		return "redirect:/decoupload.fu";
-//	}
+	@RequestMapping(value = "/decoupload_ok.fu", method= {RequestMethod.GET,RequestMethod.POST})
+	public String decoupload_ok(MultipartHttpServletRequest request, HttpServletResponse response, String str) {
+
+
+		MultipartFile file = request.getFile("decoImageUpload");
+
+		FurnitureDTO dto = new FurnitureDTO();
+		dto.setImageIndex(Integer.parseInt(request.getParameter("imageIndex")));
+		dto.setProductName(request.getParameter("productName"));
+		dto.setCate(request.getParameter("cate"));
+		dto.setCateEn(request.getParameter("cateEn"));
+		dto.setPrice(Integer.parseInt(request.getParameter("price")));
+		dto.setSaveFileName(file.getOriginalFilename());
+		
+		decodao.insertData(dto);
+		
+		//실제경로: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
+		Path path1 = 
+				Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\deco");
+				
+		
+		String path = 
+				request.getSession()
+				.getServletContext()
+				.getRealPath("/image/deco");
+
+
+		if(file!=null&&file.getSize()>0) { //파일이 있으면
+
+			try {
+
+				FileOutputStream fos =
+						new FileOutputStream(path +
+								"/" + file.getOriginalFilename());
+
+				InputStream is = file.getInputStream();
+
+				byte[] buffer = new byte[512];
+
+				while(true) {
+
+					int data = is.read(buffer,0,buffer.length);
+
+					if(data==-1) { 
+						break; 
+
+					}
+					fos.write(buffer,0,data);
+				}
+				is.close();
+				fos.close();
+
+			} catch (Exception e) {
+				System.out.println(e.toString());
+			}
+		}
+		System.out.println("dto:"+dto);
+
+		return "redirect:/decoupload.fu";
+	}
 
 
 
@@ -720,37 +725,196 @@ public class FurnitureController {
 
 	//홈데코 페이지 컨트롤러
 	@RequestMapping(value = "/decofull.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public String decofull() {
+	public ModelAndView decofull(HttpServletRequest request) {
 		
+//		//페이징처리
+//		String cp = request.getContextPath();
 //		
-//		  ModelAndView mav = new ModelAndView();
-//		  
-//		  List<FurnitureDTO> lists = decodao.getLists();
-//		  //System.out.println("lists"+lists.size()); mav.setViewName("decofull");
-//		  mav.addObject("lists", lists);
-//		  
-//		  return mav;
-		return "decofull";
+//		String pageNum = request.getParameter("pageNum");
+//		int currentPage = 1;
+//		
+//		if(pageNum != null)
+//			currentPage = Integer.parseInt(pageNum);
+//		
+//		String searchKey = request.getParameter("searchKey");
+//		String searchValue = request.getParameter("searchValue");
+//		
+//		if(searchKey == null){
+//			
+//			searchKey = "subject";
+//			searchValue = "";
+//			
+//		}else{
+//			
+//			if(request.getMethod().equalsIgnoreCase("GET"))
+//				searchValue =
+//					URLDecoder.decode(searchValue, "UTF-8");
+//			
+//		}
+//		
+//		//전체데이터갯수
+//		int dataCount = diningdao.getDataCount();
+//		
+//		//전체페이지수
+//		int numPerPage = 10;
+//		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+//		
+//		if(currentPage > totalPage)
+//			currentPage = totalPage;
+//		
+//		int start = (currentPage-1)*numPerPage+1;
+//		int end = currentPage*numPerPage;
+//		
+//		//페이징 처리
+//		String param = "";
+//		if(!searchValue.equals("")){
+//			param = "searchKey=" + searchKey;
+//			param+= "&searchValue=" 
+//				+ URLEncoder.encode(searchValue, "UTF-8");
+//		}
+//		
+//		String listUrl = cp + "/list.action";
+//		if(!param.equals("")){
+//			listUrl = listUrl + "?" + param;				
+//		}
+//		
+//		String pageIndexList =
+//			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		/////////////////////////////////////////////////////////////////
+		
+		ModelAndView mav = new ModelAndView();
+
+		List<FurnitureDTO> lists = decodao.getLists();
+		//System.out.println("lists"+lists.size());
+		mav.setViewName("decofull");
+		mav.addObject("lists", lists);
+
+		return mav;
 		 
 		
 	}
 	
 	@RequestMapping(value = "/deco_monthly.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public String deco_monthlly() {
+	public ModelAndView deco_monthlly(HttpServletRequest request) {
 		
-		return "deco_monthly";
+		ModelAndView mav = new ModelAndView();
+		
+		String cate = request.getParameter("cate");
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("cate", cate);
+
+		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		
+		mav.setViewName("deco_monthly");
+		mav.addObject("catelists", catelists);
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "/deco_monthly_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView deco_monthly_details(HttpServletRequest request) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
+		String cate = request.getParameter("cate");
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("cate", cate);
+		
+		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		
+		FurnitureDTO dto = decodao.getReadData(imageIndex,cate);
+		
+		mav.setViewName("deco_monthly_details");
+		mav.addObject("dto", dto);
+		mav.addObject("catelists", catelists);
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/deco_light.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public String deco_light() {
+	public ModelAndView deco_light(HttpServletRequest request) {
 		
-		return "deco_light";
+		ModelAndView mav = new ModelAndView();
+		
+		String cate = request.getParameter("cate");
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("cate", cate);
+
+		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		
+		mav.setViewName("deco_light");
+		mav.addObject("catelists", catelists);
+
+		return mav;
+		
+	}
+	
+	@RequestMapping(value = "/deco_light_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView deco_light_details(HttpServletRequest request) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
+		String cate = request.getParameter("cate");
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("cate", cate);
+		
+		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		
+		FurnitureDTO dto = decodao.getReadData(imageIndex,cate);
+		
+		mav.setViewName("deco_light_details");
+		mav.addObject("dto", dto);
+		mav.addObject("catelists", catelists);
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/deco_plasticch.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public String deco_plasticch() {
+	public ModelAndView deco_plasticch(HttpServletRequest request) {
 		
-		return "deco_plasticch";
+		ModelAndView mav = new ModelAndView();
+		
+		String cate = request.getParameter("cate");
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("cate", cate);
+
+		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		
+		mav.setViewName("deco_plasticch");
+		mav.addObject("catelists", catelists);
+
+		return mav;
+		
+	}
+	
+	@RequestMapping(value = "/deco_plasticch_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView deco_plasticch_details(HttpServletRequest request) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
+		String cate = request.getParameter("cate");
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("cate", cate);
+		
+		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		
+		FurnitureDTO dto = decodao.getReadData(imageIndex,cate);
+		
+		mav.setViewName("deco_plasticch_details");
+		mav.addObject("dto", dto);
+		mav.addObject("catelists", catelists);
+		
+		return mav;
+		
 	}
 
 

@@ -388,7 +388,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">주방/다이닝룸</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/furnitureweb/">Home</a></li>
                             <li class="current"><span>선브렐라 체어│클린터치 테이블│리놀륨 테이블│테이블│체어│장식장│책상/선반</span></li>
                         </ul>
                     </div>
@@ -441,9 +441,9 @@
                                                     </figure>
                                                     <a href="dining_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a data-toggle="modal" data-target="#productModal" class="action-btn">
+                                                        <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
-                                                        </a>
+                                                        </a> -->
                                                         <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
@@ -459,7 +459,21 @@
                                                     <h3 class="product-title"><a href="dining_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}">${dto.productName }</a></h3>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
-                                                            <span class="money">${dto.price }원</span>
+                                                            <c:if test="${dto.imageIndex>=1 && dto.imageIndex<=43 }">
+                                   							<span class="money">${dto.price }원</span>
+                                    						</c:if>
+                                    						<c:if test="${dto.imageIndex>=44 && dto.imageIndex<=45 }">
+                                    						<span class="money">일시품절</span>
+                                    						</c:if>
+                                    						<c:if test="${dto.imageIndex>=46 && dto.imageIndex<=59 }">
+                                   							<span class="money">${dto.price }원</span>
+                                    						</c:if>
+                                    						<c:if test="${dto.imageIndex==60 }">
+                                    						<span class="money">일시품절</span>
+                                    						</c:if>
+                                    						<c:if test="${dto.imageIndex>=61 && dto.imageIndex<=72 }">
+                                   							<span class="money">${dto.price }원</span>
+                                    						</c:if>
                                                         </div>
                                                         <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
@@ -865,7 +879,7 @@
         <!-- Searchform Popup End -->
 
         <!-- Qicuk View Modal Start -->
-        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+<%--         <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body">
@@ -997,7 +1011,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --%>
         <!-- Qicuk View Modal End -->
 
         <!-- Global Overlay Start -->

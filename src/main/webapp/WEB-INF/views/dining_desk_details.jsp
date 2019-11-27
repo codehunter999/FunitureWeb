@@ -509,6 +509,12 @@
                                             		<option value="다크그레이">다크그레이</option>
                                         		</select>
                                         	</c:if>
+                                        	<c:if test="${dto.imageIndex==65}">
+                                            <select>
+                                            	<option selected="selected">- [해당없음] -</option>
+                                            	<option disabled="disabled">-----------------------------------</option>
+                                            </select>
+                                            </c:if>
                                         	<c:if test="${dto.imageIndex==66 }">
                                        			<select>
                                             		<option selected="selected">- [수종] 옵션을 선택해주세요 -</option>
