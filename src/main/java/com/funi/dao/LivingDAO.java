@@ -17,7 +17,7 @@ public class LivingDAO {
 	
 	//living*************
 	
-	//Ä«Å×°í¸® ¸®½ºÆ®
+	//ì¹´í…Œê³ ë¦¬ ë¦¬ìŠ¤íŠ¸
 	public List<FurnitureDTO> cateEImageList(HashMap<String,Object> livingMap) {
 		
 		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.CateimageList",livingMap);
@@ -25,7 +25,7 @@ public class LivingDAO {
 		return Lists;
 	}
 	
-	//Ä§½Ç ÀüÃ¼ ¸®½ºÆ®
+	//ì¹¨ì‹¤ ì „ì²´ ë¦¬ìŠ¤íŠ¸
 	public List<FurnitureDTO> livingImageList() {
 		
 		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.livingimageList");
@@ -33,7 +33,7 @@ public class LivingDAO {
 		return Lists;
 	}
 	
-	//Ä§½Ç ÀÌ¹ÌÁö ÀÎ¼­Æ®
+	//ì¹¨ì‹¤ ì´ë¯¸ì§€ ì¸ì„œíŠ¸
 	public void insertlivingData(FurnitureDTO dto) {
 		sessionTemplate.insert("livingMapper.insertData", dto);
 	}
@@ -43,7 +43,9 @@ public class LivingDAO {
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("imageIndex", imageIndex);
-		params.put("cateE", cateEn);
+
+		params.put("cateEn", cateEn);
+
 		
 		
 		FurnitureDTO dto = sessionTemplate.selectOne("livingMapper.getReadData",params);
