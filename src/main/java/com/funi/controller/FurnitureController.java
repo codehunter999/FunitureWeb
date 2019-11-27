@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.BedDAO;
-
+import com.funi.dao.CartDAO;
 import com.funi.dao.DiningDAO;
 import com.funi.dao.MemberDAO;
 import com.funi.domain.MemberDTO;
@@ -48,6 +48,10 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("diningdao")
 	DiningDAO diningdao;
+	
+	@Autowired
+	@Qualifier("cartdao")
+	CartDAO cartdao;
 
 		
 	@Autowired
@@ -134,13 +138,12 @@ public class FurnitureController {
 	@RequestMapping(value = "/register.fu", method = RequestMethod.GET) 
 	public String register(Locale locale, Model model,HttpServletRequest request,HttpServletResponse response) throws IOException { 
 
-		if(request.getParameter("emailcheck")!=null) {
+		if(request.getParameter("mode")!=null) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
 			writer.println("<script>alert('Email이 중복되었습니다.'); history.go(-1); </script>");
 			writer.flush();
 		}
-
 		return "member/register"; 
 	}
 
@@ -150,14 +153,14 @@ public class FurnitureController {
 		String phone1 = request.getParameter("phone1");
 		String phone2 = request.getParameter("phone2");
 		String phone = phone1 + phone2;		
-		//dto.setPhone(phone);
+		dto.setPhone(phone);
 
 		try {
 			memberdao.insertData(dto);
 		} 
 		catch (Exception e) {
 			System.out.println("Email이 중복되었습니다.");
-			return "redirect:/register.fu?emailcheck=no"; 
+			return "redirect:/register.fu?mode=no"; 
 		}
 		return "redirect:/login.fu"; 
 	}
