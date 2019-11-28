@@ -106,6 +106,7 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+pom.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
 
