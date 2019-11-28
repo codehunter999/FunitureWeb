@@ -4,11 +4,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,6 +45,12 @@ import com.funi.domain.FurnitureDTO;
 import com.funi.util.MyUtil;
 import com.funi.util.MyUtil1;
 
+import com.funi.service.Email;
+import com.funi.service.EmailSender;
+import com.funi.service.KakaoAPI;
+import com.funi.domain.FurnitureDTO;
+import com.funi.util.MyUtil;
+import com.funi.util.SHA256Util;
 
 
 @Controller
@@ -83,8 +93,18 @@ public class FurnitureController {
 	@Qualifier("myUtil1")
 	MyUtil1 myUtil1;
 
-
-
+	@Autowired
+	@Qualifier("kakao")
+	KakaoAPI kakao;
+	
+	@Autowired
+	@Qualifier("emailSender")
+    EmailSender emailSender;
+   
+	@Autowired
+    @Qualifier("email")
+    Email email;
+	
 	//HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public String home1(Locale locale, Model model) {
@@ -118,7 +138,9 @@ public class FurnitureController {
 		ModelAndView loginmav = new ModelAndView();
 		MemberDTO memberdto = null;
 		try {
+			
 			boolean flag = memberdao.searchID(paramdto.getEmail());
+			System.out.println("flag : "+paramdto.getEmail());
 			String message = null;
 			if(!flag) {
 				message = "회占쏙옙 占쏙옙占쏙옙占쏙옙 찾占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙.";
@@ -128,18 +150,14 @@ public class FurnitureController {
 			}
 
 			memberdto = memberdao.searchMember(paramdto.getEmail());
+			String paramPassword = SHA256Util.getEncrypt(paramdto.getPwd(),memberdto.getSalt());
+			System.out.println("paramPassword : "+paramPassword);
+			System.out.println("memberdto.getPwd() : "+memberdto.getPwd());
 
-			System.out.println("memberdto getPwd () : "+memberdto.getPwd());
-			System.out.println("paramdto  getPwd () : "+paramdto.getPwd());
-			System.out.println("if 첫占쏙옙째 占쏙옙占쏙옙 : "+ !memberdto.getPwd().equals(paramdto.getPwd()));
-
-			if(!memberdto.getPwd().equals(paramdto.getPwd())) {
-				message = "占쏙옙占쏙옙 占싻쏙옙占쏙옙占썲를 확占쏙옙占쏙옙占쌍쇽옙占쏙옙.";
+			if(!memberdto.getPwd().equals(paramPassword)) {
+				message = "���� �н����带 Ȯ�����ּ���.";
 				loginmav.addObject("message",message);
 				loginmav.setViewName("member/login");
-				System.out.println("占쏙옙占쏙옙 占쏙옙占쏙옙玖占� 占싫듸옙 ");
-				System.out.println("占쏙옙占쏙옙 占쏙옙占쏙옙玖占� 占싫듸옙 ");
-	
 				return loginmav;
 			}	
 		} catch (Exception e) {
@@ -150,6 +168,14 @@ public class FurnitureController {
 		loginmav.setViewName("redirect:/home.fu");
 		return loginmav;
 	}
+	 @RequestMapping(value="/kakaologin")
+	    public String login(@RequestParam("code") String code) {
+	        String access_Token = kakao.getAccessToken(code);
+	        System.out.println("controller access_token : " + access_Token);
+	        
+	        return "index";
+	    }
+	
 	@RequestMapping(value = "/logout.fu", method = RequestMethod.GET) 
 	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response,HttpSession session) throws IOException {
 		ModelAndView logoutmav = new ModelAndView();
@@ -157,7 +183,35 @@ public class FurnitureController {
 		logoutmav.setViewName("redirect:/login.fu");
 		return logoutmav;
 	}
+	@RequestMapping("/searchPassword.fu")
+	public ModelAndView searchPwd(){	
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("member/searchPwd");
+		return mav;		
+	}
 
+    @RequestMapping("/sendpw.fu")
+    public ModelAndView sendEmailAction (ModelMap model,MemberDTO memberdto) throws Exception {  
+    	ModelAndView mav = new ModelAndView();     
+        String useremail =	memberdto.getEmail();     
+        boolean flag = memberdao.searchID(memberdto.getEmail());
+        System.out.println(flag);
+        if(!flag) {
+        	 mav=new ModelAndView("member/searchPwd");
+             mav.addObject("message","send no search Email");
+             return mav;
+        }
+        
+        if(useremail != null) {
+            email.setReceiver(useremail);
+            email.setContent("��й�ȣ�� "+useremail+" �Դϴ�.");
+            email.setSubject(useremail+"�� ��й�ȣ ã�� �����Դϴ�.");            
+            emailSender.SendEmail(email);         
+            mav= new ModelAndView("member/searchPwd");
+            mav.addObject("message","send email");
+        };
+        return mav;
+    }
 
 
 	//회占쏙옙占쏙옙占쏙옙
@@ -173,20 +227,32 @@ public class FurnitureController {
 		return "member/register"; 
 	}
 
+
+
+
 	@RequestMapping(value = "/register_ok.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
-	public String register_ok(MemberDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception {
-
+	public String register_ok(MemberDTO memberdto,HttpServletRequest request,HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+				
 		String phone1 = request.getParameter("phone1");
-		String phone2 = request.getParameter("phone2");
+		String phone2 = request.getParameter("phone2");	
 		String phone = phone1 + phone2;		
-		dto.setPhone(phone);
-
+		// salt SHA256 ��ȣȭ ���� 
+		memberdto.setPhone(phone);
+		String salt = SHA256Util.generateSalt();
+		memberdto.setSalt(salt);
+		String password = memberdto.getPwd();
+		password = SHA256Util.getEncrypt(password,salt);
+		memberdto.setPwd(password);
+		
 		try {
-			memberdao.insertData(dto);
-		} 
-		catch (Exception e) {
-			System.out.println("Email占쏙옙 占쌩븝옙占실억옙占쏙옙占싹댐옙.");
-			return "redirect:/register.fu?mode=no"; 
+			memberdao.insertData(memberdto);
+		} catch (Exception e) {
+	
+			System.out.println(e.toString());
+			System.out.println("Email�� �ߺ�");
+			return "redirect:/register.fu?emailcheck=no"; 
 		}
 		return "redirect:/login.fu"; 
 	}

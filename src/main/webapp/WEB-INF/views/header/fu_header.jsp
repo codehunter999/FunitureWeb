@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -24,10 +21,8 @@
     <link rel="apple-touch-icon" href="<%=cp %>/resources/assets/img/icon.png">
 
     <!-- ************************* CSS Files ************************* -->
-
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
-
     <!-- style css -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
     <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -37,12 +32,9 @@
 	
 	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-	
+	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>	
 	<!-- 회원가입check  -->
 	<script src="<%=cp %>/resources/assets/js/register_check.js"></script>
-
-		
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#image").click(function(event) {

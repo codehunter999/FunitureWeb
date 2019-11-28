@@ -1,8 +1,7 @@
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script>
     $(function(){
         var responseMessage = "<c:out value="${message}" />";
         if(responseMessage != ""){
@@ -56,7 +55,7 @@
                                         </div>
                                     </div>
                                     <a class="forgot-pass" href="<%=cp%>/register.fu"><b>&nbsp;&nbsp;회원가입&nbsp;&nbsp;</b></a>
-                                    <a class="forgot-pass" href="<%=cp%>/searchPassword.fu"><b>&nbsp;&nbsp;패스워드 찾기&nbsp;</b></a>
+                                    <a class="forgot-pass" href="#"><b>&nbsp;&nbsp;패스워드 찾기&nbsp;</b></a>
                					</form>
                					<br/>
                					<a href="https://kauth.kakao.com/oauth/authorize?client_id=31d857a43c06796d21fa6fd041d12cd6&redirect_uri=http://192.168.16.12:8080<%=cp%>/login.fu&response_type=code">
