@@ -32,6 +32,7 @@ import com.funi.dao.BedDAO;
 import com.funi.dao.CartDAO;
 import com.funi.dao.DecoDAO;
 import com.funi.dao.DiningDAO;
+import com.funi.dao.LivingDAO;
 import com.funi.dao.MemberDAO;
 import com.funi.dao.ReviewDAO;
 import com.funi.dao.QnADAO;
@@ -63,6 +64,10 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("BedDAO")
 	BedDAO bedDao;
+	
+	@Autowired
+	@Qualifier("LivingDAO")
+	LivingDAO livingDao;
 
 	@Autowired
 	@Qualifier("diningdao")
@@ -1283,6 +1288,526 @@ public class FurnitureController {
 		request.setAttribute("lists", lists);
 		return "review/reviewarticle";
 	}
+	
+	//<거실파트>
+	//거실 total
+		@RequestMapping(value = "/living_total.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_total(Locale locale, Model model) {
+			ModelAndView mav = new ModelAndView();
+
+			List<FurnitureDTO> lists = livingDao.livingImageList();
+			//System.out.println("lists"+lists.size());
+			mav.setViewName("living_total");
+			mav.addObject("lists", lists);
+
+			return mav;
+		}
+		
+	//---------------------------------------------------------------------
+		//선브렐라
+		//cateEn이 null
+		@RequestMapping(value = "/living_sunb.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_sunb(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_sunb");
+			mav.addObject("lists", lists);
+			
+			return mav;
+			
+		}
+		
+		@RequestMapping(value = "/living_sunb_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_sunb_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_sunb_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		//---------------------------------------------------------------------
+		
+		//패브릭
+		@RequestMapping(value = "/living_fabric.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_fabric(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_fabric");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_fabric_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_fabric_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_fabric_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		//---------------------------------------------------------------------
+		//가죽
+		@RequestMapping(value = "/living_leather.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_leather(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_leather");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_leather_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_leather_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_leather_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		
+		
+		//---------------------------------------------------------------------
+		//데우스
+		@RequestMapping(value = "/living_deus.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_deus(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_deus");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_deus_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_deus_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_deus_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		//---------------------------------------------------------------------
+		//사이드 테이블
+		@RequestMapping(value = "/living_sideTable.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_sideTable(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_sideTable");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_sideTable_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_sideTable_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_sideTable_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		//---------------------------------------------------------------------
+		//티비 장
+		@RequestMapping(value = "/living_TV.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_TV(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_TV");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_TV_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_TV_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_TV_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		//---------------------------------------------------------------------
+		//선반
+		@RequestMapping(value = "/living_shelf.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_shelf(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_shelf");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_shelf_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_shelf_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_shelf_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+		
+		//---------------------------------------------------------------------
+		//북케이스
+		@RequestMapping(value = "/living_bookcase.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_bookcase(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);		
+			HashMap<String,Object> livingMap = new HashMap<String, Object>();
+			livingMap.put("cateEn", cateEn);
+			System.out.println(cateEn);
+			
+			List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
+			mav.setViewName("living_bookcase");
+			mav.addObject("lists", lists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/living_bookcase_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView living_bookcase_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
+			
+			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("living_bookcase_details");
+			mav.addObject("dto", dto);
+			mav.addObject("lists", Lists);
+			
+			return mav;
+		}
+	
+	//--------------------------------------
+	//<침실파트>
+	//침실 total
+		@RequestMapping(value = "/bed_total.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_total(HttpServletRequest request) throws Exception {
+			
+			ModelAndView mav = new ModelAndView();
+
+			List<FurnitureDTO> lists = bedDao.bedImageList();
+			//System.out.println("lists"+lists.size());
+			mav.setViewName("bed_total");
+			mav.addObject("lists", lists);
+
+			return mav;
+		}
+		
+		@RequestMapping(value = "/bed_bed.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_bed(HttpServletRequest request, HttpServletResponse response,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);
+			HashMap<String,Object> bedMap = new HashMap<String, Object>();
+			bedMap.put("cateEn",cateEn);
+			List<FurnitureDTO> bedlists = bedDao.cateEImageList(bedMap);
+			mav.setViewName("bed_bed");
+			mav.addObject("Blists", bedlists);
+			
+			return mav;
+			
+		}
+		
+		@RequestMapping(value = "/bed_BED_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_BED_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			/*
+			 * int imageIndex = Integer.parseInt(request.getParameter("imageIndex")); String
+			 * cateE = request.getParameter("cateE");
+			 */
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			System.out.println("");
+			List<FurnitureDTO> Lists = bedDao.cateEImageList(params);
+			
+			FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("bed_BED_details");
+			mav.addObject("dto", dto);
+			mav.addObject("Blists", Lists);
+			
+			return mav;
+		}
+		
+		//----------------------------------------------------------
+		
+		@RequestMapping(value = "/bed_ht.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_ht(Locale locale, Model model, String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);
+			HashMap<String,Object> bedMap = new HashMap<String, Object>();
+			bedMap.put("cateEn",cateEn);
+			List<FurnitureDTO> bedlists = bedDao.cateEImageList(bedMap);
+			mav.setViewName("bed_ht");
+			mav.addObject("Blists", bedlists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/bed_ht_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_ht_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			
+			List<FurnitureDTO> bLists = bedDao.cateEImageList(params);
+			FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("bed_ht_details");
+			mav.addObject("dto", dto);
+			mav.addObject("Blists", bLists);
+			
+			return mav;
+		}
+		
+		//----------------------------------------------------------
+		
+		
+		@RequestMapping(value = "/bed_dressingTable.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_dressingTable(Locale locale, Model model, String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);
+			HashMap<String,Object> bedMap = new HashMap<String, Object>();
+			bedMap.put("cateEn",cateEn);
+			List<FurnitureDTO> bedlists = bedDao.cateEImageList(bedMap);
+			mav.setViewName("bed_dressingTable");
+			mav.addObject("Blists", bedlists);
+			
+			return mav;
+			
+		}
+		
+		@RequestMapping(value = "/bed_dressingTable_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_dressingTable_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			
+			List<FurnitureDTO> bedlists = bedDao.cateEImageList(params);
+			
+			FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("bed_dressingTable_details");
+			mav.addObject("dto", dto);
+			mav.addObject("Blists", bedlists);
+			
+			return mav;
+		}
+		
+		//----------------------------------------------------------
+		
+		@RequestMapping(value = "/bed_chiff.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_chiff(Locale locale, Model model,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+			System.out.println(cateEn);
+			HashMap<String,Object> bedMap = new HashMap<String, Object>();
+			bedMap.put("cateEn",cateEn);
+			List<FurnitureDTO> bedlists = bedDao.cateEImageList(bedMap);
+			mav.setViewName("bed_chiff");
+			mav.addObject("Blists", bedlists);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/bed_chiff_details.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public ModelAndView bed_chiff_details(HttpServletRequest request,int imageIndex,String cateEn) {
+			
+			ModelAndView mav = new ModelAndView();
+		
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			params.put("cateEn", cateEn);
+			params.put("imageIndex", imageIndex);
+			System.out.println("");
+			List<FurnitureDTO> Lists = bedDao.cateEImageList(params);
+			
+			FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
+			System.out.println("test 입니다 "+dto.getSaveFileName());
+			mav.setViewName("bed_chiff_details");
+			mav.addObject("dto", dto);
+			mav.addObject("Blists", Lists);
+			
+			return mav;
+		}
 
 
 

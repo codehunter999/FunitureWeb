@@ -38,16 +38,19 @@ public class BedDAO {
 		sessionTemplate.insert("bedMapper.insertData", dto);
 	}
 	
-	//한 개의 데이터
-	//getReadData
-	
-	//오류나는 이유 imageIndex가 null이기 때문
-	public FurnitureDTO getReadData(int imageIndex, String cateE) {
+	public FurnitureDTO getReadData(int imageIndex, String cateEn) {
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
 		params.put("imageIndex", imageIndex);
-		params.put("cateE", cateE);		
+		params.put("cateEn", cateEn);
+		
+		
 		FurnitureDTO dto = sessionTemplate.selectOne("bedMapper.getReadData",params);
+		
+		System.out.println(dto.getImageIndex());
+		System.out.println(dto.getSaveFileName());
+		
 		return dto;
 	}
 	
