@@ -5,7 +5,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-map
 <mapper namespace="decoMapper">
 
 <!-- 이미지와 DB등록 -->
-<insert id="insertData" parameterType="com.funi.domain.FurnitureDTO"> 
+<insert id="insertData" parameterType="com.funi.dto.FurnitureDTO"> 
 	insert into deco (imageIndex,productName,cate,cateEn,price,saveFileName) 
 	values (#{imageIndex},#{productName},#{cate},#{cateEn},#{price},#{saveFileName})
 </insert>
@@ -16,22 +16,26 @@ select nvl(max(eventIndex),0) from deco
 </select>
  -->
  
-<select id="getDataCount" resultType="int"> 
-select nvl(count(*),0) from deco 
+<select id="getDataCount" parameterType="map" resultType="int"> 
+select nvl(count(*),0) from deco where productName like '%' || #{searchValue} || '%'
 </select>
 
  <!-- 전체목록 -->
-<select id="getLists" resultType="com.funi.domain.FurnitureDTO"> 
-	select * from deco order by imageIndex asc
+<select id="getLists" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
+<![CDATA[ 
+	select * from (select rownum,data.* from (select imageIndex,productName,cate,cateEn,price,saveFileName from deco 
+	where productName like '%' || #{searchValue} || '%' order by imageIndex asc) data)
+	where rownum>=#{start} and rownum<=#{end}
+]]>
 </select>
  
  <!-- 카테고리별 목록 -->
-<select id="getCateLists" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
+<select id="getCateLists" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
 	select * from deco where cate=#{cate} order by imageIndex asc
 </select>
 
 <!-- 한개데이터출력 -->
-<select id="getReadData" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
+<select id="getReadData" parameterType="map" resultType="com.funi.dto.FurnitureDTO"> 
 	select * from deco where imageIndex=#{imageIndex} and cate=#{cate}
 </select>
 

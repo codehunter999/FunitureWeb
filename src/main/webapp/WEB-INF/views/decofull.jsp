@@ -59,7 +59,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/deco/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}" class="product-overlay"></a>
+                                                    <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -74,9 +74,9 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}">${dto.cate }</a>
+                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.cate }</a>
                                                     </div>
-                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}">${dto.productName }</a></h3>
+                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.productName }</a></h3>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
@@ -97,12 +97,15 @@
                             </div>
                             <nav class="pagination-wrap">
                                 <ul class="pagination">
-                                    <li><span class="page-number current">1</span></li>
+                                    <!-- <li><span class="page-number current">1</span></li>
                                     <li><a href="#" class="page-number">2</a></li>
                                     <li><span class="dot"></span></li>
                                     <li><span class="dot"></span></li>
                                     <li><span class="dot"></span></li>
-                                    <li><a href="#" class="page-number">16</a></li>
+                                    <li><a href="#" class="page-number">16</a></li> -->
+                                    <c:if test="${dataCount!=0 }">
+                                    	${pageIndexList }
+                                    </c:if>
                                 </ul>
                             </nav>
                         </div>
