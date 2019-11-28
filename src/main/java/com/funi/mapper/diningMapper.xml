@@ -16,13 +16,17 @@ select nvl(max(eventIndex),0) from diningroom
 </select>
  -->
  
-<select id="getDataCount" resultType="int"> 
-select nvl(count(*),0) from diningroom 
+<select id="getDataCount" parameterType="map" resultType="int"> 
+select nvl(count(*),0) from diningroom where productName like '%' || #{searchValue} || '%'
 </select>
 
  <!-- 전체목록 -->
-<select id="getLists" resultType="com.funi.dto.FurnitureDTO"> 
-	select * from diningroom order by imageIndex asc
+<select id="getLists" parameterType="map" resultType="com.funi.dto.FurnitureDTO">
+<![CDATA[ 
+	select * from (select rownum,data.* from (select imageIndex,productName,cate,cateEn,price,saveFileName from diningroom 
+	where productName like '%' || #{searchValue} || '%' order by imageIndex asc) data)
+	where rownum>=#{start} and rownum<=#{end}
+]]>
 </select>
  
  <!-- 카테고리별 목록 -->

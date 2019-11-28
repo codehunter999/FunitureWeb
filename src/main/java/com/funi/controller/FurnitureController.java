@@ -4,6 +4,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -374,67 +376,90 @@ public class FurnitureController {
 	@RequestMapping(value = "/diningfull.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView diningfull(HttpServletRequest request) throws Exception{
 		
-//		//페이징처리
-//		String cp = request.getContextPath();
-//		
-//		String pageNum = request.getParameter("pageNum");
-//		int currentPage = 1;
-//		
-//		if(pageNum != null)
-//			currentPage = Integer.parseInt(pageNum);
-//		
-//		String searchKey = request.getParameter("searchKey");
-//		String searchValue = request.getParameter("searchValue");
-//		
-//		if(searchKey == null){
-//			
-//			searchKey = "subject";
-//			searchValue = "";
-//			
-//		}else{
-//			
-//			if(request.getMethod().equalsIgnoreCase("GET"))
-//				searchValue =
-//					URLDecoder.decode(searchValue, "UTF-8");
-//			
-//		}
-//		
-//		//전체데이터갯수
-//		int dataCount = diningdao.getDataCount();
-//		
-//		//전체페이지수
-//		int numPerPage = 10;
-//		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
-//		
-//		if(currentPage > totalPage)
-//			currentPage = totalPage;
-//		
-//		int start = (currentPage-1)*numPerPage+1;
-//		int end = currentPage*numPerPage;
-//		
-//		//페이징 처리
-//		String param = "";
-//		if(!searchValue.equals("")){
-//			param = "searchKey=" + searchKey;
-//			param+= "&searchValue=" 
-//				+ URLEncoder.encode(searchValue, "UTF-8");
-//		}
-//		
-//		String listUrl = cp + "/list.action";
-//		if(!param.equals("")){
-//			listUrl = listUrl + "?" + param;				
-//		}
-//		
-//		String pageIndexList =
-//			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		//페이징처리
+		String cp = request.getContextPath();
+		
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+		
+		if(pageNum != null) {
+			currentPage = Integer.parseInt(pageNum);
+		}
+		
+		System.out.println("pageNum: " + pageNum);
+		System.out.println("currentPage: " + currentPage);
+		
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchValue==null) {
+			
+			searchValue = "";
+			
+		}else{
+			
+			if(request.getMethod().equalsIgnoreCase("GET"))
+				searchValue =
+					URLDecoder.decode(searchValue, "UTF-8");
+			
+		}
+		
+		System.out.println("test searchValue: " + searchValue);
+		
+		//전체데이터갯수
+		int dataCount = diningdao.getDataCount(searchValue);
+		
+		System.out.println("전체데이터 갯수: " + diningdao.getDataCount(searchValue)); //72
+		
+		//전체페이지수
+		int numPerPage = 12;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		if(currentPage > totalPage)
+			currentPage = totalPage;
+		
+		int start = (currentPage-1)*numPerPage+1;
+		int end = currentPage*numPerPage;
+		
+		List<FurnitureDTO> lists = diningdao.getLists(start,end,searchValue);
+		
+		//페이징 처리
+		String param = "";
+		if(!searchValue.equals("")){
+			param= "searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+		
+		String listUrl = cp + "/diningfull.fu";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+			myUtil.pageIndexList(currentPage, totalPage, listUrl);
 		/////////////////////////////////////////////////////////////////
+		System.out.println("test2");
+		
+		/*
+		//글보기 주소 정리
+		String DiningUrl = 
+			cp + "/dining_" + dto.getCateEn() +"_details?pageNum=" + currentPage;
+			
+		if(!param.equals(""))
+			articleUrl = articleUrl + "&" + param;
+		*/
 		
 		ModelAndView mav = new ModelAndView();
-
-		List<FurnitureDTO> lists = diningdao.getLists();
-		//System.out.println("lists"+lists.size());
+//		System.out.println("test!!!");
+		
+		System.out.println("lists size:"+lists.size());
+		
 		mav.setViewName("diningfull");
 		mav.addObject("lists", lists);
+		mav.addObject("dataCount", dataCount);
+		mav.addObject("pageIndexList", pageIndexList);
+		mav.addObject("pageNum", pageNum);
+		
+//		System.out.println("test3");
 
 		return mav;
 		
@@ -447,10 +472,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_sunbrella");
 		mav.addObject("catelists", catelists);
@@ -467,10 +489,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -488,10 +507,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_clean");
 		mav.addObject("catelists", catelists);
@@ -507,10 +523,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -528,10 +541,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_rnl");
 		mav.addObject("catelists", catelists);
@@ -547,10 +557,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -568,10 +575,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_table");
 		mav.addObject("catelists", catelists);
@@ -587,10 +591,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -608,10 +609,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_chair");
 		mav.addObject("catelists", catelists);
@@ -627,10 +625,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -648,10 +643,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_deco");
 		mav.addObject("catelists", catelists);
@@ -667,10 +659,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -685,14 +674,10 @@ public class FurnitureController {
 	public ModelAndView dining_desk(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
-
+		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
-		System.out.println("여기를 지나갑니다. ");
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		mav.setViewName("dining_desk");
 		mav.addObject("catelists", catelists);
@@ -709,10 +694,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cate);
 		
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
 		
@@ -722,76 +704,93 @@ public class FurnitureController {
 		
 		return mav;
 	}
-
+	
 	//홈데코 페이지 컨트롤러
 	@RequestMapping(value = "/decofull.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView decofull(HttpServletRequest request) {
+	public ModelAndView decofull(HttpServletRequest request) throws Exception {
 		
-//		//페이징처리
-//		String cp = request.getContextPath();
-//		
-//		String pageNum = request.getParameter("pageNum");
-//		int currentPage = 1;
-//		
-//		if(pageNum != null)
-//			currentPage = Integer.parseInt(pageNum);
-//		
-//		String searchKey = request.getParameter("searchKey");
-//		String searchValue = request.getParameter("searchValue");
-//		
-//		if(searchKey == null){
-//			
-//			searchKey = "subject";
-//			searchValue = "";
-//			
-//		}else{
-//			
-//			if(request.getMethod().equalsIgnoreCase("GET"))
-//				searchValue =
-//					URLDecoder.decode(searchValue, "UTF-8");
-//			
-//		}
-//		
-//		//전체데이터갯수
-//		int dataCount = diningdao.getDataCount();
-//		
-//		//전체페이지수
-//		int numPerPage = 10;
-//		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
-//		
-//		if(currentPage > totalPage)
-//			currentPage = totalPage;
-//		
-//		int start = (currentPage-1)*numPerPage+1;
-//		int end = currentPage*numPerPage;
-//		
-//		//페이징 처리
-//		String param = "";
-//		if(!searchValue.equals("")){
-//			param = "searchKey=" + searchKey;
-//			param+= "&searchValue=" 
-//				+ URLEncoder.encode(searchValue, "UTF-8");
-//		}
-//		
-//		String listUrl = cp + "/list.action";
-//		if(!param.equals("")){
-//			listUrl = listUrl + "?" + param;				
-//		}
-//		
-//		String pageIndexList =
-//			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		//페이징처리
+		String cp = request.getContextPath();
+		
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+		
+		if(pageNum != null) {
+			currentPage = Integer.parseInt(pageNum);
+		}
+		
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchValue==null) {
+			
+			searchValue = "";
+			
+		}else{
+			
+			if(request.getMethod().equalsIgnoreCase("GET"))
+				searchValue =
+					URLDecoder.decode(searchValue, "UTF-8");
+			
+		}
+		
+		
+		System.out.println("test searchValue: " + searchValue);
+		
+		//전체데이터갯수
+		int dataCount = decodao.getDataCount(searchValue);
+		
+		System.out.println("전체데이터 갯수: " + decodao.getDataCount(searchValue)); //72
+		
+		//전체페이지수
+		int numPerPage = 12;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		if(currentPage > totalPage)
+			currentPage = totalPage;
+		
+		int start = (currentPage-1)*numPerPage+1;
+		int end = currentPage*numPerPage;
+		
+		List<FurnitureDTO> lists = decodao.getLists(start,end,searchValue);
+		
+		//페이징 처리
+		String param = "";
+		if(!searchValue.equals("")){
+			param= "searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+		
+		String listUrl = cp + "/decofull.fu";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+			myUtil.pageIndexList(currentPage, totalPage, listUrl);
 		/////////////////////////////////////////////////////////////////
+		System.out.println("test2");
+		
+		/*
+		//글보기 주소 정리
+		String DiningUrl = 
+			cp + "/dining_" + dto.getCateEn() +"_details?pageNum=" + currentPage;
+			
+		if(!param.equals(""))
+			articleUrl = articleUrl + "&" + param;
+		*/
+		
 		
 		ModelAndView mav = new ModelAndView();
 
-		List<FurnitureDTO> lists = decodao.getLists();
 		//System.out.println("lists"+lists.size());
 		mav.setViewName("decofull");
 		mav.addObject("lists", lists);
+		mav.addObject("dataCount", dataCount);
+		mav.addObject("pageIndexList", pageIndexList);
+		mav.addObject("pageNum", pageNum);
 
 		return mav;
 		 
-		
 	}
 	
 	@RequestMapping(value = "/deco_monthly.fu", method = {RequestMethod.GET,RequestMethod.POST})
@@ -801,10 +800,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cate);
 		
 		mav.setViewName("deco_monthly");
 		mav.addObject("catelists", catelists);
@@ -820,10 +816,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cate);
 		
 		FurnitureDTO dto = decodao.getReadData(imageIndex,cate);
 		
@@ -841,10 +834,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cate);
 		
 		mav.setViewName("deco_light");
 		mav.addObject("catelists", catelists);
@@ -861,10 +851,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cate);
 		
 		FurnitureDTO dto = decodao.getReadData(imageIndex,cate);
 		
@@ -882,10 +869,7 @@ public class FurnitureController {
 		
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-
-		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cate);
 		
 		mav.setViewName("deco_plasticch");
 		mav.addObject("catelists", catelists);
@@ -902,10 +886,7 @@ public class FurnitureController {
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
 		
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("cate", cate);
-		
-		List<FurnitureDTO> catelists = decodao.getCateLists(params);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cate);
 		
 		FurnitureDTO dto = decodao.getReadData(imageIndex,cate);
 		
