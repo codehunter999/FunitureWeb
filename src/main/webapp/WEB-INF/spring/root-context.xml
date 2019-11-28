@@ -38,6 +38,14 @@
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
 	
+	<bean id="cartService" class="com.funi.dao.CartService"/>
+	
+	<bean id="orderdao" class="com.funi.dao.OrderDAO">
+		<property name="sessionTemplate" ref="sqlSession"/>
+	</bean>
+	
+
+	
 <!-- 	<bean id="cartdao" class="com.funi.dao.CartDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean> -->
@@ -65,6 +73,10 @@
  	</bean>
  	
  	<bean id="myUtil" class="com.funi.util.MyUtil"/>
+ 	
+ 	<context:component-scan base-package="com.funi.service"/>
+ 	<bean id="kakao" class="com.funi.service.KakaoAPI"/>
+ 	
  	
 	
 </beans>
