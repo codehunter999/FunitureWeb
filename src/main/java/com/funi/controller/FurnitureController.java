@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,17 +19,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.BedDAO;
-
+import com.funi.dao.CartService;
 import com.funi.dao.DiningDAO;
 import com.funi.dao.MemberDAO;
+import com.funi.dao.OrderDAO;
 import com.funi.domain.MemberDTO;
+import com.funi.domain.OrderDTO;
 import com.funi.domain.FurnitureDTO;
 import com.funi.util.MyUtil;
 
@@ -53,7 +58,14 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("myUtil")
 	MyUtil myUtil;
-
+	
+	@Autowired
+	@Qualifier("orderdao")
+	OrderDAO orderdao;
+	
+	@Autowired
+	@Qualifier("cartService")
+	CartService cartService;
 
 
 	//HOME PART
@@ -664,10 +676,66 @@ public class FurnitureController {
 	public String event_5(Locale locale, Model model) {
 		return "event/event_5";
 	}
+/*
+	//장바구니 추가
+	@RequestMapping(value = "/fucart.fu", method = RequestMethod.GET)//insert
+	public String insert(Locale locale, Model model,@ModelAttribute OrderDTO dto, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		dto.setEmail(email);
+		//장바구니에 기존 상품이 있는지 검사
+		int count = cartService.countCart(dto.getNum(), email);
+		//count == 0 ? cartService.updateCart(dto) : cartService.insert(dto);
+		if(count == 0) {
+			cartService.insert(dto);
+		}else {
+			cartService.updateCart(dto);
+		}
+		return "redirecr:/fucart.fu";		
+	}
+	
+	//장바구니 목록
+	@RequestMapping(value = "/fucart.fu", method = RequestMethod.GET)//list
+	public ModelAndView list(Locale locale, Model model,HttpSession session, ModelAndView mav) {
+		String email = (String) session.getAttribute("email");
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<OrderDTO> list = cartService.listCart(email);
+		int sumMoney = cartService.sumMoney(email);
+		int allSum = 0;
+		for (OrderDTO orderdto : list) {
+			allSum += orderdto.getPrice() * orderdto.getAmount();
+		}
+		
+		map.put("list", list);        //장바구니 정보를 map에 저장
+		map.put("count", list.size());//장바구니 상품의 유무
+		map.put("sumMoney", sumMoney);//장바구니 전체금액
+		map.put("allSum", allSum);    //주문상품 전제 금액
+		mav.setViewName("cart");      
+		mav.addObject("map",map);
+		return mav;
+	}
 
+	//장바구니 삭제
+	@RequestMapping(value = "/fucart.fu", method = RequestMethod.GET)
+	public String delete(Locale locale, Model model,int ordernum) {
+		cartService.delete(ordernum);
+		return "redirect:/fucart.fu";
+	}
+	
+	//장바구니 수정
+	@RequestMapping(value = "/fucart.fu", method = RequestMethod.GET)
+	public String update(Locale locale, Model model,@RequestParam int[] amount,@RequestParam  int[] num, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		for(int i=0; i<num.length; i++) {
+			OrderDTO dto = new OrderDTO();
+			dto.setEmail(email);
+			dto.setAmount(amount[i]);
+			dto.setNum(num[i]);
+			cartService.updateCart(dto);
+		}
+		return "redirect:/fucart.fu";
+	}
 
-
-
+*/
 	//payment part
 	@RequestMapping(value = "/payment.fu", method = RequestMethod.GET)
 	public String payment(Locale locale, Model model) {
