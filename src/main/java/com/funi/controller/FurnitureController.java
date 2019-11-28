@@ -108,7 +108,7 @@ public class FurnitureController {
 	//HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public String home1(Locale locale, Model model) {
-		return "home";
+		return "index";
 	}
 
 	@RequestMapping(value = "/home2.fu", method = RequestMethod.GET)
@@ -143,7 +143,7 @@ public class FurnitureController {
 			System.out.println("flag : "+paramdto.getEmail());
 			String message = null;
 			if(!flag) {
-				message = "회占쏙옙 占쏙옙占쏙옙占쏙옙 찾占쏙옙占쏙옙 占쏙옙占쏙옙占싹댐옙.";
+				message = "회원 정보를 찾을수 없습니다.";
 				loginmav.addObject("message",message);
 				loginmav.setViewName("member/login");
 				return loginmav;
@@ -155,7 +155,7 @@ public class FurnitureController {
 			System.out.println("memberdto.getPwd() : "+memberdto.getPwd());
 
 			if(!memberdto.getPwd().equals(paramPassword)) {
-				message = "���� �н����带 Ȯ�����ּ���.";
+				message = "계정 패스워드를 확인해주세요.";
 				loginmav.addObject("message",message);
 				loginmav.setViewName("member/login");
 				return loginmav;
@@ -204,8 +204,8 @@ public class FurnitureController {
         
         if(useremail != null) {
             email.setReceiver(useremail);
-            email.setContent("��й�ȣ�� "+useremail+" �Դϴ�.");
-            email.setSubject(useremail+"�� ��й�ȣ ã�� �����Դϴ�.");            
+            email.setContent("비밀번호는 "+useremail+" 입니다.");
+            email.setSubject(useremail+"님 비밀번호 찾기 메일입니다.");            
             emailSender.SendEmail(email);         
             mav= new ModelAndView("member/searchPwd");
             mav.addObject("message","send email");
@@ -214,14 +214,14 @@ public class FurnitureController {
     }
 
 
-	//회占쏙옙占쏙옙占쏙옙
+	//회원가입
 	@RequestMapping(value = "/register.fu", method = RequestMethod.GET) 
 	public String register(Locale locale, Model model,HttpServletRequest request,HttpServletResponse response) throws IOException { 
 
 		if(request.getParameter("mode")!=null) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('Email占쏙옙 占쌩븝옙占실억옙占쏙옙占싹댐옙.'); history.go(-1); </script>");
+			writer.println("<script>alert('Email이 중복되었습니다.'); history.go(-1); </script>");
 			writer.flush();
 		}
 		return "member/register"; 
@@ -238,7 +238,7 @@ public class FurnitureController {
 		String phone1 = request.getParameter("phone1");
 		String phone2 = request.getParameter("phone2");	
 		String phone = phone1 + phone2;		
-		// salt SHA256 ��ȣȭ ���� 
+		// salt SHA256 암호화 저장  
 		memberdto.setPhone(phone);
 		String salt = SHA256Util.generateSalt();
 		memberdto.setSalt(salt);
@@ -251,7 +251,7 @@ public class FurnitureController {
 		} catch (Exception e) {
 	
 			System.out.println(e.toString());
-			System.out.println("Email�� �ߺ�");
+			System.out.println("Email이 중복");
 			return "redirect:/register.fu?emailcheck=no"; 
 		}
 		return "redirect:/login.fu"; 
@@ -286,13 +286,13 @@ public class FurnitureController {
 		dto.setPrice(Integer.parseInt(request.getParameter("price")));
 		dto.setSaveFileName(file.getOriginalFilename());
 		bedDao.insertBedData(dto);	
-		//占쏙옙占쏙옙占쏙옙占�: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
+		//실제경로: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
 		Path path1 = Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\bedroom");			
 		String path = request.getSession()
 				.getServletContext()
 				.getRealPath("/image/bed");
-		System.out.println("占싻쏙옙"+path);
-		if(file!=null&&file.getSize()>0) { //占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
+		System.out.println("패스"+path);
+		if(file!=null&&file.getSize()>0) { //파일이 있으면
 			try {
 				FileOutputStream fos =
 						new FileOutputStream(path +
@@ -316,7 +316,9 @@ public class FurnitureController {
 		System.out.println("dto:"+dto);
 		return "redirect:/upload.fu";
 	}
-	//占싱뱄옙占쏙옙 占쏙옙占싸듸옙 占쏙옙트占싼뤄옙
+	
+	
+	//이미지 업로드 컨트롤러
 	@RequestMapping(value = "/diningupload.fu", method= {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView diningupload() {
 
@@ -342,19 +344,18 @@ public class FurnitureController {
 		
 		diningdao.insertData(dto);
 		
-		//占쏙옙占쏙옙占쏙옙占�: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
+		//실제경로: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
 		Path path1 = 
 				Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\dining");
 				
-		System.out.println("test 占쌉니댐옙");
-		
+				
 		String path = 
 				request.getSession()
 				.getServletContext()
 				.getRealPath("/image/dining");
 
 
-		if(file!=null&&file.getSize()>0) { //占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
+		if(file!=null&&file.getSize()>0) { //파일이 있으면
 
 			try {
 
@@ -413,7 +414,7 @@ public class FurnitureController {
 		
 		decodao.insertData(dto);
 		
-		//占쏙옙占쏙옙占쏙옙占�: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
+		//실제경로: D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HotelWebService\event
 		Path path1 = 
 				Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\deco");
 				
@@ -424,7 +425,7 @@ public class FurnitureController {
 				.getRealPath("/image/deco");
 
 
-		if(file!=null&&file.getSize()>0) { //占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
+		if(file!=null&&file.getSize()>0) { //파일이 있으면
 
 			try {
 
@@ -460,11 +461,11 @@ public class FurnitureController {
 
 
 
-	//占쏙옙품 占쏙옙트
+	//제품 파트
 	@RequestMapping(value = "/diningfull.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView diningfull(HttpServletRequest request) throws Exception{
 		
-//		//占쏙옙占쏙옙징처占쏙옙
+//		//페이징처리
 //		String cp = request.getContextPath();
 //		
 //		String pageNum = request.getParameter("pageNum");
@@ -489,10 +490,10 @@ public class FurnitureController {
 //			
 //		}
 //		
-//		//占쏙옙체占쏙옙占쏙옙占싶곤옙占쏙옙
+//		//전체데이터갯수
 //		int dataCount = diningdao.getDataCount();
 //		
-//		//占쏙옙체占쏙옙占쏙옙占쏙옙占쏙옙
+//		//전체페이지수
 //		int numPerPage = 10;
 //		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 //		
@@ -502,7 +503,7 @@ public class FurnitureController {
 //		int start = (currentPage-1)*numPerPage+1;
 //		int end = currentPage*numPerPage;
 //		
-//		//占쏙옙占쏙옙징 처占쏙옙
+//		//페이징 처리
 //		String param = "";
 //		if(!searchValue.equals("")){
 //			param = "searchKey=" + searchKey;
@@ -782,8 +783,7 @@ public class FurnitureController {
 		params.put("cate", cate);
 
 		List<FurnitureDTO> catelists = diningdao.getCateLists(params);
-		System.out.println("占쏙옙占썩를 占쏙옙占쏙옙占쏙옙占싹댐옙. ");
-		
+				
 		mav.setViewName("dining_desk");
 		mav.addObject("catelists", catelists);
 
@@ -813,11 +813,11 @@ public class FurnitureController {
 		return mav;
 	}
 
-	//홈占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙트占싼뤄옙
+	//홈데코 페이지 컨트롤러
 	@RequestMapping(value = "/decofull.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView decofull(HttpServletRequest request) {
 		
-//		//占쏙옙占쏙옙징처占쏙옙
+//		//�뜝�룞�삕�뜝�룞�삕吏뺤쿂�뜝�룞�삕
 //		String cp = request.getContextPath();
 //		
 //		String pageNum = request.getParameter("pageNum");
@@ -842,10 +842,10 @@ public class FurnitureController {
 //			
 //		}
 //		
-//		//占쏙옙체占쏙옙占쏙옙占싶곤옙占쏙옙
+//		//�뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
 //		int dataCount = diningdao.getDataCount();
 //		
-//		//占쏙옙체占쏙옙占쏙옙占쏙옙占쏙옙
+//		//�뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 //		int numPerPage = 10;
 //		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 //		
@@ -855,7 +855,7 @@ public class FurnitureController {
 //		int start = (currentPage-1)*numPerPage+1;
 //		int end = currentPage*numPerPage;
 //		
-//		//占쏙옙占쏙옙징 처占쏙옙
+//		//�뜝�룞�삕�뜝�룞�삕吏� 泥섇뜝�룞�삕
 //		String param = "";
 //		if(!searchValue.equals("")){
 //			param = "searchKey=" + searchKey;
@@ -1009,7 +1009,7 @@ public class FurnitureController {
 
 
 
-	//占쏙옙占쏙옙占싫놂옙
+	//지점안내
 	@RequestMapping(value = "/blog.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public String blog(Locale locale, Model model,HttpServletRequest request) {	
 		String location = request.getParameter("location");
@@ -1054,10 +1054,10 @@ public class FurnitureController {
 			currentPage = Integer.parseInt(pageNum);
 
 
-		//占쏙옙체占쏙옙占쏙옙占싶곤옙占쏙옙
+		//�뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
 		int dataCount = qnadao.getDataCount();
 
-		//占쏙옙체占쏙옙占쏙옙占쏙옙占쏙옙
+		//�뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 		int numPerPage = 5;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 
@@ -1074,11 +1074,11 @@ public class FurnitureController {
 		String pageIndexList =
 				myUtil1.pageIndexList(currentPage, totalPage, listUrl);
 
-		//占쌜븝옙占쏙옙 占쌍쇽옙 占쏙옙占쏙옙
+		//�뜝�뙗釉앹삕�뜝�룞�삕 �뜝�뙇�눦�삕 �뜝�룞�삕�뜝�룞�삕
 		String articleUrl = 
 				cp + "/qnamain.fu?pageNum=" + currentPage;
 
-		//占쏙옙占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싶몌옙 占싼깍옙占�
+		//�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕 �뜝�떬源띿삕�뜝占�
 		request.setAttribute("lists", lists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
@@ -1092,7 +1092,7 @@ public class FurnitureController {
 
 		dto.setId(qnadao.getMAXID()+1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("홍占썸동");
+		dto.setName("�솉�뜝�뜽�룞");
 
 		qnadao.insertData(dto);
 
@@ -1114,7 +1114,7 @@ public class FurnitureController {
 	public String qnaview_write(Re_QnADTO dto,HttpServletRequest request,Locale locale, Model model) {
 		dto.setId(qnadao.getRe_MAXID()+1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("홍占썸동");
+		dto.setName("�솉�뜝�뜽�룞");
 		dto.setQaboard_id(Integer.valueOf(request.getParameter("qaboard_id")));
 		qnadao.Re_insertData(dto);
 		QnADTO reviewdto=qnadao.getReadData(Integer.valueOf(request.getParameter("qaboard_id")));
@@ -1163,10 +1163,10 @@ public class FurnitureController {
 			currentPage = Integer.parseInt(pageNum);
 
 
-		//占쏙옙체占쏙옙占쏙옙占싶곤옙占쏙옙
+		//�뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
 		int dataCount = reviewdao.getDataCount();
 
-		//占쏙옙체占쏙옙占쏙옙占쏙옙占쏙옙
+		//�뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 		int numPerPage = 5;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 
@@ -1183,11 +1183,11 @@ public class FurnitureController {
 		String pageIndexList =
 				myUtil1.pageIndexList(currentPage, totalPage, listUrl);
 
-		//占쌜븝옙占쏙옙 占쌍쇽옙 占쏙옙占쏙옙
+		//�뜝�뙗釉앹삕�뜝�룞�삕 �뜝�뙇�눦�삕 �뜝�룞�삕�뜝�룞�삕
 		String articleUrl = 
 				cp + "/reviewmain.fu?pageNum=" + currentPage;
 
-		//占쏙옙占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싶몌옙 占싼깍옙占�
+		//�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕 �뜝�떬源띿삕�뜝占�
 		request.setAttribute("lists", lists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
@@ -1198,11 +1198,11 @@ public class FurnitureController {
 
 	@RequestMapping(value = "/reviewwrite.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public String reviewwrite(ReviewDTO dto,MultipartHttpServletRequest request,Locale locale, Model model,HttpSession session) {
-		System.out.println("占쏙옙트占쏙옙 占쏙옙占쏙옙"+reviewdao.getMAXID());
+		System.out.println("�뜝�룞�삕�듃�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕"+reviewdao.getMAXID());
 
 		dto.setId(reviewdao.getMAXID()+1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("홍占썸동");
+		dto.setName("�솉�뜝�뜽�룞");
 		//String path="D:/sts-bundle/work/FurnitureWeb/src/main/webapp/resources/assets/img/save";
 		String path = "d:/file";
 		//String path="D:/sts-bundle/work/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/FurnitureWeb/files";
@@ -1223,7 +1223,7 @@ public class FurnitureController {
 				// TODO: handle exception 
 				System.out.println(e.toString()); } 
 		}else {
-			System.out.println("占쏙옙占쏙옙占싶곤옙 占쏙옙占쏙옙占싹댐옙.");
+			System.out.println("�뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕 �뜝�룞�삕�뜝�룞�삕�뜝�떦�뙋�삕.");
 		}
 		dto.setPhoto(file.getOriginalFilename()); 
 		reviewdao.insertData(dto);
@@ -1246,7 +1246,7 @@ public class FurnitureController {
 	public String reviewview_write(Re_ReviewDTO dto,HttpServletRequest request,Locale locale, Model model) {
 		dto.setId(reviewdao.getRe_MAXID()+1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("홍占썸동");
+		dto.setName("�솉�뜝�뜽�룞");
 		dto.setQaboard_id(Integer.valueOf(request.getParameter("qaboard_id")));
 		reviewdao.Re_insertData(dto);
 		ReviewDTO reviewdto=reviewdao.getReadData(Integer.valueOf(request.getParameter("qaboard_id")));
@@ -1319,7 +1319,7 @@ public class FurnitureController {
 	}
 
 
-	//占쏙옙袂占쏙옙占�
+	//�뜝�룞�삕熬귛뜝�룞�삕�뜝占�
 	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
 	public String cart(Locale locale, Model model) {
 		return "cart/cart";
