@@ -94,7 +94,7 @@
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
                                                 <a href="dining_desk_details.fu?imageIndex=66&cate=책상 / 선반">
-                                                	<img src="<%=cp %>/resources/images/dining/304오크서랍형책상.jpg" style="max-width: 70%;" alt="">
+                                                	<img src="<%=cp %>/resources/images/dining/301철제오크테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
