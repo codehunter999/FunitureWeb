@@ -42,8 +42,7 @@
 			});
 		});
 	</script>
-	
-	
+
 	<style type="text/css">
 		.container {
 		  padding-right: 15px;
@@ -331,6 +330,18 @@
 												        	<a href="${pageContext.request.contextPath }/users/info.do" class="mainmenu__link">
 												        		<span class="mm-text">${sessionScope.email } 님</span>
 												        	</a>
+												        	 <ul class="sub-menu">
+		                                                    	<li>
+		                                                            <a href="<%=cp%>/myinfo.fu">
+		                                                                <span class="mm-text">마이페이지</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li>
+		                                                            <a href="<%=cp%>/deleteMember.fu">
+		                                                                <span class="mm-text">회원탈퇴</span>
+		                                                            </a>
+		                                                        </li>
+		                                                    </ul>
 												        </li>
 												        <li class="mainmenu__item menu-item-has-children">
 												        	<a href="${pageContext.request.contextPath }/logout.fu" class="mainmenu__link"> 

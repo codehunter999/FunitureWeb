@@ -66,7 +66,8 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("emailSender")
     EmailSender emailSender;
-    @Autowired
+    
+	@Autowired
     @Qualifier("email")
     Email email;
 	
@@ -116,8 +117,7 @@ public class FurnitureController {
 			
 			memberdto = memberdao.searchMember(paramdto.getEmail());
 			String paramPassword = SHA256Util.getEncrypt(paramdto.getPwd(),memberdto.getSalt());
-			System.out.println("paramPassword : "+paramPassword);
-			System.out.println("memberdto.getPwd() : "+memberdto.getPwd());
+
 
 			if(!memberdto.getPwd().equals(paramPassword)) {
 				message = "계정 패스워드를 확인해주세요.";
@@ -148,16 +148,42 @@ public class FurnitureController {
 		logoutmav.setViewName("redirect:/login.fu");
 		return logoutmav;
 	}
-	@RequestMapping("/searchPassword.fu")
+	@RequestMapping(value="/searchPassword.fu",method= {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView searchPwd(){	
 		ModelAndView mav = new ModelAndView();		
 		mav.setViewName("member/searchPwd");
 		return mav;		
 	}
-
-    @RequestMapping("/sendpw.fu")
+	
+	//회원 패스워드 변경 
+	
+	@RequestMapping(value="/changPwd.fu",method= {RequestMethod.POST,RequestMethod.GET})
+	public ModelAndView changePwd(){	
+		ModelAndView mav = new ModelAndView();		
+		mav.setViewName("member/changePwd");
+		return mav;		
+	}
+	@RequestMapping(value="/changePwd_ok.fu",method= {RequestMethod.POST})
+	public ModelAndView changePwd_ok(MemberDTO paramdto) {
+		ModelAndView changePwdmav = new ModelAndView();
+		
+		try {
+			MemberDTO memberdto = memberdao.searchMember(paramdto.getEmail());
+			memberdto.setPwd(SHA256Util.getEncrypt(paramdto.getPwd(),memberdto.getSalt()));
+			memberdao.update_pw(memberdto);
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}	
+		changePwdmav.setViewName("redirect:/login.fu");
+		return changePwdmav; 
+	}
+    
+	
+	//회원 패스워드 찾기 이메일 
+	@RequestMapping(value="/sendpw.fu",method= {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView sendEmailAction (ModelMap model,MemberDTO memberdto) throws Exception {  
-    	ModelAndView mav = new ModelAndView();     
+    	
+		ModelAndView mav = new ModelAndView();     
         String useremail =	memberdto.getEmail();     
         boolean flag = memberdao.searchID(memberdto.getEmail());
         System.out.println(flag);
@@ -165,8 +191,7 @@ public class FurnitureController {
         	 mav=new ModelAndView("member/searchPwd");
              mav.addObject("message","send no search Email");
              return mav;
-        }
-        
+        }      
         if(useremail != null) {
             email.setReceiver(useremail);
             email.setContent("비밀번호는 "+useremail+" 입니다.");
@@ -177,7 +202,49 @@ public class FurnitureController {
         };
         return mav;
     }
+	//회원 정보 수정 
+	@RequestMapping(value="/myinfo.fu",method= {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView myinfo (ModelMap model,HttpSession session) throws Exception {  
+		ModelAndView myinfomav = new ModelAndView();
+		myinfomav.setViewName("member/myinfo");
+		String email = (String)session.getAttribute("email");
+		MemberDTO memberdto = memberdao.searchMember(email);
+		System.out.println("myinfo email "+email);
+		System.out.println("myinfo addr1 "+email);
+		System.out.println("myinfo addr2 "+email);
+		System.out.println("myinfo addr3 "+email);
+		myinfomav.addObject("memberdto",memberdto);
+		return myinfomav;
+	}
+	//회원 정보 수정 
+	@RequestMapping(value="/myinfo_ok.fu",method= {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView myinfo_ok (ModelMap model,HttpSession session,MemberDTO memberdto) throws Exception {  
 
+		ModelAndView myinfomav = new ModelAndView();
+		myinfomav.setViewName("redirect:/home.fu");		
+		return myinfomav;
+	}
+	
+	//회원 탈퇴 페이지
+	@RequestMapping(value="/deleteMember.fu",method= {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView deleteMeber_ok (ModelMap model,HttpSession session) throws Exception {  
+		ModelAndView deletemav = new ModelAndView();
+		deletemav.setViewName("member/deleteMember");		
+		return deletemav;
+	}
+	
+	//회원 탈퇴 
+	@RequestMapping(value="/deleteMember_ok.fu",method= {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView deleteMeber (ModelMap model,HttpSession session) throws Exception {  
+		ModelAndView deletemav = new ModelAndView();
+		String email = (String)session.getAttribute("email");
+		memberdao.delete_member(email);
+		session.removeAttribute("email");
+		deletemav.setViewName("redirect:/login.fu");	
+		deletemav.addObject("message","회원이 탈퇴되었습니다.");
+		return deletemav;
+	}
+	
 	//회원가입
 	@RequestMapping(value = "/register.fu", method = RequestMethod.GET) 
 	public String register(Locale locale, Model model,HttpServletRequest request,HttpServletResponse response) throws IOException { 
@@ -191,10 +258,7 @@ public class FurnitureController {
 
 		return "member/register"; 
 	}
-
-
-
-
+	
 	@RequestMapping(value = "/register_ok.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
 	public String register_ok(MemberDTO memberdto,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
@@ -646,21 +710,6 @@ public class FurnitureController {
 
 
 	}
-	@RequestMapping(value = "/deco_monthly.fu", method = RequestMethod.GET)
-	public String deco_monthly(Locale locale, Model model) {
-		return "deco_monthly";
-	}
-
-	@RequestMapping(value = "/deco_light.fu", method = RequestMethod.GET)
-	public String deco_light(Locale locale, Model model) {
-		return "deco_light";
-	}
-
-	@RequestMapping(value = "/deco_plasticch.fu", method = RequestMethod.GET)
-	public String deco_plasticch(Locale locale, Model model) {
-		return "deco_plasticch";
-	}
-
 
 
 	//지점안내
@@ -694,50 +743,4 @@ public class FurnitureController {
 		}
 		return "location/blog_GanNam";
 	}
-
-
-	
-	//REVIEW PART
-	
-
-
-
-	//EVENT PART
-	@RequestMapping(value = "/event_list.fu", method = RequestMethod.GET)
-	public String event_list(Locale locale, Model model) {
-		return "event/event_list";
-	}
-
-	@RequestMapping(value = "/event_2.fu", method = RequestMethod.GET)
-	public String event_2(Locale locale, Model model) {
-		return "event/event_2";
-	}
-	@RequestMapping(value = "/event_3.fu", method = RequestMethod.GET)
-	public String event_3(Locale locale, Model model) {
-		return "event/event_3";
-	}
-	@RequestMapping(value = "/event_4.fu", method = RequestMethod.GET)
-	public String event_4(Locale locale, Model model) {
-		return "event/event_4";
-	}
-	@RequestMapping(value = "/event_5.fu", method = RequestMethod.GET)
-	public String event_5(Locale locale, Model model) {
-		return "event/event_5";
-	}
-
-
-
-
-	//payment part
-	@RequestMapping(value = "/payment.fu", method = RequestMethod.GET)
-	public String payment(Locale locale, Model model) {
-		return "payment";
-	}
-
-	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
-	public String cart(Locale locale, Model model) {
-		return "cart";
-	}
-
-
 }
