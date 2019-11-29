@@ -1,3 +1,9 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/funi/controller/DecoController.java=UTF-8
+encoding//src/main/java/com/funi/controller/DiningController.java=UTF-8
 encoding//src/main/java/com/funi/controller/FurnitureController.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/webapp/WEB-INF/views/cart/cart.jsp=UTF-8
+=======
+encoding//src/main/java/com/funi/controller/ReviewController.java=UTF-8
+>>>>>>> d5178bab5909786efa935f923447947a2ab08ced
