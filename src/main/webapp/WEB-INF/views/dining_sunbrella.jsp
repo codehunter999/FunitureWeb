@@ -125,7 +125,7 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.jsp" class="action-btn">
+                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <a href="wishlist.jsp" class="action-btn">
@@ -135,7 +135,7 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }">${dto.productName }</a>
+                                                        <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&price=${dto.price }">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
