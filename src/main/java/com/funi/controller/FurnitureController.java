@@ -234,8 +234,6 @@ public class FurnitureController {
 	}
 
 
-
-
 	@RequestMapping(value = "/register_ok.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
 	public String register_ok(MemberDTO memberdto,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
