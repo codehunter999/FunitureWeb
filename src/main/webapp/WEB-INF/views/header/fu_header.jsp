@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Beck - Furniture eCommerce Bootstrap 4 Template</title>
+    <title>KAARE KLINT 카레클린트 | 가구 | 원목가구 | 디자인가구 | 신혼 가구</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
@@ -111,48 +111,48 @@
                                                     </a>
                                                     <ul class="megamenu">
                                                         <li>
-                                                            <a class="megamenu-title" href="">
+                                                            <a class="megamenu-title" href="living_total.fu">
                                                                 <span class="mm-text">거실 / 리빙룸</span>
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="living_sunb.fu">
-                                                                        <span class="mm-text">선브렐라 소파</span>
+                                                                    <a href="living_sunb.fu?cateEn=sunb">
+                                                                        <span class="mm-text">★선브렐라 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_fabric.fu">
+                                                                    <a href="living_fabric.fu?cateEn=fabric">
                                                                         <span class="mm-text">패브릭 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_leather.fu">
+                                                                    <a href="living_leather.fu?cateEn=leather">
                                                                         <span class="mm-text">가죽 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_deus.fu">
+                                                                    <a href="living_deus.fu?cateEn=deus">
                                                                         <span class="mm-text">데우스 소파</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_sideTable.fu">
+                                                                    <a href="living_sideTable.fu?cateEn=sideTable">
                                                                         <span class="mm-text">사이드 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_TV">
+                                                                    <a href="living_TV.fu?cateEn=TV">
                                                                         <span class="mm-text">TV 장</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_shelf.fu">
-                                                                        <span class="mm-text">선 반</span>
+                                                                    <a href="living_shelf.fu?cateEn=shelf">
+                                                                        <span class="mm-text">선반</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="living_bookcase.fu">
-                                                                        <span class="mm-text">북케이스</span>
+                                                                    <a href="living_bookcase.fu?cateEn=bookcase">
+                                                                        <span class="mm-text">북 케이스</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -200,27 +200,27 @@
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">침실/베드룸</span>
+                                                            <a class="megamenu-title" href="bed_total.fu">
+                                                                <span class="mm-text">침실 / 베드룸</span>
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="bed_bed.fu">
-                                                                        <span class="mm-text">침 대</span>
+                                                                    <a href="bed_bed.fu?cateEn=BED">
+                                                                        <span class="mm-text">침대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="bed_ht.fu">
-                                                                        <span class="mm-text">협 탁</span>
+                                                                    <a href="bed_ht.fu?cateEn=ht">
+                                                                        <span class="mm-text">협탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="bed_dressingTable.fu">
+                                                                    <a href="bed_dressingTable.fu?cateEn=dressingTable">
                                                                         <span class="mm-text">화장대</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="bed_chiff.fu">
+                                                                    <a href="bed_chiff.fu?cateEn=chiff">
                                                                         <span class="mm-text">서랍장</span>
                                                                     </a>
                                                                 </li>
