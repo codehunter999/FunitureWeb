@@ -5,7 +5,8 @@ PUBLIC "-/mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<properties>
 		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@192.168.16.12:1521:TestDB"/>
+
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:TestDB"/>
 		<property name="username" value="suzi"/>
 		<property name="password" value="a123"/>
 	</properties>	
@@ -25,6 +26,10 @@ PUBLIC "-/mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/funi/mapper/funi_memberMapper.xml"/>
 		<mapper resource="com/funi/mapper/livingMapper.xml"/>
 		<mapper resource="com/funi/mapper/diningMapper.xml"/>
+	 	<mapper resource="com/funi/mapper/cartMapper.xml"/>
+	 	<mapper resource="com/funi/mapper/QnAMapper.xml"/>
+		<mapper resource="com/funi/mapper/ReviewMapper.xml"/>
+		<mapper resource="com/funi/mapper/decoMapper.xml"/>
 		
 	</mappers>
 </configuration> 

@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.funi.dao">
+	<logger name="com.funi.spring">
 		<level value="info" />
 	</logger>
 	

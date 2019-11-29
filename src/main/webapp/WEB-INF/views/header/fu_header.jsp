@@ -3,11 +3,8 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-	
-	System.out.println(cp);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html class="no-js" lang="zxx">
  
 <head>
@@ -20,15 +17,7 @@
     <link rel="shortcut icon" href="<%=cp %>/resources/assets/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="<%=cp %>/resources/assets/img/icon.png">
 
-    <!-- ************************* CSS Files ************************* -->
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">	
-	<!-- 부가적인 테마 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  
 	
 	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -51,6 +40,18 @@
 		  margin-left: auto;
 		}
 	</style>
+	
+	  <!-- ************************* CSS Files ************************* -->
+    
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">	
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	
+	<!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
 
 </head>
 
@@ -161,37 +162,37 @@
                                                             </a>
                                                             <ul> 
                                                                 <li>
-                                                                    <a href="dining_sunbrella.fu">
+                                                                    <a href="dining_sunbrella.fu?cate=선브렐라 체어">
                                                                         <span class="mm-text">선브렐라 체어</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_clean.fu">
+                                                                    <a href="dining_clean.fu?cate=클린터치 테이블">
                                                                         <span class="mm-text">클린터치 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_rnl.fu">
+                                                                    <a href="dining_rnl.fu?cate=리놀륨 테이블">
                                                                         <span class="mm-text">리놀륨 테이블</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_table.fu">
+                                                                    <a href="dining_table.fu?cate=테이블 / 식탁">
                                                                         <span class="mm-text">테이블 / 식탁</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_chair.fu">
+                                                                    <a href="dining_chair.fu?cate=체어 / 의자">
                                                                         <span class="mm-text">체어 / 의자</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_deco.fu">
+                                                                    <a href="dining_deco.fu?cate=장식장">
                                                                         <span class="mm-text">장식장</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="dining_desk.fu">
+                                                                    <a href="dining_desk.fu?cate=책상 / 선반">
                                                                         <span class="mm-text">책상 / 선반</span>
                                                                     </a>
                                                                 </li>
@@ -230,17 +231,17 @@
                                                             </a>
                                                             <ul>
                                                                 <li>
-                                                                    <a href="deco_monthly.fu">
+                                                                    <a href="deco_monthly.fu?cate=월간 카레클린트">
                                                                         <span class="mm-text">월간 카레클린트</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="deco_light.fu">
+                                                                    <a href="deco_light.fu?cate=조명">
                                                                         <span class="mm-text">조명</span>
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="deco_plasticch.fu">
+                                                                    <a href="deco_plasticch.fu?cate=PLASTIC 체어">
                                                                         <span class="mm-text">PLASTIC 체어</span>
                                                                     </a>
                                                                 </li>
@@ -300,7 +301,7 @@
                                                     </a>
                                                     <ul class="sub-menu">
                                                     	<li>
-                                                            <a href="#">
+                                                            <a href="qnamain.fu">
                                                                 <span class="mm-text">Q&A</span>
                                                             </a>
                                                         </li>
@@ -324,6 +325,7 @@
                                                 <li class="mainmenu__item menu-item-has-children">
                                                    <span class="mm-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                 </li>
+
                                                 <c:choose> 
 												    <c:when test="${not empty sessionScope.email }">   
 												        <li class="mainmenu__item menu-item-has-children">
@@ -364,7 +366,7 @@
 												</c:choose>
                                             </ul>
                                         </nav>
-                                    </div>     
+                                    </div> 
                                     <div class="header__main-right">
                                         <div class="header-toolbar-wrap">
                                             <div class="header-toolbar">

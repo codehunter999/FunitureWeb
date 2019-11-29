@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cartMapper">
+	<!-- 장바구니 정보입력 -->
+	<insert id="insertData" parameterType="com.funi.domain.CartDTO">
+		insert into cartdata (email,imageIndex,productName,qty,price) 
+		values (#{email},#{imageIndex},#{productName},#{qty},#{price})
+	</insert>
+	
+	<!-- 유저별 장바구니 전체데이터 -->
+
+
+</mapper>

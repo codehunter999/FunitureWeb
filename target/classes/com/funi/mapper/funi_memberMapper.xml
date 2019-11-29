@@ -9,6 +9,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 		insert into fumember (email,pwd,name,phone,salt,addr1,addr2,addr3) 
 		values (#{email},#{pwd},#{name},#{phone},#{salt},#{addr1},#{addr2},#{addr3})
 	</insert>
+
 	<select id="getReadData" parameterType="Integer" resultType="com.funi.domain.MemberDTO">
 		select email from fumember where email=#{email}
 	</select>

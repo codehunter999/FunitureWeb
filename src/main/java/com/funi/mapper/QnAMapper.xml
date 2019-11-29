@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org./dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnAMapper">
+	<select id="maxNum" resultType="int">
+	select nvl(max(id),0) from qaboard
+	</select>
+	<insert id="insertData" parameterType="com.funi.domain.QnADTO">
+	insert into qaboard(id,name,subject,content,ipaddr,created_at) 
+	values (#{id},#{name},#{subject},#{content},
+	#{ipaddr},sysdate)	
+	</insert>	
+	<select id="getDataCount" parameterType="map" resultType="int">
+	select nvl(count(*),0) from qaboard
+	</select>
+	<select id="getLists" parameterType="map" resultType="com.funi.domain.QnADTO">
+	select * from (
+	select rownum rnum,data.* from(
+	select id,name,subject,content,ipaddr,
+	created_at 
+	from qaboard 
+	order by id desc) data)
+	<![CDATA[
+		where rnum>=#{start} and rnum<=#{end}
+	]]>
+	</select>
+	<select id="getReadData" parameterType="int" resultType="com.funi.domain.QnADTO">
+		select id,name,subject,content,ipaddr,created_at from qaboard where id=#{id}
+	</select>
+	<update id="updateData" parameterType="com.funi.domain.QnADTO">
+	update qaboard set subject=#{subject},content=#{content} where id=#{id}
+	</update>
+	<delete id="deleteData" parameterType="int">
+		delete qaboard where id=#{id}
+	</delete>
+	
+	
+	<select id="re_maxNum" resultType="int">
+	select nvl(max(id),0) from qaboard_re
+	</select>
+	<insert id="re_insertData" parameterType="com.funi.domain.Re_QnADTO">
+	insert into qaboard_re(id,name,content,ipaddr,created_at,qaboard_id) 
+	values (#{id},#{name},#{content},
+	#{ipaddr},sysdate,#{qaboard_id})	
+	</insert>
+	<select id="re_getLists" parameterType="int" resultType="com.funi.domain.Re_QnADTO">
+	select id,name,content,ipaddr,qaboard_id,
+	created_at 
+	from qaboard_re 
+	where qaboard_id=#{qaboard_id} 
+	order by id desc
+	</select>
+	<delete id="re_deleteData" parameterType="int">
+		delete qaboard_re where qaboard_id=#{qaboard_id}
+	</delete>
+</mapper>
+
+
+
