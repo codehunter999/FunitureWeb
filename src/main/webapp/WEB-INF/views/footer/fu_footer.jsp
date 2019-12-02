@@ -176,6 +176,7 @@
                             <span class="ammount">$98.00</span>
                         </div>
                         <div class="mini-cart__buttons">
+                            <a href="wishlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20">Wish List</a>
                             <a href="cart.fu" class="btn btn-fullwidth btn-bg-primary mb--20">View Cart</a>
                             <a href="#" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
                         </div>

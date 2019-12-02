@@ -263,8 +263,8 @@
                                     <div class="row">
                                         
                                         <!-- index 화면 제품별 리스트 목록 구역 -->
-                                        <c:forEach items="${lists }" var="dto">
-                                        <c:choose>
+                                        <%-- <c:forEach items="${lists }" var="dto">
+                                        <c:choose> --%>
                                         <div class="col-lg-3 col-sm-6 mb--45">
                                             <div class="ft-product HTfadeInUp">
                                                 <div class="product-inner">
@@ -303,8 +303,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </c:choose>
-                                        </c:forEach>
+                                        <%-- </c:choose>
+                                        </c:forEach> --%>
                                         <!-- index 화면 제품별 리스트 목록 구역 종료 -->
                                         
                                         <div class="col-lg-3 col-sm-6 mb--45">
