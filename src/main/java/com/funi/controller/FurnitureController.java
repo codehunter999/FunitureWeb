@@ -108,6 +108,14 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("email")
 	Email email;
+	
+	
+	//Countdown 
+	@RequestMapping(value="/time.fu", method= {RequestMethod.GET,RequestMethod.POST})
+	public String timer(Locale locale, Model model) {
+		return "countdown";
+	}
+	
 
 	
 	// HOME PART
@@ -1665,6 +1673,10 @@ public class FurnitureController {
 	public String event_5(Locale locale, Model model) {
 		return "event/event_5";
 	}
+	
+	
+	
+	
 
 	// payment part
 	@RequestMapping(value = "/payment.fu", method = RequestMethod.GET)
@@ -1676,6 +1688,14 @@ public class FurnitureController {
 	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
 	public String cart(Locale locale, Model model) {
 		return "cart/cart";
+	}
+	
+	
+	
+	//wishlist
+	@RequestMapping(value = "/wishlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public String wishlist(Locale locale, Model model) {
+		return "wishlist";
 	}
 
 }

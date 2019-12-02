@@ -1,4 +1,5 @@
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
         <!-- Main Content Wrapper Start -->
         <main class="main-content-wrapper">
@@ -15,6 +16,8 @@
                                 "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "la la-arrow-right" }
                             }' 
                             data-slick-responsive='[{"breakpoint": 768, "settings": {"arrows": false}}]'>
+                                
+                                <!-- index-1 메인상단 슬라이드 이미지1 -->
                                 <div class="item">
                                     <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
                                         <div class="row align-items-center no-gutters w-100">
@@ -38,6 +41,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <!-- index-1 메인상단 슬라이드 이미지2 -->
                                 <div class="item">
                                     <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
                                         <div class="row align-items-center no-gutters w-100">
@@ -73,6 +78,7 @@
                 <div class="container">
                     <div class="row mb--35 mb-md--23">
                         <div class="col-12 text-center">
+                        	<!-- 신상품 소개 -->
                             <h2>This Week Top Sales</h2>
                         </div>
                     </div>
@@ -234,17 +240,17 @@
                         <div class="col-md-9">
                             <div class="tab-style-1">
                                 <div class="nav nav-tabs justify-content-md-end justify-content-center" id="product-tab" role="tablist">
-                                    <a class="nav-item nav-link active" id="new-all-tab" data-toggle="tab" href="#new-all" role="tab" aria-controls="new-all" aria-selected="true">
-                                        <span class="nav-text">All</span>
+                                    <a class="nav-item nav-link active" id="new-all-tab" data-toggle="tab" href="living_total.fu" role="tab" aria-controls="new-all" aria-selected="true">
+                                        <span class="nav-text">거실/리빙룸</span>
                                     </a>
-                                    <a class="nav-item nav-link" id="new-wooden-tab" data-toggle="tab" href="#new-wooden" role="tab" aria-controls="new-wooden" aria-selected="false">
-                                        <span class="nav-text">wooden</span>
+                                    <a class="nav-item nav-link" id="new-wooden-tab" data-toggle="tab" href="diningfull.fu" role="tab" aria-controls="new-wooden" aria-selected="false">
+                                        <span class="nav-text">주방/다이닝룸</span>
                                     </a>
-                                    <a class="nav-item nav-link" id="new-furnished-tab" data-toggle="tab" href="#new-furnished" role="tab" aria-controls="new-furnished" aria-selected="false">
-                                        <span class="nav-text">furnished</span>
+                                    <a class="nav-item nav-link" id="new-furnished-tab" data-toggle="tab" href="bed_total.fu" role="tab" aria-controls="new-furnished" aria-selected="false">
+                                        <span class="nav-text">침실/베드룸</span>
                                     </a>
-                                    <a class="nav-item nav-link" id="new-table-tab" data-toggle="tab" href="#new-table" role="tab" aria-controls="new-table" aria-selected="false">
-                                        <span class="nav-text">table</span>
+                                    <a class="nav-item nav-link" id="new-table-tab" data-toggle="tab" href="decofull.fu" role="tab" aria-controls="new-table" aria-selected="false">
+                                        <span class="nav-text">홈데코/리빙</span>
                                     </a>
                                 </div>
                             </div>
@@ -255,6 +261,10 @@
                             <div class="tab-content" id="product-tab-content">
                                 <div class="tab-pane fade show active" id="new-all" role="tabpanel" aria-labelledby="new-all-tab">
                                     <div class="row">
+                                        
+                                        <!-- index 화면 제품별 리스트 목록 구역 -->
+                                        <c:forEach items="${lists }" var="dto">
+                                        <c:choose>
                                         <div class="col-lg-3 col-sm-6 mb--45">
                                             <div class="ft-product HTfadeInUp">
                                                 <div class="product-inner">
@@ -293,6 +303,10 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </c:choose>
+                                        </c:forEach>
+                                        <!-- index 화면 제품별 리스트 목록 구역 종료 -->
+                                        
                                         <div class="col-lg-3 col-sm-6 mb--45">
                                             <div class="ft-product HTfadeInUp">
                                                 <div class="product-inner">
