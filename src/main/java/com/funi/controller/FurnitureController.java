@@ -1683,15 +1683,16 @@ public class FurnitureController {
 	@RequestMapping(value = "/wishlist.fu", method = RequestMethod.GET)
 	public String wishlist(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
 		Map<String, String> wishitem;
-		if(request.getParameter("cate")!=null||!(request.getParameter("cate").equals(""))) {
-		System.out.println(request.getParameter("cate")+":"+request.getParameter("imageIndex"));
-		if(session.getAttribute("wishitem")==null) {
-			wishitem=new HashMap<String, String>();
+		if(request.getParameter("cate")==null||request.getParameter("cate").equals("")) {
 		}else {
-			wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
-		}
-		wishitem.put(request.getParameter("cate")+","+ request.getParameter("imageIndex"),request.getParameter("price"));
-		session.setAttribute("wishitem", wishitem);
+			System.out.println(request.getParameter("cate")+":"+request.getParameter("imageIndex"));
+			if(session.getAttribute("wishitem")==null) {
+				wishitem=new HashMap<String, String>();
+			}else {
+				wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
+			}
+			wishitem.put(request.getParameter("cate")+","+ request.getParameter("imageIndex"),request.getParameter("price")+","+request.getParameter("imagetype"));
+			session.setAttribute("wishitem", wishitem);
 		}
 		wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
 		request.setAttribute("wishitem", wishitem);
@@ -1708,7 +1709,7 @@ public class FurnitureController {
 		}
 		wishitem.remove(request.getParameter("id"));
 		session.setAttribute("wishitem", wishitem);
-		return "wishlist";
+		return "redirect:/wishlist.fu";
 	}
 
 }

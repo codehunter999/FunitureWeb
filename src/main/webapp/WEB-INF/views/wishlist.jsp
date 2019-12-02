@@ -75,13 +75,13 @@
                                             <th>&nbsp;</th>
                                             <th>&nbsp;</th>
                                             <th class="text-left">Product</th>
-                                            <th>Stock Status</th>
+                                            <th> </th>
                                             <th>Price</th>
                                             <th>&nbsp;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <!-- <tr>
                                             <td class="product-remove text-left"><a href=""><i class="la la-remove"></i></a></td>
                                             <td class="product-thumbnail text-left">
                                                 <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail">
@@ -102,19 +102,25 @@
                                             <td class="product-action-btn">
                                                 <a href="cart.html" class="btn btn-size-md">Add to cart</a>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                         <%
                                         Map<String, String> wishitem;
                                         wishitem=(HashMap<String, String>)request.getAttribute("wishitem");
+                                        if(wishitem!=null){
                                         for(String key:wishitem.keySet()){
                                         	int cut=key.indexOf(",");
                                         	String name=key.substring(0, cut);
                                         	String set=key.substring(cut+1, key.length());
+                                        	String value=wishitem.get(key);
+                                        	int cut1=value.indexOf(",");
+                                        	String price=value.substring(0,cut1);
+                                        	String img=value.substring(cut1+1,value.length());
                                         %>
                                         <tr>
                                             <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=key%>"><i class="la la-remove"></i></a></td>
                                             <td class="product-thumbnail text-left">
-                                                <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail">
+                                                <%-- <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail"> --%>
+                                                <img src="<%=cp %><%=img %>" alt="Product Thumnail">
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
@@ -122,18 +128,19 @@
                                                 </h3>
                                             </td>
                                             <td class="product-stock">
-                                                <%=wishitem.get(key) %>
+                                                
                                             </td>
                                             <td class="product-price">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">$49.00</span>
+                                                    <span class="money"><%=price %>원</span>
                                                 </span>
                                             </td>
                                             <td class="product-action-btn">
                                                 <a href="cart.html" class="btn btn-size-md">Add to cart</a>
                                             </td>
                                         </tr>
-                                        <%} %>
+                                        <%}
+                                        }%>
                                     </tbody>
                                 </table>
                             </div>  
