@@ -8,7 +8,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">${dto.productName }</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="/furnitureweb/home.fu">Home</a></li>
                             <li class="current"><span>${dto.cate }</span></li>
                         </ul>
                     </div>
@@ -233,7 +233,7 @@
                                         <div class="product-inner">
                                             <div class="product-image">
                                                 <figure class="product-image--holder">
-                                            	${dto.imageIndex }
+                                            	<%-- ${dto.imageIndex } --%>
                                                     <img src="<%=cp %>/resources/images/livingroom/${dto.imageIndex}.jpg" alt="Product">
                                                 </figure>
                                                 <a href="living_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>

@@ -8,6 +8,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -108,6 +109,14 @@ public class FurnitureController {
 	@Autowired
 	@Qualifier("email")
 	Email email;
+	
+	
+	//Countdown 
+	@RequestMapping(value="/time.fu", method= {RequestMethod.GET,RequestMethod.POST})
+	public String timer(Locale locale, Model model) {
+		return "countdown";
+	}
+	
 
 	
 	// HOME PART
@@ -1665,6 +1674,10 @@ public class FurnitureController {
 	public String event_5(Locale locale, Model model) {
 		return "event/event_5";
 	}
+	
+	
+	
+	
 
 	// payment part
 	@RequestMapping(value = "/payment.fu", method = RequestMethod.GET)
@@ -1676,6 +1689,60 @@ public class FurnitureController {
 	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
 	public String cart(Locale locale, Model model) {
 		return "cart/cart";
+	}
+	
+	
+	
+	
+	//wishList part
+	@RequestMapping(value = "/wishlist.fu", method = RequestMethod.GET)
+	public String wishlist(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+		
+		Map<String, String> wishitem;
+		
+		if(request.getParameter("cate")==null||request.getParameter("cate").equals("")) {
+		}
+		else {
+			
+			System.out.println(request.getParameter("cate")+":"+request.getParameter("imageIndex"));
+			
+			if(session.getAttribute("wishitem")==null) {
+				wishitem=new HashMap<String, String>();
+			}
+			else {
+				wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
+			}
+			
+			wishitem.put(request.getParameter("cate")+","+ request.getParameter("imageIndex"),request.getParameter("price")+","+request.getParameter("imagetype"));
+			session.setAttribute("wishitem", wishitem);
+			
+		}
+		
+		wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
+		request.setAttribute("wishitem", wishitem);
+		
+		return "wishlist";
+	}
+	
+	
+	@RequestMapping(value = "/deletewishlist.fu", method = RequestMethod.GET)
+	public String deletewishlist(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+		
+		System.out.println(request.getParameter("id"));
+		
+		Map<String, String> wishitem;
+		
+		if(session.getAttribute("wishitem")==null) {
+			wishitem=new HashMap<String, String>();
+		}
+		else {
+			wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
+		}
+		
+		wishitem.remove(request.getParameter("id"));
+		session.setAttribute("wishitem", wishitem);
+		
+		return "redirect:/wishlist.fu";
 	}
 
 }

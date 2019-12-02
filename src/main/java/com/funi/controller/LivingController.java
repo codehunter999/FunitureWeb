@@ -35,12 +35,13 @@ public class LivingController {
 	@RequestMapping(value = "/living_total.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView living_total(Locale locale, Model model) {
 		ModelAndView mav = new ModelAndView();
-
+				
 		List<FurnitureDTO> lists = livingDao.livingImageList();
 		// System.out.println("lists"+lists.size());
 		mav.setViewName("product/living/living_total");
 		mav.addObject("lists", lists);
-
+		
+		
 		return mav;
 	}
 
@@ -59,6 +60,8 @@ public class LivingController {
 		List<FurnitureDTO> lists = livingDao.cateEImageList(livingMap);
 		mav.setViewName("product/living/sunb/living_sunb");
 		mav.addObject("lists", lists);
+		
+		
 
 		return mav;
 

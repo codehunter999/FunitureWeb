@@ -89,11 +89,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
                                     </div>
                                     </c:forEach>
-                                    
                             </div>
                             <nav class="pagination-wrap">
                                 <ul class="pagination">
@@ -113,6 +110,7 @@
                 </div>
             </div>
         </div>
+	</div>
         <!-- Main Content Wrapper Start -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>

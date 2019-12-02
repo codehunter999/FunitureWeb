@@ -81,7 +81,7 @@
                                     <div class="header__main-left">
                                         <div class="logo">
                                             <a href="home.fu" class="logo--normal">
-                                                <img src="<%=cp %>/resources/assets/img/logo/logo.png" alt="Logo">
+                                                <img src="<%=cp %>/resources/assets/img/logo/kaare.jpg" alt="Logo">
                                             </a>
                                         </div>
                                     </div>
