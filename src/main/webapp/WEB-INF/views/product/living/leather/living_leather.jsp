@@ -120,13 +120,13 @@
                                             <div class="product-inner">
                                                 <div class="product-image">
                                                     <figure class="product-image--holder">
-                                                    <%-- ${dto.imageIndex }
-                                                    ${dto.cateEn } --%>
+                                                    ${dto.imageIndex }
+                                                    ${dto.cateEn }
                                                         <img src="<%=cp %>/resources/images/livingroom/${dto.imageIndex}.jpg" alt="Product">	
                                                     </figure>
                                                     <a href="living_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a href="wishlist.html" class="action-btn">
+                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <a href="wishlist.html" class="action-btn">
@@ -172,7 +172,8 @@
                         </div>
                     </div>
                 </div>
-            
+            </div>
+        </div>
         <!-- Main Content Wrapper Start -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
