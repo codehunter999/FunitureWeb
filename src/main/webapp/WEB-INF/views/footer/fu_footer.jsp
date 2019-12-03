@@ -24,7 +24,7 @@
                                 <div class="footer-widget">
                                     <ul class="footer-menu">
                                         <li><a href="company.fu">About Us</a></li>
-                                        <li><a href="blog.fu">Blogs</a></li>
+                                        <li><a href="blog.fu">location</a></li> <!-- *************실행X -->
                                         <!-- <li><a href="company.fu">Careers</a></li> -->
                                         <li><a href="contact-us.fu">Contact</a></li>
                                     </ul>
@@ -36,10 +36,10 @@
                                 <h3 class="widget-title mb--35 mb-sm--20">Product</h3>
                                 <div class="footer-widget">
                                     <ul class="footer-menu">
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Demos</a></li>
+                                        <li><a href="living_total.fu">거실 / 리빙룸</a></li>
+                                        <li><a href="dininigfull.fu">주방 / 다이닝룸</a></li>
+                                        <li><a href="bed_total.fu">침실 / 베드룸</a></li>
+                                        <li><a href="decofull.fu">홈데코 / 리빙</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                     <ul class="footer-menu">
                                         <!-- <li><a href="#">Introduction</a></li> -->
                                         <!-- <li><a href="#">Feedback</a></li> -->
-                                        <li><a href="#">Q&A</a></li>
+                                        <li><a href="qnamain.fu">Q&A</a></li>
                                         <!-- <li><a href="#">Network Status</a></li> -->
                                     </ul>
                                 </div>
@@ -63,6 +63,7 @@
                                 <div class="footer-widget">
                                     <ul class="footer-menu">
                                         <li><a href="https://www.facebook.com/kaareklintstory/">Facebook</a></li>
+                                        <li><a href="https://www.instagram.com/explore/tags/%EC%B9%B4%EB%A0%88%ED%81%B4%EB%A6%B0%ED%8A%B8/">Instagram</a></li>
                                         <!-- <li><a href="#">Twitter</a></li> -->
                                         <!-- <li><a href="#">Linkedin</a></li> -->
                                         <!-- <li><a href="#">Google +</a></li> -->
@@ -78,8 +79,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-11">
                             <div class="footer-widget">
-                                <div class="taglist">
-                                    <span>Tags:</span>
+                                <div class="taglist" style="font-size: 10pt; color: gray;">
+                                    <!-- <span>Tags:</span>
                                     <a href="#">Minimal eCommerce</a>
                                     <a href="#">Marketing</a>
                                     <a href="#">User Exprience</a>
@@ -101,7 +102,10 @@
                                     <a href="#">Affiliate</a>
                                     <a href="#">Photoshop</a>
                                     <a href="#">Support</a>
-                                    <a href="#">Template</a>
+                                    <a href="#">Template</a> -->
+                                    (주)카레클린트&nbsp;&nbsp;|&nbsp;&nbsp;대표자: 김동철 박난주 박제선 신준석 조유록 최효은&nbsp;&nbsp;|&nbsp;&nbsp;사업자 등록번호 안내:[211-88-75657]&nbsp;&nbsp;|&nbsp;&nbsp;통신판매업 신고 2012-서울강남-03297&nbsp;&nbsp;&nbsp;&nbsp;[사업자정보확인]<br/>
+                                    대표번호: 1599-4797 A/S서비스센터: 1644-2908 서비스센터 운영시간:평일 10:00-17:00&nbsp;&nbsp;|&nbsp;&nbsp;주소: 135948 서울 강남구 청담동 3-11 개인정보관리책임자:김동철-신준석<br/>
+                                    |&nbsp;&nbsp;Contact <b>kaareklint@naver.com</b> for more information
                                 </div>
                             </div>
                         </div>
@@ -112,7 +116,7 @@
                 <div class="container-fluid">
                     <div class="row border-top ptb--20">
                         <div class="col-12 text-center">
-                            <p class="copyright-text">Beck &copy; 2019 all rights reserved</p>
+                            <p class="copyright-text">Copyright &copy; 2016 <b>(주)카레클린트</b> All rights reserved.</p>
                         </div>
                     </div>
                 </div>
