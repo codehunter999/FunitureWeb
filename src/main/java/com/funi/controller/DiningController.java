@@ -58,7 +58,7 @@ public class DiningController {
 		dto.setProductName(request.getParameter("productName"));
 		dto.setCate(request.getParameter("cate"));
 		dto.setCateEn(request.getParameter("cateEn"));
-		dto.setPrice(Integer.parseInt(request.getParameter("price")));
+		dto.setPrice(request.getParameter("price"));
 		dto.setSaveFileName(file.getOriginalFilename());
 
 		diningdao.insertData(dto);

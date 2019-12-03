@@ -27,7 +27,7 @@ select nvl(count(*),0) from deco where cate=#{cate} and productName like '%' || 
  <!-- 전체목록 -->
 <select id="getLists" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
 <![CDATA[ 
-	select * from (select rownum rnum,data.* from (select imageIndex,productName,cate,cateEn,price,saveFileName from deco 
+	select * from (select rownum rnum,data.* from (select imageIndex,productName,cate,cateEn,to_char(price, '999,999,999') as price,saveFileName from deco 
 	where productName like '%' || #{searchValue} || '%' or cate like '%' || #{searchValue} || '%' order by imageIndex asc) data)
 	where rnum>=#{start} and rnum<=#{end}
 ]]>
@@ -36,7 +36,7 @@ select nvl(count(*),0) from deco where cate=#{cate} and productName like '%' || 
  <!-- 카테고리별 목록 -->
 <select id="getCateLists" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
 <![CDATA[
-	select * from (select rownum rnum,data.* from (select imageIndex,productName,cate,cateEn,price,saveFileName from deco 
+	select * from (select rownum rnum,data.* from (select imageIndex,productName,cate,cateEn,to_char(price, '999,999,999') as price,saveFileName from deco 
 	where cate=#{cate} and productName like '%' || #{searchValue} || '%' order by imageIndex asc) data)
 	where rnum>=#{start} and rnum<=#{end}
 ]]>
@@ -48,7 +48,7 @@ select nvl(count(*),0) from deco where cate=#{cate} and productName like '%' || 
 
 <!-- 한개데이터출력 -->
 <select id="getReadData" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
-	select * from deco where imageIndex=#{imageIndex} and cate=#{cate}
+	select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from deco where imageIndex=#{imageIndex} and cate=#{cate}
 </select>
 
 </mapper>

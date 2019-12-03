@@ -4,7 +4,7 @@
 	String cp1 = request.getContextPath();
 %>
         <!-- Footer Start-->
-        <footer class="footer bg-color" data-bg-color="#f4f8fa">
+        <footer class="footer bg-color" data-bg-color="#ffffff">
             <div class="footer-top">
                 <div class="container-fluid">
                     <div class="row border-bottom pt--70 pb--70">
@@ -12,9 +12,9 @@
                             <div class="footer-widget">
                                 <div class="textwidget">
                                     <figure class="footer-logo mb--30">
-                                        <img src="<%=cp1%>/resources/assets/img/logo/logo.png" alt="Logo">
+                                        <img src="<%=cp1%>/resources/assets/img/logo/kaare.jpg" alt="Logo">
                                     </figure>
-                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms. </p>
+                                    <p>KAARE KLINT의 브렌드 아이덴티티는 3개의 손가락을 형상화한 형태이며, 단순한 기능주의가 아닌 실용적 아이디어와 감성이 담겨 있습니다. </p>
                                 </div>
                             </div>
                         </div>
