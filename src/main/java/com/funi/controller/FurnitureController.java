@@ -121,8 +121,14 @@ public class FurnitureController {
 	
 	// HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
-	public String home1(Locale locale, Model model) {
-		return "index";
+	public ModelAndView home1(Locale locale, Model model) {
+		ModelAndView mav = new ModelAndView();
+		
+		List<FurnitureDTO> lists = livingDao.livingImageList();
+		mav.setViewName("index");
+		mav.addObject("lists",lists);
+		
+		return mav;
 	}
 
 	@RequestMapping(value = "/home2.fu", method = RequestMethod.GET)
