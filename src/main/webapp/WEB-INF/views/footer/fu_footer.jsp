@@ -193,7 +193,7 @@
                             </span>
                         </div>
                         <div class="mini-cart__buttons">
-                            <a href="wishlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20">Wish List</a>
+                            <a href="wishlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">Wish List</font></a>
                             <a href="cart.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">View Cart</font></a>
                             <a href="payment.fu" class="btn btn-fullwidth btn-bg-primary"><font size="5">Payment</font></a>
                         </div>
