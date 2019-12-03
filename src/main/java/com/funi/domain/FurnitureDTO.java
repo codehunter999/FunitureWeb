@@ -9,7 +9,7 @@ public class FurnitureDTO {
 	private String productName;
 	private String cateEn;
 	private String cate;
-	private int price;
+	private String price;
 	private String saveFileName;
 
 }

@@ -14,19 +14,19 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 전체 데이터 -->
 <select id="livingimageList" resultType="com.funi.domain.FurnitureDTO">
-	select imageIndex, productName, cateEn, cate, price, saveFileName from livingroom
+	select imageIndex, productName, cateEn, cate, to_char(price, '999,999,999') as price, saveFileName from livingroom
 	order by imageIndex desc
 </select>
 
 <!-- 카테고리 데이터 -->
 <select id="CateimageList" resultType="com.funi.domain.FurnitureDTO" parameterType="Map">
-	select imageIndex, productName, cateEn, cate, price, saveFileName from livingroom
+	select imageIndex, productName, cateEn, cate, to_char(price, '999,999,999') as price, saveFileName from livingroom
 	where cateEn=#{cateEn} order by imageIndex desc
 </select>
 
 <!-- 한 개의 데이터 -->
 <select id="getReadData" resultType="com.funi.domain.FurnitureDTO" parameterType="Map">
-	select  imageIndex, productName, cateEn, cate, price, saveFileName from livingroom where imageIndex=#{imageIndex} and cateEn=#{cateEn} 
+	select  imageIndex, productName, cateEn, cate, to_char(price, '999,999,999') as price, saveFileName from livingroom where imageIndex=#{imageIndex} and cateEn=#{cateEn} 
 </select>
 	
 </mapper>
