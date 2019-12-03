@@ -2,6 +2,7 @@ package com.funi.dao;
 
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -30,8 +31,7 @@ public class MemberDAO {
 	
 	public Boolean searchID(String email) {
 		//sessionTemplate.insert("funi_memberMapper.insertData", dto);
-	boolean flag = false;
-		
+	boolean flag = false;	
 		HashMap<String,String> hMap = new HashMap<String,String>();
 		hMap.put("email",email);	
 		//email = sessionTemplate.selectOne("funi_memberMapper.searchID",hMap);
@@ -47,7 +47,12 @@ public class MemberDAO {
 		return flag;
 	}
 	
-	public int update_pw(MemberDTO memberdto) throws Exception{
+	public int update_pw(MemberDTO memberdto) throws Exception{		
 		return sessionTemplate.update("funi_memberMapper.update_pw", memberdto);
+	}
+	public int delete_member(String email) throws Exception{			
+		Map<String,String> hMap = new HashMap<String,String>();
+		hMap.put("email",email);
+		return sessionTemplate.delete("funi_memberMapper.deleteMember",hMap);
 	}
 }

@@ -138,7 +138,7 @@
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='<%=cp%>/cart.fu'">
                                         Add To Cart
                                     </button>
                                 </div>  

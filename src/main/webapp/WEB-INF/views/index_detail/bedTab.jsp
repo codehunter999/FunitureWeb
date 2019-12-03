@@ -31,7 +31,7 @@
                         <h3 class="product-title"><a href="bed_BED_details.fu?imageIndex=102&cateEn=BED">301 오크 가로살 침대</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">1923000원</span>
+                                <span class="money">1,923,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -70,7 +70,7 @@
                         <h3 class="product-title"><a href="bed_BED_details.fu?imageIndex=103&cateEn=BED">302 오크 세로살 침대</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">1836000원</span>
+                                <span class="money">1,836,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -109,7 +109,7 @@
                         <h3 class="product-title"><a href="bed_BED_details.fu?imageIndex=104&cateEn=BED">키본시리즈 303 오크 베드</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">1489000원</span>
+                                <span class="money">1,489,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -148,7 +148,7 @@
                         <h3 class="product-title"><a href="bed_chiff_details.fu?imageIndex=134&cateEn=chiff">302 오크 4단8칸서랍장</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">2125000원</span>
+                                <span class="money">2,125,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>

@@ -31,7 +31,7 @@
                    <h3 class="product-title"><a href="deco_light_details.fu?imageIndex=420&cate=조명">Louis poulsen Collage-white</a></h3>
                    <div class="product-info-bottom">
                        <div class="product-price-wrapper">
-                           <span class="money">1740000원</span>
+                           <span class="money">1,740,000원</span>
                        </div>
                        <a href="cart.fu" class="add-to-cart pr--15">
                            <i class="la la-plus"></i>
@@ -70,7 +70,7 @@
                    <h3 class="product-title"><a href="deco_light_details.fu?imageIndex=417&cate=조명">Louis poulsen Doo-wap</a></h3>
                    <div class="product-info-bottom">
                        <div class="product-price-wrapper">
-                           <span class="money">750000원</span>
+                           <span class="money">750,000원</span>
                        </div>
                        <a href="cart.fu" class="add-to-cart pr--15">
                            <i class="la la-plus"></i>
@@ -109,7 +109,7 @@
                    <h3 class="product-title"><a href="deco_light_details.fu?imageIndex=414&cate=조명">Louis poulsen LC Shutters [White/Colored]</a></h3>
                    <div class="product-info-bottom">
                        <div class="product-price-wrapper">
-                           <span class="money">950000원</span>
+                           <span class="money">950,000원</span>
                        </div>
                        <a href="cart.fu" class="add-to-cart pr--15">
                            <i class="la la-plus"></i>
@@ -148,7 +148,7 @@
                    <h3 class="product-title"><a href="deco_light_details.fu?imageIndex=418&cate=조명">Louis poulsen NJP Table Lamp</a></h3>
                    <div class="product-info-bottom">
                        <div class="product-price-wrapper">
-                           <span class="money">750000원</span>
+                           <span class="money">750,000원</span>
                        </div>
                        <a href="cart.fu" class="add-to-cart pr--15">
                            <i class="la la-plus"></i>

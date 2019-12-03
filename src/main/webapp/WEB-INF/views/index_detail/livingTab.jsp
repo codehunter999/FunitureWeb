@@ -31,7 +31,7 @@
                         <h3 class="product-title"><a href="living_sunb_details.fu?imageIndex=201&cateEn=sunb">601 3인 소파 [선브렐라]</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">2978000원</span>
+                                <span class="money">2,978,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -70,7 +70,7 @@
                         <h3 class="product-title"><a href="living_sunb_details.fu?imageIndex=201&cateEn=sunb">603 3인 소파 [선브렐라]</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">2782000원</span>
+                                <span class="money">2,782,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -109,7 +109,7 @@
                         <h3 class="product-title"><a href="living_sunb_details.fu?imageIndex=203&cateEn=sunb">301 3인 소파 [선브렐라]</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">2782000원</span>
+                                <span class="money">2,782,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>

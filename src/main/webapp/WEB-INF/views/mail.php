@@ -4,7 +4,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Get the form fields and remove whitespace.
             $name = strip_tags(trim($_POST["con_name"]));
-                    $name = str_replace(array("\r","\n"),array(" "," "),$name);
+            $name = str_replace(array("\r","\n"),array(" "," "),$name);
             $email = filter_var(trim($_POST["con_email"]), FILTER_SANITIZE_EMAIL);
             $message = trim($_POST["con_message"]);
     
@@ -23,7 +23,7 @@
             $subject = "Test Email for Template Demo - Mail From $name";
     
             // Build the email content.
-            $email_content = "Name: $name\n";
+            $email_content =  "Name: $name\n";
             $email_content .= "Email: $email\n\n";
             $email_content .= "Message:\n$message\n";
     
