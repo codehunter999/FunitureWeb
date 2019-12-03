@@ -1,9 +1,15 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.TreeMap"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
+
+   <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+   
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,6 +32,25 @@
 
     <!-- style css -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
+    
+    
+    <script type="text/javascript">
+    /*$(document).ready(function(){
+    $("div[name=addcart]").click(function(event) {
+        $('div.modal').modal();
+    });
+
+    });*/
+    var data;
+	function clickevent(eventdata){
+		data=eventdata;
+		$('div.modal').modal();
+	}
+	function cartsubmit(){
+		location.href="cart.fu?data="+data;
+	}
+    </script>
+    
 </head>
 
 <body>
@@ -47,7 +72,7 @@
         <!-- Header End -->
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimage.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -104,10 +129,16 @@
                                             </td>
                                         </tr> -->
                                         <%
+                                        //Use Map
+                                        /*
                                         Map<String, String> wishitem;
                                         wishitem=(HashMap<String, String>)request.getAttribute("wishitem");
                                         if(wishitem!=null){
-                                        for(String key:wishitem.keySet()){
+                                        	TreeMap<String, String> treemap=new TreeMap<String, String>(wishitem);
+                                        	Iterator<String> iteratorKey = treemap.keySet( ).iterator( );
+                                        //for(String key:wishitem.keySet()){
+                                        while(iteratorKey.hasNext()){
+                                        	String key=iteratorKey.next();
                                         	int cut=key.indexOf(",");
                                         	String name=key.substring(0, cut);
                                         	String set=key.substring(cut+1, key.length());
@@ -115,16 +146,26 @@
                                         	int cut1=value.indexOf(",");
                                         	String price=value.substring(0,cut1);
                                         	String img=value.substring(cut1+1,value.length());
+                                        	*/
+                                        	
+                                        	//Use List
+                                        	List<String> wishitem=(List<String>)request.getAttribute("wishitem");
+                                        	if(wishitem!=null){
+                                        		Iterator iterator=wishitem.iterator();
+                                        		int i=0;
+                                        		while(iterator.hasNext()){
+                                        			String result=(String)iterator.next();
+                                        			String[] value=result.split(",");
                                         %>
                                         <tr>
-                                            <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=key%>"><i class="la la-remove"></i></a></td>
+                                            <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=i%>"><i class="la la-remove"></i></a></td>
                                             <td class="product-thumbnail text-left">
                                                 <%-- <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail"> --%>
-                                                <img src="<%=cp %><%=img %>" alt="Product Thumnail">
+                                                <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html"><%=name %> <%=set %></a>
+                                                    <a href="product-details.html"> <%=value[0] %><%=value[1] %></a>
                                                 </h3>
                                             </td>
                                             <td class="product-stock">
@@ -132,14 +173,17 @@
                                             </td>
                                             <td class="product-price">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money"><%=price %>원</span>
+                                                    <span class="money"><%=value[2] %>원</span>
                                                 </span>
                                             </td>
                                             <td class="product-action-btn">
-                                                <a href="cart.html" class="btn btn-size-md">Add to cart</a>
+                                                <div name="addcart" class="btn btn-size-md" onclick="clickevent('<%=value[0] %>,<%=value[1] %>,<%=value[2] %>,<%=value[3] %>')">Add to cart</div>
+                                               
                                             </td>
                                         </tr>
-                                        <%}
+                                        <%
+                            			i++;
+                                        }
                                         }%>
                                     </tbody>
                                 </table>
@@ -152,7 +196,7 @@
         <!-- Main Content Wrapper Start -->
 
         <!-- Footer Start-->
-        <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
+        <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%> 
         <!-- Footer End-->
 
         <!-- OffCanvas Menu Start -->
@@ -414,132 +458,13 @@
         <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true"><i class="la la-remove"></i></span>
-                </button>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="element-carousel slick-vertical-center"
-                        data-slick-options='{
-                            "slidesToShow": 1,
-                            "slidesToScroll": 1,
-                            "arrows": true,
-                            "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "la la-angle-double-left" },
-                            "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "la la-angle-double-right" }
-                        }'
-                        >
-                            <div class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="product-details.html">
-                                        <img src="<%=cp %>/resources/assets/img/products/prod-01.jpg" alt="Product Image" class="primary-image">
-                                    </a>
-                                </div>
-                                <span class="product-badge sale">sale</span>
-                            </div>
-                            <div class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="product-details.html">
-                                        <img src="<%=cp %>/resources/assets/img/products/prod-02.jpg" alt="Product Image" class="primary-image">
-                                    </a>
-                                </div>
-                                <span class="product-badge sale">sale</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="modal-box product-summary">
-                            <div class="product-navigation text-right mb--20">
-                                <a href="#" class="prev"><i class="la la-angle-double-left"></i></a>
-                                <a href="#" class="next"><i class="la la-angle-double-right"></i></a>
-                            </div>
-                            <div class="product-rating d-flex mb--20">
-                                <div class="star-rating star-three">
-                                    <span>Rated <strong class="rating">5.00</strong> out of 5</span>
-                                </div>
-                            </div>
-                            <h3 class="product-title mb--20">Golden Easy Spot Chair.</h3>
-                            <p class="product-short-description mb--25">Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu.</p>
-                            <div class="product-price-wrapper mb--25">
-                                <span class="money">$200.00</span>
-                                <span class="price-separator">-</span>
-                                <span class="money">$400.00</span>
-                            </div>
-                            <form action="#" class="variation-form mb--30">
-                                <div class="product-color-variations d-flex align-items-center mb--20">
-                                    <p class="variation-label">Color:</p>
-                                    <div class="product-color-variation variation-wrapper">
-                                        <div class="variation">
-                                            <a class="product-color-variation-btn red selected" data-toggle="tooltip" data-placement="top" title="Red">
-                                                <span class="product-color-variation-label">Red</span>
-                                            </a>
-                                        </div>
-                                        <div class="variation">
-                                            <a class="product-color-variation-btn black" data-toggle="tooltip" data-placement="top" title="Black">
-                                                <span class="product-color-variation-label">Black</span>
-                                            </a>
-                                        </div>
-                                        <div class="variation">
-                                            <a class="product-color-variation-btn pink" data-toggle="tooltip" data-placement="top" title="Pink">
-                                                <span class="product-color-variation-label">Pink</span>
-                                            </a>
-                                        </div>
-                                        <div class="variation">
-                                            <a class="product-color-variation-btn blue" data-toggle="tooltip" data-placement="top" title="Blue">
-                                                <span class="product-color-variation-label">Blue</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-size-variations d-flex align-items-center mb--15">
-                                    <p class="variation-label">Size:</p>   
-                                    <div class="product-size-variation variation-wrapper">
-                                        <div class="variation">
-                                            <a class="product-size-variation-btn selected" data-toggle="tooltip" data-placement="top" title="S">
-                                                <span class="product-size-variation-label">S</span>
-                                            </a>
-                                        </div>
-                                        <div class="variation">
-                                            <a class="product-size-variation-btn" data-toggle="tooltip" data-placement="top" title="M">
-                                                <span class="product-size-variation-label">M</span>
-                                            </a>
-                                        </div>
-                                        <div class="variation">
-                                            <a class="product-size-variation-btn" data-toggle="tooltip" data-placement="top" title="L">
-                                                <span class="product-size-variation-label">L</span>
-                                            </a>
-                                        </div>
-                                        <div class="variation">
-                                            <a class="product-size-variation-btn" data-toggle="tooltip" data-placement="top" title="XL">
-                                                <span class="product-size-variation-label">XL</span>
-                                            </a>
-                                        </div>
-                                    </div>                                 
-                                </div>
-                                <a href="" class="reset_variations">Clear</a>
-                            </form>
-                            <div class="product-action d-flex flex-sm-row flex-column align-items-sm-center align-items-start mb--30">
-                                <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
-                                    <label class="quantity-label" for="quick-qty">Quantity:</label>
-                                    <div class="quantity">
-                                        <input type="number" class="quantity-input" name="qty" id="quick-qty" value="1" min="1">
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.html'">
-                                    Add To Cart
-                                </button>
-                            </div>  
-                            <div class="product-footer-meta">
-                                <p><span>Category:</span>
-                                    <a href="shop.html">Full Sweater</a>,
-                                    <a href="shop.html">SweatShirt</a>,
-                                    <a href="shop.html">Jacket</a>,
-                                    <a href="shop.html">Blazer</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div class="modal-body" align="center">
+              <br><br><br>
+                카트에 담으시겠습니까?
+                <br>
+                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>
+                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
+              <br><br><br>                      
               </div>
             </div>
           </div>

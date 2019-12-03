@@ -60,14 +60,12 @@
         <!-- Header End -->
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimages1.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">One Column</h1>
+                        <h1 class="page-title">QnA 게시판</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="current"><span>One Column</span></li>
                         </ul>
                     </div>
                 </div>
