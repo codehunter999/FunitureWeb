@@ -35,16 +35,30 @@ public class DiningDAO {
 
 	}
 
-	public List<FurnitureDTO> getCateLists(String cate){
+	public List<FurnitureDTO> getCateLists(String cate,String searchValue,int start,int end){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("cate", cate);
+		params.put("searchValue", searchValue);
+		params.put("start", start);
+		params.put("end", end);
 
 		List<FurnitureDTO> catelists = sessionTemplate.selectList("diningMapper.getCateLists", params);
 
 		return catelists;
 
+	}
+	
+	public List<FurnitureDTO> getDetailLists(String cate){
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("cate", cate);
+
+		List<FurnitureDTO> detailLists = sessionTemplate.selectList("diningMapper.getDetailLists", params);
+
+		return detailLists;
 	}
 	
 	public FurnitureDTO getReadData(int imageIndex,String cate){
@@ -67,6 +81,19 @@ public class DiningDAO {
 		params.put("searchValue", searchValue);
 
 		int result = sessionTemplate.selectOne("diningMapper.getDataCount",params);
+
+		return result;
+
+	}
+	
+	public int getCateDataCount(String cate,String searchValue){
+
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("cate", cate);
+		params.put("searchValue", searchValue);
+
+		int result = sessionTemplate.selectOne("diningMapper.getCateDataCount",params);
 
 		return result;
 

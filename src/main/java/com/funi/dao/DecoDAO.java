@@ -36,16 +36,30 @@ public class DecoDAO {
 
 	}
 
-	public List<FurnitureDTO> getCateLists(String cate){
+	public List<FurnitureDTO> getCateLists(String cate,String searchValue,int start,int end){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("cate", cate);
+		params.put("searchValue", searchValue);
+		params.put("start", start);
+		params.put("end", end);
 
 		List<FurnitureDTO> catelists = sessionTemplate.selectList("decoMapper.getCateLists", params);
 
 		return catelists;
 
+	}
+	
+	public List<FurnitureDTO> getDetailLists(String cate){
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("cate", cate);
+
+		List<FurnitureDTO> detailLists = sessionTemplate.selectList("decoMapper.getDetailLists", params);
+
+		return detailLists;
 	}
 	
 	public FurnitureDTO getReadData(int imageIndex,String cate){
@@ -68,6 +82,19 @@ public class DecoDAO {
 		params.put("searchValue", searchValue);
 
 		int result = sessionTemplate.selectOne("decoMapper.getDataCount",params);
+
+		return result;
+
+	}
+	
+	public int getCateDataCount(String cate,String searchValue){
+
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("cate", cate);
+		params.put("searchValue", searchValue);
+
+		int result = sessionTemplate.selectOne("decoMapper.getCateDataCount",params);
 
 		return result;
 
