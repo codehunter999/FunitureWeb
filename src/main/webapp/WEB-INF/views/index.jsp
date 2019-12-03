@@ -23,18 +23,19 @@
                                         <div class="row align-items-center no-gutters w-100">
                                             <div class="col-xl-7 col-md-6 mb-sm--50">
                                                 <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="plr--15">
-                                                    <img src="/furnitureweb/resources/assets/img/imgtest/imgtest2.jpg" alt="Slider O1 image" class="mx-auto">
+                                                <!-- 307월넛테이블 -->
+                                                    <img src="<%=cp %>/resources/images/dining/detail/table/32_details_6.jpg" alt="Slider O1 image" class="mx-auto">
                                                 </figure>
                                             </div>
                                             <div class="col-md-6 col-lg-5 offset-lg-1 offset-xl-0">
                                                 <div class="slider-content">
                                                     <div class="slider-content__text mb--40 mb-md--30">
-                                                        <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">#New Treand</p>
-                                                        <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Enlight your world. Make yourself more bright.</p>
-                                                        <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Abotar Lighting</h1>
+                                                        <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">EELEGANT WALNUT</p>
+                                                        <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">과하지 않은 고급스러움</p>
+                                                        <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">307 월넛테이블</h1>
                                                     </div>
                                                     <div class="slider-content__btn">
-                                                        <a href="#" class="btn btn-outline btn-brw-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
+                                                        <a href="dining_table_details.fu?imageIndex=32&cate=테이블%20/%20식탁" class="btn btn-outline btn-brw-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -48,18 +49,18 @@
                                         <div class="row align-items-center no-gutters w-100">
                                             <div class="col-xl-6 col-md-6 mb-sm--50 order-md-2">
                                                 <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="pl-15 pr--60">
-                                                    <img src="/furnitureweb/resources/assets/img/imgtest/imgtest2.jpg" alt="Slider O1 image" class="mx-auto">
+                                                    <img src="/furnitureweb/resources/images/livingroom/216_detail1.jpg" alt="Slider O1 image" class="mx-auto">
                                                 </figure>
                                             </div>
                                             <div class="col-md-5 col-lg-5 offset-md-1 order-md-1">
                                                 <div class="slider-content">
                                                     <div class="slider-content__text border-color-2 mb--40 mb-md--30">
-                                                        <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">#New Treand</p>
-                                                        <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Enlight your world. Make yourself more bright.</p>
-                                                        <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Abotar Lighting</h1>
+                                                        <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">100 Styles</p>
+                                                        <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">모두가 편안한, 오로지 휴식을 위한 소파</p>
+                                                        <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">BRICK SOFA</h1>
                                                     </div>
                                                     <div class="slider-content__btn">
-                                                        <a href="#" class="btn btn-outline btn-brw-2 btn-brc-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
+                                                        <a href="living_fabric_details.fu?imageIndex=216&cateEn=fabric" class="btn btn-outline btn-brw-2 btn-brc-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,10 +77,9 @@
             <!-- Top Sale Area Start -->
             <section class="top-sale-area mb--75 mb-md--55">
                 <div class="container">
-                    <div class="row mb--35 mb-md--23">
-                        <div class="col-12 text-center">
-                        	<!-- 신상품 소개 -->
-                            <h2>This Week Top Sales</h2>
+                	<div class="row mb--28 mb-md--18 mb-sm--33">
+                        <div class="col-md-3 text-md-left text-center">
+                            <h2>New Arrivals</h2>
                         </div>
                     </div>
                     <div class="row">
@@ -93,111 +93,9 @@
                                 {"breakpoint": 768, "settings": {"slidesToShow": 2}},
                                 {"breakpoint": 480, "settings": {"slidesToShow": 1}}
                             ]'>
-                                <div class="item">
-                                    <div class="ft-product">
-                                        <div class="product-inner">
-                                            <div class="product-image">
-                                                <figure class="product-image--holder">
-                                                    <img src="/furnitureweb/resources/assets/img/products/prod-01.jpg" alt="Product">
-                                                </figure>
-                                                <a href="product-details.fu" class="product-overlay"></a>
-                                                <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn">
-                                                        <i class="la la-eye"></i>
-                                                    </a>
-                                                    <a href="wishlist.fu" class="action-btn">
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                    <a href="wishlist.fu" class="action-btn">
-                                                        <i class="la la-repeat"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product-info plr--20">
-                                                <h3 class="product-title"><a href="product-details.fu">Golden Easy Spot Chair.</a></h3>
-                                                <div class="product-info-bottom">
-                                                    <div class="product-price-wrapper">
-                                                        <span class="money">$150</span>
-                                                    </div>
-                                                    <a href="cart.fu" class="add-to-cart">
-                                                        <i class="la la-plus"></i>
-                                                        <span>Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="ft-product">
-                                        <div class="product-inner">
-                                            <div class="product-image">
-                                                <figure class="product-image--holder">
-                                                    <img src="/furnitureweb/resources/assets/img/products/prod-02.jpg" alt="Product">
-                                                </figure>
-                                                <a href="product-details.fu" class="product-overlay"></a>
-                                                <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn">
-                                                        <i class="la la-eye"></i>
-                                                    </a>
-                                                    <a href="wishlist.fu" class="action-btn">
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                    <a href="wishlist.fu" class="action-btn">
-                                                        <i class="la la-repeat"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product-info plr--20">
-                                                <h3 class="product-title"><a href="product-details.fu">Golden Easy Spot Chair.</a></h3>
-                                                <div class="product-info-bottom">
-                                                    <div class="product-price-wrapper">
-                                                        <span class="money">$150</span>
-                                                    </div>
-                                                    <a href="cart.fu" class="add-to-cart">
-                                                        <i class="la la-plus"></i>
-                                                        <span>Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="ft-product">
-                                        <div class="product-inner">
-                                            <div class="product-image">
-                                                <figure class="product-image--holder">
-                                                    <img src="/furnitureweb/resources/assets/img/products/prod-03.jpg" alt="Product">
-                                                </figure>
-                                                <a href="product-details.fu" class="product-overlay"></a>
-                                                <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn">
-                                                        <i class="la la-eye"></i>
-                                                    </a>
-                                                    <a href="wishlist.fu" class="action-btn">
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                    <a href="wishlist.fu" class="action-btn">
-                                                        <i class="la la-repeat"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product-info plr--20">
-                                                <h3 class="product-title"><a href="product-details.fu">Golden Easy Spot Chair.</a></h3>
-                                                <div class="product-info-bottom">
-                                                    <div class="product-price-wrapper">
-                                                        <span class="money">$150</span>
-                                                    </div>
-                                                    <a href="cart.fu" class="add-to-cart">
-                                                        <i class="la la-plus"></i>
-                                                        <span>Add To Cart</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- index New Arrivals part -->
+                                <%@include file="/WEB-INF/views/index_detail/newArrivals.jsp" %>
+                                
                             </div>
                         </div>
                     </div>
@@ -279,8 +177,9 @@
                 </div>
             </section>
             <!-- Product Tab Area End -->
-
-            <!-- Brand Logo Area Start -->
+            
+<!-- 
+            Brand Logo Area Start
             <div class="brand-logo-area mb--80 mb-md--60">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -328,37 +227,12 @@
                     </div>
                 </div>
             </div>
-            <!-- Brand Logo Area End -->
+            Brand Logo Area End
+ -->            
+            
 
             <!-- Best Sale Product Area Start -->
-            <section class="best-sale-product-area mb--75 mb-md--55">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="best-sale-product bg-color" data-bg-color="#f7f8f9">
-                                <div class="best-sale-product__inner bg-color" data-bg-color="#ffffff">
-                                    <figure class="best-sale-product__img">
-                                        <a href="product-details.fu">
-                                            <img src="/furnitureweb/resources/assets/img/products/best-product-01.png" alt="Best Sale Product">
-                                        </a>
-                                    </figure>
-                                    <div class="best-sale-product__info">
-                                        <h2 class="best-sale-product__heading">
-                                            <span class="best-sale-product__heading--main">Best Sale</span>
-                                            <span class="best-sale-product__heading--sub">Get Best Discount</span>
-                                        </h2>
-                                        <p class="best-sale-product__desc">It is a long established fact that a reader will be distracted by the readable content</p>
-                                        <a href="shop.fu" class="btn btn-outline btn-size-md btn-color-primary btn-shape-round btn-hover-2">Shop Now</a>
-                                    </div>
-                                </div>
-                                <figure class="best-sale-product__top-image">
-                                    <img src="/furnitureweb/resources/assets/img/others/1.png" alt="bg image">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+			<%@include file="/WEB-INF/views/index_detail/discount.jsp" %>
             <!-- Best Sale Product Area End -->
 
             <!-- Blog Area Start -->
@@ -385,12 +259,12 @@
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <img src="/furnitureweb/resources/assets/img/blog/blog-01.jpg" alt="Blog" class="w-100">
-                                                    <a href="blog-details-image.fu" class="item-overlay"></a>
+                                                    <img src="/furnitureweb/resources/images/deco/월간카레클린트1월호.jpg" alt="Blog" class="w-100">
+                                                    <a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="blog-details-image.fu">There are many variations of passages of Lorem.</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트">월간카레클린트1월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
@@ -400,12 +274,12 @@
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <img src="/furnitureweb/resources/assets/img/blog/blog-02.jpg" alt="Blog" class="w-100">
-                                                    <a href="blog-details-image.fu" class="item-overlay"></a>
+                                                    <img src="/furnitureweb/resources/images/deco/월간카레클린트2월호.jpg" alt="Blog" class="w-100">
+                                                    <a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="blog-details-image.fu">There are many variations of passages of Lorem.</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트">월간카레클린트2월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
@@ -415,12 +289,12 @@
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <img src="/furnitureweb/resources/assets/img/blog/blog-03.jpg" alt="Blog" class="w-100">
-                                                    <a href="blog-details-image.fu" class="item-overlay"></a>
+                                                    <img src="/furnitureweb/resources/images/deco/월간카레클린트3월호.jpg" alt="Blog" class="w-100">
+                                                    <a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="blog-details-image.fu">There are many variations of passages of Lorem.</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트">월간카레클린트3월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
