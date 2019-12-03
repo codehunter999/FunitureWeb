@@ -58,6 +58,7 @@
                                     <a class="forgot-pass" href="<%=cp%>/register.fu"><b>&nbsp;&nbsp;회원가입&nbsp;&nbsp;</b></a>
                                     <a class="forgot-pass" href="<%=cp%>/searchPassword.fu"><b>&nbsp;&nbsp;패스워드 찾기&nbsp;</b></a>
                					</form>
+                                    <a class="forgot-pass" href="<%=cp%>/changPwd.fu"><b>&nbsp;&nbsp;패스워드 찾기(테스트)&nbsp;</b></a>
                					<br/>
                					<a href="https://kauth.kakao.com/oauth/authorize?client_id=31d857a43c06796d21fa6fd041d12cd6&redirect_uri=http://192.168.16.12:8080<%=cp%>/login.fu&response_type=code">
                					<img src="<%=cp%>/resources/assets/img/login/kakao_login.png" style="outline: none">

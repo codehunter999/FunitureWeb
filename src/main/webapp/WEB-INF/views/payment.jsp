@@ -1,11 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="no-js" lang="zxx">
  
@@ -360,14 +359,14 @@
         <!-- Header End -->
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/product/shop1.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">Checkout</h1>
+                        <h1 class="page-title">Payment</h1>
                         <ul class="breadcrumb">
                             <li><a href="index.html">Home</a></li>
-                            <li class="current"><span>Checkout</span></li>
+                            <li class="current"><span>Payment</span></li>
                         </ul>
                     </div>
                 </div>
@@ -410,29 +409,29 @@
                                     <div class="form-row mb--20">
                                         <div class="form__group col-md-6 mb-sm--30">
                                             <label for="billing_fname" class="form__label">주문하시는 분  <span class="required">*</span></label>
-                                            <input type="text" value="${dto.userName }" name="billing_fname" id="billing_fname" class="form__input" placeholder="">              
+                                            <input type="text" value="${row.name }" name="billing_fname" id="billing_fname" class="form__input" placeholder="">              
                                         </div>
                                     </div>
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
                                             <label for="billing_streetAddress" class="form__label">주소 <span class="required">*</span></label>
 
-                                            <input type="text" value="${dto.addr1 }" name="billing_streetAddress" id="billing_streetAddress" class="form__input mb--30" placeholder="">
+                                            <input type="text" value="${row.addr1 }" name="billing_streetAddress" id="billing_streetAddress" class="form__input mb--30" placeholder="">
 
-                                            <input type="text" value="${dto.addr2 }" name="billing_apartment" id="billing_apartment" class="form__input" placeholder="">
+                                            <input type="text" value="${row.addr2 }" name="billing_apartment" id="billing_apartment" class="form__input" placeholder="">
                                         </div>
                                     </div>
                             
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
                                             <label for="billing_company" class="form__label">전화번호 <span class="required">*</span></label>
-                                            <input type="text" value="${dto.userTel }"  name="billing_company" id="billing_company" class="form__input">
+                                            <input type="text" value="${row.phone }"  name="billing_company" id="billing_company" class="form__input">
                                         </div>
                                     </div>
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
                                             <label for="billing_company" class="form__label">이메일 <span class="required">*</span></label>
-                                            <input type="text" value="${dto.userEmail }"  name="billing_company" id="billing_company" class="form__input">
+                                            <input type="text" value="${row.email }"  name="billing_company" id="billing_company" class="form__input">
                                         </div>
                                         <div class="payment-info" data-method="bank">
                                             <p>이메일을 통해 주문처리과정을 보내드립니다.<br/>
@@ -504,19 +503,19 @@
                                             <th class="text-right"><font size="3pt;"><strong>판매가</strong></font></th>
                                         </tr>
                                         <tr>
-                                            <c:if test="${orderlists!=null}">
-											<c:forEach var="dto" items="${orderlists}">
+                                            <c:if test="${map.count!=null}">
+											<c:forEach var="row" items="${map.list}" varStatus="i">
                                             
-                                                <th>${dto.subject}
-                                                    <strong><span>&#10005;</span>${dto.amount}</strong>
+                                                <th>${row.productName}
+                                                    <strong><span>&#10005;</span>${row.amount}</strong>
                                                 </th>
                                                 <td class="text-right">
-                                                <fmt:formatNumber value="${dto.storeSum }" pattern="###,###,###"/>
+                                                <fmt:formatNumber value="${row.money }" pattern="###,###,###"/>
                                                 원</td>
                                             
                                             </c:forEach>
 											</c:if>
-											<c:if test="${orderlists == null}">
+											<c:if test="${map.count == null}">
 												<td>주문한 상품이 없습니다.</td>
 											</c:if>
                                         </tr>    
@@ -528,13 +527,12 @@
                                                 </th>
                                                 <td class="text-right">462,000원</td>
                                             </tr>
-                                            <!-- 예제 삭제하기 -->
-                                        
+                                            <!-- 예제 삭제하기 -->                                           
                                         <tfoot>
                                             <tr class="cart-subtotal">
                                                 <th>총 상품 금액</th>
                                                 <td class="text-right">
-                                                <fmt:formatNumber value="${totalSum }" pattern="###,###,###"/>
+                                                <fmt:formatNumber value="${map.sumMoney }" pattern="###,###,###"/>
                                                 원</td>
                                             </tr>
                                             <tr class="shipping">
@@ -546,7 +544,7 @@
                                             <tr class="order-total">
                                                 <th>총 결제 예정 금액</th>
                                                 <td class="text-right"><span class="order-total-ammount">
-                                                <fmt:formatNumber value="${totalSum }" pattern="###,###,###"/>원
+                                                <fmt:formatNumber value="${map.sumMoney }" pattern="###,###,###"/>원
                                                 </span></td>
                                             </tr>
                                         </tfoot>

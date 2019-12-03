@@ -19,9 +19,12 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 회원 조회  -->
 	<select id ="searchMember" parameterType="Map" resultType="com.funi.domain.MemberDTO">
-		select email,pwd,name,phone,salt from fumember where email=#{email}
+		select email,pwd,name,substr(phone,4) phone,salt,addr1,addr2,addr3 from fumember where email=#{email}
 	</select>
 	<update id="update_pw" parameterType="com.funi.domain.MemberDTO">
 		update fumember set pwd = #{pwd} where email = #{email}
 	</update>
+	<delete id="deleteMember" parameterType="Map">
+		delete fumember where email=#{email}
+	</delete>
 </mapper>
