@@ -19,7 +19,7 @@
                                 
                                 <!-- index-1 메인상단 슬라이드 이미지1 -->
                                 <div class="item">
-                                    <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
+                                    <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#ffffff">
                                         <div class="row align-items-center no-gutters w-100">
                                             <div class="col-xl-7 col-md-6 mb-sm--50">
                                                 <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="plr--15">
@@ -45,7 +45,7 @@
                                 
                                 <!-- index-1 메인상단 슬라이드 이미지2 -->
                                 <div class="item">
-                                    <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
+                                    <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#ffffff">
                                         <div class="row align-items-center no-gutters w-100">
                                             <div class="col-xl-6 col-md-6 mb-sm--50 order-md-2">
                                                 <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="pl-15 pr--60">
@@ -108,16 +108,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="feature-product bg-color" data-bg-color="#d7fbf9">
-                                <div class="feature-product__inner bg-color" data-bg-color="#e9fefd">
+                            <div class="feature-product bg-color" data-bg-color="#ffffff">
+                                <div class="feature-product__inner bg-color" data-bg-color="#ffffff">
                                     <div class="feature-product__info">
-                                        <p class="hastag">#New Style</p>
-                                        <h2 class="feature-product__title"><a href="product-details.fu">Luxry soft</a></h2>
-                                        <a href="shop.fu" class="feature-product__btn">Buy now</a>
+                                        <p class="hastag">#Luxury Style</p>
+                                        <h2 class="feature-product__title"><a href="deco_light.fu?cate=조명">Louis Poulsen Light</a></h2>
+                                        
                                     </div>
                                     <figure class="feature-product__image mb-sm--30">
                                         <a href="product-details.fu">
-                                            <img src="/furnitureweb/resources/assets/img/products/feature-product-01.png" alt="Feature Product">
+                                            <img src="/furnitureweb/resources/images/deco/detail/light/420_details_10.jpg" alt="Feature Product">
                                         </a>
                                     </figure>
                                 </div>

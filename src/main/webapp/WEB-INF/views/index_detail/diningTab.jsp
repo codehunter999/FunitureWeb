@@ -31,7 +31,7 @@
                         <h3 class="product-title"><a href="dining_chair_details.fu?imageIndex=2&cate=선브렐라 체어">601 오크 사이드 체어</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">348000원</span>
+                                <span class="money">348,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -70,7 +70,7 @@
                         <h3 class="product-title"><a href="dining_chair_details.fu?imageIndex=1&cate=선브렐라 체어">602 오크 사이드 체어</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">462000원</span>
+                                <span class="money">462,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -109,7 +109,7 @@
                         <h3 class="product-title"><a href="dining_clean_details.fu?imageIndex=7&cate=클린터치 테이블">WAVE 006 테이블_스킨</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">994000원</span>
+                                <span class="money">994,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
@@ -148,7 +148,7 @@
                         <h3 class="product-title"><a href="dining_clean_details.fu?imageIndex=38&cate=테이블 / 식탁">301 철제 오크 테이블</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
-                                <span class="money">577000원</span>
+                                <span class="money">577,000원</span>
                             </div>
                             <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
