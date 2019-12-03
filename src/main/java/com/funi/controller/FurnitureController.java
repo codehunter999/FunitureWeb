@@ -638,7 +638,7 @@ public class FurnitureController {
 		if (location.equals("Pyeongtaek")) {
 			return "location/blog_Pyeongtaek";
 		}
-		return "location/blog_GanNam";
+		return "location/blog_GangNam";
 	}
 
 	/*
@@ -1314,20 +1314,20 @@ public class FurnitureController {
 		return "event/event_list";
 	}
 
-	@RequestMapping(value = "/event_2.fu", method = RequestMethod.GET)
-	public String event_2(Locale locale, Model model) {
-		return "event/event_2";
-	}
-
-	@RequestMapping(value = "/event_3.fu", method = RequestMethod.GET)
-	public String event_3(Locale locale, Model model) {
-		return "event/event_3";
-	}
-
-	@RequestMapping(value = "/event_4.fu", method = RequestMethod.GET)
-	public String event_4(Locale locale, Model model) {
-		return "event/event_4";
-	}
+//	@RequestMapping(value = "/event_2.fu", method = RequestMethod.GET)
+//	public String event_2(Locale locale, Model model) {
+//		return "event/event_2";
+//	}
+//
+//	@RequestMapping(value = "/event_3.fu", method = RequestMethod.GET)
+//	public String event_3(Locale locale, Model model) {
+//		return "event/event_3";
+//	}
+//
+//	@RequestMapping(value = "/event_4.fu", method = RequestMethod.GET)
+//	public String event_4(Locale locale, Model model) {
+//		return "event/event_4";
+//	}
 
 	@RequestMapping(value = "/event_5.fu", method = RequestMethod.GET)
 	public String event_5(Locale locale, Model model) {

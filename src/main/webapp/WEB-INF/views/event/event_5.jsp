@@ -78,7 +78,6 @@
                                             "verticalSwiping": true,
                                             "infinite": true,
                                             "focusOnSelect": true,
-                                            "asNavFor": ".main-slider",
                                             "arrows": true, 
                                             "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "la la-angle-up" },
                                             "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "la la-angle-down" }
@@ -119,16 +118,16 @@
                                             }
                                         ]'>
                                             <figure class="product-gallery__nav-image--single">
-                                                <img src="<%=cp %>/resources/assets/img/event/e5-1.jpg" alt="Products">
+                                                <a href="living_sunb_details.fu?imageIndex=202&cateEn=sunb"><img src="<%=cp %>/resources/assets/img//event/event2.jpg" alt="Products"></a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <img src="<%=cp %>/resources/assets/img/event/e5-1.jpg" alt="Products">
+                                                <a href="dining_sunbrella_details.fu?imageIndex=2&cate=선브렐라%20체어"><img src="<%=cp %>/resources/assets/img/event/event3.jpg" alt="Products"></a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <img src="<%=cp %>/resources/assets/img/event/e5-1.jpg" alt="Products">
+                                                <a href="deco_monthly_details.fu?imageIndex=410&cate=월간%20카레클린트"><img src="<%=cp %>/resources/assets/img//event/event4.jpg" alt="Products"></a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <img src="<%=cp %>/resources/assets/img/event/e5-1.jpg" alt="Products">
+                                                <a href="event_5.fu"><img src="<%=cp %>/resources/assets/img//event/event5.jpg" alt="Products"></a>
                                             </figure>
                                         </div>
                                     </div>
@@ -152,7 +151,7 @@
                                     <span class="money">0원</span>
                                 </div>
                                 <div class="product-action mb--30">
-                                    <a href="shop.html" class="btn btn-size-sm btn-shape-square">Buy Now</a>
+                                    <a href="cart.fu" class="btn btn-size-sm btn-shape-square">ADD TO CART</a>
                                 </div>  
                                 <div class="product-footer-meta">
                                    
