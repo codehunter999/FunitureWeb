@@ -91,7 +91,7 @@
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='<%=cp%>/cart.fu'">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -233,7 +233,7 @@
                                         <div class="product-inner">
                                             <div class="product-image">
                                                 <figure class="product-image--holder">
-                                            	${dto.imageIndex }
+                                            		${dto.imageIndex }
                                                     <img src="<%=cp %>/resources/images/livingroom/${dto.imageIndex}.jpg" alt="Product">
                                                 </figure>
                                                 <a href="living_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
@@ -255,10 +255,9 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <a href="<%=cp%>/cart.fu" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
-                                                        <span>Add To Cart</span>
-						                      
+                                                        <span>Add To Cart</span>						                 
                                                     </a>
                                                 </div>
                                             </div>

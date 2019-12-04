@@ -80,11 +80,9 @@ public class LivingController {
 		List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 
 		FurnitureDTO dto = livingDao.getReadData(imageIndex, cateEn);
-		System.out.println("test ¿‘¥œ¥Ÿ " + dto.getSaveFileName());
 		mav.setViewName("product/living/sunb/living_sunb_details");
 		mav.addObject("dto", dto);
 		mav.addObject("lists", Lists);
-
 		return mav;
 	}
 

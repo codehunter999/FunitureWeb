@@ -138,7 +138,7 @@
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='<%=cp%>/cart.fu'">
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -324,7 +324,7 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <a href="<%=cp%>/cart.fu" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
                                                     </a>
