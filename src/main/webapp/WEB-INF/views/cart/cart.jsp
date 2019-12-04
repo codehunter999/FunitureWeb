@@ -1,4 +1,4 @@
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

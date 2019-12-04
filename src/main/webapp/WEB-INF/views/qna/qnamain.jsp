@@ -7,7 +7,7 @@
 	request.setCharacterEncoding("UTF-8");
 	List<QnADTO>lists=(List<QnADTO>)request.getAttribute("lists");
 %>
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="no-js" lang="zxx">
@@ -64,10 +64,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">One Column</h1>
+                        <h1 class="page-title">커뮤니티</h1>
                         <ul class="breadcrumb">
                             <li><a href="index.html">Home</a></li>
-                            <li class="current"><span>One Column</span></li>
+                            <li class="current"><span>Q & A</span></li>
                         </ul>
                     </div>
                 </div>

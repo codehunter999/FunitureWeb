@@ -21,7 +21,7 @@ select nvl(count(*),0) from deco where productName like '%' || #{searchValue} ||
 </select>
 
 <select id="getCateDataCount" parameterType="map" resultType="int"> 
-select nvl(count(*),0) from deco where cate=#{cate} and productName like '%' || #{searchValue} || '%' or cate like '%' || #{searchValue} || '%'
+select nvl(count(*),0) from deco where cate=#{cate} and productName like '%' || #{searchValue} || '%'
 </select>
 
  <!-- 전체목록 -->

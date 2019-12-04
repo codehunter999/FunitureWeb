@@ -1,5 +1,5 @@
 
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
         <!-- Main Content Wrapper Start -->
         <main class="main-content-wrapper">
             <!-- Slider area Start -->

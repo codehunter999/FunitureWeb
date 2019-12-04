@@ -1,4 +1,4 @@
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
         <!-- Main Content Wrapper Start -->
@@ -49,7 +49,7 @@
                                         <div class="row align-items-center no-gutters w-100">
                                             <div class="col-xl-6 col-md-6 mb-sm--50 order-md-2">
                                                 <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="pl-15 pr--60">
-                                                    <img src="/furnitureweb/resources/images/livingroom/216_detail1.jpg" alt="Slider O1 image" class="mx-auto">
+                                                    <img src="<%=cp %>/resources/images/livingroom/216_detail1.jpg" alt="Slider O1 image" class="mx-auto">
                                                 </figure>
                                             </div>
                                             <div class="col-md-5 col-lg-5 offset-md-1 order-md-1">
@@ -117,7 +117,7 @@
                                     </div>
                                     <figure class="feature-product__image mb-sm--30">
                                         <a href="product-details.fu">
-                                            <img src="/furnitureweb/resources/images/deco/detail/light/420_details_10.jpg" alt="Feature Product">
+                                            <img src="<%=cp %>/resources/images/deco/detail/light/420_details_10.jpg" alt="Feature Product">
                                         </a>
                                     </figure>
                                 </div>
@@ -259,7 +259,7 @@
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <img src="/furnitureweb/resources/images/deco/월간카레클린트1월호.jpg" alt="Blog" class="w-100">
+                                                    <img src="<%=cp %>/resources/images/deco/월간카레클린트1월호.jpg" alt="Blog" class="w-100">
                                                     <a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트" class="item-overlay"></a>
                                                 </figure>
                                             </div>
@@ -274,7 +274,7 @@
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <img src="/furnitureweb/resources/images/deco/월간카레클린트2월호.jpg" alt="Blog" class="w-100">
+                                                    <img src="<%=cp %>/resources/images/deco/월간카레클린트2월호.jpg" alt="Blog" class="w-100">
                                                     <a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트" class="item-overlay"></a>
                                                 </figure>
                                             </div>
@@ -289,7 +289,7 @@
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <img src="/furnitureweb/resources/images/deco/월간카레클린트3월호.jpg" alt="Blog" class="w-100">
+                                                    <img src="<%=cp %>/resources/images/deco/월간카레클린트3월호.jpg" alt="Blog" class="w-100">
                                                     <a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트" class="item-overlay"></a>
                                                 </figure>
                                             </div>
