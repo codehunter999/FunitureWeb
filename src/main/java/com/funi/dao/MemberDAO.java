@@ -10,6 +10,8 @@ import com.funi.domain.MemberDTO;
 
 import lombok.Data;
 
+
+
 @Data
 public class MemberDAO {
 	

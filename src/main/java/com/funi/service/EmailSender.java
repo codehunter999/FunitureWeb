@@ -34,7 +34,7 @@ public class EmailSender {
 			 */
         	  
 			  msg.setSubject(email.getSubject()); msg.setText(email.getContent());
-			  msg.setContent("<a href=''>����� �̵��ϼ���</a>","text/html; charset=utf-8");
+			  msg.setContent("<a href=''>占쏙옙占쏙옙占� 占싱듸옙占싹쇽옙占쏙옙</a>","text/html; charset=utf-8");
 			  msg.setRecipients(MimeMessage.RecipientType.TO ,InternetAddress.parse(email.getReceiver()));
 			
          }catch(MessagingException e) {
@@ -44,7 +44,7 @@ public class EmailSender {
          try {
              mailSender.send(msg);
          }catch(MailException e) {
-             System.out.println("MailException�߻�");
+             System.out.println("MailException占쌩삼옙");
              e.printStackTrace();
          }
      }
