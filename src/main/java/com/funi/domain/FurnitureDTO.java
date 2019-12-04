@@ -11,5 +11,6 @@ public class FurnitureDTO {
 	private String cate;
 	private int price;
 	private String saveFileName;
+	
 
 }

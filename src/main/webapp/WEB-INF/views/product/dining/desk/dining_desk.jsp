@@ -158,9 +158,6 @@
                                                         <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.jsp" class="action-btn">
-                                                            <i class="la la-repeat"></i>
-                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="product-info">

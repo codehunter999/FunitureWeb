@@ -1713,14 +1713,14 @@ public class FurnitureController {
         		int i=0;
 				while(iterator.hasNext()){
         			String result=(String)iterator.next();
-        			if(result.equals(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price")+":"+request.getParameter("imagepath"))) {
+        			if(result.equals(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price").trim()+":"+request.getParameter("imagepath"))) {
         				flag=false;
         			}
         		}
 				
         		
 				if(flag) {
-				wishitem.add(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price")+":"+request.getParameter("imagepath"));
+				wishitem.add(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price").trim()+":"+request.getParameter("imagepath"));
 				session.setAttribute("wishitem", wishitem);
 				}
 		}

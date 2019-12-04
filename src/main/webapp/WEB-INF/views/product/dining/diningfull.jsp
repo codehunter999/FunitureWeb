@@ -1,4 +1,5 @@
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
         <!-- Breadcrumb area Start -->
@@ -64,12 +65,21 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">
+                                                        <%
+                                                    FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                    if(dto.getProductName().contains("[")){
+                                                    	String str=dto.getProductName();
+                                                    	str=str.replace("[", "%5B");
+                                                    	str=str.replace("]", "%5D");
+                                                    	%>
+                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.saveFileName}" class="action-btn">       
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.html" class="action-btn">
-                                                            <i class="la la-repeat"></i>
+                                                    <%}else{ %>
+                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.saveFileName}" class="action-btn">       
+                                                            <i class="la la-heart-o"></i>
                                                         </a>
+                                                        <%} %>
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
