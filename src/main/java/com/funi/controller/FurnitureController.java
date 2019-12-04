@@ -1698,12 +1698,11 @@ public class FurnitureController {
 		}
 		wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
 		request.setAttribute("wishitem", wishitem);*/
-		
 		//Use List
 		List wishitem;
 		if(request.getParameter("cate")==null||request.getParameter("cate").equals("")) {
 		}else {
-			System.out.println(request.getParameter("cate")+":"+request.getParameter("imageIndex"));
+			System.out.println(request.getParameter("cate")+":"+request.getParameter("itemname"));
 				if(session.getAttribute("wishitem")==null) {
 					wishitem=new ArrayList<String>();
 				}else {
@@ -1714,14 +1713,14 @@ public class FurnitureController {
         		int i=0;
 				while(iterator.hasNext()){
         			String result=(String)iterator.next();
-        			if(result.equals(request.getParameter("cate")+","+ request.getParameter("imageIndex")+","+request.getParameter("price")+","+request.getParameter("imagetype"))) {
+        			if(result.equals(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price")+":"+request.getParameter("imagepath"))) {
         				flag=false;
         			}
         		}
 				
         		
 				if(flag) {
-				wishitem.add(request.getParameter("cate")+","+ request.getParameter("imageIndex")+","+request.getParameter("price")+","+request.getParameter("imagetype"));
+				wishitem.add(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price")+":"+request.getParameter("imagepath"));
 				session.setAttribute("wishitem", wishitem);
 				}
 		}

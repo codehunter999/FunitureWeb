@@ -81,6 +81,16 @@
                             <div class="row">
                             
                                 <table class="table table-style-2 wishlist-table text-center">
+                                <thead>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th>&nbsp;</th>
+                                            <th class="text-left">내용</th>
+                                            <th> </th>
+                                            <th>작성자</th>
+                                            <th>작성일</th>
+                                        </tr>
+                                    </thead>
                                 <tbody>
                                 <%for(ReviewDTO dto:lists){ %>
                                 <!-- 
@@ -147,7 +157,20 @@
                                             </td>
                                         </tr>
                                 <%} %>
-                                
+                                <tr>
+                                <td class="product-remove text-left">
+                                </td>
+                                <td class="product-thumbnail text-left">
+                                </td>
+                                <td class="product-name text-left wide-column">
+                                </td>
+                                <td class="product-stock">
+                                </td>
+                                <td class="product-price">
+                                </td>
+                                <td class="product-price">
+                                </td>
+                                </tr>
                                 </tbody>
                                 </table>
                                 <div class="related-post__info">

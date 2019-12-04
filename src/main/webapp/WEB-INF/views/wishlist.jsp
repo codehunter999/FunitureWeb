@@ -155,7 +155,7 @@
                                         		int i=0;
                                         		while(iterator.hasNext()){
                                         			String result=(String)iterator.next();
-                                        			String[] value=result.split(",");
+                                        			String[] value=result.split(":");
                                         %>
                                         <tr>
                                             <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=i%>"><i class="la la-remove"></i></a></td>
@@ -165,7 +165,8 @@
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html"> <%=value[0] %><%=value[1] %></a>
+                                                    <%=value[0] %>
+                                                    <br><%=value[1] %></a>
                                                 </h3>
                                             </td>
                                             <td class="product-stock">
@@ -456,13 +457,13 @@
 
         <!-- Qicuk View Modal Start -->
         <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog" role="document" style="width: 300">
             <div class="modal-content">
               <div class="modal-body" align="center">
               <br><br><br>
                 카트에 담으시겠습니까?
                 <br>
-                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>
+                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp
                 <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
               <br><br><br>                      
               </div>

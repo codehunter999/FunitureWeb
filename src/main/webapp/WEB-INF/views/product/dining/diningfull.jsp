@@ -64,7 +64,7 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.html" class="action-btn">
+                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <a href="wishlist.html" class="action-btn">
