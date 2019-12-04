@@ -59,12 +59,12 @@
                                                     </figure>
                                                     <a href="living_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a href="wishlist.html" class="action-btn">
+                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.html" class="action-btn">
+                                                        <!-- <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
