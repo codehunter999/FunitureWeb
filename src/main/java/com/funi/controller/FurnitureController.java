@@ -122,10 +122,8 @@ public class FurnitureController {
 	public ModelAndView home1(Locale locale, Model model) {
 
 		ModelAndView mav = new ModelAndView();
-
-		List<FurnitureDTO> lists = livingDao.livingImageList();
+		
 		mav.setViewName("index");
-		mav.addObject("lists", lists);
 
 		return mav;
 	}
