@@ -31,6 +31,16 @@
 			});
 		});
 	</script>
+	<script type="text/javascript">
+	    var data;
+		function clickevent(eventdata){
+			data=eventdata;
+			$('div.modal').modal();
+		}
+		function cartsubmit(){
+			location.href="cart.fu?data="+data;
+		}
+    </script>
 
 	<style type="text/css">
 		.container {

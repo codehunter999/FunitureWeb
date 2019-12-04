@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -119,6 +120,7 @@ public class FurnitureController {
 	// HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public ModelAndView home1(Locale locale, Model model) {
+		
 		ModelAndView mav = new ModelAndView();
 
 		List<FurnitureDTO> lists = livingDao.livingImageList();
@@ -1314,20 +1316,20 @@ public class FurnitureController {
 		return "event/event_list";
 	}
 
-//	@RequestMapping(value = "/event_2.fu", method = RequestMethod.GET)
-//	public String event_2(Locale locale, Model model) {
-//		return "event/event_2";
-//	}
-//
-//	@RequestMapping(value = "/event_3.fu", method = RequestMethod.GET)
-//	public String event_3(Locale locale, Model model) {
-//		return "event/event_3";
-//	}
-//
-//	@RequestMapping(value = "/event_4.fu", method = RequestMethod.GET)
-//	public String event_4(Locale locale, Model model) {
-//		return "event/event_4";
-//	}
+	// @RequestMapping(value = "/event_2.fu", method = RequestMethod.GET)
+	// public String event_2(Locale locale, Model model) {
+	// return "event/event_2";
+	// }
+	//
+	// @RequestMapping(value = "/event_3.fu", method = RequestMethod.GET)
+	// public String event_3(Locale locale, Model model) {
+	// return "event/event_3";
+	// }
+	//
+	// @RequestMapping(value = "/event_4.fu", method = RequestMethod.GET)
+	// public String event_4(Locale locale, Model model) {
+	// return "event/event_4";
+	// }
 
 	@RequestMapping(value = "/event_5.fu", method = RequestMethod.GET)
 	public String event_5(Locale locale, Model model) {
@@ -1348,51 +1350,57 @@ public class FurnitureController {
 	}
 
 	// wishList part
-	@RequestMapping(value = "/wishlist.fu", method = RequestMethod.GET)
-	public String wishlist(Locale locale, Model model, HttpServletRequest request, HttpSession session) {
-
-		Map<String, String> wishitem;
-
-		if (request.getParameter("cate") == null || request.getParameter("cate").equals("")) {
-		} else {
-
-			System.out.println(request.getParameter("cate") + ":" + request.getParameter("imageIndex"));
-
-			if (session.getAttribute("wishitem") == null) {
-				wishitem = new HashMap<String, String>();
-			} else {
-				wishitem = (HashMap<String, String>) session.getAttribute("wishitem");
-			}
-
-			wishitem.put(request.getParameter("cate") + "," + request.getParameter("imageIndex"),
-					request.getParameter("price") + "," + request.getParameter("imagetype"));
-			session.setAttribute("wishitem", wishitem);
-
-		}
-
-		wishitem = (HashMap<String, String>) session.getAttribute("wishitem");
-		request.setAttribute("wishitem", wishitem);
-
-		return "wishlist";
-	}
-
-	@RequestMapping(value = "/deletewishlist.fu", method = RequestMethod.GET)
-	public String deletewishlist(Locale locale, Model model, HttpServletRequest request, HttpSession session) {
-
-		System.out.println(request.getParameter("id"));
-
-		Map<String, String> wishitem;
-
-		if (session.getAttribute("wishitem") == null) {
-			wishitem = new HashMap<String, String>();
-		} else {
-			wishitem = (HashMap<String, String>) session.getAttribute("wishitem");
-		}
-
-		wishitem.remove(request.getParameter("id"));
-		session.setAttribute("wishitem", wishitem);
-
-		return "redirect:/wishlist.fu";
-	}
+	/*
+	 * @RequestMapping(value = "/wishlist.fu", method = RequestMethod.GET) public
+	 * String wishlist(Locale locale, Model model,HttpServletRequest
+	 * request,HttpSession session) { //Use Map Map<String, String> wishitem;
+	 * if(request.getParameter("cate")==null||request.getParameter("cate").equals(""
+	 * )) { }else {
+	 * System.out.println(request.getParameter("cate")+":"+request.getParameter(
+	 * "imageIndex")); if(session.getAttribute("wishitem")==null) { wishitem=new
+	 * HashMap<String, String>(); }else { wishitem=(HashMap<String,
+	 * String>)session.getAttribute("wishitem"); }
+	 * wishitem.put(request.getParameter("cate")+","+
+	 * request.getParameter("imageIndex"),request.getParameter("price")+","+request.
+	 * getParameter("imagetype")); session.setAttribute("wishitem", wishitem); }
+	 * wishitem=(HashMap<String, String>)session.getAttribute("wishitem");
+	 * request.setAttribute("wishitem", wishitem);
+	 * 
+	 * //Use List List wishitem;
+	 * if(request.getParameter("cate")==null||request.getParameter("cate").equals(""
+	 * )) { }else {
+	 * System.out.println(request.getParameter("cate")+":"+request.getParameter(
+	 * "imageIndex")); if(session.getAttribute("wishitem")==null) { wishitem=new
+	 * ArrayList<String>(); }else {
+	 * wishitem=(List<String>)session.getAttribute("wishitem"); } boolean flag=true;
+	 * Iterator iterator=wishitem.iterator(); int i=0; while(iterator.hasNext()){
+	 * String result=(String)iterator.next();
+	 * if(result.equals(request.getParameter("cate")+","+
+	 * request.getParameter("imageIndex")+","+request.getParameter("price")+","+
+	 * request.getParameter("imagetype"))) { flag=false; } }
+	 * 
+	 * 
+	 * if(flag) { wishitem.add(request.getParameter("cate")+","+
+	 * request.getParameter("imageIndex")+","+request.getParameter("price")+","+
+	 * request.getParameter("imagetype")); session.setAttribute("wishitem",
+	 * wishitem); } } wishitem=(List<String>)session.getAttribute("wishitem");
+	 * request.setAttribute("wishitem", wishitem); return "wishlist"; }
+	 * 
+	 * @RequestMapping(value = "/deletewishlist.fu", method = RequestMethod.GET)
+	 * public String deletewishlist(Locale locale, Model model,HttpServletRequest
+	 * request,HttpSession session) { //Use Map Map<String, String> wishitem;
+	 * if(session.getAttribute("wishitem")==null) { wishitem=new HashMap<String,
+	 * String>(); }else { wishitem=(HashMap<String,
+	 * String>)session.getAttribute("wishitem"); }
+	 * wishitem.remove(request.getParameter("id")); session.setAttribute("wishitem",
+	 * wishitem);
+	 * 
+	 * //Use List List wishitem;
+	 * wishitem=(ArrayList<String>)session.getAttribute("wishitem");
+	 * System.out.println(wishitem.remove(Integer.parseInt(request.getParameter("id"
+	 * )))); session.setAttribute("wishitem", wishitem);
+	 * 
+	 * return "redirect:/wishlist.fu"; }
+	 */
 
 }

@@ -1,10 +1,10 @@
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.Map"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimage.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -38,50 +38,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- <tr>
-                                            <td class="product-remove text-left"><a href=""><i class="la la-remove"></i></a></td>
-                                            <td class="product-thumbnail text-left">
-                                                <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail">
-                                            </td>
-                                            <td class="product-name text-left wide-column">
-                                                <h3>
-                                                    <a href="product-details.html">Pinstripe slim-fit suit blazer</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-stock">
-                                                In Stock
-                                            </td>
-                                            <td class="product-price">
-                                                <span class="product-price-wrapper">
-                                                    <span class="money">$49.00</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-action-btn">
-                                                <a href="cart.html" class="btn btn-size-md">Add to cart</a>
-                                            </td>
-                                        </tr> -->
                                         <%
-                                        Map<String, String> wishitem;
-                                        wishitem=(HashMap<String, String>)request.getAttribute("wishitem");
-                                        if(wishitem!=null){
-                                        for(String key:wishitem.keySet()){
-                                        	int cut=key.indexOf(",");
-                                        	String name=key.substring(0, cut);
-                                        	String set=key.substring(cut+1, key.length());
-                                        	String value=wishitem.get(key);
-                                        	int cut1=value.indexOf(",");
-                                        	String price=value.substring(0,cut1);
-                                        	String img=value.substring(cut1+1,value.length());
+                                        	//Use List
+                                        	List<String> wishitem=(List<String>)request.getAttribute("wishitem");
+                                        	
+                                        	if(wishitem!=null){
+                                        		Iterator iterator=wishitem.iterator();
+                                        		int i=0;
+                                        		
+                                        		while(iterator.hasNext()){
+                                        			String result=(String)iterator.next();
+                                        			String[] value=result.split(",");
                                         %>
                                         <tr>
-                                            <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=key%>"><i class="la la-remove"></i></a></td>
+                                            <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=i%>"><i class="la la-remove"></i></a></td>
                                             <td class="product-thumbnail text-left">
                                                 <%-- <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail"> --%>
-                                                <img src="<%=cp %><%=img %>" alt="Product Thumnail">
+                                                <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html"><%=name %> <%=set %></a>
+                                                    <a href="product-details.html"> <%=value[0] %><%=value[1] %></a>
                                                 </h3>
                                             </td>
                                             <td class="product-stock">
@@ -89,15 +66,19 @@
                                             </td>
                                             <td class="product-price">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money"><%=price %>원</span>
+                                                    <span class="money"><%=value[2] %>원</span>
                                                 </span>
                                             </td>
                                             <td class="product-action-btn">
-                                                <a href="cart.html" class="btn btn-size-md">Add to cart</a>
+                                                <div name="addcart" class="btn btn-size-md" onclick="clickevent('<%=value[0] %>,<%=value[1] %>,<%=value[2] %>,<%=value[3] %>')">Add to cart</div>
+                                               
                                             </td>
                                         </tr>
-                                        <%}
-                                        }%>
+                                        <%
+	                            					i++;
+	                                        	}
+	                                        }
+                                        %>
                                     </tbody>
                                 </table>
                             </div>  

@@ -62,7 +62,7 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">
+                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=<%=cp%>/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <!-- <a href="wishlist.html" class="action-btn">
