@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -31,16 +32,6 @@
 			});
 		});
 	</script>
-	<script type="text/javascript">
-	    var data;
-		function clickevent(eventdata){
-			data=eventdata;
-			$('div.modal').modal();
-		}
-		function cartsubmit(){
-			location.href="cart.fu?data="+data;
-		}
-    </script>
 
 	<style type="text/css">
 		.container {
@@ -380,11 +371,11 @@
                                     <div class="header__main-right">
                                         <div class="header-toolbar-wrap">
                                             <div class="header-toolbar">
-                                                <div class="header-toolbar__item header-toolbar--search-btn">
+                                                <!-- <div class="header-toolbar__item header-toolbar--search-btn">
                                                     <a href="#searchForm" class="header-toolbar__btn toolbar-btn">
                                                         <i class="la la-search"></i>
                                                     </a>
-                                                </div>
+                                                </div> -->
                                                 <div class="header-toolbar__item header-toolbar--minicart-btn">
                                                     <a href="#miniCart" class="header-toolbar__btn toolbar-btn">
                                                         <i class="la la-shopping-cart"></i>

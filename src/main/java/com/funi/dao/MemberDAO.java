@@ -8,12 +8,16 @@ import org.mybatis.spring.SqlSessionTemplate;
 
 import com.funi.domain.MemberDTO;
 
-import lombok.Data;
 
-@Data
+
+
 public class MemberDAO {
 	
 	private SqlSessionTemplate sessionTemplate;
+	
+	public void setSessionTemplate(SqlSessionTemplate sessionTemplate) throws Exception{
+		this.sessionTemplate = sessionTemplate;
+	}
 
 	public void insertData(MemberDTO memberdto) {
 		System.out.println(memberdto.getSalt());

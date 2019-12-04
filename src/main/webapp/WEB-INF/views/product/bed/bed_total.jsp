@@ -59,15 +59,15 @@
                                                     </figure>
                                                     <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a data-toggle="modal" data-target="#productModal" class="action-btn">
+                                                        <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
-                                                        </a>
-                                                        <a href="wishlist.html" class="action-btn">
+                                                        </a> -->
+                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=<%=cp%>/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.html" class="action-btn">
+                                                        <!-- <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
@@ -91,16 +91,18 @@
                                     </c:forEach>
                                 </div>
                             </div>
-                            <nav class="pagination-wrap">
+                            <!-- *******page********* -->
+                           <nav class="pagination-wrap">
                                 <ul class="pagination">
-                                    <li><span class="page-number current">1</span></li>
-                                    <li><a href="#" class="page-number">2</a></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><a href="#" class="page-number">16</a></li>
+                                    <c:if test="${dataCount!=0 }">
+                                    	${pageIndexList }
+                                    </c:if>
+                                    <c:if test="${dataCount==0 }">
+                                    	등록된 게시물이 없습니다.
+                                    </c:if>
                                 </ul>
                             </nav>
+                            <!-- **********page************ -->
                         </div>
                     </div>
                 </div>

@@ -10,11 +10,40 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	values (#{imageIndex}, #{productName}, #{cateEn}, #{cate}, #{price}, #{saveFileName})
 </insert>
 
+<!-- 페이징 부분 -->
+<select id="getDataCount" parameterType="map" resultType="int">
+	select nvl(count(*), 0) from bedroom
+	where productName like '%' || #{searchValue} || '%'
+</select>
+
+<!-- 카테고리&검색 카운트 -->
+<select id="getCateDataCount" parameterType="map" resultType="int"> 
+	select nvl(count(*),0) from bedroom 
+	where cateEn=#{cateEn} and productName like '%' || #{searchValue} || '%'
+</select>
 
 <!-- 전체 데이터 -->
 <select id="bedimageList" resultType="com.funi.domain.FurnitureDTO">
+	select * from (
+	select rownum rnum, data.* from (
 	select imageIndex, productName, cateEn, cate, to_char(price, '999,999,999') as price, saveFileName from bedroom
-	order by imageIndex desc
+	where cate like '%' || #{searchValue} || '%' or productName like '%' || #{searchValue} || '%'
+	order by imageIndex desc) data)
+<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+]]>
+</select>
+
+<!-- 카테고리 검색&페이지 -->
+<select id="CateSimageList" resultType="com.funi.domain.FurnitureDTO" parameterType="Map">
+	select * from (
+	select rownum rnum, data.* from (
+	select imageIndex, productName, cateEn, cate, to_char(price, '999,999,999') as price, saveFileName from bedroom 
+	where cateEn=#{cateEn} and productName like '%' || #{searchValue} || '%'
+	order by imageIndex desc) data)
+<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+]]>
 </select>
 
 <!-- 카테고리 데이터 -->
