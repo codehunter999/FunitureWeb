@@ -203,14 +203,16 @@
         </aside>
         <!-- Mini Cart End -->
 
-		<!-- Searchform Popup Start -->
+        <!-- Searchform Popup Start -->
         <div class="searchform__popup" id="searchForm">
             <a href="#" class="btn-close"><i class="la la-remove"></i></a>
             <div class="searchform__body">
                 <p>검색할 제품 이름을 입력하세요.</p>
                 <form name="searchForm" class="searchform">
-                    <input type="text" name="searchValue" id="popup-search" class="searchform__input" placeholder="Search Entire Store...">
-                    <button type="button" class="searchform__submit" onclick="sendIt();"><i class="la la-search"></i></button>
+                    <input type="text" name="searchValue" id="search" class="searchform__input" placeholder="Search Entire Store...">
+                    <input type="hidden" name="cate" value="${cate }">
+                    <button type="submit" class="searchform__submit"><i class="la la-search"></i></button>
+                    <!-- <input type="button" id="searchV" class="searchform__submit la la-search" value="◈" style="font-size: 20pt; color: green; border: 2px solid; border-color: green;"/> -->
                 </form>
             </div>
         </div>

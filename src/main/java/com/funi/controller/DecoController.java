@@ -262,6 +262,9 @@ public class DecoController {
 		mav.addObject("dataCount", dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
 		mav.addObject("pageNum", pageNum);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 	}
@@ -365,6 +368,9 @@ public class DecoController {
 		mav.addObject("dataCount", dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
 		mav.addObject("pageNum", pageNum);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 
@@ -469,6 +475,9 @@ public class DecoController {
 		mav.addObject("dataCount", dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
 		mav.addObject("pageNum", pageNum);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 
