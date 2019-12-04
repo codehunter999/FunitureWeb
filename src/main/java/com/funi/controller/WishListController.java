@@ -38,6 +38,7 @@ public class WishListController {
 		List wishitem;
 		
 		if(request.getParameter("cate")==null||request.getParameter("cate").equals("")) {}
+		
 		else {
 			System.out.println(request.getParameter("cate")+":"+request.getParameter("itemname"));
 			
