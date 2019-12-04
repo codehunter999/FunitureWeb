@@ -385,14 +385,10 @@ public class DiningController {
 	public ModelAndView dining_clean_details(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
-
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cate = request.getParameter("cate");
-
 		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
-
 		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
-
 		mav.setViewName("product/dining/clean/dining_clean_details");
 		mav.addObject("dto", dto);
 		mav.addObject("catelists", catelists);

@@ -1,364 +1,12 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%
-	request.setCharacterEncoding("UTF-8");
-	String cp = request.getContextPath();
-%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html class="no-js" lang="zxx">
- 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Beck - Furniture eCommerce Bootstrap 4 Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="<%=cp %>/resources/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="<%=cp %>/resources/assets/img/icon.png">
 
-    <!-- ************************* CSS Files ************************* -->
-
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
-
-    <!-- style css -->
-    <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
-</head>
-
-<body>
-
-    <!-- Preloader Start -->
-    <div class="ft-preloader active">
-        <div class="ft-preloader-inner h-100 d-flex align-items-center justify-content-center">
-            <div class="ft-child ft-bounce1"></div>
-            <div class="ft-child ft-bounce2"></div>
-            <div class="ft-child ft-bounce3"></div>
-        </div>
-    </div>
-    <!-- Preloader End -->
-
-    <!-- Main Wrapper Start -->
-    <div class="wrapper">
-        <!-- Header Start -->
-        <header class="header">
-            <div class="header__inner fixed-header">
-                <div class="header__main">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="header__main-inner">
-                                    <div class="header__main-left">
-                                        <div class="logo">
-                                            <a href="index.html" class="logo--normal">
-                                                <img src="<%=cp %>/resources/assets/img/logo/logo.png" alt="Logo">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="header__main-center">
-                                        <nav class="main-navigation text-center d-none d-lg-block">
-                                            <ul class="mainmenu">
-                                                <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="index.html" class="mainmenu__link">
-                                                        <span class="mm-text">Home</span>
-                                                    </a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="index.html">
-                                                                <span class="mm-text">Home One</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-02.html">
-                                                                <span class="mm-text">Home Two</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mainmenu__item menu-item-has-children megamenu-holder">
-                                                    <a href="shop.html" class="mainmenu__link">
-                                                        <span class="mm-text">Shop</span>
-                                                    </a>
-                                                    <ul class="megamenu">
-                                                        <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Shop Grid</span>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="shop-fullwidth.html">
-                                                                        <span class="mm-text">Full Width</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="mm-text">Left Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-right-sidebar.html">
-                                                                        <span class="mm-text">Right Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-three-columns.html">
-                                                                        <span class="mm-text">Three Columns</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-four-columns.html">
-                                                                        <span class="mm-text">Four Columns</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Shop List</span>
-                                                            </a>
-                                                            <ul> 
-                                                                <li>
-                                                                    <a href="shop-list.html">
-                                                                        <span class="mm-text">Full Width</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-list-sidebar.html">
-                                                                        <span class="mm-text">Left Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-list-right-sidebar.html">
-                                                                        <span class="mm-text">Right Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Product Details</span>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="product-details.html">
-                                                                        <span class="mm-text">Tab Style 1</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-tab-style-2.html">
-                                                                        <span class="mm-text">Tab Style 2</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-tab-style-3.html">
-                                                                        <span class="mm-text">Tab Style 3</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-gallery-left.html">
-                                                                        <span class="mm-text">Gallery Left</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-gallery-right.html">
-                                                                        <span class="mm-text">Gallery Right</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-sticky-left.html">
-                                                                        <span class="mm-text">Sticky Left</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <a class="megamenu-title" href="#">
-                                                                <span class="mm-text">Product Details</span>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="product-details-sticky-right.html">
-                                                                        <span class="mm-text">Sticky Right</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-slider-box.html">
-                                                                        <span class="mm-text">Slider Box</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-slider-full-width.html">
-                                                                        <span class="mm-text">Slider Box Full Width</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-affiliate.html">
-                                                                        <span class="mm-text">Affiliate Proudct</span>
-                                                                    </a>
-                                                                </li>                                                    
-                                                                <li>
-                                                                    <a href="product-details-variable.html">
-                                                                        <span class="mm-text">Variable Proudct</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-details-group.html">
-                                                                        <span class="mm-text">Group Product</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="blog.html" class="mainmenu__link">
-                                                        <span class="mm-text">Blog</span>
-                                                    </a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item-has-children">
-                                                            <a href="#">
-                                                                <span class="mm-text">Blog Grid</span>
-                                                            </a>
-                                                            <ul class="sub-menu">
-                                                                <li>
-                                                                    <a href="blog-left-sidebar.html">
-                                                                        <span class="mm-text">Left Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog.html">
-                                                                        <span class="mm-text">Right Sidebar</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-01-column.html">
-                                                                        <span class="mm-text">One Column</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-02-columns.html">
-                                                                        <span class="mm-text">Two Columns</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-03-columns.html">
-                                                                        <span class="mm-text">Three Columns</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item-has-children">
-                                                            <a href=""><span class="mm-text">Blog Details</span></a>
-                                                            <ul class="sub-menu">
-                                                                <li>
-                                                                    <a href="blog-details-image.html">
-                                                                        <span class="mm-text">Image Post</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-details-audio.html">
-                                                                        <span class="mm-text">Audio Post</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-details-video.html">
-                                                                        <span class="mm-text">Video Post</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog-details-gallery.html">
-                                                                        <span class="mm-text">Gallery Post</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mainmenu__item menu-item-has-children">
-                                                    <a href="#" class="mainmenu__link">
-                                                        <span class="mm-text">Pages</span>
-                                                    </a>
-                                                    <ul class="sub-menu">
-                                                        <li>
-                                                            <a href="my-account.html">
-                                                                <span class="mm-text">My Account</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="checkout.html">
-                                                                <span class="mm-text">Checkout</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="cart.html">
-                                                                <span class="mm-text">Cart</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="compare.html">
-                                                                <span class="mm-text">Compare</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="order-tracking.html">
-                                                                <span class="mm-text">Track Order</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="wishlist.html">
-                                                                <span class="mm-text">Wishlist</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mainmenu__item">
-                                                    <a href="contact-us.html" class="mainmenu__link">
-                                                        <span class="mm-text">Contact Us</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <div class="header__main-right">
-                                        <div class="header-toolbar-wrap">
-                                            <div class="header-toolbar">
-                                                <div class="header-toolbar__item header-toolbar--search-btn">
-                                                    <a href="#searchForm" class="header-toolbar__btn toolbar-btn">
-                                                        <i class="la la-search"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="header-toolbar__item header-toolbar--minicart-btn">
-                                                    <a href="#miniCart" class="header-toolbar__btn toolbar-btn">
-                                                        <i class="la la-shopping-cart"></i>
-                                                        <span>01</span>
-                                                    </a>
-                                                </div>
-                                                <div class="header-toolbar__item d-block d-lg-none">
-                                                    <a href="#offcanvasMenu" class="header-toolbar__btn toolbar-btn menu-btn">
-                                                        <div class="hamburger-icon">
-                                                            <span></span>
-                                                            <span></span>
-                                                            <span></span>
-                                                            <span></span>
-                                                            <span></span>
-                                                            <span></span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Header End -->
-
-        <!-- Breadcrumb area Start -->
+	 <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/product/shop1.jpg">
             <div class="container">
                 <div class="row">
@@ -409,29 +57,29 @@
                                     <div class="form-row mb--20">
                                         <div class="form__group col-md-6 mb-sm--30">
                                             <label for="billing_fname" class="form__label">주문하시는 분  <span class="required">*</span></label>
-                                            <input type="text" value="${row.name }" name="billing_fname" id="billing_fname" class="form__input" placeholder="">              
+                                            <input type="text" value="${memberdto.name }" name="billing_fname" id="billing_fname" class="form__input" placeholder="">              
                                         </div>
                                     </div>
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
                                             <label for="billing_streetAddress" class="form__label">주소 <span class="required">*</span></label>
 
-                                            <input type="text" value="${row.addr1 }" name="billing_streetAddress" id="billing_streetAddress" class="form__input mb--30" placeholder="">
+                                            <input type="text" value="${memberdto.addr1 }" name="billing_streetAddress" id="billing_streetAddress" class="form__input mb--30" placeholder="">
 
-                                            <input type="text" value="${row.addr2 }" name="billing_apartment" id="billing_apartment" class="form__input" placeholder="">
+                                            <input type="text" value="${memberdto.addr2 }${memberdto.addr3 }" name="billing_apartment" id="billing_apartment" class="form__input" placeholder="">
                                         </div>
                                     </div>
                             
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
                                             <label for="billing_company" class="form__label">전화번호 <span class="required">*</span></label>
-                                            <input type="text" value="${row.phone }"  name="billing_company" id="billing_company" class="form__input">
+                                            <input type="text" value="010${memberdto.phone }"  name="billing_company" id="billing_company" class="form__input">
                                         </div>
                                     </div>
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
                                             <label for="billing_company" class="form__label">이메일 <span class="required">*</span></label>
-                                            <input type="text" value="${row.email }"  name="billing_company" id="billing_company" class="form__input">
+                                            <input type="text" value="${memberdto.email }"  name="billing_company" id="billing_company" class="form__input">
                                         </div>
                                         <div class="payment-info" data-method="bank">
                                             <p>이메일을 통해 주문처리과정을 보내드립니다.<br/>
@@ -503,7 +151,7 @@
                                             <th class="text-right"><font size="3pt;"><strong>판매가</strong></font></th>
                                         </tr>
                                         <tr>
-                                            <c:if test="${map.count!=null}">
+                                            <c:if test="${cartlist != null}">
 											<c:forEach var="row" items="${map.list}" varStatus="i">
                                             
                                                 <th>${row.productName}
@@ -515,19 +163,35 @@
                                             
                                             </c:forEach>
 											</c:if>
-											<c:if test="${map.count == null}">
+											<c:if test="${cartlist == null}">
 												<td>주문한 상품이 없습니다.</td>
 											</c:if>
                                         </tr>    
-                                            
+                                            <%
+				                                
+											 	List<String> cartlist=(List<String>)request.getAttribute("cartlist");
+                                            	String qty_TotalItem = (String)request.getAttribute("qty_TotalItem");
+	                                        	if(cartlist!=null){
+	                                        		Iterator iterator=cartlist.iterator();
+	                                        		int buttonIndex = 0; 
+	                                        		int i=0;
+	                                        		while(iterator.hasNext()){
+	                                        			String result=(String)iterator.next();
+	                                        			String[] value=result.split(":");
+	                                        			value[2]  = value[2].replaceAll(",","");
+	                                        			
+	                               			%>
                                             <!-- 예제 삭제하기 -->
                                             <tr>
-                                                <th> [예제] 602 오크 사이드 체어
+                                                <th><%=value[0] %><%=value[1] %>
                                                     <strong><span>&#10005;</span>1</strong>
                                                 </th>
-                                                <td class="text-right">462,000원</td>
+                                                <td class="text-right"><%=value[2] %>원</td>
                                             </tr>
-                                            <!-- 예제 삭제하기 -->                                           
+                                            <!-- 예제 삭제하기 -->   
+                                            	<%}       	
+                                   			}%> 
+                                                                                    
                                         <tfoot>
                                             <tr class="cart-subtotal">
                                                 <th>총 상품 금액</th>
@@ -550,6 +214,7 @@
                                         </tfoot>
                                     </table>
                                 </div>
+                                
                                 <div class="checkout-payment">
                                     <form action="#" class="payment-form">
                                         <div class="payment-group mb--10">

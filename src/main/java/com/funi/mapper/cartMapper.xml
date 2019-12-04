@@ -10,7 +10,6 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 		values (#{email},#{imageIndex},#{productName},#{qty},#{price})
 	</insert>
 	
-	<!-- 유저별 장바구니 전체데이터 -->
 
 
 </mapper>
