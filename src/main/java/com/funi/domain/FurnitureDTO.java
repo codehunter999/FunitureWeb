@@ -8,6 +8,7 @@ public class FurnitureDTO {
 	private String cate;
 	private String price;
 	private String saveFileName;
+	
 
 	public int getImageIndex() {
 		return imageIndex;

@@ -52,7 +52,7 @@
 
         <!-- Breadcrumb area Start -->
          
-        <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/assets/img/bg/blog-breadcrumb.jpg">
+        <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimages1.jpg">
         <!-- <section class="page-title-area-2 bg-image"> -->
             <div class="container">
                 <div class="row">

@@ -48,7 +48,7 @@
                                         		
                                         		while(iterator.hasNext()){
                                         			String result=(String)iterator.next();
-                                        			String[] value=result.split(",");
+                                        			String[] value=result.split(":");
                                         %>
                                         <tr>
                                             <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=i%>"><i class="la la-remove"></i></a></td>
@@ -58,7 +58,8 @@
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html"> <%=value[0] %><%=value[1] %></a>
+                                                    <%=value[0] %>
+                                                    <br><%=value[1] %></a>
                                                 </h3>
                                             </td>
                                             <td class="product-stock">

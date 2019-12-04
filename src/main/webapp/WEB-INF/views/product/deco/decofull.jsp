@@ -64,12 +64,10 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=/resources/images/deco/${dto.saveFileName}" class="action-btn">
+                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <!-- <a href="wishlist.html" class="action-btn">
-                                                            <i class="la la-repeat"></i>
-                                                        </a> -->
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
