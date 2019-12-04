@@ -192,6 +192,8 @@ public class DiningController {
 		mav.addObject("dataCount", dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
 		mav.addObject("pageNum", pageNum);
+		
+		mav.addObject("searchValue", searchValue);
 
 		//		System.out.println("test3");
 
@@ -276,6 +278,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 
@@ -377,6 +382,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 	}
@@ -408,6 +416,8 @@ public class DiningController {
 
 		String pageNum = request.getParameter("pageNum");
 		String cate = request.getParameter("cate");
+		
+		System.out.println("cate: " +cate);
 
 		int currentPage = 1;
 
@@ -477,6 +487,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 	}
@@ -577,6 +590,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 	}
@@ -677,6 +693,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 	}
@@ -777,6 +796,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 	}
@@ -877,6 +899,9 @@ public class DiningController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
+		mav.addObject("searchValue", searchValue);
+		mav.addObject("cate", cate);
 
 		return mav;
 
