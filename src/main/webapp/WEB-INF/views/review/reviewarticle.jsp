@@ -8,7 +8,7 @@
 	List<Re_ReviewDTO>lists=(List<Re_ReviewDTO>)request.getAttribute("lists");
 	String mode=(String)request.getAttribute("mode");
 %>
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="no-js" lang="zxx">
@@ -57,7 +57,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="sr-only">Blog Details</h1>
+                        <h1 class="sr-only">상품평</h1>
                     </div>
                 </div>
             </div>
