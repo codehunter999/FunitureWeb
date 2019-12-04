@@ -17,43 +17,91 @@ public class LivingDAO {
 	
 	//living*************
 	
-	//ì¹´í…Œê³ ë¦¬ ë¦¬ìŠ¤íŠ¸
+	//Ä«Å×°í¸® ¸®½ºÆ®
 	public List<FurnitureDTO> cateEImageList(HashMap<String,Object> livingMap) {
 		
-		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.CateimageList",livingMap);
+		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.CateimageList", livingMap);
 		
 		return Lists;
 	}
 	
-	//ì¹¨ì‹¤ ì „ì²´ ë¦¬ìŠ¤íŠ¸
-	public List<FurnitureDTO> livingImageList() {
+	//Ä«Å×°í¸® °Ë»ö&ÆäÀÌÁö
+	public List<FurnitureDTO> cateSImageList(String cateEn, int start, int end, String searchValue){
 		
-		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.livingimageList");
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("cateEn", cateEn);
+		params.put("start", start);
+		params.put("end", end);
+		params.put("searchValue", searchValue);
+		
+		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.CateSimageList",params);
 		
 		return Lists;
 	}
 	
-	//ì¹¨ì‹¤ ì´ë¯¸ì§€ ì¸ì„œíŠ¸
+	//ÆäÀÌÂ¡ Ã³¸® À§ÇÑ ºÎºĞ
+	public int getDataCount(String searchValue) {
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("searchValue", searchValue);
+		
+		//mapper »ç¿ë¹®
+		int result = sessionTemplate.selectOne("livingMapper.getDataCount", params);
+		
+		return result;
+		
+		
+	}
+	
+	//Ä«Å×°í¸®º° °Ë»ö&ÆäÀÌÁö
+	public int getCateDataCount(String cateEn, String searchValue) {
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("cateEn", cateEn);
+		params.put("searchValue", searchValue);
+		
+		//mapper »ç¿ë¹®
+		int result = sessionTemplate.selectOne("livingMapper.getCateDataCount", params);
+		
+		return result;
+		
+	}
+	
+	//°Å½Ç ÀüÃ¼ ¸®½ºÆ®
+	public List<FurnitureDTO> livingImageList(int start, int end, String searchValue) {
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("start", start);
+		params.put("end", end);
+		params.put("searchValue", searchValue);
+		
+		List<FurnitureDTO> Lists = sessionTemplate.selectList("livingMapper.livingimageList", params);
+		
+		return Lists;
+	}
+	
+	//°Å½Ç ÀÌ¹ÌÁö ÀÎ¼­Æ®
 	public void insertlivingData(FurnitureDTO dto) {
 		sessionTemplate.insert("livingMapper.insertData", dto);
 	}
 	
+	//ÇÑ °³ÀÇ µ¥ÀÌÅÍ
+	//getReadData
 	public FurnitureDTO getReadData(int imageIndex, String cateEn) {
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("imageIndex", imageIndex);
-
 		params.put("cateEn", cateEn);
-
 		
 		
 		FurnitureDTO dto = sessionTemplate.selectOne("livingMapper.getReadData",params);
 		
-		/*
-		 * System.out.println(dto.getImageIndex());
-		 * System.out.println(dto.getSaveFileName());
-		 */
+		System.out.println(dto.getImageIndex());
+		System.out.println(dto.getSaveFileName());
+		
 		return dto;
 	}
 	

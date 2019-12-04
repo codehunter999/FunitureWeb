@@ -1,5 +1,5 @@
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bedroom/bedroomImage.jpg">
@@ -121,13 +121,11 @@
                                             <div class="product-inner">
                                                 <div class="product-image">
                                                     <figure class="product-image--holder">
-                                                    <%-- ${dto.imageIndex }
-                                                    ${dto.cateEn } --%>
-                                                        <img src="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg" alt="Product">	
+                                                    <img src="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg" alt="Product">	
                                                     </figure>
                                                     <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a href="wishlist.fu?cate=${dto.cate }&imageIndex=${dto.imageIndex }&price=${dto.price }&imagetype=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">
+                                                        <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <a href="wishlist.html" class="action-btn">
@@ -157,16 +155,18 @@
                                    <%-- </c:if> --%>
                                 </div>
                             </div>
-                            <nav class="pagination-wrap">
-                                <ul class="pagination">
-                                    <li><span class="page-number current">1</span></li>
-                                    <li><a href="#" class="page-number">2</a></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><a href="#" class="page-number">16</a></li>
-                                </ul>
-                            </nav>
+                             <!-- *******page********* -->
+	                           <nav class="pagination-wrap">
+	                                <ul class="pagination">
+	                                    <c:if test="${dataCount!=0 }">
+	                                    	${pageIndexList }
+	                                    </c:if>
+	                                    <c:if test="${dataCount==0 }">
+	                                    	등록된 게시물이 없습니다.
+	                                    </c:if>
+	                                </ul>
+	                            </nav>
+                            <!-- **********page************ -->
                         </div>
                     </div>
                 </div>
