@@ -91,8 +91,7 @@ public class ReviewController {
 
 		dto.setId(qnadao.getMAXID() + 1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("�솉�뜝�뜽�룞");
-
+		dto.setName((String)session.getAttribute("name"));
 		qnadao.insertData(dto);
 
 		return "redirect:/qnamain.fu";
@@ -108,10 +107,10 @@ public class ReviewController {
 	}
 
 	@RequestMapping(value = "/qnaarticlewrite.fu", method = { RequestMethod.GET, RequestMethod.POST })
-	public String qnaview_write(Re_QnADTO dto, HttpServletRequest request, Locale locale, Model model) {
+	public String qnaview_write(Re_QnADTO dto, HttpServletRequest request, Locale locale, Model model,HttpSession session) {
 		dto.setId(qnadao.getRe_MAXID() + 1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("�솉�뜝�뜽�룞");
+		dto.setName((String)session.getAttribute("name"));
 		dto.setQaboard_id(Integer.valueOf(request.getParameter("qaboard_id")));
 		qnadao.Re_insertData(dto);
 		QnADTO reviewdto = qnadao.getReadData(Integer.valueOf(request.getParameter("qaboard_id")));
@@ -194,7 +193,8 @@ public class ReviewController {
 
 		dto.setId(reviewdao.getMAXID() + 1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("�솉�뜝�뜽�룞");
+		dto.setName((String)session.getAttribute("name"));
+		System.out.println(dto.getName());
 		// String
 		// path="D:/sts-bundle/work/FurnitureWeb/src/main/webapp/resources/assets/img/save";
 		String path = "d:/file";
@@ -238,10 +238,10 @@ public class ReviewController {
 	}
 
 	@RequestMapping(value = "/reviewarticlewrite.fu", method = { RequestMethod.GET, RequestMethod.POST })
-	public String reviewview_write(Re_ReviewDTO dto, HttpServletRequest request, Locale locale, Model model) {
+	public String reviewview_write(Re_ReviewDTO dto, HttpServletRequest request, Locale locale, Model model,HttpSession session) {
 		dto.setId(reviewdao.getRe_MAXID() + 1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName("�솉�뜝�뜽�룞");
+		dto.setName((String)session.getAttribute("name"));
 		dto.setQaboard_id(Integer.valueOf(request.getParameter("qaboard_id")));
 		reviewdao.Re_insertData(dto);
 		ReviewDTO reviewdto = reviewdao.getReadData(Integer.valueOf(request.getParameter("qaboard_id")));

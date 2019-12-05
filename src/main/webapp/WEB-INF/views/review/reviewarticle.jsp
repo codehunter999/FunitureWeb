@@ -102,13 +102,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <%if(dto.getName().equals(session.getAttribute("name"))){ %>
                                     <a href="<%=cp %>/reviewrewrite.fu?id=<%=dto.getId() %>&mode=1">
                                     <img src="<%=cp %>/resources/assets/img/reviewimg/rewrite.png" width=50 height=50>
                                     </a>
                                     <a href="<%=cp %>/reviewdelete.fu?id=<%=dto.getId() %>">
                                     <img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
                                     </a>
-                                    <%}else {%>
+                                    <%}
+                                    }else {%>
                                    <form action="reviewrewrite_ok.fu?id=<%=dto.getId() %>" method="post" enctype="application/x-www-form-urlencoded">
                                    <header class="single-post__header">
                                         <input type="text" name="subject" id="subject" class="form__input" value="<%=dto.getSubject() %>" style="width: 700px">
@@ -137,14 +139,9 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-size-sm">작성</button>
-                                    <a href="<%=cp %>/reviewrewrite.fu?id=<%=dto.getId() %>&mode=1">
-                                    <img src="<%=cp %>/resources/assets/img/imgsrc/reviewimg/rewrite.png" width=50 height=50>
-                                    </a>
-                                    <a href="<%=cp %>/reviewdelete.fu?id=<%=dto.getId() %>">
-                                    <img src="<%=cp %>/resources/assets/img/imgsrc/reviewimg/delete.jpg" width=50 height=50>
-                                    </a>
                                    </form>
-                                   <%} %>																																																																																																																																																																																																																																																																																																																													```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+                                   <%
+                                   } %>																																																																																																																																																																																																																																																																																																																													```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
                                 </article>
                                 <!-- Single Post End -->
 
