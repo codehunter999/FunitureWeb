@@ -59,14 +59,12 @@
         <!-- Header End -->
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
-            <div class="container">
+        <section class="page-title-area bg-image ptb--80"  data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimages.jpg">
+            <div class="container" >
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">커뮤니티</h1>
+                        <h1 class="page-title">리뷰 게시판</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="current"><span>상품평</span></li>
                         </ul>
                     </div>
                 </div>
@@ -82,37 +80,26 @@
                         <div class="col-lg-9">
                             <div class="row">
                             
-                                <!-- <div class="col-12 mb--45">
-                                    <article class="blog format-standard">
-                                        <div class="blog__inner">
-                                            <div class="blog__media">
-                                                <figure class="image">
-                                                    <img src="<%=cp %>/resources/assets/img/imgsrc/reviewimg/image.bmp" alt="Blog" class="w-100">
-                                                    <a href="blog-details-image.html" class="item-overlay"></a>
-                                                </figure>
-                                            </div>
-                                            <div class="blog__info">
-                                                <h2 class="blog__title"><a href="blog-details-image.html">이 가구 정말로 좋습니다.</a></h2>
-                                                <div class="blog__meta">
-                                                    <span class="posted-on">2019-08-30</span>
-                                                    <span class="posted-by"><span>작성자: </span><a href="blog-details-image.html">홍길동</a></span>
-                                                </div>
-                                                <div class="blog__desc">
-                                                    <p>이 가구 정말로 진짜로 좋습니다.</p>
-                                                </div>
-                                                <a href="<%=cp %>/reviewarticle.fu" class="read-more-btn">댓글 보기</a>
-                                            </div>
-                                        </div>
-                                    </article>                               
-                                </div> -->
-                                
+                                <table class="table table-style-2 wishlist-table text-center">
+                                <thead>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th>&nbsp;</th>
+                                            <th class="text-left">내용</th>
+                                            <th> </th>
+                                            <th>작성자</th>
+                                            <th>작성일</th>
+                                        </tr>
+                                    </thead>
+                                <tbody>
                                 <%for(ReviewDTO dto:lists){ %>
+                                <!-- 
                                 <div class="col-12 mb--45">
                                     <article class="blog format-standard">
                                         <div class="blog__inner">
                                             <div class="blog__media">
                                                 <figure class="image">
-                                                    <!-- <img src="<%=cp %>/resources/assets/img/save/<%=dto.getPhoto() %>" alt="Blog" class="w-100"> -->
+                                                    
                                                     <%if(dto.getPhoto()!=null){ %>
                                                     <img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
                                                     <%}else{ %>
@@ -135,9 +122,57 @@
                                         </div>
                                     </article>                               
                                 </div>
+                                 -->
+                                 		<tr>
+                                            <td class="product-remove text-left"><%--<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"><i class="la la-remove"></i></a> --%></td>
+                                            <td class="product-thumbnail text-left">
+                                                <%-- <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail"> --%>
+                                                <%-- <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">--%>
+                                                <figure class="image">
+                                                    <%if(dto.getPhoto()!=null){ %>
+                                                    <img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
+                                                    <%}else{ %>
+                                                    <img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
+                                                    <%} %>
+                                                    <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
+                                                </figure>
+                                            </td>
+                                            <td class="product-name text-left wide-column">
+                                                <h3>
+                                                    <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
+                                                </h3>
+                                            </td>
+                                            <td class="product-stock">
+                                                
+                                            </td>
+                                            <td class="product-price">
+                                                <span class="product-price-wrapper">
+                                                    <span class="money"><%=dto.getName() %></span>
+                                                </span>
+                                            </td>
+                                            <td class="product-price">
+                                                <span class="product-price-wrapper">
+                                                    <span class="money"><%=dto.getCreated_at() %></span>
+                                                </span>
+                                            </td>
+                                        </tr>
                                 <%} %>
-                                
-                                
+                                <tr>
+                                <td class="product-remove text-left">
+                                </td>
+                                <td class="product-thumbnail text-left">
+                                </td>
+                                <td class="product-name text-left wide-column">
+                                </td>
+                                <td class="product-stock">
+                                </td>
+                                <td class="product-price">
+                                </td>
+                                <td class="product-price">
+                                </td>
+                                </tr>
+                                </tbody>
+                                </table>
                                 <div class="related-post__info">
                             <img src="<%=cp %>/resources/assets/img/reviewimg/write.jpg" width="50" height="50" id="image">
                             </div>
