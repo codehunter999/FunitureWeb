@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
@@ -425,15 +426,28 @@
                                                 </figure>
                                                 <a href="dining_table_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}" class="product-overlay"></a>
                                                 <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#productModal" class="action-btn">
+                                                    <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                         <i class="la la-eye"></i>
+                                                    </a> -->
+                                                    <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                            
+                                                             if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
+                                                    %>
+                                                    <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">       
+                                                    	<i class="la la-heart-o"></i>
                                                     </a>
-                                                    <a href="wishlist.jsp" class="action-btn">
-                                                        <i class="la la-heart-o"></i>
+                                                    <%}else{ %>
+                                                    <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">       
+                                                         <i class="la la-heart-o"></i>
                                                     </a>
-                                                    <a href="wishlist.jsp" class="action-btn">
+                                                    <%} %>
+                                                    <!-- <a href="wishlist.jsp" class="action-btn">
                                                         <i class="la la-repeat"></i>
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                             <div class="product-info">
@@ -445,7 +459,7 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <a href="cart.fu" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
                                                     </a>
