@@ -116,7 +116,7 @@
                                         
                                     </div>
                                     <figure class="feature-product__image mb-sm--30">
-                                        <a href="product-details.fu">
+                                        <a href="deco_light_details.fu?imageIndex=420&cate=조명">
                                             <img src="<%=cp %>/resources/images/deco/detail/light/420_details_10.jpg" alt="Feature Product">
                                         </a>
                                     </figure>
