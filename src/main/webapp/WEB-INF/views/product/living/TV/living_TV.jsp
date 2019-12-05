@@ -180,7 +180,7 @@
                                     	${pageIndexList }
                                     </c:if>
                                     <c:if test="${dataCount==0 }">
-                                    	등록된 게시물이 없습니다.
+                                    	<font color="gray">찾으시는 제품이 없습니다.</font>
                                     </c:if>
                                 </ul>
                             </nav>

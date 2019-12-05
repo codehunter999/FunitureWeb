@@ -67,15 +67,20 @@
                                             </td>
                                             <td class="product-price">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money"><%=price %>원</span>
+                                                    <span class="money"><%=value[2] %>원</span>
                                                 </span>
                                             </td>
                                             <td class="product-action-btn">
-                                                <a href="<%=cp%>/cart.fu?cate=<%=name%>&imageIndex=<%=img %>&price=<%=price%>&imagetype=/resources/images/dining/${dto.saveFileName}" class="btn btn-size-md">Add to cart</a>
+                                            <!-- wishlist cartlist -->
+                                                <div name="addcart" class="btn btn-size-md" onclick="clickevent('<%=value[0] %>,<%=value[1] %>,<%=value[2] %>,<%=value[3] %>')">Add to cart</div>
+                                               
                                             </td>
                                         </tr>
-                                        <%}
-                                        }%>
+                                        <%
+	                            					i++;
+	                                        	}  
+	                                        }
+                                        %>
                                     </tbody>
                                 </table>
                             </div>  

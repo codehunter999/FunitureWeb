@@ -182,6 +182,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 			
@@ -290,6 +292,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -396,6 +400,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -504,6 +510,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -610,6 +618,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -716,6 +726,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -822,6 +834,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -928,6 +942,8 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
