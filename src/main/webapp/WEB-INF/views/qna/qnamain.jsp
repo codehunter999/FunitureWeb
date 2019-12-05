@@ -6,6 +6,7 @@
 	List<QnADTO>lists=(List<QnADTO>)request.getAttribute("lists");
 %>
 <%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 
