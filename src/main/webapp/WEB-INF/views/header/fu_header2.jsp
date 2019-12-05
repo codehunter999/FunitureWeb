@@ -18,8 +18,6 @@
     <link rel="shortcut icon" href="<%=cp %>/resources/assets/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="<%=cp %>/resources/assets/img/icon.png">
 
-  
-	
 	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>	
@@ -32,6 +30,16 @@
 			});
 		});
 	</script>
+	<script type="text/javascript">
+	    var data;
+		function clickevent(eventdata){
+			data=eventdata;
+			$('div.modal').modal();
+		}
+		function cartsubmit(){
+			location.href="cart.fu?data="+data;
+		}
+    </script>
 
 	<style type="text/css">
 		.container {
@@ -53,11 +61,8 @@
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
     <!-- style css -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
-
 </head>
-
 <body>
-
     <!-- Preloader Start -->
     <div class="ft-preloader active">
         <div class="ft-preloader-inner h-100 d-flex align-items-center justify-content-center">

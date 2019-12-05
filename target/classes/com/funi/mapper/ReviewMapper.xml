@@ -53,7 +53,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	order by id desc
 	</select>
 	<delete id="re_deleteData" parameterType="int">
-		delete review where qaboard_id=#{qaboard_id}
+		delete review_re where qaboard_id=#{qaboard_id}
 	</delete>
 </mapper>
 
