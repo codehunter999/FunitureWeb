@@ -146,7 +146,7 @@ function check(cp){
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31d857a43c06796d21fa6fd041d12cd6&libraries=services"></script>
 <!-- Breadcrumb area Start -->
-      <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+      <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/login/login.jpg">
           <div class="container">
               <div class="row">
                	<div class="col-6 col-md-4" style="text-align: center">
