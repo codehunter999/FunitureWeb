@@ -4,8 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -37,23 +35,15 @@ import com.funi.dao.DecoDAO;
 import com.funi.dao.DiningDAO;
 import com.funi.dao.LivingDAO;
 import com.funi.dao.MemberDAO;
-import com.funi.dao.ReviewDAO;
 import com.funi.dao.QnADAO;
-
-import com.funi.domain.MemberDTO;
-import com.funi.domain.QnADTO;
-import com.funi.domain.Re_QnADTO;
-import com.funi.domain.Re_ReviewDTO;
-import com.funi.domain.ReviewDTO;
+import com.funi.dao.ReviewDAO;
 import com.funi.domain.FurnitureDTO;
-import com.funi.util.MyUtil;
-import com.funi.util.MyUtil1;
-
+import com.funi.domain.MemberDTO;
 import com.funi.service.Email;
 import com.funi.service.EmailSender;
 import com.funi.service.KakaoAPI;
-import com.funi.domain.FurnitureDTO;
 import com.funi.util.MyUtil;
+import com.funi.util.MyUtil1;
 import com.funi.util.SHA256Util;
 
 @Controller
@@ -405,37 +395,44 @@ public class FurnitureController {
 	 */
 
 	// 지점안내
-	@RequestMapping(value = "/blog.fu", method = { RequestMethod.GET, RequestMethod.POST })
-	public String blog(Locale locale, Model model, HttpServletRequest request) {
-
-		String location = request.getParameter("location");
-		System.out.println("location : " + location);
-		if (location.equals("Gangnam")) {
-			return "location/blog_GangNam";
+		@RequestMapping(value = "/blog.fu", method = { RequestMethod.GET, RequestMethod.POST })
+		public String blog(Locale locale, Model model, HttpServletRequest request) {
+			String location = request.getParameter("location");
+			System.out.println("location : " + location);
+			if (location.equals("Gangnam")) {
+				return "location/blog_GangNam";
+			}
+			if (location.equals("Hongdae")) {
+				return "location/blog_Hongdae";
+			}
+			if (location.equals("MogDong")) {
+				return "location/blog_MogDong";
+			}
+			if (location.equals("Hanam")) {
+				return "location/blog_Hanam";
+			}
+			if (location.equals("BunDang")) {
+				return "location/blog_BunDang";
+			}
+			if (location.equals("Dongtan")) {
+				return "location/blog_Dongtan";
+			}
+			if (location.equals("Anyang")) {
+				return "location/blog_Anyang";
+			}
+			if (location.equals("Pyeongtaek")) {
+				return "location/blog_Pyeongtaek";
+			}
+			return "location/blog_GanNam";
 		}
-		if (location.equals("Hongdae")) {
-			return "location/blog_Hongdae";
-		}
-		if (location.equals("MogDong")) {
-			return "location/blog_MogDong";
-		}
-		if (location.equals("Hanam")) {
-			return "location/blog_Hanam";
-		}
-		if (location.equals("BunDang")) {
-			return "location/blog_BunDang";
-		}
-		if (location.equals("Dongtan")) {
-			return "location/blog_Dongtan";
-		}
-		if (location.equals("Anyang")) {
-			return "location/blog_Anyang";
-		}
-		if (location.equals("Pyeongtaek")) {
-			return "location/blog_Pyeongtaek";
+		// EVENT PART
+		@RequestMapping(value = "/event_list.fu", method = RequestMethod.GET)
+		public String event_list(Locale locale, Model model) {
+			return "event/event_list";
 		}
 		return "location/blog_GangNam";
 	}
+
 
 	/*
 	 * // REVIEW PART
@@ -1105,9 +1102,6 @@ public class FurnitureController {
 	 * return mav; }
 	 */
 
-	@RequestMapping(value = "/event_list.fu", method = RequestMethod.GET)
-	public String event_list(Locale locale, Model model) {
-		return "event/event_list";
 	}
 
 	// @RequestMapping(value = "/event_2.fu", method = RequestMethod.GET)
