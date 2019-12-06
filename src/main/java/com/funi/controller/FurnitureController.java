@@ -370,79 +370,103 @@ public class FurnitureController {
 	}
 
 	// 카트 장바구니 
-	@RequestMapping(value = "/cartlist.fu", method = RequestMethod.GET)
-	public String cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
-		List<String> cartlist;	
-		
-		if(request.getParameter("data")==null||request.getParameter("data").equals("")) {
-		
-		}else {	
-				System.out.println(request.getParameter("data"));
-				if(session.getAttribute("cartlist") == null) {
-					cartlist=new ArrayList<String>();
-				}else {
-					cartlist=(List<String>)session.getAttribute("cartlist");
-				}
-				boolean flag=true;
-				
-				Iterator iterator=cartlist.iterator();
-        		
-				int i=0;
-        		
-				while(iterator.hasNext()){
-        			String result=(String)iterator.next();
-        			if(result.equals(request.getParameter("data"))) {
-        				flag=false;
-        			}
-        		}
-				
-				if(flag) {
-					cartlist.add(request.getParameter("data"));
-					System.out.println(cartlist.get(0));
-					session.setAttribute("cartlist", cartlist);
-				}
-		}
-		cartlist = (List<String>)session.getAttribute("cartlist");
-		request.setAttribute("cartlist", cartlist);
-		return "cart/cart";
+	@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+			List cartlist = (List<String>)session.getAttribute("cartlist");
+			ModelAndView cartlistmav = new ModelAndView();
+			cartlistmav.addObject("catlist",cartlist);
+			cartlistmav.setViewName("cart/cart");
+			return cartlistmav;
+	}
+	// 카트 장바구니 
+		@RequestMapping(value = "/cartlist_input.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public String cartList_Input(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+			
+			List<String> cartlist;	
+			
+			if(request.getParameter("data")==null||request.getParameter("data").equals("")) {
+			
+			}else {	
+					if(session.getAttribute("cartlist") == null) {
+						cartlist=new ArrayList<String>();
+					}else {
+						cartlist=(List<String>)session.getAttribute("cartlist");
+					}
+					boolean flag=true;				
+					Iterator iterator=cartlist.iterator();        		
+					int i=0;  		
+					while(iterator.hasNext()){
+						String result=(String)iterator.next();
+	        			if(result.equals(request.getParameter("data"))) {
+	        				System.out.println("이미 추가된 상품입니다. ");
+	        				flag=false;
+	        			}
+	        		}		
+					if(flag) {
+						cartlist.add(request.getParameter("data"));
+						session.setAttribute("cartlist", cartlist);
+					}
+			}
+				cartlist = (List<String>)session.getAttribute("cartlist");
+				request.setAttribute("cartlist", cartlist);
+				return "redirect:/wishlist.fu";
 		}		
-		@RequestMapping(value = "/deletecart.fu", method = RequestMethod.GET)
-		public String deletecart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
-			//Use List
-			List cartlist;
-			cartlist=(ArrayList<String>)session.getAttribute("cartlist");
-			int id = Integer.parseInt(request.getParameter("id"));
-			System.out.println("cartlist.get(id) :" + cartlist.get(id));
-			cartlist.remove(id);
-			
-			session.setAttribute("cartlist", cartlist);
-			
-			return "redirect:/cartlist.fu";
-		}
+	
+	@RequestMapping(value = "/deletecart.fu", method = RequestMethod.GET)
+	public String deletecart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+		//Use List
+		List cartlist;
+		cartlist=(ArrayList<String>)session.getAttribute("cartlist");
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		System.out.println("cartlist.get(id) :" + cartlist.get(id));
+		
+		cartlist.remove(id);
+		
+		session.setAttribute("cartlist", cartlist);
+		
+		return "redirect:/cartlist.fu";
+	}
+	
+	@RequestMapping(value = "/removeAllcart.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView RemoveAllCart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+		
+		ModelAndView removemav = new ModelAndView();
+		removemav.setViewName("redirect:/cartlist.fu");
+		session.removeAttribute("cartlist");
+		return removemav; 
+	}
+	
 	// wishList part
 	@RequestMapping(value = "/wishlist.fu", method = RequestMethod.GET)
 	public String wishlist(Locale locale, Model model, HttpServletRequest request, HttpSession session) {
+	
 		List<String> wishitem;
 		
 		if(request.getParameter("cate")==null||request.getParameter("cate").equals("")) {
+		
 		}else {	
 				if(session.getAttribute("wishitem")==null) {
 					wishitem=new ArrayList<String>();
 				}else {
 					wishitem=(List<String>)session.getAttribute("wishitem");
 				}
+					
 				boolean flag=true;
+				
 				Iterator iterator=wishitem.iterator();
         		int i=0;
 				while(iterator.hasNext()){
-        			String result=(String)iterator.next();
+					String result=(String)iterator.next();
         			if(result.equals(request.getParameter("cate")+":"+ request.getParameter("itemname")+":"+request.getParameter("price").trim()+":"+request.getParameter("imagepath"))) {
         				flag=false;
         			}
         		}
+				
 				if(flag) {
-				wishitem.add(request.getParameter("cate")+":"+request.getParameter("itemname")+":"+request.getParameter("price").trim()+":"+request.getParameter("imagepath"));
-				session.setAttribute("wishitem", wishitem);
+					wishitem.add(request.getParameter("cate")+":"+request.getParameter("itemname")+":"+request.getParameter("price").trim()+":"+request.getParameter("imagepath"));
+					
+					session.setAttribute("wishitem", wishitem);
 				}
 		}
 		wishitem=(List<String>)session.getAttribute("wishitem");
@@ -454,13 +478,11 @@ public class FurnitureController {
 	public String deletewishlist(Locale locale, Model model, HttpServletRequest request, HttpSession session) {
 		//Use List
 		List wishitem;
-		wishitem=(ArrayList<String>)session.getAttribute("wishitem");
+		wishitem= (ArrayList<String>)session.getAttribute("wishitem");
 		int id = Integer.parseInt(request.getParameter("id"));
 		System.out.println("wishitem.get(id) :" + wishitem.get(id));
-		wishitem.remove(id);
-		
-		session.setAttribute("wishitem", wishitem);
-		
+		wishitem.remove(id);		
+		session.setAttribute("wishitem", wishitem);	
 		return "redirect:/wishlist.fu";
 	}
 

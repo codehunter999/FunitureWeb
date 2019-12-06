@@ -29,9 +29,14 @@
 			$("#image").click(function(event) {
 				$('div.modal').modal();
 			});
+			var sessionId = $("#session_Names").text();
+			var substrIndex = sessionId.indexOf("@");
+			
+			$("#session_Names").text(sessionId.substr(0,substrIndex-1));
 		});
 	</script>
 
+	
 	<style type="text/css">
 		.container {
 		  padding-right: 15px;
@@ -330,7 +335,7 @@
 												    <c:when test="${not empty sessionScope.email }">   
 												        <li class="mainmenu__item menu-item-has-children">
 												        	<a href="${pageContext.request.contextPath }/users/info.do" class="mainmenu__link">
-												        		<span class="mm-text">${sessionScope.email } 님</span>
+												        		<span class="mm-text" id="session_Names">${sessionScope.email }님</span>
 												        	</a>
 												        	 <ul class="sub-menu">
 		                                                    	<li>

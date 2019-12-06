@@ -106,6 +106,14 @@
 		location.href="<%=cp%>/payment.fu?data="+data;
 		
 	}
+	
+	function cleanCart() {
+		var f = document.clearCartAll;
+		f.action = "<%=cp%>/removeAllcart.fu";
+		f.submit();
+	
+	}
+	
 
 </script>
 
@@ -131,10 +139,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mb-md--50">
-                            <!-- <form class="cart-form" action="#"> -->
                           <c:choose >
-                             <c:when test="${map.count == 0 }">
-                                  장바구니가 비어있습니다.
+                             <c:when test="${cartlist == null}">
+                                  <b>장바구니가 비어있습니다.</b>
                              </c:when>
                               <c:otherwise>
                               <form action=""  name="form" method="post">
@@ -201,24 +208,25 @@
    													%>
    													<%}       	
                                    				    }%> 			   
-                                                </tbody>
-                                            </table>
-                                        </div>  
-                                    </div>
-                                </div>
-                                <div class="row no-gutters border-top pt--20 mt--20">
-                                    <div class="col-sm-6">
-                                        <div class="coupon">
-                                            <input type="text" id="coupon" name="coupon" class="cart-form__input" placeholder="Coupon Code">
-                                            <button type="submit" class="cart-form__btn">Apply Coupon</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 text-sm-right">
-                                        <button type="submit" class="cart-form__btn">Clear Cart</button>
-                                        <button type="submit" class="cart-form__btn">Update Cart</button>
-                                    </div>
-                                </div>
-                            </form>
+	                                                </tbody>
+	                                            </table>
+	                                        </div>  
+	                                    </div>
+	                                </div>
+	                                <div class="row no-gutters border-top pt--20 mt--20">
+	                                    <div class="col-sm-6">
+	                                        <div class="coupon">
+	                                            <input type="text" id="coupon" name="coupon" class="cart-form__input" placeholder="Coupon Code">
+	                                            <button type="submit" class="cart-form__btn">Apply Coupon</button>
+	                                      	 </div>
+		                                    </div>
+		                                </div>
+		                            </form>
+                                    <form method="post" name="clearCartAll" action="">
+	                                    <div class="col-sm-6 text-sm-right">
+	                                        <button type="submit" class="cart-form__btn" onclick="cleanCart();">카트비우기</button>
+	                                    </div>
+	                                </form>
                           </c:otherwise>
                           </c:choose>
                         </div>
@@ -230,6 +238,7 @@
 				              <div class="modal-body" align="center">
 				              <br><br><br>
 				                	결제를 진행하겠습니까?
+				                	
 				                <br>
 				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
 				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
@@ -251,8 +260,7 @@
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-                                            		
-                                                 <input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
+                                            	<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
                                                  <%-- <fmt:formatNumber value="${map.sumMoney }" pattern="###,###,###"/>원 --%>
                                                 </span>
                                             </div>
@@ -280,10 +288,8 @@
                                 </div>
                                
                                	<div name="addcart" class="btn btn-size-lg" onclick="clickevent()" style="width: 355px">
-	                              <%--  	<a href="<%=cp%>/payment.fu" class="btn btn-size-md btn-shape-square btn-fullwidth" onclick="clickevent('test');"> --%>
-	                                    상품주문
-	                             
-                               	</div> 
+	                                   상품주문
+	                            </div> 
                             </div>
                         </div>
                     </div>

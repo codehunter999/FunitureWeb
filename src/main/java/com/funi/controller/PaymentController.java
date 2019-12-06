@@ -31,13 +31,23 @@ public class PaymentController {
 		if(session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
 			paymav.setViewName("member/login");
 			return paymav;
+		}	
+		String[] qty_TotalItem = null;
+		if(request.getParameter("data")==null) {
+			
+		}else {
+			
+			qty_TotalItem = request.getParameter("data").split(",");	
+			for (int i = 0; i < qty_TotalItem.length; i++) {
+				System.out.println(qty_TotalItem[i]); 
+			}
+			
 		}
 		
-		String[] qty_TotalItem = request.getParameter("data").split(",");
 		
-		for (int i = 0; i < qty_TotalItem.length; i++) {
-			System.out.println(qty_TotalItem[i]); 
-		}
+		
+		
+		
 		
 		MemberDTO memberdto = memberdao.searchMember((String)session.getAttribute("email"));
 		paymav.addObject("memberdto",memberdto);

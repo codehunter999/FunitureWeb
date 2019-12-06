@@ -43,7 +43,7 @@
 			$('div.modal').modal();
 		}
 		function cartsubmit(){
-			location.href="cartlist.fu?data="+data;
+			location.href="<%=cp%>/cartlist_input.fu?data="+data;
 		}
     </script>
     
@@ -61,9 +61,6 @@
 
     <!-- Main Wrapper Start -->
     <div class="wrapper">
-        <!-- Header Start -->
-        
-        <!-- Header End -->
 
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimage.jpg">
@@ -100,47 +97,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- <tr>
-                                            <td class="product-remove text-left"><a href=""><i class="la la-remove"></i></a></td>
-                                            <td class="product-thumbnail text-left">
-                                                <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail">
-                                            </td>
-                                            <td class="product-name text-left wide-column">
-                                                <h3>
-                                                    <a href="product-details.html">Pinstripe slim-fit suit blazer</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-stock">
-                                                In Stock
-                                            </td>
-                                            <td class="product-price">
-                                                <span class="product-price-wrapper">
-                                                    <span class="money">$49.00</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-action-btn">
-                                                <a href="cart.html" class="btn btn-size-md">Add to cart</a>
-                                            </td>
-                                        </tr> -->
+      
                                         <%
-                                        //Use Map
-                                        /*
-                                        Map<String, String> wishitem;
-                                        wishitem=(HashMap<String, String>)request.getAttribute("wishitem");
-                                        if(wishitem!=null){
-                                        	TreeMap<String, String> treemap=new TreeMap<String, String>(wishitem);
-                                        	Iterator<String> iteratorKey = treemap.keySet( ).iterator( );
-                                        //for(String key:wishitem.keySet()){
-                                        while(iteratorKey.hasNext()){
-                                        	String key=iteratorKey.next();
-                                        	int cut=key.indexOf(",");
-                                        	String name=key.substring(0, cut);
-                                        	String set=key.substring(cut+1, key.length());
-                                        	String value=wishitem.get(key);
-                                        	int cut1=value.indexOf(",");
-                                        	String price=value.substring(0,cut1);
-                                        	String img=value.substring(cut1+1,value.length());
-                                        	*/
                                         	
                                         	//Use List
                                         	List<String> wishitem=(List<String>)request.getAttribute("wishitem");
@@ -149,7 +107,7 @@
                                         		int i=0;
                                         		while(iterator.hasNext()){
                                         			String result=(String)iterator.next();
-                                        			String[] value=result.split(":");
+                                        			String[] value=result.split("+");
                                         %>
                                         <tr>
                                             <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=i%>"><i class="la la-remove"></i></a></td>
@@ -193,8 +151,7 @@
         <!-- Footer Start-->
         <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%> 
         <!-- Footer End-->
-
-        <!-- OffCanvas Menu Start -->
+          <!-- OffCanvas Menu Start -->
         <div class="offcanvas-menu-wrapper" id="offcanvasMenu">
             <div class="offcanvas-menu-inner">
                 <a href="" class="btn-close">
@@ -374,7 +331,7 @@
             </div>
         </div>
         <!-- OffCanvas Menu End -->
-
+        
         <!-- Mini Cart Start -->
         <aside class="mini-cart" id="miniCart">
             <div class="mini-cart-wrapper">
@@ -465,6 +422,7 @@
           </div>
         </div>
         <!-- Qicuk View Modal End -->
+        
 
         <!-- Global Overlay Start -->
         <div class="global-overlay"></div>
