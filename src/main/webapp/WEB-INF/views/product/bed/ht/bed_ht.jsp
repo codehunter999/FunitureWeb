@@ -134,20 +134,21 @@
                                                         
                                                         
                                                          <%
-                                                    FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
-                                                    if(dto.getProductName().contains("[")){
-                                                    	String str=dto.getProductName();
-                                                    	str=str.replace("[", "%5B");
-                                                    	str=str.replace("]", "%5D");
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                            
+                                                            if(dto.getProductName().contains("[")){
+                                                    	        String str=dto.getProductName();
+                                                    	        str=str.replace("[", "%5B");
+                                                    	        str=str.replace("]", "%5D");
                                                     	%>
-                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                   		 <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                    <%}else{ %>
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg"class="action-btn">       
-                                                            <i class="la la-heart-o"></i>
-                                                        </a>
-                                                        <%} %>
+                                                            <%}else{ %>
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                            <%} %>
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
