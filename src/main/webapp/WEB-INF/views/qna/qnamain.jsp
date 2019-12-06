@@ -32,29 +32,6 @@
                         <div class="col-lg-9">
                             <div class="row">
                             
-                                <!-- <div class="col-12 mb--45">
-                                    <article class="blog format-standard">
-                                        <div class="blog__inner">
-                                            <div class="blog__media">
-                                                <figure class="image">
-                                                    <img src="<%=cp %>/resources/assets/img/imgsrc/reviewimg/image.bmp" alt="Blog" class="w-100">
-                                                    <a href="blog-details-image.html" class="item-overlay"></a>
-                                                </figure>
-                                            </div>
-                                            <div class="blog__info">
-                                                <h2 class="blog__title"><a href="blog-details-image.html">이 가구 정말로 좋습니다.</a></h2>
-                                                <div class="blog__meta">
-                                                    <span class="posted-on">2019-08-30</span>
-                                                    <span class="posted-by"><span>작성자: </span><a href="blog-details-image.html">홍길동</a></span>
-                                                </div>
-                                                <div class="blog__desc">
-                                                    <p>이 가구 정말로 진짜로 좋습니다.</p>
-                                                </div>
-                                                <a href="<%=cp %>/reviewarticle.fu" class="read-more-btn">댓글 보기</a>
-                                            </div>
-                                        </div>
-                                    </article>                               
-                                </div> -->
                                 
                                 <%for(QnADTO dto:lists){ %>
                                 <div class="col-12 mb--45">
