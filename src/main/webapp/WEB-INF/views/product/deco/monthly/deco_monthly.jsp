@@ -83,62 +83,62 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=400&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=400&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트1월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=401&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=401&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트2월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=402&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=402&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트3월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=403&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=403&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트4월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=404&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=404&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트5월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=405&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=405&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트6월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=406&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=406&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트7월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=407&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=407&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트8월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=408&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=408&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트9월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=409&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=409&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트10월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=410&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=410&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트11월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_monthly_details.fu?imageIndex=411&cate=월간 카레클린트">
+                                                <a href="deco_monthly_details.fu?imageIndex=411&cateEn=monthly">
                                                 	<img src="<%=cp %>/resources/images/deco/월간카레클린트12월호.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -175,7 +175,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/deco/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="deco_monthly_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -190,13 +190,13 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="deco_monthly_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="deco_monthly_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                    							<span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
                                                         </a>

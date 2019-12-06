@@ -208,7 +208,7 @@
                                         </div>
                                     </div>
                                     <!-- add cart버튼(+품절) -->
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.fu'">
                                         Add To Cart
                                     </button>
                                     <!-- add cart end -->
@@ -374,7 +374,7 @@
                                                 <figure class="product-image--holder">
                                                     <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                 </figure>
-                                                <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}" class="product-overlay"></a>
+                                                <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex}&cateEn=${dto.cateEn}" class="product-overlay"></a>
                                                 <div class="product-action">
                                                     <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                         <i class="la la-eye"></i>
@@ -402,9 +402,9 @@
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-category">
-                                                    <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}">${dto.cate }</a>
+                                                    <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex}&cateEn=${dto.cateEn}">${dto.cate }</a>
                                                 </div>
-                                                <h3 class="product-title"><a href="dining_desk_details.fu?imageIndex=${dto.imageIndex}&cate=${dto.cate}">${dto.productName }</a></h3>
+                                                <h3 class="product-title"><a href="dining_desk_details.fu?imageIndex=${dto.imageIndex}&cateEn=${dto.cateEn}">${dto.productName }</a></h3>
                                                 <div class="product-info-bottom">
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>

@@ -83,17 +83,17 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_deco_details.fu?imageIndex=61&cate=장식장">
+                                                <a href="dining_deco_details.fu?imageIndex=61&cateEn=deco">
                                                 	<img src="<%=cp %>/resources/images/dining/로그사이드보드장.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_deco_details.fu?imageIndex=62&cate=장식장">
+                                                <a href="dining_deco_details.fu?imageIndex=62&cateEn=deco">
                                                 	<img src="<%=cp %>/resources/images/dining/201와이드오크선반.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_deco_details.fu?imageIndex=63&cate=장식장">
+                                                <a href="dining_deco_details.fu?imageIndex=63&cateEn=deco">
                                                 	<img src="<%=cp %>/resources/images/dining/301철제오크광파오븐장.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -130,7 +130,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_deco_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_deco_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -145,13 +145,13 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_deco_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_deco_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                    							<span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
                                                         </a>

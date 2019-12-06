@@ -59,7 +59,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/deco/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -72,14 +72,14 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.cate }</a>
+                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}">${dto.cate }</a>
                                                     </div>
-                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.productName }</a></h3>
+                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}">${dto.productName }</a></h3>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.html" class="add-to-cart pr--15">
+                                                        <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
                                                         </a>
