@@ -119,6 +119,7 @@
 		f.submit();
 	
 	}
+}
 </script>
 
  <!-- Breadcrumb area Start -->
@@ -229,7 +230,7 @@
 	                                        <button type="submit" class="cart-form__btn" onclick="cleanCart();">카트비우기</button>
 	                                    </div>
 	                                </form>
-                          	</c:otherwise>
+                          </c:otherwise>
                           </c:choose>
                         </div>
                         
@@ -239,7 +240,7 @@
 				            <div class="modal-content">
 				              <div class="modal-body" align="center">
 				              <br><br><br>
-				                	결제를 진행하겠습니까?			                	
+				                	결제를 진행하겠습니까?
 				                <br>
 				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
 				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
@@ -261,7 +262,12 @@
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
+<<<<<<< HEAD
 	                                            	<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
+=======
+                                            	<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
+                                                 <%-- <fmt:formatNumber value="${map.sumMoney }" pattern="###,###,###"/>원 --%>
+>>>>>>> header 부분 변경 및 wishlist 페이지 중복 출력 해결
                                                 </span>
                                             </div>
                                         </div>

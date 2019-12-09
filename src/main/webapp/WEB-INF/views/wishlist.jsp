@@ -98,8 +98,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
- 			                             <%
-                                        	
+                                        <%            	
                                         	//Use List
                                         	List<String> wishitem=(List<String>)request.getAttribute("wishitem");
                                         	if(wishitem!=null){
@@ -108,7 +107,6 @@
                                         		while(iterator.hasNext()){
                                         			String result=(String)iterator.next();
                                         			String[] value=result.split(":");
-
                                         %>
                                         <tr>
                                             <td class="product-remove text-left"><a href="deletewishlist.fu?id=<%=i%>"><i class="la la-remove"></i></a></td>
@@ -152,7 +150,7 @@
         <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%> 
         <!-- Footer End-->
           <!-- OffCanvas Menu Start -->
-       	 <div class="offcanvas-menu-wrapper" id="offcanvasMenu">
+        <div class="offcanvas-menu-wrapper" id="offcanvasMenu">
             <div class="offcanvas-menu-inner">
                 <a href="" class="btn-close">
                     <i class="la la-remove"></i>
@@ -422,6 +420,11 @@
           </div>
         </div>
         <!-- Qicuk View Modal End -->
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> header 부분 변경 및 wishlist 페이지 중복 출력 해결
         <!-- Global Overlay Start -->
         <div class="global-overlay"></div>
         <!-- Global Overlay End -->
