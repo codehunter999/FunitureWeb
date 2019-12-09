@@ -12,17 +12,18 @@ PaymentDTO paymentdto = null;
 List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 %>
 <script type="text/javascript">
-	
-	
-	function payment(data) {
 		
+	var data;
+	
+	function payment() {	
 		//var f = document.paymentInfo;
 		$('div.modal').modal();
+		data = paylist;
 		f.action = "<%=cp%>/payment_input.fu";
 		f.submit();
 	}
 	function cartsubmit(){
-		location.href="<%=cp%>/payment_input.fu?data="+data;
+		location.href="<%=cp%>/payment_input.fu";
 		
 	}
 	

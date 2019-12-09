@@ -47,14 +47,16 @@ public class PaymentController {
 		MemberDTO memberdto = memberdao.searchMember((String)session.getAttribute("email"));
 		paymav.addObject("memberdto",memberdto);
 		List<String> cartlist = (List)session.getAttribute("cartlist");
-		Iterator iterator = cartlist.iterator();
 		boolean flag = false;
 		int index = 0;
-		while(iterator.hasNext()) {
-			
-			if(cartlist.contains(qty_TotalItem[index])) {
-				continue;
+		//session.removeAttribute("cartlist");
+		for (int i = 0; i < qty_TotalItem.length; i++) {		
+		
+			if(cartlist.get(index).split(":").length >= 5) {
+				System.out.println("여기를 지나가요?");
+				cartlist.set(index,cartlist.get(index)+":"+qty_TotalItem[index]);
 			}else {
+				
 				cartlist.set(index,cartlist.get(index)+":"+qty_TotalItem[index]);
 			}
 			index++;
@@ -65,14 +67,14 @@ public class PaymentController {
 		
 		return paymav;
 	}
-	@RequestMapping(value="/payment_input.fu",method= {RequestMethod.POST})
+	@RequestMapping(value="/payment_input.fu",method= {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView payment_Input(HttpServletRequest request,HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
 		/*
-		for (int i = 0; i < paylist.size(); i++) {
-			System.out.println(paylist.get(i).getProductInfo());
-		}
+			for (int i = 0; i < paylist.size(); i++) {
+				System.out.println(paylist.get(i).getProductInfo());
+			}
 		*/
 		mav.setViewName("redirect:/orderlist.fu");
 		return mav;

@@ -178,13 +178,16 @@ public class FurnitureController {
 							}else {
 								cartlist=(List<String>)session.getAttribute("cartlist");
 							}
+							
 							boolean flag=true;	
-							Iterator iterator=cartlist.iterator();        		
+							
+							Iterator iterator=cartlist.iterator();  
+							
 							int i=0;  		
 							while(iterator.hasNext()){
-								String result=(String)iterator.next();
 								
-			        			if(result.equals(request.getParameter("data"))) {
+								String result=(String)iterator.next();			
+								if(result.contains(request.getParameter("data"))) {
 			        				System.out.println("이미 추가된 상품입니다. ");			
 			        				flag=false;
 			        			}
@@ -213,7 +216,7 @@ public class FurnitureController {
 				System.out.println("cartlist.get(id) :" + cartlist.get(id));
 				cartlist.remove(id);	
 				session.setAttribute("cartlist", cartlist);		
-				return "redirect:/cartlist.fu";
+				return "cart/cart";
 			}
 			
 			@RequestMapping(value = "/removeAllcart.fu", method = {RequestMethod.GET,RequestMethod.POST})
