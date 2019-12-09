@@ -30,6 +30,7 @@
 			});
 		});
 	</script>
+	
 	<script type="text/javascript">
 	    var data;
 		function clickevent(eventdata){

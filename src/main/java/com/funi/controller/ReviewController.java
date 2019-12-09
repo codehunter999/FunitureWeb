@@ -146,6 +146,13 @@ public class ReviewController {
 		return "qna/qnaarticle";
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/reviewmain.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewmain(HttpServletRequest request, Locale locale, Model model) {
 		String cp = request.getContextPath();

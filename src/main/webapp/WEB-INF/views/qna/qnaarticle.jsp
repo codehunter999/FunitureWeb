@@ -11,8 +11,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
         <!-- Breadcrumb area Start -->
-         
-        <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimages1.jpg">
+        
+        <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
         <!-- <section class="page-title-area-2 bg-image"> -->
             <div class="container">
                 <div class="row">
@@ -212,8 +212,6 @@
                                 }' data-slick-responsive='[
                                     {"breakpoint": 768, "settings": {"slidesToShow": 1}}
                                 ]'>
-                                    
-                                    
                                 </div>
                             </div>
                         </div>

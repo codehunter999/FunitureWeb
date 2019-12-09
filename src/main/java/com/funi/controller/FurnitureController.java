@@ -39,6 +39,7 @@ import com.funi.dao.QnADAO;
 import com.funi.dao.ReviewDAO;
 import com.funi.domain.FurnitureDTO;
 import com.funi.domain.MemberDTO;
+import com.funi.domain.QnADTO;
 import com.funi.service.Email;
 import com.funi.service.EmailSender;
 import com.funi.service.KakaoAPI;
@@ -191,6 +192,51 @@ public class FurnitureController {
 
 		return "cart/cart";
 	}
+	
+	
+	@RequestMapping(value = "/faq.fu", method = { RequestMethod.GET, RequestMethod.POST })
+	public String faq(HttpServletRequest request, Locale locale, Model model) {
+		
+		String cp = request.getContextPath();
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+
+		if (pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+
+		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
+		int dataCount = qnadao.getDataCount();
+
+		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+		int numPerPage = 5;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+
+		if (currentPage > totalPage)
+			currentPage = totalPage;
+
+		int start = (currentPage - 1) * numPerPage + 1;
+		int end = currentPage * numPerPage;
+		List<QnADTO> lists = qnadao.getList(start, end);
+
+		String listUrl = cp + "/qnamain.fu";
+
+		String pageIndexList = myUtil1.pageIndexList(currentPage, totalPage, listUrl);
+
+		// �뜝�뙗釉앹삕�뜝�룞�삕 �뜝�뙇�눦�삕 �뜝�룞�삕�뜝�룞�삕
+		String articleUrl = cp + "/qnamain.fu?pageNum=" + currentPage;
+
+		// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕
+		// �뜝�떬源띿삕�뜝占�
+		request.setAttribute("lists", lists);
+		request.setAttribute("pageIndexList", pageIndexList);
+		request.setAttribute("dataCount", dataCount);
+		request.setAttribute("articleUrl", articleUrl);
+		
+		return "qna/faq";
+	}
+	
+	
+	
 }
 
 
@@ -876,6 +922,8 @@ public class FurnitureController {
 // public String event_4(Locale locale, Model model) {
 // return "event/event_4";
 // }
+
+
 
 
 

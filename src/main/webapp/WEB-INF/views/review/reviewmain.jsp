@@ -42,95 +42,56 @@
                                     </thead>
                                 <tbody>
                                 <%for(ReviewDTO dto:lists){ %>
-                                <!-- 
-                                <div class="col-12 mb--45">
-                                    <article class="blog format-standard">
-                                        <div class="blog__inner">
-                                            <div class="blog__media">
-                                                <figure class="image">
-                                                    
-                                                    <%if(dto.getPhoto()!=null){ %>
-                                                    <img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
-                                                    <%}else{ %>
-                                                    <img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
-                                                    <%} %>
-                                                    <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
-                                                </figure>
-                                            </div>
-                                            <div class="blog__info">
-                                                <h2 class="blog__title"><a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"><%=dto.getSubject() %></a></h2>
-                                                <div class="blog__meta">
-                                                    <span class="posted-on"><%=dto.getCreated_at() %></span>
-                                                    <span class="posted-by"><span>작성자:<%=dto.getName() %> </span><a href="blog-details-image.html"></a></span>
-                                                </div>
-                                                <div class="blog__desc">
-                                                    <p><%=dto.getContent() %></p>
-                                                </div>
-                                                <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="read-more-btn">댓글 보기</a>
-                                            </div>
-                                        </div>
-                                    </article>                               
-                                </div>
-                                 -->
-                                 		<tr>
-                                            <td class="product-remove text-left"><%--<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"><i class="la la-remove"></i></a> --%></td>
-                                            <td class="product-thumbnail text-left">
-                                                <%-- <img src="<%=cp %>/resources/assets/img/products/prod-01-70x88.jpg" alt="Product Thumnail"> --%>
-                                                <%-- <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">--%>
-                                                <figure class="image">
-                                                    <%if(dto.getPhoto()!=null){ %>
-                                                    <img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
-                                                    <%}else{ %>
-                                                    <img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
-                                                    <%} %>
-                                                    <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
-                                                </figure>
-                                            </td>
-                                            <td class="product-name text-left wide-column">
-                                                <h3>
-                                                    <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-stock">
-                                                
-                                            </td>
-                                            <td class="product-price">
-                                                <span class="product-price-wrapper">
-                                                    <span class="money"><%=dto.getName() %></span>
-                                                </span>
-                                            </td>
-                                            <td class="product-price">
-                                                <span class="product-price-wrapper">
-                                                    <span class="money"><%=dto.getCreated_at() %></span>
-                                                </span>
-                                            </td>
-                                        </tr>
+	                           		<tr>
+                                       <td class="product-remove text-left">
+                                           <figure class="image">
+                                               <%if(dto.getPhoto()!=null){ %>
+                                        	       <img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
+                                               <%}else{ %>
+                                       	        <img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
+                                               <%} %>
+                                   	            <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
+                                           </figure>
+                                       </td>
+                                       <td class="product-name text-left wide-column">
+                                           <h3>
+                                               <a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
+                                           </h3>
+                                       </td>
+                                       <td class="product-stock">
+                                           
+                                       </td>
+                                       <td class="product-price">
+                                           <span class="product-price-wrapper">
+                                               <span class="money"><%=dto.getName() %></span>
+                                           </span>
+                                       </td>
+                                       <td class="product-price">
+                                           <span class="product-price-wrapper">
+                                               <span class="money"><%=dto.getCreated_at() %></span>
+                                           </span>
+                                       </td>
+	                                </tr>
                                 <%} %>
                                 <tr>
-                                <td class="product-remove text-left">
-                                </td>
-                                <td class="product-thumbnail text-left">
-                                </td>
-                                <td class="product-name text-left wide-column">
-                                </td>
-                                <td class="product-stock">
-                                </td>
-                                <td class="product-price">
-                                </td>
-                                <td class="product-price">
-                                </td>
+	                                <td class="product-remove text-left"></td>
+	                                <td class="product-thumbnail text-left"></td>
+	                                <td class="product-name text-left wide-column"></td>
+	                                <td class="product-stock"></td>
+	                                <td class="product-price"></td>
+	                                <td class="product-price"></td>
                                 </tr>
                                 </tbody>
                                 </table>
+
                                 <div class="related-post__info">
-                                <%if(session.getAttribute("name")!=null){ %>
-                            <img src="<%=cp %>/resources/assets/img/reviewimg/write.jpg" width="50" height="50" id="image">
-                            <%} %>
-                            </div>
+	                                <%if(session.getAttribute("name")!=null){ %>
+    			                        <img src="<%=cp %>/resources/assets/img/reviewimg/write.jpg" width="50" height="50" id="image">
+                		            <%} %>
+                        	    </div>
                             </div>
                             
                             <div class="row">
-                            
                                 <div class="col-12 text-center">
                                     <!-- <ul class="pagination">
                                         <li><span class="page-number current">1</span></li>
@@ -163,48 +124,38 @@
           <div class="modal-dialog" role="document"  style="width: 900px"><!-- 862 -->
             <div class="modal-content">
               <div class="modal-body">
-                
-              
-                                        <div class="comment-respond">
-                                        <h1 class="comment-reply-title"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리뷰 작성</h1>
-                                        <form id="write_ok" action="reviewwrite.fu" method="post" enctype="multipart/form-data" class="form comment-form">
-                                            &nbsp;&nbsp;&nbsp;<div class="form__group mb--25 mb-sm--20">
-                                                <div class="form-row"><input type="file" id="upload" name="upload" class="upload" style="display:none;">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <div class="col-md-4 mb-sm--20">
-                                                        <input type="text" name="subject" id="subject" class="form__input" placeholder="제목" style="width: 700px">
-                                                    </div>  
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <div class="col-md-4 mb-sm--20" align="right">
-                                                       <label for="upload" class="btn_file"><img src="<%=cp %>/resources/assets/img/reviewimg/picture.png" width="50" height="50"></label>
-                                                       
-														 
-										           </div> 
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="form__group mb--25 mb-sm--20">
-                                                <div class="form-row">
-                                                    &nbsp;&nbsp;&nbsp;<div class="col-12" style="height: 500px;margin-left: 30px">
-                                                        <textarea name="content" id="content" placeholder="내용을 적어주세요" rows="20"  cols="101"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div><br>
-                                            <div class="form__group">
-                                                <div class="form-row">
-                                                    <div class="col-12"><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-size-sm">작성</button>
-                                                        <button type="reset" class="btn btn-size-sm">다시쓰기</button>
-                                                        <button type="button" class="btn btn-size-sm" id="closemodel" data-dismiss="modal">작성 취소</button>
-                                                        <br><br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                  
-                
-                
+              	<div class="comment-respond">
+              		<h1 class="comment-reply-title"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리뷰 작성</h1>
+              		<form id="write_ok" action="reviewwrite.fu" method="post" enctype="multipart/form-data" class="form comment-form">
+						<div class="form__group mb--25 mb-sm--20">
+							<div class="form-row"><input type="file" id="upload" name="upload" class="upload" style="display:none;">
+								<div class="col-md-4 mb-sm--20">
+									<input type="text" name="subject" id="subject" class="form__input" placeholder="제목" style="width: 700px">
+								</div>  
+								<div class="col-md-4 mb-sm--20" align="right">
+									<label for="upload" class="btn_file"><img src="<%=cp %>/resources/assets/img/reviewimg/picture.png" width="50" height="50"></label>
+								</div>
+							</div>
+						</div>
+						<div class="form__group mb--25 mb-sm--20">
+							<div class="form-row">
+								<div class="col-12" style="height: 500px;margin-left: 30px">
+									<textarea name="content" id="content" placeholder="내용을 적어주세요" rows="20"  cols="101"></textarea>
+								</div>
+							</div>
+						</div><br>
+						<div class="form__group">
+						<div class="form-row">
+						<div class="col-12"><br>
+							<button type="submit" class="btn btn-size-sm">작성</button>
+							<button type="reset" class="btn btn-size-sm">다시쓰기</button>
+							<button type="button" class="btn btn-size-sm" id="closemodel" data-dismiss="modal">작성 취소</button>
+							<br><br>
+						</div>
+						</div>
+						</div>
+					</form>
+				</div>
               </div>
             </div>
           </div>

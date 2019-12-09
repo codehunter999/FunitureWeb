@@ -11,12 +11,13 @@
 
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimages1.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">QnA 게시판</h1>
+                        <h1 class="page-title">QnA Board</h1>
                         <ul class="breadcrumb">
+                        	<li class="current"><span>상품 Q&A 입니다.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -30,145 +31,116 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-9">
-                            <div class="row">
-                            
-                                <!-- <div class="col-12 mb--45">
-                                    <article class="blog format-standard">
-                                        <div class="blog__inner">
-                                            <div class="blog__media">
-                                                <figure class="image">
-                                                    <img src="<%=cp %>/resources/assets/img/imgsrc/reviewimg/image.bmp" alt="Blog" class="w-100">
-                                                    <a href="blog-details-image.html" class="item-overlay"></a>
-                                                </figure>
-                                            </div>
-                                            <div class="blog__info">
-                                                <h2 class="blog__title"><a href="blog-details-image.html">이 가구 정말로 좋습니다.</a></h2>
-                                                <div class="blog__meta">
-                                                    <span class="posted-on">2019-08-30</span>
-                                                    <span class="posted-by"><span>작성자: </span><a href="blog-details-image.html">홍길동</a></span>
-                                                </div>
-                                                <div class="blog__desc">
-                                                    <p>이 가구 정말로 진짜로 좋습니다.</p>
-                                                </div>
-                                                <a href="<%=cp %>/reviewarticle.fu" class="read-more-btn">댓글 보기</a>
-                                            </div>
-                                        </div>
-                                    </article>                               
-                                </div> -->
-                                
+                        	<div class="col-12">
+                        		<h2>Question And Answers</h2>
+							</div>
+							<br/>
+                       	</div>
+                       	
+                        <div class="row">
+                        	<table class="table table-style-2 wishlist-table text-center">
+                        		<thead>
+                                	<tr>
+                                		<th>&nbsp;</th>
+                                           <th><b>내용</b></th>
+                                           
+                                           <th><b>작성자</b></th>
+                                           <th><b>작성일</b></th>
+                                    </tr>
+                                </thead>
+                             	<tbody>
                                 <%for(QnADTO dto:lists){ %>
-                                <div class="col-12 mb--45">
-                                    <article class="blog format-standard">
-                                        <div class="blog__inner">
-                                            <div class="blog__media">
-                                                <figure class="image">
-                                                    <a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
-                                                </figure>
-                                            </div>
-                                            <div class="blog__info">
-                                                <h2 class="blog__title"><a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>"><%=dto.getSubject() %></a></h2>
-                                                <div class="blog__meta">
-                                                    <span class="posted-on"><%=dto.getCreated_at() %></span>
-                                                    <span class="posted-by"><span>작성자:<%=dto.getName() %> </span><a href="blog-details-image.html"></a></span>
-                                                </div>
-                                                <div class="blog__desc">
-                                                    <p><%=dto.getContent() %></p>
-                                                </div>
-                                                <a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>" class="read-more-btn">댓글 보기</a>
-                                            </div>
-                                        </div>
-                                    </article>                               
-                                </div>
+	                           		<tr>
+                                       <td class="product-remove text-left">
+                                       </td>
+                                       <td class="product-name text-left wide-column">
+                                           <h3>
+                                               <a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
+                                           </h3>
+                                       </td>
+                                       
+                                       <td class="product-price">
+                                           <span class="product-price-wrapper">
+                                               <span class="money"><%=dto.getName() %></span>
+                                           </span>
+                                       </td>
+                                       <td class="product-price">
+                                           <span class="product-price-wrapper">
+                                               <span class="money"><%=dto.getCreated_at() %></span>
+                                           </span>
+                                       </td>
+	                                </tr>
                                 <%} %>
                                 
-                                
+                                </tbody>
+                                </table>
+
                                 <div class="related-post__info">
-                                <%if(session.getAttribute("name")!=null){ %>
-                            		<img src="<%=cp %>/resources/assets/img/reviewimg/write.jpg" width="50" height="50" id="image">
-                          		<%} %>
-                            </div>
-                            </div>
-                            
-                            <div class="row">
-                            
-                                <div class="col-12 text-center">
-                                    <!-- <ul class="pagination">
-                                        <li><span class="page-number current">1</span></li>
-                                        <li><a href="#" class="page-number">2</a></li>
-                                        <li><span class="dot"></span></li>
-                                        <li><span class="dot"></span></li>
-                                        <li><span class="dot"></span></li>
-                                        <li><a href="#" class="page-number">16</a></li>
-                                    </ul> -->
-                                    
-                                    <ul class="pagination">
-                                    <c:if test="${dataCount!=0 }">
-										${pageIndexList }
-									</c:if>
-									<c:if test="${dataCount==0 }">
-										등록된게시물이 없습니다.
-									</c:if>
-									</ul>
-                                </div>
-                            </div>
+                                	<div class="row">
+	                                	<div class="col-12 text-center">
+	                                    	<ul class="pagination">
+			                                    <c:if test="${dataCount!=0 }">
+													${pageIndexList }
+												</c:if>
+												<c:if test="${dataCount==0 }">
+													등록된게시물이 없습니다.
+												</c:if>
+											</ul>
+										</div>
+										<div class="form__group mr--30">
+	                                		<input id="image" type="submit" value="글쓰기" class="btn btn-size-sm">
+	                            		</div>
+									</div>
+	                            </div>
+                           	</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </main>
         <!-- Main Content Wrapper End -->
+        
 		
 		<!-- Qicuk View Modal Start -->
-        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document"  style="width: 900px"><!-- 862 -->
-            <div class="modal-content">
-              <div class="modal-body">
-                
-              
-                                        <div class="comment-respond">
-                                        <h1 class="comment-reply-title"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QnA 작성</h1>
-                                        <form id="write_ok" action="qnawrite.fu" method="post" enctype="application/x-www-form-urlencoded" class="form comment-form">
-                                            &nbsp;&nbsp;&nbsp;<div class="form__group mb--25 mb-sm--20">
-                                                <div class="form-row">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <div class="col-md-4 mb-sm--20">
-                                                        <input type="text" name="subject" id="subject" class="form__input" placeholder="제목" style="width: 700px">
-                                                    </div>  
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <div class="col-md-4 mb-sm--20" align="right">
-                                                       
-														 
-										           </div> 
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="form__group mb--25 mb-sm--20">
-                                                <div class="form-row">
-                                                    &nbsp;&nbsp;&nbsp;<div class="col-12" style="height: 500px;margin-left: 30px">
-                                                        <textarea name="content" id="content" placeholder="내용을 적어주세요" rows="20"  cols="101"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div><br>
-                                            <div class="form__group">
-                                                <div class="form-row">
-                                                    <div class="col-12"><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-size-sm">작성</button>
-                                                        <button type="reset" class="btn btn-size-sm">다시쓰기</button>
-                                                        <button type="button" class="btn btn-size-sm" id="closemodel" data-dismiss="modal">작성 취소</button>
-                                                        <br><br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                  
-                
-                
-              </div>
-            </div>
-          </div>
-        </div>
+		<div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" role="document"  style="width: 900px"><!-- 862 -->
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="comment-respond" style="padding-left: 40px">
+							<h1 class="comment-reply-title"><br><br>Create Question</h1>
+							<form id="write_ok" action="qnawrite.fu" method="post" enctype="application/x-www-form-urlencoded" class="form comment-form">
+								<div class="form__group mb--25 mb-sm--20">
+									<div class="form-row">
+										<div class="col-md-4 mb-sm--20">
+											<input type="text" name="subject" id="subject" class="form__input" placeholder="제목" style="width: 820px">
+										</div>
+									</div>
+								</div>
+								<div class="form__group mb--25 mb-sm--20">
+									<div class="form-row">
+										<div class="col-12">
+											<textarea style="width:820px" name="content" id="content" placeholder="궁금하신 내용을 적어주세요" rows="13"  cols="70"></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="form__group">
+									<div class="form-row" style="padding-bottom: 30px">
+										<div class="col-12"><br>
+											<button type="submit" class="btn btn-size-sm">글쓰기</button>
+											<button type="button" class="btn btn-size-sm" id="closemodel" data-dismiss="modal">취소</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
         <!-- Qicuk View Modal End -->
+        
+        
 
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
