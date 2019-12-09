@@ -8,9 +8,8 @@
 	request.setCharacterEncoding("UTF-8");
 %>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+   <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
    
-
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -98,7 +97,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%            	
+      
+                                        <%
+                                        	
                                         	//Use List
                                         	List<String> wishitem=(List<String>)request.getAttribute("wishitem");
                                         	if(wishitem!=null){
@@ -116,7 +117,7 @@
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html"><%=value[0] %>
+                                                    <a href="product-details.html"> <%=value[0] %>
                                                     <br><%=value[1] %></a>
                                                 </h3>
                                             </td>
@@ -129,7 +130,15 @@
                                                 </span>
                                             </td>
                                             <td class="product-action-btn">
-                                                <div name="addcart" class="btn btn-size-md" onclick="clickevent('<%=value[0] %>:<%=value[1] %>:<%=value[2] %>:<%=value[3] %>')">Add to cart</div>                                           
+                                            <%  
+		                                             if(value[1].contains("[")){       
+		                                                value[1]=value[1].replace("[", "%5B");
+		                                                value[1]=value[1].replace("]", "%5D"); 
+		                                             }
+		                                     %>
+                                            
+                                                <div name="addcart" class="btn btn-size-md" onclick="clickevent('<%=value[0] %>:<%=value[1] %>:<%=value[2] %>:<%=value[3] %>')">Add to cart</div>
+                                               
                                             </td>
                                         </tr>
                                         <%
@@ -420,11 +429,8 @@
           </div>
         </div>
         <!-- Qicuk View Modal End -->
-<<<<<<< HEAD
-=======
         
 
->>>>>>> header 부분 변경 및 wishlist 페이지 중복 출력 해결
         <!-- Global Overlay Start -->
         <div class="global-overlay"></div>
         <!-- Global Overlay End -->
@@ -433,4 +439,16 @@
         <a class="scroll-to-top" href=""><i class="la la-angle-double-up"></i></a>
         <!-- Global Overlay End -->
     </div>
+    <!-- Main Wrapper End -->
+ 
 
+    <!-- ************************* JS Files ************************* -->
+
+    <!-- jQuery JS -->
+    <script src="<%=cp %>/resources/assets/js/vendor.js"></script>
+
+    <!-- Main JS -->
+    <script src="<%=cp %>/resources/assets/js/main.js"></script>
+</body>
+
+</html>

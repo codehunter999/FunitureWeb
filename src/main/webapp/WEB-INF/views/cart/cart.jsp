@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
->>>>>>> 11c78fb7a4ea45b1bc3587180d0ad35c1580cd70
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
@@ -17,67 +14,64 @@
 
 <script type="text/javascript">
 
-	$(document).ready(function(){
-			
-			$("[id^='add']").click(function(e){
-				var id_check = $(this).attr("id");			
-				var lastNum = id_check.substr(id_check.length - 1)
-				e.preventDefault();				
-				var stat = $('#qty'+lastNum).val();				
-				var num = parseInt(stat,10);
-				num++;
-
-				if(num>5){
-				alert('더이상 늘릴수 없습니다.');
+$(document).ready(function(){
+		
+		$("[id^='add']").click(function(e){
+			var id_check = $(this).attr("id");			
+			var lastNum = id_check.substr(id_check.length - 1)
+			e.preventDefault();				
+			var stat = $('#qty'+lastNum).val();				
+			var num = parseInt(stat,10);
+			num++;
+			if(num>5){
+			alert('더이상 늘릴수 없습니다.');
 				num = 5;	
-				}
-				$('#qty'+lastNum).val(num);
-				//버튼별 데이터 움직이는거 확인 
-				var item_price = $("#item_price"+lastNum).val();	
-				item_price = item_price.substr(0, item_price.length -1); 
-				item_price = Number(item_price)
+			}
+			$('#qty'+lastNum).val(num);
+			//버튼별 데이터 움직이는거 확인 
+			var item_price = $("#item_price"+lastNum).val();	
+			item_price = item_price.substr(0, item_price.length -1); 
+			item_price = Number(item_price)
+			var totalItem_price_Num = item_price*num;		
+			totalItem_price = String(totalItem_price_Num)+"원"
+			$('#totalItem_price'+lastNum).val(totalItem_price);
+			var map_sumMoney = $('#map_sumMoney').val();
+			var map_sumMoney_Num = Number(map_sumMoney); 
+			var totalNum = map_sumMoney_Num + item_price;
+			$('#map_sumMoney').val(totalNum);
+			$('#map_allSum').val(totalNum);
+		});	
+	
+		$("[id^='min']").click(function(e){		
+			var id_check = $(this).attr("id");
+			var lastNum = id_check.substr(id_check.length-1)
+			e.preventDefault();
+			var stat = $('#qty'+lastNum).val();		
+			var num = parseInt(stat,10);
+			num--;
+			if(num<1){
+			
+				alert('더이상 내릴수 없습니다.');
+				num = 1;	
+			
+			}
+			$('#qty'+lastNum).val(num);	
+			
+			var item_price = $("#item_price"+lastNum).val();	
+			item_price = item_price.substr(0, item_price.length -1); 
+			item_price = Number(item_price)
+			var totalItem_price = item_price*num;
+			totalItem_price = String(totalItem_price)+"원"				
+			$('#totalItem_price'+lastNum).val(totalItem_price);
+			var map_sumMoney = $('#map_sumMoney').val();
+			var map_sumMoney_Num = Number(map_sumMoney); 
+			var totalNum = map_sumMoney_Num -item_price;
+			$('#map_sumMoney').val(totalNum);
+			$('#map_allSum').val(totalNum);
+		});
+	
+});
 
-				var totalItem_price_Num = item_price*num;		
-				totalItem_price = String(totalItem_price_Num)+"원"
-				$('#totalItem_price'+lastNum).val(totalItem_price);
-				var map_sumMoney = $('#map_sumMoney').val();
-				var map_sumMoney_Num = Number(map_sumMoney); 
-				var totalNum = map_sumMoney_Num + item_price;
-				$('#map_sumMoney').val(totalNum);
-				$('#map_allSum').val(totalNum);
-
-			});	
-		
-			$("[id^='min']").click(function(e){
-				
-				var id_check = $(this).attr("id");
-				var lastNum = id_check.substr(id_check.length-1)
-				e.preventDefault();
-				var stat = $('#qty'+lastNum).val();		
-				var num = parseInt(stat,10);
-				num--;
-				if(num<1){
-				
-					alert('더이상 내릴수 없습니다.');
-					num = 1;	
-				}
-				
-				$('#qty'+lastNum).val(num);		
-				var item_price = $("#item_price"+lastNum).val();	
-				item_price = item_price.substr(0, item_price.length -1); 
-				item_price = Number(item_price)
-				var totalItem_price = item_price*num;
-				totalItem_price = String(totalItem_price)+"원"				
-				
-				$('#totalItem_price'+lastNum).val(totalItem_price);				
-				var map_sumMoney = $('#map_sumMoney').val();
-				var map_sumMoney_Num = Number(map_sumMoney); 
-				var totalNum = map_sumMoney_Num -item_price;
-				$('#map_sumMoney').val(totalNum);
-				$('#map_allSum').val(totalNum);
-			});
-		
-	});		
 </script>
 
 <script type="text/javascript">
@@ -119,6 +113,7 @@
 		f.submit();
 	
 	}
+
 
 </script>
 
@@ -207,7 +202,8 @@
                                                         </td>
                                                     </tr>
    													<% 
-   													  map_sumMoney += Integer.parseInt(value[2]); 													  
+   													  map_sumMoney += Integer.parseInt(value[2]);
+   													  buttonIndex++;
    													%>
    													<%}       	
                                    				    }%> 			   
@@ -262,12 +258,7 @@
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-<<<<<<< HEAD
-	                                            	<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
-=======
-                                            	<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
-                                                 <%-- <fmt:formatNumber value="${map.sumMoney }" pattern="###,###,###"/>원 --%>
->>>>>>> header 부분 변경 및 wishlist 페이지 중복 출력 해결
+                                            		<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
                                                 </span>
                                             </div>
                                         </div>

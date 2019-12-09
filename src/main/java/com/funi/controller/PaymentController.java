@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.MemberDAO;
 import com.funi.domain.MemberDTO;
+import com.funi.domain.PaymentDTO;
 
 @Controller
 public class PaymentController {
@@ -26,7 +27,7 @@ public class PaymentController {
 	
 	@RequestMapping(value="/payment.fu",method= {RequestMethod.GET})
 	public ModelAndView payment(HttpServletRequest request,HttpSession session) {
-		
+		//session.invalidate();
 		ModelAndView paymav = new ModelAndView();
 		if(session.getAttribute("email") == null || session.getAttribute("email").equals("")) {
 			paymav.setViewName("member/login");
@@ -43,28 +44,44 @@ public class PaymentController {
 			}
 			
 		}
-		
-		
-		
-		
-		
-		
 		MemberDTO memberdto = memberdao.searchMember((String)session.getAttribute("email"));
 		paymav.addObject("memberdto",memberdto);
 		List<String> cartlist = (List)session.getAttribute("cartlist");
-		for (int i = 0; i < qty_TotalItem.length; i++) {
-			cartlist.set(i,cartlist.get(i)+":"+qty_TotalItem[i]);
+		Iterator iterator = cartlist.iterator();
+		boolean flag = false;
+		int index = 0;
+		while(iterator.hasNext()) {
+			
+			if(cartlist.contains(qty_TotalItem[index])) {
+				continue;
+			}else {
+				cartlist.set(index,cartlist.get(index)+":"+qty_TotalItem[index]);
+			}
+			index++;
 		}
-		Iterator it = cartlist.iterator();
-		while(it.hasNext()) {
-			System.out.println(it.next());
-		}	
-		paymav.addObject("cartlist",cartlist);
 		
-		paymav.addObject("qty_TotalItem",qty_TotalItem);
+		
+		paymav.addObject("cartlist",cartlist);
 		
 		return paymav;
 	}
-	
+	@RequestMapping(value="/payment_input.fu",method= {RequestMethod.POST})
+	public ModelAndView payment_Input(HttpServletRequest request,HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView();
+		/*
+		for (int i = 0; i < paylist.size(); i++) {
+			System.out.println(paylist.get(i).getProductInfo());
+		}
+		*/
+		mav.setViewName("redirect:/orderlist.fu");
+		return mav;
+	}
+	@RequestMapping(value="/orderlist.fu",method= {RequestMethod.GET})
+	public ModelAndView orderlist(HttpServletRequest request,HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order_result");
+		return mav;
+	}
 	
 }

@@ -1,0 +1,118 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+        <!-- Breadcrumb area Start -->
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">completion</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="home.fu">Home</a></li>
+                            <li class="current"><span>completion</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <!-- Breadcrumb area End -->
+
+        <!-- Main Content Wrapper Start -->
+        <div class="main-content-wrapper">
+            <div class="page-content-inner ptb--80 ptb-md--60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-content table-responsive">
+                               <table class="table table-style-2 wishlist-table text-center">              
+                                	<tr>
+                                		<td><img src="<%=cp %>/resources/assets/img/payment/order1.png">
+                                		<img src="<%=cp %>/resources/assets/img/payment/order2.png"></td>
+                                	</tr>
+                               	</table>
+                               	<table>
+                               		<tr>
+                               			<td><font>&nbsp;&nbsp;&nbsp;결제정보</font></td>
+                               		</tr>
+                               	</table>
+                                <table class="table table-style-2 wishlist-table text-center">
+                                <tr height="20"></tr>
+                                	<thead>
+                                        <tr class="order-total">
+                                            <th >최종결제금액</th>
+                                            <th class="text-left" style="background-color: white">
+                                            <font size="4">123,000</font>원</th>
+                                            <th class="text-left"style="background-color: white"></th> 
+                                            <th style="background-color: white"></th>
+                                            <th style="background-color: white"></th>                                            
+                                            <th style="background-color: white"></th>
+                                        </tr>
+                                        <tr height="30">
+                                            <th>결제수단</th>
+                                            <th class="text-left" style="background-color: white">국민카드</th>
+                                            <th class="text-left"style="background-color: white"></th> 
+                                            <th style="background-color: white"></th>
+                                            <th style="background-color: white"></th>                                            
+                                            <th style="background-color: white"></th>
+                                        </tr>
+                                    </thead>
+                                    <tr height="20"></tr>
+                                    <tr height="20"></tr>
+                             </table>     
+                             <table>
+                               		<tr>
+                               			<td><font>&nbsp;&nbsp;&nbsp;주문상품정보</font></td>
+                               		</tr>
+                               	</table>  
+                             <table class="table table-style-2 wishlist-table text-center">
+                                	<thead>    
+                                    <thead>
+                                        <tr>
+                                            <th class="text-right"></th>
+                                            <th class="">상품정보</th> 
+                                            <th class="text-left">&nbsp;</th>
+                                            <th>판매가</th>
+                                            <th>수량</th>                                            
+                                            <th>합계</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+	                                    <tr>
+                                            <td class="product-thumbnail text-left">
+                                                <img src="<%=cp %>/resources/assets/img/products/prod-02-70x88.jpg" alt="Product Thumnail">
+                                            </td>
+                                            <td class="product-name text-left wide-column">
+                                                <h3>
+                                                    <a href="product-details.html">[예제]이쁜의자</a>
+                                                </h3>
+                                            </td>
+                                            <td ></td>
+                                            <td class="product-price">
+                                                <span class="product-price-wrapper">
+                                                    <span class="money">123,000원</span>
+                                                </span>
+                                            </td>
+                                            <td class="product-stock">
+												1
+                                            </td>
+                                            <td class="product-stock">
+                                                <span class="product-price-wrapper">
+                                                    <span class="money">123,000원</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        
+                                     </tbody>
+                                </table>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Wrapper Start -->
+
+<%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>

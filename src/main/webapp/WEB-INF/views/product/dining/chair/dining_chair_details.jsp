@@ -1,6 +1,16 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-
+<script type="text/javascript">
+	
+	var data; 
+	
+	function cartsubmit(eventdata){
+		data=eventdata;
+		alert(data);
+		location.href="<%=cp%>/cartlist_input.fu?data="+data;	
+	}
+</script>
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/주방다이닝룸.jpg">
             <div class="container">
@@ -102,15 +112,7 @@
                         </div>
                         <div class="col-xl-4 offset-xl-1 col-lg-5 product-main-details mt-md--50">
                             <div class="product-summary pl-lg--30 pl-md--0">
-                                <!-- <div class="product-navigation text-right mb--20">
-                                    <a href="#" class="prev"><i class="la la-angle-double-left"></i></a>
-                                    <a href="#" class="next"><i class="la la-angle-double-right"></i></a>
-                                </div>
-                                <div class="product-rating d-flex mb--20">
-                                    <div class="star-rating star-four">
-                                        <span>Rated <strong class="rating">5.00</strong> out of 5</span>
-                                    </div>
-                                </div> -->
+
                                 <h3 class="product-title mb--20">${dto.productName }</h3>
                                 <div class="product-price-wrapper mb--25">
                                 <hr/>
@@ -193,8 +195,17 @@
                                         </div>
                                     </div>
                                     <!-- add cart버튼(+품절) -->
+                                    <!-- 테스트 cateEn 을 cate 로 변경  -->           
                                     <c:if test="${dto.imageIndex>=46 && dto.imageIndex<=59 }">
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <%  
+                                    				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
+		                                              if(dto1.getProductName().contains("[")){       
+		                                            	 dto1.setProductName(dto1.getProductName().replace("[", "%5B"));
+		                                            	 dto1.setProductName(dto1.getProductName().replace("]", "%5D"));
+		                                            	 dto1.setPrice(dto1.getPrice().trim());
+		                                             } 
+                                     %>
+                                    <button type="button" id="cartButton" class="btn btn-size-sm btn-shape-square" onclick="cartsubmit('${dto.cateEn}:<%=dto1.getProductName() %>:<%=dto1.getPrice()%>:/resources/images/dining/${dto.saveFileName}');">
                                         Add To Cart
                                     </button>
                                     </c:if>
@@ -203,16 +214,9 @@
                                         Sold Out
                                     </button>
                                     </c:if>
+                                    <div id="resultDIV"></div>
                                     <!-- add cart end -->
                                 </div>  
-                               <!--  <div class="product-footer-meta">
-                                    <p><span>Category:</span> 
-                                        <a href="shop.jsp">Full Sweater</a>,
-                                        <a href="shop.jsp">SweatShirt</a>,
-                                        <a href="shop.jsp">Jacket</a>,
-                                        <a href="shop.jsp">Blazer</a>
-                                    </p>
-                                </div> -->
                             </div>
                         </div>
                     </div>

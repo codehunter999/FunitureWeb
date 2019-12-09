@@ -153,72 +153,77 @@ public class FurnitureController {
 		return "event/event_5";
 	}
 	
-	// 카트 장바구니 
-	@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
-			List cartlist = (List<String>)session.getAttribute("cartlist");
-			ModelAndView cartlistmav = new ModelAndView();
-			cartlistmav.addObject("catlist",cartlist);
-			cartlistmav.setViewName("cart/cart");
-			return cartlistmav;
-	}
-	// 카트 장바구니 
-		@RequestMapping(value = "/cartlist_input.fu", method = {RequestMethod.GET,RequestMethod.POST})
-		public String cartList_Input(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
-			
-			List<String> cartlist;	
-			
-			if(request.getParameter("data")==null||request.getParameter("data").equals("")) {
-			
-			}else {	
-					if(session.getAttribute("cartlist") == null) {
-						cartlist=new ArrayList<String>();
-					}else {
-						cartlist=(List<String>)session.getAttribute("cartlist");
-					}
-					boolean flag=true;				
-					Iterator iterator=cartlist.iterator();        		
-					int i=0;  		
-					while(iterator.hasNext()){
-						String result=(String)iterator.next();
-	        			if(result.equals(request.getParameter("data"))) {
-	        				System.out.println("이미 추가된 상품입니다. ");
-	        				flag=false;
-	        			}
-	        		}		
-					if(flag) {
-						cartlist.add(request.getParameter("data"));
-						session.setAttribute("cartlist", cartlist);
-					}
+			// 카트 장바구니 
+			@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
+			public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+					List cartlist = (List<String>)session.getAttribute("cartlist");
+					System.out.println("cartlist session "+cartlist.get(0));
+					ModelAndView cartlistmav = new ModelAndView();
+					cartlistmav.addObject("catlist",cartlist);
+					cartlistmav.setViewName("cart/cart");
+					return cartlistmav;
 			}
-				cartlist = (List<String>)session.getAttribute("cartlist");
-				request.setAttribute("cartlist", cartlist);
-				return "redirect:/wishlist.fu";
-		}		
-	
-	@RequestMapping(value = "/deletecart.fu", method = RequestMethod.GET)
-	public String deletecart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
-		//Use List
-		List cartlist;
-		cartlist=(ArrayList<String>)session.getAttribute("cartlist");
-		int id = Integer.parseInt(request.getParameter("id"));
-		
-		System.out.println("cartlist.get(id) :" + cartlist.get(id));
-		
-		cartlist.remove(id);
-		
-		session.setAttribute("cartlist", cartlist);
-		
-		return "redirect:/cartlist.fu";
-	}
-	
-	@RequestMapping(value = "/removeAllcart.fu", method = {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView RemoveAllCart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
-		
-		ModelAndView removemav = new ModelAndView();
-		removemav.setViewName("redirect:/cartlist.fu");
-		session.removeAttribute("cartlist");
-		return removemav; 
-	}
+				// 카트 장바구니 
+				@RequestMapping(value = "/cartlist_input.fu", method = {RequestMethod.GET,RequestMethod.POST})
+				public String cartList_Input(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+					//session.invalidate();
+					List<String> cartlist;	
+					String data = request.getParameter("data").trim();				
+					System.out.println("data 입니다."+data);
+					if(data==null || data.equals("")) {
+					
+					}else {	
+							if(session.getAttribute("cartlist") == null) {
+								cartlist=new ArrayList<String>();
+							}else {
+								cartlist=(List<String>)session.getAttribute("cartlist");
+							}
+							boolean flag=true;	
+							Iterator iterator=cartlist.iterator();        		
+							int i=0;  		
+							while(iterator.hasNext()){
+								String result=(String)iterator.next();
+								
+			        			if(result.equals(request.getParameter("data"))) {
+			        				System.out.println("이미 추가된 상품입니다. ");			
+			        				flag=false;
+			        			}
+			        		}		
+							if(flag) {		
+								cartlist.add(data);				
+								session.setAttribute("cartlist", cartlist);
+							}
+					}
+						cartlist = (List<String>)session.getAttribute("cartlist");
+						Iterator it = cartlist.iterator();
+						while(it.hasNext()) {
+							System.out.println((String)it.next());
+						}
+						request.setAttribute("cartlist", cartlist);
+						return "cart/cart";
+				}		
+			
+			@RequestMapping(value = "/deletecart.fu", method = RequestMethod.GET)
+			public String deletecart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+				//Use List
+				//session.invalidate();
+				List cartlist;
+				cartlist=(ArrayList<String>)session.getAttribute("cartlist");
+				int id = Integer.parseInt(request.getParameter("id"));	
+				System.out.println("cartlist.get(id) :" + cartlist.get(id));
+				cartlist.remove(id);	
+				session.setAttribute("cartlist", cartlist);		
+				return "redirect:/cartlist.fu";
+			}
+			
+			@RequestMapping(value = "/removeAllcart.fu", method = {RequestMethod.GET,RequestMethod.POST})
+			public ModelAndView RemoveAllCart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+				
+				ModelAndView removemav = new ModelAndView();
+				removemav.setViewName("redirect:/cartlist.fu");
+				session.removeAttribute("cartlist");
+				return removemav; 
+			}
+			
 }
 
