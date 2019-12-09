@@ -14,13 +14,6 @@
         
         <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
         <!-- <section class="page-title-area-2 bg-image"> -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1 class="sr-only">Q & A</h1>
-                    </div>
-                </div>
-            </div>
         </section>
          
         <!-- Breadcrumb area End -->
@@ -59,31 +52,31 @@
                                         </div>
                                     </div>
                                     
-                                    <%if(dto.getName().equals(session.getAttribute("name"))){ %>
-                                    <a href="<%=cp %>/qnarewrite.fu?id=<%=dto.getId() %>&mode=1">
-                                    <img src="<%=cp %>/resources/assets/img/reviewimg/rewrite.png" width=50 height=50>
-                                    </a>
-                                    <a href="<%=cp %>/qnadelete.fu?id=<%=dto.getId() %>">
-                                    <img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
-                                    </a>
-                                    <%}
+	                                    <%if(dto.getName().equals(session.getAttribute("name"))){ %>
+		                                    <a href="<%=cp %>/qnarewrite.fu?id=<%=dto.getId() %>&mode=1">
+		                               		    <img src="<%=cp %>/resources/assets/img/reviewimg/rewrite.png" width=50 height=50>
+		                                    </a>
+	                                    	<a href="<%=cp %>/qnadelete.fu?id=<%=dto.getId() %>">
+	                                    		<img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
+	                                    	</a>
+	                                    <%}
                                     }else {%>
-                                   <form action="qnarewrite_ok.fu?id=<%=dto.getId() %>" method="post" enctype="application/x-www-form-urlencoded">
-                                   <header class="single-post__header">
-                                        <input type="text" name="subject" id="subject" class="form__input" value="<%=dto.getSubject() %>" style="width: 700px">
-                                        <div class="single-post__media">
-                                            <figure class="image">
+	                                   <form action="qnarewrite_ok.fu?id=<%=dto.getId() %>" method="post" enctype="application/x-www-form-urlencoded">
+	                                   <header class="single-post__header">
+	                                       <input type="text" name="subject" id="subject" class="form__input" value="<%=dto.getSubject() %>" style="width: 700px">
+	                                       <div class="single-post__media">
+	                                            <figure class="image">
                                             		
                                                 <%-- <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100"> --%>
-                                            </figure>
-                                        </div>
-                                        <div class="single-post__header-meta">
-                                            <span class="posted-on"><%=dto.getCreated_at() %></span>
-                                            <span class="post-category">
-                                                <%=dto.getName() %>
-                                            </span>
-                                        </div>
-                                    </header>
+                                           		</figure>
+                                           	</div>
+	                                        <div class="single-post__header-meta">
+	                                            <span class="posted-on"><%=dto.getCreated_at() %></span>
+	                                            <span class="post-category">
+	                                                <%=dto.getName() %>
+	                                            </span>
+	                                        </div>
+                                    	</header>
                                     <div class="single-post__info">
                                         <div class="row mb--43 mb-md-33">
                                             <div class="col-lg-8 col-md-8">
@@ -101,43 +94,6 @@
                                 <section class="comment">
                                     <h2 class="comment-title"><%=lists.size() %> comments</h2>
                                     <ul class="comment-list mb--45">
-                                        <%-- <li>
-                                            <div class="single-comment">
-                                                <figure class="comment-avatar">
-                                                    <img src="<%=cp %>/resources/assets/img/others/avatar-large-2.png" alt="Avatar">
-                                                </figure>
-                                                <div class="comment-info">
-                                                    <div class="comment-meta">
-                                                        <h4>임꺽정</h4>
-                                                        <div class="metadata">
-                                                            <span class="comment-date">2019-09-30</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <p>제가봐도 좋은 가구같군요 <br> 하얀색이면 쉽게 더러워지지 않나요?</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="single-comment">
-                                                <figure class="comment-avatar">
-                                                    <img src="<%=cp %>/resources/assets/img/others/comment-1.jpg" alt="Avatar">
-                                                </figure>
-                                                <div class="comment-info">
-                                                    <div class="comment-meta">
-                                                        <h4>홍길동</h4>
-                                                        <div class="metadata">
-                                                            <span class="comment-date">2019-09-30</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <p>쉽게 안더러워지더라고요 <br> 닦는것도 쉽고요</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li> --%>
-                                        
                                         <%for(Re_QnADTO re_dto:lists){ %>
                                         <li>
                                             <div class="single-comment">

@@ -32,7 +32,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-9">
                         	<div class="col-12">
-                        		<h2>Question And Answers</h2>
+                        		<h3>Question And Answers</h3>
 							</div>
 							<br/>
                        	</div>
@@ -42,10 +42,9 @@
                         		<thead>
                                 	<tr>
                                 		<th>&nbsp;</th>
-                                           <th><b>내용</b></th>
-                                           
-                                           <th><b>작성자</b></th>
-                                           <th><b>작성일</b></th>
+                                        <th style="font-size: 16px"><b>내&nbsp;&nbsp;&nbsp;용</b></th>
+                                        <th style="font-size: 16px"><b>작성자</b></th>
+                                        <th style="font-size: 16px"><b>작성일</b></th>
                                     </tr>
                                 </thead>
                              	<tbody>
