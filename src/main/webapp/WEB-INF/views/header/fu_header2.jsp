@@ -23,6 +23,19 @@
 	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>	
 	<!-- 회원가입check  -->
 	<script src="<%=cp %>/resources/assets/js/register_check.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#image").click(function(event) {
+				$('div.modal').modal();
+			});
+			var sessionId = $("#session_Names").text();
+			var substrIndex = sessionId.indexOf("@");
+			
+			$("#session_Names").text(sessionId.substr(0,substrIndex));
+		});
+	</script>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#image").click(function(event) {

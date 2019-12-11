@@ -32,7 +32,7 @@
 			var sessionId = $("#session_Names").text();
 			var substrIndex = sessionId.indexOf("@");
 			
-			$("#session_Names").text(sessionId.substr(0,substrIndex-1));
+			$("#session_Names").text(sessionId.substr(0,substrIndex));
 		});
 	</script>
 
