@@ -14,16 +14,29 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 <script type="text/javascript">
 		
 	var data;
-	
-	function payment() {	
+	var paytype;
+	function payment(paylist) {	
 		//var f = document.paymentInfo;
 		$('div.modal').modal();
-		data = paylist;
-		f.action = "<%=cp%>/payment_input.fu";
+		//paytype 결제 
+		var radioVal = $(':radio[name="payment-method"]:checked').val();		
+		if(radioVal == 'bank'){				
+			paytype = $(":selected").val();		
+		}else{		
+			paytype = $(':radio[name="payment-method"]:checked').val();
+		}
+		f.action = "<%=cp%>/orderlist.fu?paytype="+paytype;
 		f.submit();
 	}
+	//function payment() {	
+		//var f = document.paymentInfo;
+	//	$('div.modal').modal();
+	//	data = paylist;
+	//	f.action = "<%=cp%>/payment_input.fu";
+	//	f.submit();
+	//}
 	function cartsubmit(){
-		location.href="<%=cp%>/payment_input.fu";
+		location.href="<%=cp%>/orderlist.fu?paytype="+paytype;
 		
 	}
 	

@@ -172,30 +172,27 @@ public class FurnitureController {
 					System.out.println("data 입니다."+data);
 					if(data==null || data.equals("")) {
 					
-					}else {	
-							if(session.getAttribute("cartlist") == null) {
-								cartlist=new ArrayList<String>();
-							}else {
-								cartlist=(List<String>)session.getAttribute("cartlist");
-							}
+					}else {							
+						if(session.getAttribute("cartlist") == null) {
+							cartlist=new ArrayList<String>();
+						}else {
+							cartlist=(List<String>)session.getAttribute("cartlist");
+						}					
+						boolean flag=true;								
+						Iterator iterator=cartlist.iterator();  							
+						int i=0;  		
+						while(iterator.hasNext()){
 							
-							boolean flag=true;	
-							
-							Iterator iterator=cartlist.iterator();  
-							
-							int i=0;  		
-							while(iterator.hasNext()){
-								
-								String result=(String)iterator.next();			
-								if(result.contains(request.getParameter("data"))) {
-			        				System.out.println("이미 추가된 상품입니다. ");			
-			        				flag=false;
-			        			}
-			        		}		
-							if(flag) {		
-								cartlist.add(data);				
-								session.setAttribute("cartlist", cartlist);
-							}
+							String result=(String)iterator.next();			
+							if(result.contains(request.getParameter("data"))) {
+		        				System.out.println("이미 추가된 상품입니다. ");			
+		        				flag=false;
+		        			}
+		        		}		
+						if(flag) {		
+							cartlist.add(data);				
+							session.setAttribute("cartlist", cartlist);
+						}
 					}
 						cartlist = (List<String>)session.getAttribute("cartlist");
 						Iterator it = cartlist.iterator();

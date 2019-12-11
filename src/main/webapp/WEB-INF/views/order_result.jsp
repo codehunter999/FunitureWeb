@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.PaymentDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
@@ -43,7 +44,7 @@
                                         <tr class="order-total">
                                             <th >최종결제금액</th>
                                             <th class="text-left" style="background-color: white">
-                                            <font size="4">123,000</font>원</th>
+                                            <font size="4">${price}</font>원</th>
                                             <th class="text-left"style="background-color: white"></th> 
                                             <th style="background-color: white"></th>
                                             <th style="background-color: white"></th>                                            
@@ -51,7 +52,7 @@
                                         </tr>
                                         <tr height="30">
                                             <th>결제수단</th>
-                                            <th class="text-left" style="background-color: white">국민카드</th>
+                                            <th class="text-left" style="background-color: white">${paytype }</th>
                                             <th class="text-left"style="background-color: white"></th> 
                                             <th style="background-color: white"></th>
                                             <th style="background-color: white"></th>                                            
@@ -78,33 +79,40 @@
                                             <th>합계</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    
-	                                    <tr>
+                                        <%
+                                         		List<PaymentDTO> listdto=(List<PaymentDTO>)request.getAttribute("listdto");
+	                                   			 for(int i=0;i<listdto.size();i++) {
+	                                   			PaymentDTO dto=listdto.get(i);
+                                   		 %>
+                                   			 <tr>
                                             <td class="product-thumbnail text-left">
-                                                <img src="<%=cp %>/resources/assets/img/products/prod-02-70x88.jpg" alt="Product Thumnail">
+                                                <img src="<%=cp %><%=dto.getImagePath() %>" alt="Product Thumnail">
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html">[예제]이쁜의자</a>
+                                                    <a href="product-details.html"><%=dto.getProductInfo() %></a>
                                                 </h3>
                                             </td>
                                             <td ></td>
                                             <td class="product-price">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">123,000원</span>
+                                                    <span class="money"><%=dto.getProductPrice()/dto.getProductEa() %>원</span>
                                                 </span>
                                             </td>
                                             <td class="product-stock">
-												1
+												<%=dto.getProductEa() %>
                                             </td>
                                             <td class="product-stock">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">123,000원</span>
+                                                    <span class="money"><%=dto.getProductPrice() %></span>
                                                 </span>
                                             </td>
-                                        </tr>
-                                        
+                                        </tr> 
+                                   			 
+                                   			 
+                                   			 <%
+                                   		 }
+                                   			 %>
                                      </tbody>
                                 </table>
                             </div>  

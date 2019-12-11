@@ -1,14 +1,26 @@
 package com.funi.domain;
 
+import java.util.List;
+
 public class PaymentDTO {
 	
 	private int payId;
 	private String email;
 	private String paytype;
+	private String imagePath;
 	private String productInfo;
 	private int productEa;
 	private int productPrice;
 	private String deliveryMessage;
+	
+
+
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 	
 	public int getPayId() {
 		return payId;
