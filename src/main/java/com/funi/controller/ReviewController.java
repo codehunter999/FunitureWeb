@@ -192,10 +192,13 @@ public class ReviewController {
 
 		return "review/reviewmain";
 	}
+	
+	
+	
 
 	@RequestMapping(value = "/reviewwrite.fu", method = { RequestMethod.GET, RequestMethod.POST })
-	public String reviewwrite(ReviewDTO dto, MultipartHttpServletRequest request, Locale locale, Model model,
-			HttpSession session) {
+	public String reviewwrite(ReviewDTO dto, MultipartHttpServletRequest request, Locale locale, Model model,HttpSession session) {
+		
 		System.out.println("�뜝�룞�삕�듃�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕" + reviewdao.getMAXID());
 
 		dto.setId(reviewdao.getMAXID() + 1);
@@ -235,6 +238,9 @@ public class ReviewController {
 		return "redirect:/reviewmain.fu";
 	}
 
+	
+
+	
 	@RequestMapping(value = "/reviewarticle.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewview(HttpServletRequest request, Locale locale, Model model) {
 		ReviewDTO dto = reviewdao.getReadData(Integer.valueOf(request.getParameter("id")));

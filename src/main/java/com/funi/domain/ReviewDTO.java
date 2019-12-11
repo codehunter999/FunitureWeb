@@ -13,6 +13,8 @@ public class ReviewDTO {
 	String ipaddr;
 	String created_at;
 	String photo;
+	
+		
 	public int getId() {
 		return id;
 	}
