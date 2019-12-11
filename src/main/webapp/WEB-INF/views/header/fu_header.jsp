@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -18,6 +17,8 @@
     <link rel="shortcut icon" href="<%=cp %>/resources/assets/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="<%=cp %>/resources/assets/img/icon.png">
 
+  
+	
 	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>	
@@ -28,19 +29,14 @@
 			$("#image").click(function(event) {
 				$('div.modal').modal();
 			});
+			var sessionId = $("#session_Names").text();
+			var substrIndex = sessionId.indexOf("@");
+			
+			$("#session_Names").text(sessionId.substr(0,substrIndex-1));
 		});
 	</script>
-	<script type="text/javascript">
-	    var data;
-		function clickevent(eventdata){
-			data=eventdata;
-			$('div.modal').modal();
-		}
-		function cartsubmit(){
-			location.href="cart.fu?data="+data;
-		}
-    </script>
 
+	
 	<style type="text/css">
 		.container {
 		  padding-right: 15px;
@@ -50,17 +46,22 @@
 		}
 	</style>
 	
-    <!-- ************************* CSS Files ************************* -->   
+	  <!-- ************************* CSS Files ************************* -->
+    
     <!-- 합쳐지고 최소화된 최신 CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">	
 	<!-- 부가적인 테마 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	
 	<!-- Vendor CSS -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
     <!-- style css -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
+
 </head>
+
 <body>
+
     <!-- Preloader Start -->
     <div class="ft-preloader active">
         <div class="ft-preloader-inner h-100 d-flex align-items-center justify-content-center">
@@ -334,7 +335,7 @@
 												    <c:when test="${not empty sessionScope.email }">   
 												        <li class="mainmenu__item menu-item-has-children">
 												        	<a href="${pageContext.request.contextPath }/users/info.do" class="mainmenu__link">
-												        		<span class="mm-text">${sessionScope.email } 님</span>
+												        		<span class="mm-text" id="session_Names">${sessionScope.email }님</span>
 												        	</a>
 												        	 <ul class="sub-menu">
 		                                                    	<li>

@@ -1,32 +1,20 @@
 package com.funi.controller;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.BedDAO;
@@ -40,12 +28,12 @@ import com.funi.dao.ReviewDAO;
 import com.funi.domain.FurnitureDTO;
 import com.funi.domain.MemberDTO;
 import com.funi.domain.QnADTO;
+
+
 import com.funi.service.Email;
 import com.funi.service.EmailSender;
 import com.funi.service.KakaoAPI;
-import com.funi.util.MyUtil;
-import com.funi.util.MyUtil1;
-import com.funi.util.SHA256Util;
+
 
 @Controller
 public class FurnitureController {
@@ -74,21 +62,12 @@ public class FurnitureController {
 	@Qualifier("cartdao")
 	CartDAO cartdao;
 
-	@Autowired
-	@Qualifier("myUtil")
-	MyUtil myUtil;
+
 
 	@Autowired
 	@Qualifier("qnadao")
 	QnADAO qnadao;
 
-	@Autowired
-	@Qualifier("reviewdao")
-	ReviewDAO reviewdao;
-
-	@Autowired
-	@Qualifier("myUtil1")
-	MyUtil1 myUtil1;
 
 	@Autowired
 	@Qualifier("kakao")
@@ -173,70 +152,82 @@ public class FurnitureController {
 	}
 
 
-
-
 	@RequestMapping(value = "/event_5.fu", method = RequestMethod.GET)
 	public String event_5(Locale locale, Model model) {
 		return "event/event_5";
 	}
 
-	// payment part
-	@RequestMapping(value = "/payment.fu", method = RequestMethod.GET)
-	public String payment(Locale locale, Model model) {
-		return "payment";
+	// 카트 장바구니 
+	@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+			List cartlist = (List<String>)session.getAttribute("cartlist");
+			System.out.println("cartlist session "+cartlist.get(0));
+			ModelAndView cartlistmav = new ModelAndView();
+			cartlistmav.addObject("catlist",cartlist);
+			cartlistmav.setViewName("cart/cart");
+			return cartlistmav;
 	}
-
-	// 장바구니
-	@RequestMapping(value = "/cart.fu", method = RequestMethod.GET)
-	public String cart(Locale locale, Model model) {
-
+		// 카트 장바구니 
+		@RequestMapping(value = "/cartlist_input.fu", method = {RequestMethod.GET,RequestMethod.POST})
+		public String cartList_Input(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+			//session.invalidate();
+			List<String> cartlist;	
+			String data = request.getParameter("data").trim();				
+			System.out.println("data 입니다."+data);
+			if(data==null || data.equals("")) {
+			
+			}else {							
+				if(session.getAttribute("cartlist") == null) {
+					cartlist=new ArrayList<String>();
+				}else {
+					cartlist=(List<String>)session.getAttribute("cartlist");
+				}					
+				boolean flag=true;								
+				Iterator iterator=cartlist.iterator();  							
+				int i=0;  		
+				while(iterator.hasNext()){
+					
+					String result=(String)iterator.next();			
+					if(result.contains(request.getParameter("data"))) {
+						System.out.println("이미 추가된 상품입니다. ");			
+						flag=false;
+					}
+				}		
+				if(flag) {		
+					cartlist.add(data);				
+					session.setAttribute("cartlist", cartlist);
+				}
+			}
+				cartlist = (List<String>)session.getAttribute("cartlist");
+				Iterator it = cartlist.iterator();
+				while(it.hasNext()) {
+					System.out.println((String)it.next());
+				}
+				request.setAttribute("cartlist", cartlist);
+				return "cart/cart";
+		}		
+	
+	@RequestMapping(value = "/deletecart.fu", method = RequestMethod.GET)
+	public String deletecart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
+		//Use List
+		//session.invalidate();
+		List cartlist;
+		cartlist=(ArrayList<String>)session.getAttribute("cartlist");
+		int id = Integer.parseInt(request.getParameter("id"));	
+		System.out.println("cartlist.get(id) :" + cartlist.get(id));
+		cartlist.remove(id);	
+		session.setAttribute("cartlist", cartlist);		
 		return "cart/cart";
 	}
 	
-	
-	@RequestMapping(value = "/faq.fu", method = { RequestMethod.GET, RequestMethod.POST })
-	public String faq(HttpServletRequest request, Locale locale, Model model) {
+	@RequestMapping(value = "/removeAllcart.fu", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView RemoveAllCart(Locale locale, Model model,HttpServletRequest request,HttpSession session) {
 		
-		String cp = request.getContextPath();
-		String pageNum = request.getParameter("pageNum");
-		int currentPage = 1;
-
-		if (pageNum != null)
-			currentPage = Integer.parseInt(pageNum);
-
-		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
-		int dataCount = qnadao.getDataCount();
-
-		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
-		int numPerPage = 5;
-		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
-
-		if (currentPage > totalPage)
-			currentPage = totalPage;
-
-		int start = (currentPage - 1) * numPerPage + 1;
-		int end = currentPage * numPerPage;
-		List<QnADTO> lists = qnadao.getList(start, end);
-
-		String listUrl = cp + "/qnamain.fu";
-
-		String pageIndexList = myUtil1.pageIndexList(currentPage, totalPage, listUrl);
-
-		// �뜝�뙗釉앹삕�뜝�룞�삕 �뜝�뙇�눦�삕 �뜝�룞�삕�뜝�룞�삕
-		String articleUrl = cp + "/qnamain.fu?pageNum=" + currentPage;
-
-		// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕
-		// �뜝�떬源띿삕�뜝占�
-		request.setAttribute("lists", lists);
-		request.setAttribute("pageIndexList", pageIndexList);
-		request.setAttribute("dataCount", dataCount);
-		request.setAttribute("articleUrl", articleUrl);
-		
-		return "qna/faq";
+		ModelAndView removemav = new ModelAndView();
+		removemav.setViewName("redirect:/cartlist.fu");
+		session.removeAttribute("cartlist");
+		return removemav; 
 	}
-	
-	
-	
 }
 
 
@@ -922,8 +913,6 @@ public class FurnitureController {
 // public String event_4(Locale locale, Model model) {
 // return "event/event_4";
 // }
-
-
 
 
 

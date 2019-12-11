@@ -1,9 +1,7 @@
 function check(cp){
 	
 	var f = document.register;
-	//var cp = cp;
-	
-	alert(cp);
+
 	var email = f.email.value;
 	if(email=="" || email==null){
 		alert("Email을 입력");

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="paymentMapper">
+
+	<select id="selectId" resultType="Integer">
+		select nvl(max(payId),0) from fupayment
+	</select>
+	
+	<insert id="insertData" parameterType="com.funi.domain.PaymentDTO">
+		insert into fupayment (payId,email,paytype,imagePath,productInfo,productEa,productPrice,deliveryMessage)
+		values (#{payId},#{email},#{paytype},#{imagePath},#{productInfo},#{productEa},#{productPrice},#{deliveryMessage})
+	</insert>
+	
+	<select id="getlist" parameterType="String" resultType="com.funi.domain.PaymentDTO">
+		select * from fupayment where email=#{email}
+	</select>
+</mapper>
+
