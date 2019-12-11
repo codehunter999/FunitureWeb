@@ -38,7 +38,6 @@ private SqlSessionTemplate sessionTemplate;
 	
 	
 	public void insertData(ReviewDTO dto){
-		
 		sessionTemplate.insert("ReviewMapper.insertData",dto);
 	}
 	

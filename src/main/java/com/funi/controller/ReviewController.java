@@ -193,9 +193,9 @@ public class ReviewController {
 		return "review/reviewmain";
 	}
 	
-	
-	
+		
 
+	
 	@RequestMapping(value = "/reviewwrite.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewwrite(ReviewDTO dto, MultipartHttpServletRequest request, Locale locale, Model model,HttpSession session) {
 		
@@ -237,7 +237,7 @@ public class ReviewController {
 
 		return "redirect:/reviewmain.fu";
 	}
-
+	
 	
 
 	

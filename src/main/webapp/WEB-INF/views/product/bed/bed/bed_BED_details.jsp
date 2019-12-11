@@ -221,18 +221,23 @@
                                                                     <span><i class="la la-star"></i></span>
                                                                 </div>
                                                             </div> -->
+                                                            
+                                                            <div class="form__group mb--20">
+                                                                <label class="form__label d-block" for="subject">제목<span class="required">*</span></label>
+                                                                <input type="text" name="subject" id="subject" class="form__input">
+                                                            </div>
                                                             <div class="form__group mb--10">
-                                                                <label class="form__label d-block" for="email">상품후기<span class="required">*</span></label>
-                                                                <textarea name="review" id="review" class="form__input form__input--textarea"></textarea>
+                                                                <label class="form__label d-block" for="review">상품후기<span class="required">*</span></label>
+                                                                <textarea name="content" id="content" class="form__input form__input--textarea"></textarea>
                                                             </div>
                                                             <div class="form__group mb--20">
                                                                 <label class="form__label d-block" for="name">이름<span class="required">*</span></label>
-                                                                <input type="text" name="name" id="name" class="form__input">
+                                                                <input type="text" name="name" id="name" class="form__input" value="">
                                                             </div>
                                                             <div class="form__group mb--20">
                                                                 <label class="form__label d-block" for="email">E-mail<span class="required">*</span></label>
                                                                 <input type="email" name="email" id="email" class="form__input">
-                                                                <input type="hidden" name="photo" id="photo" value="${dto.imageIndex}">
+                                                                <input type="hidden" name="photo" id="photo" value="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg">
                                                             </div>
                                                             <div class="form__group">
                                                                 <div class="form-row">

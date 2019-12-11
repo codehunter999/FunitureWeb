@@ -83,11 +83,7 @@
                                 </tbody>
                                 </table>
 
-                                <div class="related-post__info">
-	                                <%if(session.getAttribute("name")!=null){ %>
-    			                        <img src="<%=cp %>/resources/assets/img/reviewimg/write.jpg" width="50" height="50" id="image">
-                		            <%} %>
-                        	    </div>
+                       
                             </div>
                             
                             <div class="row">
