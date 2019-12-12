@@ -34,7 +34,7 @@
                                         <tr>
                                             <th>&nbsp;</th>
                                             <th>&nbsp;</th>
-                                            <th style="font-size: 16px"><b>내&nbsp;&nbsp;&nbsp;용</b></th>
+                                            <th style="font-size: 16px"><b>제목</b></th>
                                             <th></th>
 	                                        <th style="font-size: 16px"><b>작성자</b></th>
 	                                        <th style="font-size: 16px"><b>작성일</b></th>
@@ -56,7 +56,7 @@
 										</td>
 										<td class="product-name text-left wide-column">
                                         	<h3>
-                                            	<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
+                                            	<a id="reviewSubject"href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"><%=dto.getContent() %></a>
                                            	</h3>
                                        	</td>
                                        	<td class="product-stock"></td>
@@ -158,6 +158,8 @@
 				</div>
 			</div>
 		</div>
+		
         <!-- Qicuk View Modal End -->
+        
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>

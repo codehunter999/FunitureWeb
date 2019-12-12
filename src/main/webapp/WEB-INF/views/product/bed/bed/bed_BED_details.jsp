@@ -235,8 +235,8 @@
                                                                 <input type="text" name="name" id="name" class="form__input" value="">
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="email">E-mail<span class="required">*</span></label>
-                                                                <input type="email" name="email" id="email" class="form__input">
+                                                                <!-- <label class="form__label d-block" for="email">E-mail<span class="required">*</span></label>
+                                                                <input type="email" name="email" id="email" class="form__input"> -->
                                                                 <input type="hidden" name="photo" id="photo" value="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg">
                                                             </div>
                                                             <div class="form__group">

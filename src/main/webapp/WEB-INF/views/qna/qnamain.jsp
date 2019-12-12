@@ -101,7 +101,7 @@
         
 		
 		<!-- Qicuk View Modal Start -->
-		<div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal fade product-modal" id="qnaModal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog" role="document"  style="width: 900px"><!-- 862 -->
 				<div class="modal-content">
 					<div class="modal-body">

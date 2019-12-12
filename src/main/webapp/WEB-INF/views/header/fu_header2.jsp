@@ -36,6 +36,16 @@
 		});
 	</script>
 	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#reviewSubject").click(function(event) {
+				$('div.modal').modal();
+			});
+		});
+	</script>
+	
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#image").click(function(event) {
