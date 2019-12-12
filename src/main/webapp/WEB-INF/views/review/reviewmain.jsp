@@ -47,17 +47,19 @@
 	                           			<td class="product-remove text-left">
 	                           				<figure class="image">
 	                           					<%if(dto.getPhoto()!=null){ %>
-                                        	    	<img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
+                                        	    	<img src="<%=dto.getPhoto() %>" alt="Blog" class="w-100">
                                         	    <%}else{ %>
-                                        	    	<img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
+                                        	    	<img src="<%=cp %>/resources/assets/img/reviewimg/defaultImg2.png" alt="Blog" >
                                         	    <%} %>
                                         	    	<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
 											</figure>
 										</td>
 										<td class="product-name text-left wide-column">
-                                        	<h3>
-                                            	<a id="reviewSubject"href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"><%=dto.getContent() %></a>
-                                           	</h3>
+                                        	<%if(request.getParameter("pageNum")==null){ %>
+												<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getSubject() %></a>
+											<%}else {%>
+												<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getSubject() %></a>
+											<%} %>
                                        	</td>
                                        	<td class="product-stock"></td>
                                        	<td class="product-price">

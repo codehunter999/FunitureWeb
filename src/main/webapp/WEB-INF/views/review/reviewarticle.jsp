@@ -9,20 +9,9 @@
 %>
 <%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+
         <!-- Breadcrumb area Start -->
          
-        <%-- <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
-        <!-- <section class="page-title-area-2 bg-image"> -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1 class="sr-only">상품평</h1>
-                    </div>
-                </div>
-            </div>
-        </section> --%>
-        
-        
         <section class="page-title-area bg-image ptb--80"  data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
             <div class="container" >
                 <div class="row">
@@ -54,7 +43,7 @@
                                         <div class="single-post__media">
                                             <div class="item">
                                             	<%if(dto.getPhoto()!=null){ %>
-                                            		<img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
+                                            		<img src="<%=dto.getPhoto() %>" alt="Blog" class="w-100">
                                             	<%}else{ %>
                                             		<img src="<%=cp %>/resources/assets/img/reviewimg/defaultImg2.png" alt="Blog" >
                                             	<%} %>
@@ -97,29 +86,19 @@
                                                 
                                             </div>
                                         </div>
-                                        <!-- 
-                                        <div class="row mb--80">
-                                            <div class="col-md-6 mb-sm--40">
-                                                <figure>
-                                                    <img src="assets/img/blog/blog-01.jpg" alt="blog details" class="w-100">
-                                                </figure>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <figure>
-                                                    <img src="assets/img/blog/blog-02.jpg" alt="blog details" class="w-100">
-                                                </figure>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-9 offset-lg-3">
-                                                <blockquote>Lorem Ipsum is simply dummy text of the printing and typesetting</blockquote>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web</p>
-                                            </div>
-                                        </div>
-                                         -->
                                     </div>
                                 </article>
                                 <!-- Single Post End -->
+                                
+                                <div class="form__group">
+                                	<div class="form-row">
+                                		<div class="col-12">
+                                			<button type="button" class="btn btn-size-sm" onclick="window.location.href='reviewarticle.fu?id=<%=dto.getId()-1 %>&pageNum=<%=request.getParameter("pageNum")%>'" >이전글</button>
+                                			<button type="button" class="btn btn-size-sm" onclick="window.location.href='reviewmain.fu?pageNum=<%=request.getParameter("pageNum")%>'" >목 록</button>
+                                			<button type="button" class="btn btn-size-sm" onclick="window.location.href='reviewarticle.fu?id=<%=dto.getId()+1 %>&pageNum=<%=request.getParameter("pageNum")%>'" >다음글</button>
+                                		</div>
+                                	</div>
+                                </div>
 
                                 
                             </div>

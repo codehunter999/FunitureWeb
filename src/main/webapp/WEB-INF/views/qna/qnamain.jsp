@@ -54,7 +54,11 @@
                                        </td>
                                        <td class="product-name text-left wide-column">
                                            <h3>
-                                               <a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
+                                           		<%if(request.getParameter("pageNum")==null){ %>
+													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getContent() %></a>
+												<%}else {%>
+													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getContent() %></a>
+												<%} %>                                           
                                            </h3>
                                        </td>
                                        
