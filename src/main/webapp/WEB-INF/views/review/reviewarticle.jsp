@@ -105,7 +105,7 @@
                                 </article>
                                 <!-- Single Post End -->
 
-                                <!-- Comment Area Start -->
+                                <%-- <!-- Comment Area Start -->
                                 <section class="comment">
                                     <h2 class="comment-title"><%=lists.size() %> comments</h2>
                                     <ul class="comment-list mb--45">
@@ -159,7 +159,7 @@
                                         </form>
                                     </div>
                                 </section>
-                                <!-- Comment Area End -->
+                                <!-- Comment Area End --> --%>
                             </div>
                         </div>
                     </div>
