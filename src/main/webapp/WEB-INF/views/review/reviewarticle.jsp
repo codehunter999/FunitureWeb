@@ -5,14 +5,13 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	ReviewDTO dto=(ReviewDTO)request.getAttribute("dto");  
-	List<Re_ReviewDTO>lists=(List<Re_ReviewDTO>)request.getAttribute("lists");
 	String mode=(String)request.getAttribute("mode");
 %>
 <%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
         <!-- Breadcrumb area Start -->
          
-        <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
+        <%-- <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
         <!-- <section class="page-title-area-2 bg-image"> -->
             <div class="container">
                 <div class="row">
@@ -21,11 +20,116 @@
                     </div>
                 </div>
             </div>
+        </section> --%>
+        
+        
+        <section class="page-title-area bg-image ptb--80"  data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">Product Review</h1>
+                        <ul class="breadcrumb">
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
          
         <!-- Breadcrumb area End -->
 
         <!-- Main Content Wrapper Start -->
+        <main class="main-content-wrapper">
+            <div class="inner-page-content">
+                <!-- Single Post Area Start -->
+                <div class="single-post-area mb--75 mb-md--55">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                <!-- Single Post Start -->
+                                <article class="single-post mb--75 mb-md--55 pb--75 pb-md--55">
+                                    <header class="single-post__header">
+                                        <h5 style="font-size: 25px" class="single-post__title">고객님, 상품은 잘 받으셨나요? 상품 후기를 공유해 주세요.</h5>
+                                        
+                                        <div class="single-post__media">
+                                            <div class="item">
+                                            	<%if(dto.getPhoto()!=null){ %>
+                                            		<img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
+                                            	<%}else{ %>
+                                            		<img src="<%=cp %>/resources/assets/img/reviewimg/defaultImg2.png" alt="Blog" >
+                                            	<%} %>
+                                            	<!-- <img src="assets/img/blog/blog-09.jpg" alt="Blog Image" class="w-100"> -->
+                                            		<a href="blog-details-image.html" class="item-overlay"></a>
+                                            </div>                 
+                                        </div>
+                                        <div class="single-post__header-meta">
+                                            <span class="posted-on">Date: <%=dto.getCreated_at() %></span>
+                                            <span class="post-category">
+                                                <a href="blog-details-image.html"><%=dto.getSubject() %></a>
+                                            </span>
+                                        </div>
+                                    </header>
+                                    <div class="single-post__info">
+                                        <div class="row mb--43 mb-md-33">
+                                            <div class="col-lg-4 col-md-4 pl--45 pl-sm--15">
+                                                <div class="single-post__meta">
+                                                    <div class="posted-by">
+                                                        <span class="byline">by</span>
+                                                        <a href="blog-details-image.html">
+                                                            <span><%=dto.getName() %>'s Review</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="social">
+                                                        <!-- <a href="https://www.facebook.com" class="social__link">
+                                                            <i class="la la-facebook"></i>
+                                                        </a>
+                                                        <a href="https://www.twitter.com" class="social__link">
+                                                            <i class="la la-twitter"></i>
+                                                        </a>
+                                                        <a href="https://www.plus.google.com" class="social__link">
+                                                            <i class="la la-google-plus"></i>
+                                                        </a> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <p><%=dto.getContent() %></p>
+                                                
+                                            </div>
+                                        </div>
+                                        <!-- 
+                                        <div class="row mb--80">
+                                            <div class="col-md-6 mb-sm--40">
+                                                <figure>
+                                                    <img src="assets/img/blog/blog-01.jpg" alt="blog details" class="w-100">
+                                                </figure>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <figure>
+                                                    <img src="assets/img/blog/blog-02.jpg" alt="blog details" class="w-100">
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 offset-lg-3">
+                                                <blockquote>Lorem Ipsum is simply dummy text of the printing and typesetting</blockquote>
+                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web</p>
+                                            </div>
+                                        </div>
+                                         -->
+                                    </div>
+                                </article>
+                                <!-- Single Post End -->
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</main>
+		
+		<%-- 
         <main class="main-content-wrapper">
             <div class="inner-page-content">
                 <!-- Single Post Area Start -->
@@ -45,7 +149,7 @@
                                                     <%}else{ %>
                                                     <img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
                                                     <%} %>
-                                                <%-- <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100"> --%>
+                                                <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100">
                                             </figure>
                                         </div>
                                         <div class="single-post__header-meta">
@@ -62,15 +166,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%if(dto.getName().equals(session.getAttribute("name"))){ %>
+                                   
 	                                    <a href="<%=cp %>/reviewrewrite.fu?id=<%=dto.getId() %>&mode=1">
 	                                   		<img src="<%=cp %>/resources/assets/img/reviewimg/rewrite.png" width=50 height=50>
 	                                    </a>
 	                                    <a href="<%=cp %>/reviewdelete.fu?id=<%=dto.getId() %>">
 	                                    	<img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
 	                                    </a>
-                                    <%}
-                                    }else {%>
+                                   
+                                   
                                    <form action="reviewrewrite_ok.fu?id=<%=dto.getId() %>" method="post" enctype="application/x-www-form-urlencoded">
                                    <header class="single-post__header">
                                         <input type="text" name="subject" id="subject" class="form__input" value="<%=dto.getSubject() %>" style="width: 700px">
@@ -81,7 +185,7 @@
                                                     <%}else{ %>
                                                     <img src="<%=cp %>/resources/assets/img/imgsrc/reviewimg/images.png" alt="Blog" >
                                                     <%} %>
-                                                <%-- <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100"> --%>
+                                                <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100">
                                             </figure>
                                         </div>
                                         <div class="single-post__header-meta">
@@ -105,7 +209,7 @@
                                 </article>
                                 <!-- Single Post End -->
 
-                                <%-- <!-- Comment Area Start -->
+                                <!-- Comment Area Start -->
                                 <section class="comment">
                                     <h2 class="comment-title"><%=lists.size() %> comments</h2>
                                     <ul class="comment-list mb--45">
@@ -159,7 +263,7 @@
                                         </form>
                                     </div>
                                 </section>
-                                <!-- Comment Area End --> --%>
+                                <!-- Comment Area End -->
                             </div>
                         </div>
                     </div>
@@ -194,7 +298,7 @@
                 </section>
                 <!-- Related Post Area End -->
             </div>
-        </main>
+        </main> --%>
         <!-- Main Content Wrapper End -->
         
 

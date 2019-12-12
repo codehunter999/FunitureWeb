@@ -12,7 +12,7 @@
             <div class="container" >
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">리뷰 게시판</h1>
+                        <h1 class="page-title">Review Board</h1>
                         <ul class="breadcrumb">
                         </ul>
                     </div>
