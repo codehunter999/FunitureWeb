@@ -119,7 +119,7 @@ $(document).ready(function(){
 </script>
 
  <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -223,9 +223,9 @@ $(document).ready(function(){
 		                                </div>
 		                            </form>
                                     <form method="post" name="clearCartAll" action="">
-	                                    <div class="col-sm-6 text-sm-right">
+<!-- 	                                    <div class="col-sm-6 text-sm-right">
 	                                        <button type="submit" class="cart-form__btn" onclick="cleanCart();">카트비우기</button>
-	                                    </div>
+	                                    </div> -->
 	                                </form>
                           </c:otherwise>
                           </c:choose>

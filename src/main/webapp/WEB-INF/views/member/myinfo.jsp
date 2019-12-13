@@ -152,7 +152,7 @@ function check(cp){
                	<div class="col-6 col-md-4" style="text-align: center">
                   </div> 
                   <div class="col-6 col-md-4" style="text-align: center">
-                      <h1 class="page-title">회원가입</h1>
+                      <h1 class="page-title">회원정보수정</h1>
                   </div>     
               </div>
             </div>
@@ -168,7 +168,7 @@ function check(cp){
               		</div>
               		<div class="col-md-4">
               			<div class="login-box">
-              				<h3 class="heading__terriary mb--30" style="text-align: center">회원수정</h3>
+              				<h3 class="heading__terriary mb--30" style="text-align: center">회원정보수정</h3>
              					<form class="form form--login" name="register"  method="post">
              						<div class="form__group mb--20">
                                   &nbsp;

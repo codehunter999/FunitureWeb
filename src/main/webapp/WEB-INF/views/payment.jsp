@@ -43,7 +43,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 </script>
 
 	 <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/product/shop1.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
