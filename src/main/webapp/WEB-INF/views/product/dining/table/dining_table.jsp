@@ -84,42 +84,42 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=26&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=26&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/301오크테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=32&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=32&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/307월넛테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=42&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=42&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/501오크테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=43&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=43&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/501월넛테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=34&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=34&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/503다이아몬드오크월넛테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=35&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=35&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/301오크알루퍼스테이블_샴페인골드.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=36&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=36&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/301오크알루퍼스테이블_퍼플그레이.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_table_details.fu?imageIndex=37&cate=테이블 / 식탁">
+                                                <a href="dining_table_details.fu?imageIndex=37&cateEn=table">
                                                 	<img src="<%=cp %>/resources/images/dining/301월넛알루퍼스테이블_퍼플그레이.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -156,7 +156,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_table_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_table_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -181,7 +181,7 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_table_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_table_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
@@ -192,7 +192,7 @@
                                     						<span class="money">일시품절</span>
                                     						</c:if>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
                                                         </a>

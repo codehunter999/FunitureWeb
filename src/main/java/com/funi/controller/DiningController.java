@@ -208,7 +208,7 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
 		int currentPage = 1;
 
@@ -236,9 +236,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -250,7 +250,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -261,7 +261,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_sunbrella.fu?cate="+cate;
+		String listUrl = cp + "/dining_sunbrella.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -280,7 +280,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 
@@ -292,11 +292,11 @@ public class DiningController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
 
 		mav.setViewName("product/dining/sunbrella/dining_sunbrella_details");
 		mav.addObject("dto", dto);
@@ -312,7 +312,7 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
 		int currentPage = 1;
 
@@ -340,9 +340,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -354,7 +354,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -365,7 +365,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_clean.fu?cate="+cate;
+		String listUrl = cp + "/dining_clean.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -384,7 +384,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 	}
@@ -394,9 +394,12 @@ public class DiningController {
 
 		ModelAndView mav = new ModelAndView();
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		String cateEn = request.getParameter("cateEn");
+
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
+
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
+
 		mav.setViewName("product/dining/clean/dining_clean_details");
 		mav.addObject("dto", dto);
 		mav.addObject("catelists", catelists);
@@ -411,9 +414,9 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 		
-		System.out.println("cate: " +cate);
+		System.out.println("cate: " +cateEn);
 
 		int currentPage = 1;
 
@@ -441,9 +444,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -455,7 +458,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -466,7 +469,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_rnl.fu?cate="+cate;
+		String listUrl = cp + "/dining_rnl.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -485,7 +488,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 	}
@@ -496,11 +499,11 @@ public class DiningController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
 
 		mav.setViewName("product/dining/rnl/dining_rnl_details");
 		mav.addObject("dto", dto);
@@ -516,7 +519,7 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
 		int currentPage = 1;
 
@@ -544,9 +547,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -558,7 +561,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -569,7 +572,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_table.fu?cate="+cate;
+		String listUrl = cp + "/dining_table.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -588,7 +591,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 	}
@@ -599,11 +602,11 @@ public class DiningController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
 
 		mav.setViewName("product/dining/table/dining_table_details");
 		mav.addObject("dto", dto);
@@ -619,7 +622,7 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
 		int currentPage = 1;
 
@@ -647,9 +650,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -661,7 +664,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -672,7 +675,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_chair.fu?cate="+cate;
+		String listUrl = cp + "/dining_chair.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -691,7 +694,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 	}
@@ -702,11 +705,11 @@ public class DiningController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
 
 		mav.setViewName("product/dining/chair/dining_chair_details");
 		mav.addObject("dto", dto);
@@ -722,7 +725,7 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
 		int currentPage = 1;
 
@@ -750,9 +753,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -764,7 +767,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -775,7 +778,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_deco.fu?cate="+cate;
+		String listUrl = cp + "/dining_deco.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -794,7 +797,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 	}
@@ -805,11 +808,11 @@ public class DiningController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
 
 		mav.setViewName("product/dining/deco/dining_deco_details");
 		mav.addObject("dto", dto);
@@ -825,7 +828,7 @@ public class DiningController {
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
 		int currentPage = 1;
 
@@ -853,9 +856,9 @@ public class DiningController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터갯수
-		int dataCount = diningdao.getCateDataCount(cate,searchValue);
+		int dataCount = diningdao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + diningdao.getCateDataCount(cate,searchValue)); //72
+		System.out.println("number of all data: " + diningdao.getCateDataCount(cateEn,searchValue)); //72
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -867,7 +870,7 @@ public class DiningController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 
-		List<FurnitureDTO> catelists = diningdao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = diningdao.getCateLists(cateEn, searchValue, start, end);
 
 		System.out.println("size of lists:" + catelists.size());
 
@@ -878,7 +881,7 @@ public class DiningController {
 					+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/dining_desk.fu?cate="+cate;
+		String listUrl = cp + "/dining_desk.fu?cateEn="+cateEn;
 		if(!param.equals("")){
 			listUrl = listUrl + "&" + param;				
 		}
@@ -897,7 +900,7 @@ public class DiningController {
 		mav.addObject("pageIndexList", pageIndexList);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 
@@ -909,11 +912,11 @@ public class DiningController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = diningdao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = diningdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = diningdao.getReadData(imageIndex,cate);
+		FurnitureDTO dto = diningdao.getReadData(imageIndex,cateEn);
 
 		mav.setViewName("product/dining/desk/dining_desk_details");
 		mav.addObject("dto", dto);
