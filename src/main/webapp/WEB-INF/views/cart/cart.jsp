@@ -2,7 +2,6 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,7 +10,7 @@
 	request.setCharacterEncoding("UTF-8");
 	int map_sumMoney = 0;	
 %> 
-
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <script type="text/javascript">
 
@@ -180,7 +179,8 @@ $(document).ready(function(){
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html"><%=value[0] %><%=value[1] %></a>
+                                                                <a href="product-details.html"><%=value[1] %></a><br/>
+                                                                <%=value[4] %> <!-- value[4]를 만들어줘서 option을 주소 창에 붙인뒤에 값을 받앗습니다^_^ -->
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
@@ -233,12 +233,12 @@ $(document).ready(function(){
                         
                         <!-- Qicuk View Modal Start -->
 				        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-				          <div class="modal-dialog" role="document" style="width: 150">
+				          <div class="modal-dialog" role="document" style="width: 300">
 				            <div class="modal-content">
 				              <div class="modal-body" align="center">
 				              <br><br><br>
-				                	결제를 진행하겠습니까?
-				                <br>
+				                	상품을 주문 하시겠습니까?
+				                <br><br>
 				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
 				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
 				              	<br><br><br>                      

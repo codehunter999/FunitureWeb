@@ -188,12 +188,12 @@ public class MemberController {
 			return mav; 
 		}
 	
-	@RequestMapping(value = "/myinfo.fu", method = { RequestMethod.GET,	RequestMethod.POST }) 
+	@RequestMapping(value = "/mypage.fu", method = { RequestMethod.GET,	RequestMethod.POST }) 
 	public ModelAndView myinfo(ModelMap model, HttpSession session) throws Exception { 
 		
 		ModelAndView myinfomav = new ModelAndView();
 		
-		myinfomav.setViewName("member/myinfo"); 
+		myinfomav.setViewName("member/mypage"); 
 		
 		String email = (String)session.getAttribute("email"); 
 		MemberDTO memberdto = memberdao.searchMember(email); 

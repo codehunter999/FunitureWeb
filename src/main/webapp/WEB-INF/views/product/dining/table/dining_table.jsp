@@ -192,10 +192,10 @@
                                     						<span class="money">일시품절</span>
                                     						</c:if>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,5 +1,5 @@
 <%@page import="com.funi.domain.FurnitureDTO"%>
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	
@@ -8,7 +8,6 @@
 	function clickevent(eventdata){
 			data = eventdata;
 			data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
-			data += ":" + $("[id = 'qty']").val();
 			$('div.modal').modal();	
 			alert(data);
 	}
@@ -17,7 +16,6 @@
 	}
 	
 </script>
-
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/images/livingroom/livingroomImage.jpg">
             <div class="container">
@@ -150,34 +148,63 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
+                                            <h3 class="review__title">1 review for Black Blazer</h3>
+                                            <ul class="review__list">
+                                                <li class="review__item">
+                                                    <div class="review__container">
+                                                        <img src="<%=cp %>/resources/assets/img/others/comment-1.jpg" alt="Review Avatar" class="review__avatar">
+                                                        <div class="review__text">
+                                                            <div class="d-flex flex-sm-row flex-column justify-content-between">
+                                                                <div class="review__meta">
+                                                                    <strong class="review__author">John Snow </strong>
+                                                                    <span class="review__dash">-</span>
+                                                                    <span class="review__published-date">November 20, 2018</span>
+                                                                </div>
+                                                                <div class="product-rating">
+                                                                    <div class="star-rating star-five">
+                                                                        <span>Rated <strong class="rating">5.00</strong> out of 5</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="review__description">Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                             <div class="review-form-wrapper">
                                                 <div class="row">
                                                     <div class="col-lg-8">
-                                                        <span class="reply-title">상품에 대한 후기를 남겨주세요</span>
-                                                        <form action="reviewwrite.fu" class="form pr--30"  enctype="multipart/form-data" method="post">
+                                                        <span class="reply-title">Add a review</span>
+                                                        <form action="#" class="form pr--30">
                                                             <div class="form-notes mb--20">
-                                                                <p> <span class="required"></span></p>
+                                                                <p>Your email address will not be published. Required fields are marked <span class="required">*</span></p>
                                                             </div>
-                                                            
-                                                            <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="subject">제목<span class="required">*</span></label>
-                                                                <input type="text" name="subject" id="subject" class="form__input">
-															</div>
+                                                            <div class="form__group mb--10 pb--1">
+                                                                <label class="form__label d-block" >Your Ratings</label>
+                                                                <div class="rating">
+                                                                    <span><i class="la la-star"></i></span>
+                                                                    <span><i class="la la-star"></i></span>
+                                                                    <span><i class="la la-star"></i></span>
+                                                                    <span><i class="la la-star"></i></span>
+                                                                    <span><i class="la la-star"></i></span>
+                                                                </div>
+                                                            </div>
                                                             <div class="form__group mb--10">
-                                                                <label class="form__label d-block" for="review">상품후기<span class="required">*</span></label>
-                                                                <textarea name="content" id="content" class="form__input form__input--textarea"></textarea>
+                                                                <label class="form__label d-block" for="email">Your Review<span class="required">*</span></label>
+                                                                <textarea name="review" id="review" class="form__input form__input--textarea"></textarea>
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="name">이름<span class="required">*</span></label>
-                                                                <input type="text" name="name" id="name" class="form__input" value="">
+                                                                <label class="form__label d-block" for="name">Name<span class="required">*</span></label>
+                                                                <input type="text" name="name" id="name" class="form__input">
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <input type="hidden" name="photo" id="photo" value="<%=cp %>/resources/images/livingroom/${dto.imageIndex}.jpg">
+                                                                <label class="form__label d-block" for="email">Email<span class="required">*</span></label>
+                                                                <input type="email" name="email" id="email" class="form__input">
                                                             </div>
                                                             <div class="form__group">
                                                                 <div class="form-row">
                                                                     <div class="col-12">
-                                                                        <input type="submit" value="글쓰기" class="btn btn-size-md">
+                                                                        <input type="submit" value="Submit Now" class="btn btn-size-md">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -226,9 +253,6 @@
                                                     <a href="wishlist.jsp" class="action-btn">
                                                         <i class="la la-heart-o"></i>
                                                     </a>
-                                                    <a href="wishlist.jsp" class="action-btn">
-                                                        <i class="la la-repeat"></i>
-                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="product-info">
@@ -240,11 +264,11 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
 						                      
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                         </div>

@@ -55,7 +55,7 @@ select nvl(count(*),0) from diningroom where cateEn=#{cateEn} and productName li
 	select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from livingroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
 	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from diningroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
 	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from bedroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
-	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from deco where imageIndex=#{imageIndex} and cateEn=#{cateEn};
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from deco where imageIndex=#{imageIndex} and cateEn=#{cateEn}
 </select>
 
 <select id="getAllData" parameterType="map" resultType="com.funi.domain.FurnitureDTO">

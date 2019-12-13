@@ -134,7 +134,7 @@ public class DecoController {
 		System.out.println("number of all data: " + decodao.getDataCount(searchValue)); // 27
 
 		//전체 페이지 수
-		int numPerPage = 12;
+		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
 		if (currentPage > totalPage)

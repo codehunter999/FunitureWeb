@@ -73,11 +73,11 @@
                                                                 str=str.replace("[", "%5B");
                                                                 str=str.replace("]", "%5D");
                                                     	%>
-                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.saveFileName}" class="action-btn">       
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">       
                                                                     <i class="la la-heart-o"></i>
                                                                 </a>
                                                         <%}else{ %>
-                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.saveFileName}" class="action-btn">       
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">       
                                                                     <i class="la la-heart-o"></i>
                                                                 </a>
                                                         <%} %>
@@ -109,10 +109,10 @@
                                    							<span class="money">${dto.price }원</span>
                                     						</c:if>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

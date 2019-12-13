@@ -99,12 +99,18 @@ public class DiningDAO {
 
 	}
 	
-	public FurnitureDTO getReadAllData(int imageIndex,String cateEn) {
+	public FurnitureDTO getReadAllData(int imageIndex,String cateEn,int imageIndex2,String cateEn2,int imageIndex3,String cateEn3,int imageIndex4,String cateEn4) {
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("imageIndex", imageIndex);
 		params.put("cateEn", cateEn);
+		params.put("imageIndex2", imageIndex2);
+		params.put("cateEn2", cateEn2);
+		params.put("imageIndex3", imageIndex3);
+		params.put("cateEn3", cateEn3);
+		params.put("imageIndex4", imageIndex4);
+		params.put("cateEn4", cateEn4);
 		
 		FurnitureDTO dto = sessionTemplate.selectOne("diningMapper.getReadAllData",params);
 		

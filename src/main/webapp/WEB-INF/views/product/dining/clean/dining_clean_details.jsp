@@ -1,8 +1,10 @@
 <%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<script type="text/javascript">	
+<script type="text/javascript">
+	
 	var data; 
+	
 	function clickevent(eventdata){
 			data = eventdata;
 			data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
@@ -12,7 +14,8 @@
 	}
 	function cartsubmit(){
 		location.href="<%=cp%>/cartlist_input.fu?data="+data;
-	}	
+	}
+	
 </script>
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/주방다이닝룸.jpg">
@@ -258,7 +261,8 @@
                                     
                                     <!-- 상품사용후기 -->
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
-                                        <div class="review-form-wrapper">
+                                        <div class="product-reviews">
+                                            <div class="review-form-wrapper">
                                                 <div class="row">
                                                     <div class="col-lg-8">
                                                         <span class="reply-title">상품에 대한 후기를 남겨주세요</span>
@@ -293,7 +297,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -368,10 +371,10 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.fu" class="add-to-cart pr--15">
+                                                    <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                         </div>
