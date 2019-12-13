@@ -1,4 +1,4 @@
-<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
         <!-- Main Content Wrapper Start -->
@@ -116,7 +116,7 @@
                                         
                                     </div>
                                     <figure class="feature-product__image mb-sm--30">
-                                        <a href="product-details.fu">
+                                        <a href="deco_light_details.fu?imageIndex=420&cate=조명">
                                             <img src="<%=cp %>/resources/images/deco/detail/light/420_details_10.jpg" alt="Feature Product">
                                         </a>
                                     </figure>

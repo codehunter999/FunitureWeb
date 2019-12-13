@@ -193,7 +193,6 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-
 		<!-- 이메일 인증 2018.11.20 KW -->
 		<dependency>
 			<groupId>org.springframework</groupId>

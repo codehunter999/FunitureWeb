@@ -1,6 +1,16 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-
+<script type="text/javascript">
+	
+	var data; 
+	
+	function cartsubmit(eventdata){
+		data=eventdata;
+		alert(data);
+		location.href="<%=cp%>/cartlist_input.fu?data="+data;	
+	}
+</script>
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/주방다이닝룸.jpg">
             <div class="container">
@@ -102,15 +112,7 @@
                         </div>
                         <div class="col-xl-4 offset-xl-1 col-lg-5 product-main-details mt-md--50">
                             <div class="product-summary pl-lg--30 pl-md--0">
-                                <!-- <div class="product-navigation text-right mb--20">
-                                    <a href="#" class="prev"><i class="la la-angle-double-left"></i></a>
-                                    <a href="#" class="next"><i class="la la-angle-double-right"></i></a>
-                                </div>
-                                <div class="product-rating d-flex mb--20">
-                                    <div class="star-rating star-four">
-                                        <span>Rated <strong class="rating">5.00</strong> out of 5</span>
-                                    </div>
-                                </div> -->
+
                                 <h3 class="product-title mb--20">${dto.productName }</h3>
                                 <div class="product-price-wrapper mb--25">
                                 <hr/>
@@ -193,8 +195,17 @@
                                         </div>
                                     </div>
                                     <!-- add cart버튼(+품절) -->
+                                    <!-- 테스트 cateEn 을 cate 로 변경  -->           
                                     <c:if test="${dto.imageIndex>=46 && dto.imageIndex<=59 }">
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <%  
+                                    				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
+		                                              if(dto1.getProductName().contains("[")){       
+		                                            	 dto1.setProductName(dto1.getProductName().replace("[", "%5B"));
+		                                            	 dto1.setProductName(dto1.getProductName().replace("]", "%5D"));
+		                                            	 dto1.setPrice(dto1.getPrice().trim());
+		                                             } 
+                                     %>
+                                    <button type="button" id="cartButton" class="btn btn-size-sm btn-shape-square" onclick="cartsubmit('${dto.cateEn}:<%=dto1.getProductName() %>:<%=dto1.getPrice()%>:/resources/images/dining/${dto.saveFileName}');">
                                         Add To Cart
                                     </button>
                                     </c:if>
@@ -203,16 +214,9 @@
                                         Sold Out
                                     </button>
                                     </c:if>
+                                    <div id="resultDIV"></div>
                                     <!-- add cart end -->
                                 </div>  
-                               <!--  <div class="product-footer-meta">
-                                    <p><span>Category:</span> 
-                                        <a href="shop.jsp">Full Sweater</a>,
-                                        <a href="shop.jsp">SweatShirt</a>,
-                                        <a href="shop.jsp">Jacket</a>,
-                                        <a href="shop.jsp">Blazer</a>
-                                    </p>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -279,63 +283,34 @@
                                     <!-- 상품사용후기 -->
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
-                                            <h3 class="review__title">1 review for Black Blazer</h3>
-                                            <ul class="review__list">
-                                                <li class="review__item">
-                                                    <div class="review__container">
-                                                        <img src="<%=cp %>/resources/assets/img/others/comment-1.jpg" alt="Review Avatar" class="review__avatar">
-                                                        <div class="review__text">
-                                                            <div class="d-flex flex-sm-row flex-column justify-content-between">
-                                                                <div class="review__meta">
-                                                                    <strong class="review__author">John Snow </strong>
-                                                                    <span class="review__dash">-</span>
-                                                                    <span class="review__published-date">November 20, 2018</span>
-                                                                </div>
-                                                                <!-- <div class="product-rating">
-                                                                    <div class="star-rating star-five">
-                                                                        <span>Rated <strong class="rating">5.00</strong> out of 5</span>
-                                                                    </div>
-                                                                </div> -->
-                                                            </div>
-                                                            <p class="review__description">Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <div class="review-form-wrapper">
+                                        <div class="review-form-wrapper">
                                                 <div class="row">
                                                     <div class="col-lg-8">
-                                                        <span class="reply-title">Add a review</span>
-                                                        <form action="#" class="form pr--30">
+                                                        <span class="reply-title">상품에 대한 후기를 남겨주세요</span>
+                                                        <form action="reviewwrite.fu" class="form pr--30"  enctype="multipart/form-data" method="post">
                                                             <div class="form-notes mb--20">
-                                                                <p>Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+                                                                <p> <span class="required"></span></p>
                                                             </div>
-                                                            <div class="form__group mb--10 pb--1">
-                                                                <label class="form__label d-block" >Your Ratings</label>
-                                                                <div class="rating">
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                </div>
-                                                            </div>
+                                                            
+                                                            <div class="form__group mb--20">
+                                                                <label class="form__label d-block" for="subject">제목<span class="required">*</span></label>
+                                                                <input type="text" name="subject" id="subject" class="form__input">
+															</div>
                                                             <div class="form__group mb--10">
-                                                                <label class="form__label d-block" for="email">Your Review<span class="required">*</span></label>
-                                                                <textarea name="review" id="review" class="form__input form__input--textarea"></textarea>
+                                                                <label class="form__label d-block" for="review">상품후기<span class="required">*</span></label>
+                                                                <textarea name="content" id="content" class="form__input form__input--textarea"></textarea>
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="name">Name<span class="required">*</span></label>
-                                                                <input type="text" name="name" id="name" class="form__input">
+                                                                <label class="form__label d-block" for="name">이름<span class="required">*</span></label>
+                                                                <input type="text" name="name" id="name" class="form__input" value="">
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="email">Email<span class="required">*</span></label>
-                                                                <input type="email" name="email" id="email" class="form__input">
+                                                                <input type="hidden" name="photo" id="photo" value="<%=cp %>/resources/images/dining/${dto.saveFileName}">
                                                             </div>
                                                             <div class="form__group">
                                                                 <div class="form-row">
                                                                     <div class="col-12">
-                                                                        <input type="submit" value="Submit Now" class="btn btn-size-md">
+                                                                        <input type="submit" value="글쓰기" class="btn btn-size-md">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -343,6 +318,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

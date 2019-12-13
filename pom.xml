@@ -193,21 +193,18 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-
 		<!-- 이메일 인증 2018.11.20 KW -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
 		<!-- org.eclipse.jdt.core 이게 자꾸 없다고 에러 떠서 일단 다운 받습니당 -->
 		<dependency>
 		    <groupId>org.eclipse.jdt</groupId>
 		    <artifactId>org.eclipse.jdt.core</artifactId>
 		    <version>3.10.0</version>
 		</dependency>
- 
 	</dependencies>
     <build>
         <plugins>

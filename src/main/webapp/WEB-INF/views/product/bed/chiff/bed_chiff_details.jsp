@@ -185,7 +185,7 @@
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
                                             <h3 class="review__title">1 review for Black Blazer</h3>
-                                            <ul class="review__list">
+                                            <%-- <ul class="review__list">
                                                 <li class="review__item">
                                                     <div class="review__container">
                                                         <img src="<%=cp %>/resources/assets/img/others/comment-1.jpg" alt="Review Avatar" class="review__avatar">
@@ -206,41 +206,35 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                            </ul>
+                                            </ul> --%>
                                             <div class="review-form-wrapper">
                                                 <div class="row">
                                                     <div class="col-lg-8">
-                                                        <span class="reply-title">Add a review</span>
-                                                        <form action="#" class="form pr--30">
+                                                        <span class="reply-title">상품에 대한 후기를 남겨주세요</span>
+                                                        <form action="reviewwrite.fu" class="form pr--30"  enctype="multipart/form-data" method="post">
                                                             <div class="form-notes mb--20">
-                                                                <p>Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+                                                                <p> <span class="required"></span></p>
                                                             </div>
-                                                            <div class="form__group mb--10 pb--1">
-                                                                <label class="form__label d-block" >Your Ratings</label>
-                                                                <div class="rating">
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                </div>
-                                                            </div>
+                                                            
+                                                            <div class="form__group mb--20">
+                                                                <label class="form__label d-block" for="subject">제목<span class="required">*</span></label>
+                                                                <input type="text" name="subject" id="subject" class="form__input">
+															</div>
                                                             <div class="form__group mb--10">
-                                                                <label class="form__label d-block" for="email">Your Review<span class="required">*</span></label>
-                                                                <textarea name="review" id="review" class="form__input form__input--textarea"></textarea>
+                                                                <label class="form__label d-block" for="review">상품후기<span class="required">*</span></label>
+                                                                <textarea name="content" id="content" class="form__input form__input--textarea"></textarea>
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="name">Name<span class="required">*</span></label>
-                                                                <input type="text" name="name" id="name" class="form__input">
+                                                                <label class="form__label d-block" for="name">이름<span class="required">*</span></label>
+                                                                <input type="text" name="name" id="name" class="form__input" value="">
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="email">Email<span class="required">*</span></label>
-                                                                <input type="email" name="email" id="email" class="form__input">
+                                                                <input type="hidden" name="photo" id="photo" value="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg">
                                                             </div>
                                                             <div class="form__group">
                                                                 <div class="form-row">
                                                                     <div class="col-12">
-                                                                        <input type="submit" value="Submit Now" class="btn btn-size-md">
+                                                                        <input type="submit" value="글쓰기" class="btn btn-size-md">
                                                                     </div>
                                                                 </div>
                                                             </div>

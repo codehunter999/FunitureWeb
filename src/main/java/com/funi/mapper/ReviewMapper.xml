@@ -4,56 +4,65 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org./dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ReviewMapper">
+	
 	<select id="maxNum" resultType="int">
-	select nvl(max(id),0) from review
+		select nvl(max(id),0) from review
 	</select>
+	
 	<insert id="insertData" parameterType="com.funi.domain.ReviewDTO">
-	insert into review(id,name,subject,content,ipaddr,created_at,photo) 
-	values (#{id},#{name},#{subject},#{content},
-	#{ipaddr},sysdate,#{photo})	
+		insert into review(id,name,subject,content,ipaddr,created_at,photo) 
+		values (#{id},#{name},#{subject},#{content},#{ipaddr},sysdate,#{photo})	
 	</insert>	
+	
 	<select id="getDataCount" parameterType="map" resultType="int">
-	select nvl(count(*),0) from review
+		select nvl(count(*),0) from review
 	</select>
+	
 	<select id="getLists" parameterType="map" resultType="com.funi.domain.ReviewDTO">
-	select * from (
-	select rownum rnum,data.* from(
-	select id,name,subject,content,ipaddr,photo,
-	created_at 
-	from review 
-	order by id desc) data)
-	<![CDATA[
-		where rnum>=#{start} and rnum<=#{end}
-	]]>
+		select * from (
+		select rownum rnum,data.* from(
+		select id,name,subject,content,ipaddr,photo,
+		created_at 
+		from review 
+		order by id desc) data)
+		<![CDATA[
+			where rnum>=#{start} and rnum<=#{end}
+		]]>
 	</select>
+	
 	<select id="getReadData" parameterType="int" resultType="com.funi.domain.ReviewDTO">
 		select id,name,subject,content,ipaddr,created_at,photo from review where id=#{id}
 	</select>
+	
 	<update id="updateData" parameterType="com.funi.domain.ReviewDTO">
-	update review set subject=#{subject},content=#{content} where id=#{id}
+		update review set subject=#{subject},content=#{content} where id=#{id}
 	</update>
+	
 	<delete id="deleteData" parameterType="int">
 		delete review where id=#{id}
 	</delete>
 	
 	
 	<select id="re_maxNum" resultType="int">
-	select nvl(max(id),0) from review_re
+		select nvl(max(id),0) from review_re
 	</select>
+	
 	<insert id="re_insertData" parameterType="com.funi.domain.Re_ReviewDTO">
-	insert into review_re(id,name,content,ipaddr,created_at,qaboard_id) 
-	values (#{id},#{name},#{content},
-	#{ipaddr},sysdate,#{qaboard_id})	
+		insert into review_re(id,name,content,ipaddr,created_at,qaboard_id) 
+		values (#{id},#{name},#{content},
+		#{ipaddr},sysdate,#{qaboard_id})	
 	</insert>
+	
 	<select id="re_getLists" parameterType="int" resultType="com.funi.domain.Re_ReviewDTO">
-	select id,name,content,ipaddr,qaboard_id,
-	created_at 
-	from review_re 
-	where qaboard_id=#{qaboard_id} 
-	order by id desc
+		select id,name,content,ipaddr,qaboard_id,
+		created_at 
+		from review_re 
+		where qaboard_id=#{qaboard_id} 
+		order by id desc
 	</select>
+	
 	<delete id="re_deleteData" parameterType="int">
-		delete review where qaboard_id=#{qaboard_id}
+		delete review_re where qaboard_id=#{qaboard_id}
 	</delete>
 </mapper>
 

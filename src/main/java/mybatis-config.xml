@@ -30,6 +30,6 @@ PUBLIC "-/mybatis.org//DTD Config 3.0//EN"
 	 	<mapper resource="com/funi/mapper/QnAMapper.xml"/>
 		<mapper resource="com/funi/mapper/ReviewMapper.xml"/>
 		<mapper resource="com/funi/mapper/decoMapper.xml"/>
-		
+		<mapper resource="com/funi/mapper/paymentMapper.xml"/>
 	</mappers>
 </configuration> 
