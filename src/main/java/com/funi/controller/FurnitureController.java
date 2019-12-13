@@ -90,11 +90,8 @@ public class FurnitureController {
 	// HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public ModelAndView home1(Locale locale, Model model) {
-
 		ModelAndView mav = new ModelAndView();
-
 		mav.setViewName("index");
-
 		return mav;
 	}
 

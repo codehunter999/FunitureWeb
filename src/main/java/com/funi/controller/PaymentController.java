@@ -78,24 +78,9 @@ public class PaymentController {
 		return paymav;
 	}
 	
-	
-	
-	@RequestMapping(value="/payment_input.fu",method= {RequestMethod.POST,RequestMethod.GET})
-	public ModelAndView payment_Input(HttpServletRequest request,HttpSession session,
-										Model model,@RequestParam("paylist")PaymentDTOList paylist) {
-		
-		System.out.println("테스트 입니다. ");
-		System.out.println(paylist.getPaylist().get(0));
-		ModelAndView mav = new ModelAndView();
-		PaymentDTO paydto = new PaymentDTO();
-		//paydto.setPayId(paymentdao.getId()+1);
-		mav.setViewName("redirect:/orderlist.fu");
-		return mav;
-	}
-	
-	
-	@RequestMapping(value="/orderlist.fu",method= {RequestMethod.GET})
-	public ModelAndView orderlist(HttpServletRequest request,HttpSession session) {
+	@RequestMapping(value="/payment_input.fu",method= RequestMethod.POST)
+	public ModelAndView payment_Input(HttpServletRequest request,HttpSession session) {										
+
 		ModelAndView mav = new ModelAndView();
 		List<String> cartlist = (List)session.getAttribute("cartlist");
 		int paysum=0;
@@ -114,13 +99,21 @@ public class PaymentController {
 			paysum+=price;
 			paymentdao.setitem(dto);
 		}
-		List<PaymentDTO> listdto = paymentdao.getList((String)session.getAttribute("email"));
-		mav.addObject("price", paysum);
-		mav.addObject("cartlist", cartlist);
-		mav.addObject("listdto",listdto);
-		mav.addObject("paytype",request.getParameter("paytype"));
-		mav.setViewName("order_result");
+		
 		session.removeAttribute("cartlist");
+		mav.setViewName("redirect:/orderlist.fu");
+		return mav;
+	}	
+	
+	@RequestMapping(value="/orderlist.fu",method= {RequestMethod.GET})
+	public ModelAndView orderlist(HttpServletRequest request,HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView();
+		String email = (String)session.getAttribute("email");
+		List<PaymentDTO> paylist = paymentdao.getList(email);
+		mav.addObject("paylist",paylist);
+		mav.setViewName("order_result");
+		
 		return mav;
 	}	
 }
