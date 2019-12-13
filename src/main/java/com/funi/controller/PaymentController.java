@@ -24,7 +24,6 @@ import com.funi.domain.MemberDTO;
 import com.funi.domain.PaymentDTO;
 import com.funi.domain.PaymentDTOList;
 
-import lombok.extern.log4j.Log4j;
 
 @Controller
 public class PaymentController {
