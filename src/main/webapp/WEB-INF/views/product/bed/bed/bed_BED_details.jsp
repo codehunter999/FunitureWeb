@@ -207,25 +207,15 @@
                                                 <div class="row">
                                                     <div class="col-lg-8">
                                                         <span class="reply-title">상품에 대한 후기를 남겨주세요</span>
-                                                        <form action="reviewwrite.fu" class="form pr--30">
+                                                        <form action="reviewwrite.fu" class="form pr--30"  enctype="multipart/form-data" method="post">
                                                             <div class="form-notes mb--20">
-                                                                <p>귀하의 이메일 주소는 공개되지 않습니다. <span class="required">*</span></p>
+                                                                <p> <span class="required"></span></p>
                                                             </div>
-                                                            <!-- <div class="form__group mb--10 pb--1">
-                                                                <label class="form__label d-block" >Your Ratings</label>
-                                                                <div class="rating">
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                    <span><i class="la la-star"></i></span>
-                                                                </div>
-                                                            </div> -->
                                                             
                                                             <div class="form__group mb--20">
                                                                 <label class="form__label d-block" for="subject">제목<span class="required">*</span></label>
                                                                 <input type="text" name="subject" id="subject" class="form__input">
-                                                            </div>
+															</div>
                                                             <div class="form__group mb--10">
                                                                 <label class="form__label d-block" for="review">상품후기<span class="required">*</span></label>
                                                                 <textarea name="content" id="content" class="form__input form__input--textarea"></textarea>
@@ -235,8 +225,6 @@
                                                                 <input type="text" name="name" id="name" class="form__input" value="">
                                                             </div>
                                                             <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="email">E-mail<span class="required">*</span></label>
-                                                                <input type="email" name="email" id="email" class="form__input">
                                                                 <input type="hidden" name="photo" id="photo" value="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg">
                                                             </div>
                                                             <div class="form__group">
