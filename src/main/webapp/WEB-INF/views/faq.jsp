@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+
+
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -16,17 +18,46 @@
     <link rel="shortcut icon" href="<%=cp %>/resources/assets/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="<%=cp %>/resources/assets/img/icon.png">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- ************************* CSS Files ************************* -->
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/vendor.css">
-
     <!-- style css -->
     <link rel="stylesheet" href="<%=cp %>/resources/assets/css/main.css">
 </head>
-
 <body>
-
     <!-- Preloader Start -->
     <div class="ft-preloader active">
         <div class="ft-preloader-inner h-100 d-flex align-items-center justify-content-center">

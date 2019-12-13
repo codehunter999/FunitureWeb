@@ -103,6 +103,7 @@ public class MemberController {
 		
 		HttpSession session = request.getSession(); 
 		session.setAttribute("email", memberdto.getEmail());
+		session.setAttribute("name", memberdto.getName());
 		loginmav.setViewName("redirect:/home.fu"); return loginmav; 
 	}
 

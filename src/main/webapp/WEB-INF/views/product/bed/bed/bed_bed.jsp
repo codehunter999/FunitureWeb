@@ -121,9 +121,9 @@
                                             <div class="product-inner">
                                                 <div class="product-image">
                                                     <figure class="product-image--holder">
-                                                    <%-- ${dto.imageIndex }
-                                                    ${dto.cateEn } --%>
-                                                        <img src="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg" alt="Product">	
+                                                    ${dto.imageIndex }
+                                                    ${dto.cateEn }
+                                                    	<img src="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg" alt="Product">	
                                                     </figure>
                                                     <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">

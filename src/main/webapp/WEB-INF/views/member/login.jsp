@@ -12,7 +12,7 @@
 </script>
    
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/login/login.jpg">
             <div class="container">
                 <div class="row">
                  	<div class="col-6 col-md-4" style="text-align: center">

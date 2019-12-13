@@ -24,9 +24,14 @@
 		
     <!-- mybatis 설정 -->
     
+    <bean id="paymentdao" class="com.funi.dao.PaymentDAO">
+		<property name="sessionTemplate" ref="sqlSession"/>
+	</bean>
+	
 	<bean id="memberdao" class="com.funi.dao.MemberDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>
+	
 	<bean id="BedDAO" class="com.funi.dao.BedDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
@@ -34,6 +39,7 @@
 	<bean id="LivingDAO" class="com.funi.dao.LivingDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
+
 	<bean id="diningdao" class="com.funi.dao.DiningDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	

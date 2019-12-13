@@ -7,6 +7,8 @@ public class QnADTO {
 	String content;
 	String ipaddr;
 	String created_at;
+	
+	
 	public int getId() {
 		return id;
 	}
