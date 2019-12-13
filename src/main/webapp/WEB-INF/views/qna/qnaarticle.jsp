@@ -12,8 +12,16 @@
 
         <!-- Breadcrumb area Start -->
         
-        <section class="page-title-area-2 bg-image" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
-        <!-- <section class="page-title-area-2 bg-image"> -->
+        <section class="page-title-area bg-image ptb--80"  data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">Question And Answer</h1>
+                        <ul class="breadcrumb">
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
          
         <!-- Breadcrumb area End -->
@@ -26,156 +34,69 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-9">
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 <!-- Single Post Start -->
                                 <article class="single-post mb--75 mb-md--55 pb--75 pb-md--55">
-                                	<%if((String)request.getParameter("mode")==null){ %>
                                     <header class="single-post__header">
-                                        <h2 class="single-post__title"><%=dto.getSubject() %></h2>
-                                        <div class="single-post__media">
-                                            <figure class="image">
-                                            		
-                                                <%-- <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100"> --%>
-                                            </figure>
-                                        </div>
+                                        <h5 style="font-size: 25px" class="single-post__title">고객님, 궁금한 사항이 있으신가요? 답변은 E-mail로 보내드립니다.</h5>
+                                        
+                                        
                                         <div class="single-post__header-meta">
-                                            <span class="posted-on"><%=dto.getCreated_at() %></span>
+                                            <span class="posted-on">Date: <%=dto.getCreated_at() %></span>
                                             <span class="post-category">
-                                                <%=dto.getName() %>
+                                                <a href="blog-details-image.html"><%=dto.getSubject() %></a>
                                             </span>
                                         </div>
                                     </header>
                                     <div class="single-post__info">
                                         <div class="row mb--43 mb-md-33">
+                                            <div class="col-lg-4 col-md-4 pl--45 pl-sm--15">
+                                                <div class="single-post__meta">
+                                                    <div class="posted-by">
+                                                        <span class="byline">by</span>
+                                                        <a href="blog-details-image.html">
+                                                            <span><%=dto.getName() %>'s QnA</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="social">
+                                                        <!-- <a href="https://www.facebook.com" class="social__link">
+                                                            <i class="la la-facebook"></i>
+                                                        </a>
+                                                        <a href="https://www.twitter.com" class="social__link">
+                                                            <i class="la la-twitter"></i>
+                                                        </a>
+                                                        <a href="https://www.plus.google.com" class="social__link">
+                                                            <i class="la la-google-plus"></i>
+                                                        </a> -->
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-lg-8 col-md-8">
-                                            <textarea rows="10" cols="105" readonly="readonly"><%=dto.getContent() %></textarea>
+                                                <p><%=dto.getContent() %></p>
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    
-	                                    <%if(dto.getName().equals(session.getAttribute("name"))){ %>
-		                                    <a href="<%=cp %>/qnarewrite.fu?id=<%=dto.getId() %>&mode=1">
-		                               		    <img src="<%=cp %>/resources/assets/img/reviewimg/rewrite.png" width=50 height=50>
-		                                    </a>
-	                                    	<a href="<%=cp %>/qnadelete.fu?id=<%=dto.getId() %>">
-	                                    		<img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
-	                                    	</a>
-	                                    <%}
-                                    }else {%>
-	                                   <form action="qnarewrite_ok.fu?id=<%=dto.getId() %>" method="post" enctype="application/x-www-form-urlencoded">
-	                                   <header class="single-post__header">
-	                                       <input type="text" name="subject" id="subject" class="form__input" value="<%=dto.getSubject() %>" style="width: 700px">
-	                                       <div class="single-post__media">
-	                                            <figure class="image">
-                                            		
-                                                <%-- <img src="/img/<%=dto.getPhoto() %>" alt="Single Post Title" class="w-100"> --%>
-                                           		</figure>
-                                           	</div>
-	                                        <div class="single-post__header-meta">
-	                                            <span class="posted-on"><%=dto.getCreated_at() %></span>
-	                                            <span class="post-category">
-	                                                <%=dto.getName() %>
-	                                            </span>
-	                                        </div>
-                                    	</header>
-                                    <div class="single-post__info">
-                                        <div class="row mb--43 mb-md-33">
-                                            <div class="col-lg-8 col-md-8">
-                                            <textarea rows="10" cols="105" name="content" id="content"><%=dto.getContent() %></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-size-sm">작성</button>
-                                   </form>
-                                   <%} %>																																																																																																																																																																																																																																																																																																																													```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
                                 </article>
                                 <!-- Single Post End -->
+                                
+                                <div class="form__group">
+                                	<div class="form-row">
+                                		<div class="col-12">
+                                			<button type="button" class="btn btn-size-sm" onclick="window.location.href='qnaarticle.fu?id=<%=dto.getId()-1 %>&pageNum=<%=request.getParameter("pageNum")%>'" >이전글</button>
+                                			<button type="button" class="btn btn-size-sm" onclick="window.location.href='qnamain.fu?pageNum=<%=request.getParameter("pageNum")%>'" >목 록</button>
+                                			<button type="button" class="btn btn-size-sm" onclick="window.location.href='qnaarticle.fu?id=<%=dto.getId()+1 %>&pageNum=<%=request.getParameter("pageNum")%>'" >다음글</button>
+                                		</div>
+                                	</div>
+                                </div>
 
-                                <!-- Comment Area Start -->
-                                <section class="comment">
-                                    <h2 class="comment-title"><%=lists.size() %> comments</h2>
-                                    <ul class="comment-list mb--45">
-                                        <%for(Re_QnADTO re_dto:lists){ %>
-                                        <li>
-                                            <div class="single-comment">
-                                                <figure class="comment-avatar">
-                                                    <img src="<%=cp %>/resources/assets/img/others/avatar-large-2.png" alt="Avatar">
-                                                </figure>
-                                                <div class="comment-info">
-                                                    <div class="comment-meta">
-                                                        <h4><%=re_dto.getName() %></h4>
-                                                        <div class="metadata">
-                                                            <span class="comment-date"><%=re_dto.getCreated_at() %></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <p><%=re_dto.getContent() %></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <%} %>
-                                    </ul>
-                                    <div class="comment-respond">
-                                        <h3 class="comment-reply-title">Write a Reply or Comment</h3>
-                                        <form action="qnaarticlewrite.fu" class="form comment-form" method="post">
-                                        <input type="hidden" name="qaboard_id" value="<%=dto.getId()%>">
-                                            <div class="form__group mb--25 mb-sm--20">
-                                                <div class="form-row">
-                                                </div>
-                                            </div>
-                                            <div class="form__group mb--25 mb-sm--20">
-                                                <div class="form-row">
-                                                    <div class="col-12">
-                                                        <textarea name="content" id="review" class="form__input form__input--textarea" placeholder="댓글 작성하기"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form__group">
-                                                <div class="form-row">
-                                                    <div class="col-12">
-                                                    <%if(session.getAttribute("name")!=null){ %>
-                                                        <button type="submit" class="btn btn-size-sm">댓글 작성하기</button>
-                                                        <%} %>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </section>
-                                <!-- Comment Area End -->
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Single Post Area End -->
-
-                <!-- Related Post Area Start -->
-                <section class="related-post-area mb--80 mb-md--60">
-                    <div class="container">
-                        <div class="row mb--50">
-                            <div class="col-12 text-center">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="element-carousel slick-dot-mt-40 related-post-carousel" data-slick-options='{
-                                    "spaceBetween": 30,
-                                    "slidesToShow": 2,
-                                    "slidesToScroll": 1,
-                                    "dots": true,
-                                    "infinite": true, 
-                                    "centerMode": true
-                                }' data-slick-responsive='[
-                                    {"breakpoint": 768, "settings": {"slidesToShow": 1}}
-                                ]'>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Related Post Area End -->
             </div>
-        </main>
+		</main>
         <!-- Main Content Wrapper End -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>

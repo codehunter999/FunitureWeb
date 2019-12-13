@@ -8,11 +8,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80"  data-bg-image="<%=cp %>/resources/assets/img/reviewimg/backgroundimages.jpg">
+        <section class="page-title-area bg-image ptb--80"  data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
             <div class="container" >
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">리뷰 게시판</h1>
+                        <h1 class="page-title">Review Board</h1>
                         <ul class="breadcrumb">
                         </ul>
                     </div>
@@ -34,7 +34,7 @@
                                         <tr>
                                             <th>&nbsp;</th>
                                             <th>&nbsp;</th>
-                                            <th style="font-size: 16px"><b>내&nbsp;&nbsp;&nbsp;용</b></th>
+                                            <th style="font-size: 16px"><b>제목</b></th>
                                             <th></th>
 	                                        <th style="font-size: 16px"><b>작성자</b></th>
 	                                        <th style="font-size: 16px"><b>작성일</b></th>
@@ -47,17 +47,19 @@
 	                           			<td class="product-remove text-left">
 	                           				<figure class="image">
 	                           					<%if(dto.getPhoto()!=null){ %>
-                                        	    	<img src="/img/<%=dto.getPhoto() %>" alt="Blog" class="w-100">
+                                        	    	<img src="<%=dto.getPhoto() %>" alt="Blog" class="w-100">
                                         	    <%}else{ %>
-                                        	    	<img src="<%=cp %>/resources/assets/img/reviewimg/images.png" alt="Blog" >
+                                        	    	<img src="<%=cp %>/resources/assets/img/reviewimg/defaultImg2.png" alt="Blog" >
                                         	    <%} %>
                                         	    	<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>" class="item-overlay"></a>
 											</figure>
 										</td>
 										<td class="product-name text-left wide-column">
-                                        	<h3>
-                                            	<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>"> <%=dto.getContent() %></a>
-                                           	</h3>
+                                        	<%if(request.getParameter("pageNum")==null){ %>
+												<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getSubject() %></a>
+											<%}else {%>
+												<a href="<%=cp %>/reviewarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getSubject() %></a>
+											<%} %>
                                        	</td>
                                        	<td class="product-stock"></td>
                                        	<td class="product-price">
@@ -158,6 +160,8 @@
 				</div>
 			</div>
 		</div>
+		
         <!-- Qicuk View Modal End -->
+        
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>

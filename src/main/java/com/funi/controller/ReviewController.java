@@ -55,10 +55,10 @@ public class ReviewController {
 		if (pageNum != null)
 			currentPage = Integer.parseInt(pageNum);
 
-		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
+		// 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼟�ⓦ끉�굲占쎈쐻占쎈짗占쎌굲
 		int dataCount = qnadao.getDataCount();
 
-		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+		// 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		int numPerPage = 5;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 
@@ -73,11 +73,11 @@ public class ReviewController {
 
 		String pageIndexList = myUtil1.pageIndexList(currentPage, totalPage, listUrl);
 
-		// �뜝�뙗釉앹삕�뜝�룞�삕 �뜝�뙇�눦�삕 �뜝�룞�삕�뜝�룞�삕
+		// 占쎈쐻占쎈솙�뇡�빘�굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈솂占쎈닰占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		String articleUrl = cp + "/qnamain.fu?pageNum=" + currentPage;
 
-		// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕
-		// �뜝�떬源띿삕�뜝占�
+		// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼟筌뤿슣�굲
+		// 占쎈쐻占쎈뼩繹먮씮�굲占쎈쐻�뜝占�
 		request.setAttribute("lists", lists);
 		request.setAttribute("pageIndexList", pageIndexList);
 		request.setAttribute("dataCount", dataCount);
@@ -146,13 +146,6 @@ public class ReviewController {
 		return "qna/qnaarticle";
 	}
 
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping(value = "/reviewmain.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewmain(HttpServletRequest request, Locale locale, Model model) {
 		String cp = request.getContextPath();
@@ -162,10 +155,10 @@ public class ReviewController {
 		if (pageNum != null)
 			currentPage = Integer.parseInt(pageNum);
 
-		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕�뜝�룞�삕
+		// 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼟�ⓦ끉�굲占쎈쐻占쎈짗占쎌굲
 		int dataCount = reviewdao.getDataCount();
 
-		// �뜝�룞�삕泥닷뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+		// 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		int numPerPage = 5;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 
@@ -180,11 +173,11 @@ public class ReviewController {
 
 		String pageIndexList = myUtil1.pageIndexList(currentPage, totalPage, listUrl);
 
-		// �뜝�뙗釉앹삕�뜝�룞�삕 �뜝�뙇�눦�삕 �뜝�룞�삕�뜝�룞�삕
+		// 占쎈쐻占쎈솙�뇡�빘�굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈솂占쎈닰占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 		String articleUrl = cp + "/reviewmain.fu?pageNum=" + currentPage;
 
-		// �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕
-		// �뜝�떬源띿삕�뜝占�
+		// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼟筌뤿슣�굲
+		// 占쎈쐻占쎈뼩繹먮씮�굲占쎈쐻�뜝占�
 		request.setAttribute("lists", lists);
 		request.setAttribute("pageIndexList", pageIndexList);
 		request.setAttribute("dataCount", dataCount);
@@ -192,25 +185,21 @@ public class ReviewController {
 
 		return "review/reviewmain";
 	}
-	
-		
 
-	
 	@RequestMapping(value = "/reviewwrite.fu", method = { RequestMethod.GET, RequestMethod.POST })
-	public String reviewwrite(ReviewDTO dto, MultipartHttpServletRequest request, Locale locale, Model model,HttpSession session) {
-		
-		System.out.println("�뜝�룞�삕�듃�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕" + reviewdao.getMAXID());
+	public String reviewwrite(ReviewDTO dto, MultipartHttpServletRequest request, Locale locale, Model model,
+			HttpSession session) {
+		System.out.println("占쎈쐻占쎈짗占쎌굲占쎈뱜占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲" + reviewdao.getMAXID());
 
 		dto.setId(reviewdao.getMAXID() + 1);
 		dto.setIpaddr(request.getRemoteAddr());
-		dto.setName((String)session.getAttribute("name"));
 		System.out.println(dto.getName());
 		// String
 		// path="D:/sts-bundle/work/FurnitureWeb/src/main/webapp/resources/assets/img/save";
 		String path = "d:/file";
 		// String
 		// path="D:/sts-bundle/work/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/FurnitureWeb/files";
-		MultipartFile file = request.getFile("upload");
+		/*MultipartFile file = request.getFile("upload");
 		if (file != null && file.getSize() > 0) {
 			try {
 				FileOutputStream fos = new FileOutputStream(path + "/" + file.getOriginalFilename());
@@ -230,17 +219,17 @@ public class ReviewController {
 				System.out.println(e.toString());
 			}
 		} else {
-			System.out.println("�뜝�룞�삕�뜝�룞�삕�뜝�떢怨ㅼ삕 �뜝�룞�삕�뜝�룞�삕�뜝�떦�뙋�삕.");
+			System.out.println("占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼟�ⓦ끉�굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎈솇占쎌굲.");
 		}
+		
 		dto.setPhoto(file.getOriginalFilename());
+		*/
+		System.out.println(dto.getPhoto());
 		reviewdao.insertData(dto);
 
 		return "redirect:/reviewmain.fu";
 	}
-	
-	
 
-	
 	@RequestMapping(value = "/reviewarticle.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewview(HttpServletRequest request, Locale locale, Model model) {
 		ReviewDTO dto = reviewdao.getReadData(Integer.valueOf(request.getParameter("id")));
