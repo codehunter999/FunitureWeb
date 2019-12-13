@@ -10,8 +10,8 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertData" parameterType="com.funi.domain.ReviewDTO">
-		insert into review(id,name,subject,content,ipaddr,created_at,photo) 
-		values (#{id},#{name},#{subject},#{content},#{ipaddr},sysdate,#{photo})	
+		insert into review(id,name,subject,content,ipaddr,created_at,photo,email) 
+		values (#{id},#{name},#{subject},#{content},#{ipaddr},sysdate,#{photo},#{email})	
 	</insert>	
 	
 	<select id="getDataCount" parameterType="map" resultType="int">
