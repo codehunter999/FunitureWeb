@@ -6,6 +6,10 @@
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
 		<property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
+        <property name="context-root" value="furnitureweb1"/>
+=======
         <property name="context-root" value="controller"/>
+>>>>>>> branch 'master' of https://github.com/codehunter999/FunitureWeb.git
 	</wb-module>
 </project-modules>
