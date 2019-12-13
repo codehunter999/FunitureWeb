@@ -103,10 +103,7 @@ public class FurnitureController {
 		return "index-02";
 	}
 
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/codehunter999/FunitureWeb.git
 
 	// COMPANY
 	@RequestMapping(value = "/company.fu", method = RequestMethod.GET)
