@@ -104,6 +104,7 @@ public class FurnitureController {
 	}
 
 
+
 	// COMPANY
 	@RequestMapping(value = "/company.fu", method = RequestMethod.GET)
 	public String company(Locale locale, Model model) {
