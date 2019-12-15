@@ -86,9 +86,8 @@
  	
  	<bean id="myUtil" class="com.funi.util.MyUtil"/>
  	
- 	
- 	
  	<context:component-scan base-package="com.funi.service"/>
+ 	<context:component-scan base-package="com.funi.controller"/>
 	<bean id="kakao" class="com.funi.service.KakaoAPI"/>
     <!-- gmail -->
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >

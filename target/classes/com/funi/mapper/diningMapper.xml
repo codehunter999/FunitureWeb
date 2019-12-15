@@ -21,7 +21,7 @@ select nvl(count(*),0) from diningroom where productName like '%' || #{searchVal
 </select>
 
 <select id="getCateDataCount" parameterType="map" resultType="int"> 
-select nvl(count(*),0) from diningroom where cate=#{cate} and productName like '%' || #{searchValue} || '%'
+select nvl(count(*),0) from diningroom where cateEn=#{cateEn} and productName like '%' || #{searchValue} || '%'
 </select>
 
  <!-- 전체목록 -->
@@ -37,18 +37,32 @@ select nvl(count(*),0) from diningroom where cate=#{cate} and productName like '
 <select id="getCateLists" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
 <![CDATA[
 	select * from (select rownum rnum,data.* from (select imageIndex,productName,cate,cateEn,to_char(price, '999,999,999') as price,saveFileName from diningroom 
-	where cate=#{cate} and productName like '%' || #{searchValue} || '%' order by imageIndex asc) data)
+	where cateEn=#{cateEn} and productName like '%' || #{searchValue} || '%' order by imageIndex asc) data)
 	where rnum>=#{start} and rnum<=#{end}
 ]]>
 </select>
 
 <select id="getDetailLists" parameterType="map" resultType="com.funi.domain.FurnitureDTO">
-	select * from diningroom where cate=#{cate} order by imageIndex asc
+	select * from diningroom where cateEn=#{cateEn} order by imageIndex asc
 </select>
 
 <!-- 한개데이터출력 -->
 <select id="getReadData" parameterType="map" resultType="com.funi.domain.FurnitureDTO"> 
-	select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from diningroom where imageIndex=#{imageIndex} and cate=#{cate}
+	select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from diningroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
+</select>
+
+<select id="getReadAllData" parameterType="map" resultType="com.funi.domain.FurnitureDTO">
+	select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from livingroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from diningroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from bedroom where imageIndex=#{imageIndex} and cateEn=#{cateEn}
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from deco where imageIndex=#{imageIndex} and cateEn=#{cateEn};
+</select>
+
+<select id="getAllData" parameterType="map" resultType="com.funi.domain.FurnitureDTO">
+	select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from livingroom
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from diningroom
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from bedroom
+	union all select IMAGEINDEX,PRODUCTNAME,CATE,CATEEN,to_char(price, '999,999,999') as price,SAVEFILENAME from deco;
 </select>
 
 <!-- 
