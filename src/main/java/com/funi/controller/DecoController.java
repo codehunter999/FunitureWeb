@@ -189,7 +189,7 @@ public class DecoController {
 		String cp = request.getContextPath();
 		
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 		
 		int currentPage = 1;
 
@@ -213,9 +213,9 @@ public class DecoController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터 갯수
-		int dataCount = decodao.getCateDataCount(cate,searchValue);
+		int dataCount = decodao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + decodao.getCateDataCount(cate,searchValue));
+		System.out.println("number of all data: " + decodao.getCateDataCount(cateEn,searchValue));
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -227,7 +227,7 @@ public class DecoController {
 		int start = (currentPage - 1) * numPerPage + 1;
 		int end = currentPage * numPerPage;
 
-		List<FurnitureDTO> catelists = decodao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cateEn, searchValue, start, end);
 		
 		System.out.println("size of catelists:"+catelists.size());
 
@@ -237,7 +237,7 @@ public class DecoController {
 			param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/deco_monthly.fu?&cate="+cate;
+		String listUrl = cp + "/deco_monthly.fu?&cateEn="+cateEn;
 		if (!param.equals("")) {
 			listUrl = listUrl + "?" + param;
 		}
@@ -264,7 +264,7 @@ public class DecoController {
 		mav.addObject("pageNum", pageNum);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 	}
@@ -275,11 +275,11 @@ public class DecoController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = decodao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = decodao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = decodao.getReadData(imageIndex, cate);
+		FurnitureDTO dto = decodao.getReadData(imageIndex, cateEn);
 
 		mav.setViewName("product/deco/monthly/deco_monthly_details");
 		mav.addObject("dto", dto);
@@ -295,7 +295,7 @@ public class DecoController {
 		String cp = request.getContextPath();
 		
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 		
 		int currentPage = 1;
 
@@ -319,9 +319,9 @@ public class DecoController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터 갯수
-		int dataCount = decodao.getCateDataCount(cate,searchValue);
+		int dataCount = decodao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + decodao.getCateDataCount(cate,searchValue));
+		System.out.println("number of all data: " + decodao.getCateDataCount(cateEn,searchValue));
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -333,7 +333,7 @@ public class DecoController {
 		int start = (currentPage - 1) * numPerPage + 1;
 		int end = currentPage * numPerPage;
 
-		List<FurnitureDTO> catelists = decodao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cateEn, searchValue, start, end);
 		
 		System.out.println("size of catelists:"+catelists.size());
 
@@ -343,7 +343,7 @@ public class DecoController {
 			param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/deco_light.fu?&cate="+cate;
+		String listUrl = cp + "/deco_light.fu?&cateEn="+cateEn;
 		if (!param.equals("")) {
 			listUrl = listUrl + "?" + param;
 		}
@@ -370,7 +370,7 @@ public class DecoController {
 		mav.addObject("pageNum", pageNum);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 
@@ -382,11 +382,11 @@ public class DecoController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = decodao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = decodao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = decodao.getReadData(imageIndex, cate);
+		FurnitureDTO dto = decodao.getReadData(imageIndex, cateEn);
 
 		mav.setViewName("product/deco/light/deco_light_details");
 		mav.addObject("dto", dto);
@@ -402,7 +402,7 @@ public class DecoController {
 		String cp = request.getContextPath();
 		
 		String pageNum = request.getParameter("pageNum");
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 		
 		int currentPage = 1;
 
@@ -426,9 +426,9 @@ public class DecoController {
 		System.out.println("test searchValue: " + searchValue);
 
 		//전체 데이터 갯수
-		int dataCount = decodao.getCateDataCount(cate,searchValue);
+		int dataCount = decodao.getCateDataCount(cateEn,searchValue);
 
-		System.out.println("number of all data: " + decodao.getCateDataCount(cate,searchValue));
+		System.out.println("number of all data: " + decodao.getCateDataCount(cateEn,searchValue));
 
 		//전체 페이지 수
 		int numPerPage = 8;
@@ -440,7 +440,7 @@ public class DecoController {
 		int start = (currentPage - 1) * numPerPage + 1;
 		int end = currentPage * numPerPage;
 
-		List<FurnitureDTO> catelists = decodao.getCateLists(cate, searchValue, start, end);
+		List<FurnitureDTO> catelists = decodao.getCateLists(cateEn, searchValue, start, end);
 		
 		System.out.println("size of catelists:"+catelists.size());
 
@@ -450,7 +450,7 @@ public class DecoController {
 			param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
 		}
 
-		String listUrl = cp + "/deco_plasticch.fu?&cate="+cate;
+		String listUrl = cp + "/deco_plasticch.fu?&cateEn="+cateEn;
 		if (!param.equals("")) {
 			listUrl = listUrl + "?" + param;
 		}
@@ -477,7 +477,7 @@ public class DecoController {
 		mav.addObject("pageNum", pageNum);
 		
 		mav.addObject("searchValue", searchValue);
-		mav.addObject("cate", cate);
+		mav.addObject("cateEn", cateEn);
 
 		return mav;
 
@@ -489,11 +489,11 @@ public class DecoController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
+		String cateEn = request.getParameter("cateEn");
 
-		List<FurnitureDTO> catelists = decodao.getDetailLists(cate);
+		List<FurnitureDTO> catelists = decodao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = decodao.getReadData(imageIndex, cate);
+		FurnitureDTO dto = decodao.getReadData(imageIndex, cateEn);
 
 		mav.setViewName("product/deco/plasticch/deco_plasticch_details");
 		mav.addObject("dto", dto);
