@@ -17,6 +17,7 @@
 	}
 	
 </script>
+
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/images/livingroom/livingroomImage.jpg">
             <div class="container">

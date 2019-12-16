@@ -143,6 +143,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
+                                                            <i class="la la-plus"></i>
+                                                            <span>Add To Cart</span>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,7 +166,7 @@
                                     	${pageIndexList }
                                     </c:if>
                                     <c:if test="${dataCount==0 }">
-                                    	검색한 제품이 없습니다.
+                                    	등록된 게시물이 없습니다.
                                     </c:if>
                                 </ul>
                             </nav>
