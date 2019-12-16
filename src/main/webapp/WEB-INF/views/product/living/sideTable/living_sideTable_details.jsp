@@ -1,5 +1,5 @@
 <%@page import="com.funi.domain.FurnitureDTO"%>
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	
@@ -17,7 +17,6 @@
 	}
 	
 </script>
-
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/images/livingroom/livingroomImage.jpg">
             <div class="container">
@@ -90,7 +89,7 @@
 	                                    <div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">사이즈:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 사이즈를 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="1000*600">1000*600</option>
@@ -103,7 +102,7 @@
                                     	<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">옵션:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 사이즈 및 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="오크(1000*600)">오크(1000*600)</option>
@@ -116,7 +115,7 @@
                                     	<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">수종:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 수종을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="오크">오크</option>
@@ -128,7 +127,7 @@
                                     	<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">색상:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="매트블랙">매트블랙</option>
@@ -142,7 +141,7 @@
                                     	<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">색상:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="화이트">화이트</option>
@@ -154,7 +153,7 @@
                                     	<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">색상:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="화이트">화이트</option>
@@ -167,7 +166,7 @@
                                     	<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">색상:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="코튼 그레이">코튼 그레이</option>
@@ -185,7 +184,15 @@
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <%  
+                                   				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
+	                                             if(dto1.getProductName().contains("[")){       
+	                                            	 dto1.setProductName(dto1.getProductName().replace("[", "%5B"));
+	                                            	 dto1.setProductName(dto1.getProductName().replace("]", "%5D"));
+	                                             } 
+	                                             dto1.setPrice(dto1.getPrice().trim());
+                                     %>
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="clickevent('${dto.cateEn}:<%=dto1.getProductName() %>:<%=dto1.getPrice()%>:/resources/images/livingroom/${dto.imageIndex}.jpg');">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -341,11 +348,7 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <!-- <a href="cart.jsp" class="add-to-cart pr--15">
-                                                        <i class="la la-plus"></i>
-                                                        <span>Add To Cart</span>
-						                      
-                                                    </a> -->
+                                                    
                                                 </div>
                                             </div>
                                         </div>
