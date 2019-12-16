@@ -84,27 +84,27 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_chair_details.fu?imageIndex=51&cate=체어 / 의자">
+                                                <a href="dining_chair_details.fu?imageIndex=51&cateEn=chair">
                                                 	<img src="<%=cp %>/resources/images/dining/501오크사이드체어_패브릭.jpeg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_chair_details.fu?imageIndex=52&cate=체어 / 의자">
+                                                <a href="dining_chair_details.fu?imageIndex=52&cateEn=chair">
                                                 	<img src="<%=cp %>/resources/images/dining/301오크사이드체어_패브릭.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_chair_details.fu?imageIndex=53&cate=체어 / 의자">
+                                                <a href="dining_chair_details.fu?imageIndex=53&cateEn=chair">
                                                 	<img src="<%=cp %>/resources/images/dining/001오크사이드체어_패브릭.jpeg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_chair_details.fu?imageIndex=48&cate=체어 / 의자">
+                                                <a href="dining_chair_details.fu?imageIndex=48&cateEn=chair">
                                                 	<img src="<%=cp %>/resources/images/dining/602오크암체어.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_chair_details.fu?imageIndex=55&cate=체어 / 의자">
+                                                <a href="dining_chair_details.fu?imageIndex=55&cateEn=chair">
                                                 	<img src="<%=cp %>/resources/images/dining/001오크암체어_천연소가죽.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -141,7 +141,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_chair_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_chair_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -166,7 +166,7 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_chair_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_chair_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
@@ -177,10 +177,10 @@
                                     						<span class="money">일시품절</span>
                                     						</c:if>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

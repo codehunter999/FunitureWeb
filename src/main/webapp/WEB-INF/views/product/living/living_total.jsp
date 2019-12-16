@@ -29,13 +29,13 @@
                                     <div class="col-md-5 mb-sm--30 mb-xs--10">
                                         <div class="shop-toolbar__left">
                                             <div class="product-ordering">
-                         						<b>베스트 상품</b>
+                                                <b>거실 / 리빙룸</b>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="shop-toolbar__right d-flex justify-content-md-end justify-content-start flex-sm-row flex-column">
-                                            <p class="product-pages">홈 > 거실/리빙룸</p>
+                                            <p class="product-pages">홈 > 거실 /리빙룸</p>
                                             <div class="product-view-mode ml--50 ml-xs--0">
                                                 <a class="active" href="#" data-target="grid">
                                                     <img src="<%=cp %>/resources/assets/img/icons/grid.png" alt="Grid">
@@ -45,6 +45,8 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <hr/><br/>
                             <div class="shop-products">
                                 <div class="row">
                                     <c:forEach items="${lists }" var="dto">
@@ -91,10 +93,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.html" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

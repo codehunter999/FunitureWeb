@@ -32,11 +32,11 @@ public class LivingController {
 	@Autowired
 	MyUtil1 myUtil1;
 
-	//ï¿½Å½ï¿½ total
+	//°Å½Ç total
 		@RequestMapping(value = "/living_total.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_total(HttpServletRequest request) throws Exception {
 			
-			//searchKey ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½
+			//searchKey ´Ù »©ÁÖ±â
 			ModelAndView mav = new ModelAndView();
 			
 			String cp = request.getContextPath();
@@ -63,10 +63,10 @@ public class LivingController {
 			
 			System.out.println("searchValue!!!!" + searchValue);
 			
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ °¹¼ö
 			int dataCount = livingDao.getDataCount(searchValue);
 			
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 			
@@ -78,7 +78,7 @@ public class LivingController {
 			
 			List<FurnitureDTO> lists = livingDao.livingImageList(start, end, searchValue);
 			
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")) {
 				param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -91,7 +91,7 @@ public class LivingController {
 			
 			String pageIndexList = myUtil1.pageIndexList(currentPage, totalPage, listUrl);
 			
-			//ï¿½Ûºï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+			//±Ûº¸±â ÁÖ¼Ò Á¤¸®
 			
 			//System.out.println("lists"+lists.size());
 			mav.setViewName("product/living/living_total");
@@ -104,8 +104,8 @@ public class LivingController {
 		}
 		
 	//---------------------------------------------------------------------
-		//ï¿½ï¿½ï¿½ê·¼ï¿½ï¿½
-		//cateEnï¿½ï¿½ null
+		//¼±ºê·¼¶ó
+		//cateEnÀÌ null
 		@RequestMapping(value = "/living_sunb.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_sunb(HttpServletRequest request, HttpServletResponse response) throws Exception{
 			
@@ -137,13 +137,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -157,7 +157,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -182,6 +182,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 			
@@ -203,7 +206,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/sunb/living_sunb_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -213,7 +216,7 @@ public class LivingController {
 		
 		//---------------------------------------------------------------------
 		
-		//ï¿½Ðºê¸¯
+		//ÆÐºê¸¯
 		@RequestMapping(value = "/living_fabric.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_fabric(HttpServletRequest request, HttpServletResponse response) throws Exception{
 			
@@ -245,13 +248,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ Ä«Å×°í¸® µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -265,7 +268,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -290,6 +293,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -310,7 +316,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/fabric/living_fabric_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -319,7 +325,7 @@ public class LivingController {
 		}
 		
 		//---------------------------------------------------------------------
-		//ï¿½ï¿½ï¿½ï¿½
+		//°¡Á×
 		@RequestMapping(value = "/living_leather.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_leather(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
@@ -351,13 +357,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -371,7 +377,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -396,6 +402,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -416,7 +425,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/leather/living_leather_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -427,7 +436,7 @@ public class LivingController {
 		
 		
 		//---------------------------------------------------------------------
-		//ï¿½ï¿½ï¿½ì½º
+		//µ¥¿ì½º
 		@RequestMapping(value = "/living_deus.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_deus(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
@@ -459,13 +468,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -479,7 +488,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -504,6 +513,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -524,7 +536,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/deus/living_deus_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -533,7 +545,7 @@ public class LivingController {
 		}
 		
 		//---------------------------------------------------------------------
-		//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+		//»çÀÌµå Å×ÀÌºí
 		@RequestMapping(value = "/living_sideTable.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_sideTable(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
@@ -565,13 +577,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -585,7 +597,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -610,6 +622,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -630,7 +645,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/sideTable/living_sideTable_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -639,7 +654,7 @@ public class LivingController {
 		}
 		
 		//---------------------------------------------------------------------
-		//Æ¼ï¿½ï¿½ ï¿½ï¿½
+		//Æ¼ºñ Àå
 		@RequestMapping(value = "/living_TV.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_TV(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
@@ -671,13 +686,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -691,7 +706,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -716,6 +731,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -736,7 +754,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/TV/living_TV_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -745,7 +763,7 @@ public class LivingController {
 		}
 		
 		//---------------------------------------------------------------------
-		//ï¿½ï¿½ï¿½ï¿½
+		//¼±¹Ý
 		@RequestMapping(value = "/living_shelf.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_shelf(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
@@ -777,13 +795,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -797,7 +815,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -822,6 +840,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -842,7 +863,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/shelf/living_shelf_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);
@@ -851,7 +872,7 @@ public class LivingController {
 		}
 		
 		//---------------------------------------------------------------------
-		//ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½
+		//ºÏÄÉÀÌ½º
 		@RequestMapping(value = "/living_bookcase.fu", method = {RequestMethod.GET,RequestMethod.POST})
 		public ModelAndView living_bookcase(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
@@ -883,13 +904,13 @@ public class LivingController {
 			}
 			System.out.println("test searchValue: " + searchValue);
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+			//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 			int dataCount = livingDao.getCateDataCount(cateEn, searchValue);
 
 
 			System.out.println("number of all data: " + livingDao.getCateDataCount(cateEn,searchValue)); //
 
-			//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//ÀüÃ¼ ÆäÀÌÁö ¼ö
 			int numPerPage = 8;
 			int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -903,7 +924,7 @@ public class LivingController {
 
 			System.out.println("size of lists:" + catelists.size());
 
-			//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+			//ÆäÀÌÂ¡ Ã³¸®
 			String param = "";
 			if(!searchValue.equals("")){
 				param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -928,6 +949,9 @@ public class LivingController {
 			mav.addObject("pageNum",pageNum);
 			mav.addObject("dataCount",dataCount);
 			mav.addObject("pageIndexList", pageIndexList);
+			
+			mav.addObject("cateEn", cateEn);
+			mav.addObject("searchValue", searchValue);
 
 			return mav;
 		}
@@ -948,7 +972,7 @@ public class LivingController {
 			List<FurnitureDTO> Lists = livingDao.cateEImageList(params);
 			
 			FurnitureDTO dto = livingDao.getReadData(imageIndex,cateEn);
-			System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+			System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 			mav.setViewName("product/living/bookcase/living_bookcase_details");
 			mav.addObject("dto", dto);
 			mav.addObject("lists", Lists);

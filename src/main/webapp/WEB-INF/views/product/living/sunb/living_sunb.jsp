@@ -157,10 +157,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.html" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

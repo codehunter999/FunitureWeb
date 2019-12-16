@@ -35,11 +35,11 @@ public class DiningDAO {
 
 	}
 
-	public List<FurnitureDTO> getCateLists(String cate,String searchValue,int start,int end){
+	public List<FurnitureDTO> getCateLists(String cateEn,String searchValue,int start,int end){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 		params.put("searchValue", searchValue);
 		params.put("start", start);
 		params.put("end", end);
@@ -50,23 +50,23 @@ public class DiningDAO {
 
 	}
 	
-	public List<FurnitureDTO> getDetailLists(String cate){
+	public List<FurnitureDTO> getDetailLists(String cateEn){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 
 		List<FurnitureDTO> detailLists = sessionTemplate.selectList("diningMapper.getDetailLists", params);
 
 		return detailLists;
 	}
 	
-	public FurnitureDTO getReadData(int imageIndex,String cate){
+	public FurnitureDTO getReadData(int imageIndex,String cateEn){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("imageIndex", imageIndex);
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 
 		FurnitureDTO dto = sessionTemplate.selectOne("diningMapper.getReadData", params);
 
@@ -86,17 +86,42 @@ public class DiningDAO {
 
 	}
 	
-	public int getCateDataCount(String cate,String searchValue){
+	public int getCateDataCount(String cateEn,String searchValue){
 
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 		params.put("searchValue", searchValue);
 
 		int result = sessionTemplate.selectOne("diningMapper.getCateDataCount",params);
 
 		return result;
 
+	}
+	
+	public FurnitureDTO getReadAllData(int imageIndex,String cateEn,int imageIndex2,String cateEn2,int imageIndex3,String cateEn3,int imageIndex4,String cateEn4) {
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("imageIndex", imageIndex);
+		params.put("cateEn", cateEn);
+		params.put("imageIndex2", imageIndex2);
+		params.put("cateEn2", cateEn2);
+		params.put("imageIndex3", imageIndex3);
+		params.put("cateEn3", cateEn3);
+		params.put("imageIndex4", imageIndex4);
+		params.put("cateEn4", cateEn4);
+		
+		FurnitureDTO dto = sessionTemplate.selectOne("diningMapper.getReadAllData",params);
+		
+		return dto;
+	}
+	
+	public List<FurnitureDTO> getAllData(){
+		
+		List<FurnitureDTO> allLists = sessionTemplate.selectList("diningMapper.getAllData");
+		
+		return allLists;
 	}
 
 }

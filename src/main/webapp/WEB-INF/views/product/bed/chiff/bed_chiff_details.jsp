@@ -1,5 +1,22 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script type="text/javascript">
+	
+	var data; 
+	
+	function clickevent(eventdata){
+			data = eventdata;
+			data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
+			data += ":" + $("[id = 'qty']").val();
+			$('div.modal').modal();	
+			alert(data);
+	}
+	function cartsubmit(){
+		location.href="<%=cp%>/cartlist_input.fu?data="+data;
+	}
+	
+</script>
 
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/images/bedroom/bedroomImage.jpg">
@@ -76,7 +93,7 @@
 	                                    <div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">Option:</p>   
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [색상] 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="매트블랙">매트블랙</option>
@@ -91,7 +108,7 @@
                                			<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">Option:</p>   
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [리놀륨] 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="리놀륨_파우더핑크">리놀륨_파우더핑크</option>
@@ -105,7 +122,7 @@
                                			<div class="product-size-variations d-flex align-items-center mb--15">
 	                                        <p class="variation-label">Option:</p>   
 	                                        <div class="product-size-variation variation-wrapper">
-	                                        	<select>
+	                                        	<select id="optionV">
 	                                            	<option selected="selected">- [필수] 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="302 오크 4단8칸 서랍장">302 오크 4단8칸 서랍장</option>
@@ -124,7 +141,15 @@
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <%  
+                                   				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
+	                                             if(dto1.getProductName().contains("[")){       
+	                                            	 dto1.setProductName(dto1.getProductName().replace("[", "%5B"));
+	                                            	 dto1.setProductName(dto1.getProductName().replace("]", "%5D"));
+	                                             } 
+	                                             dto1.setPrice(dto1.getPrice().trim());
+                                     %>
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="clickevent('${dto.cateEn}:<%=dto1.getProductName() %>:<%=dto1.getPrice()%>:/resources/images/bedroom/${dto.imageIndex}.jpg');">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -183,7 +208,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
-                                            
+                                            <h3 class="review__title">1 review for Black Blazer</h3>
                                             <%-- <ul class="review__list">
                                                 <li class="review__item">
                                                     <div class="review__container">
@@ -281,12 +306,25 @@
                                                 </figure>
                                                 <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                 <div class="product-action">
-                                                    <a href="wishlist.jsp" class="action-btn">
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                    <a href="wishlist.jsp" class="action-btn">
+                                                    <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                            
+                                                            if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
+                                                    	%>
+                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                            <i class="la la-heart-o"></i>
+                                                        </a>
+                                                            <%}else{ %>
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg"class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                            <%} %>
+                                                    <!-- <a href="wishlist.jsp" class="action-btn">
                                                         <i class="la la-repeat"></i>
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                             <div class="product-info">
@@ -298,11 +336,11 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
 						                      
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                         </div>

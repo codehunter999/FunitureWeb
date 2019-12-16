@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
@@ -59,14 +60,27 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/deco/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">
-                                                            <i class="la la-heart-o"></i>
-                                                        </a>
+                                                        <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                    
+                                                            if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
+                                                    	%>
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                        <%}else{ %>
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                        <%} %>
                                                         
                                                     </div>
                                                 </div>
@@ -79,10 +93,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.html" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

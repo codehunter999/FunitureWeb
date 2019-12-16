@@ -121,8 +121,6 @@
                                             <div class="product-inner">
                                                 <div class="product-image">
                                                     <figure class="product-image--holder">
-                                                    ${dto.imageIndex }
-                                                    ${dto.cateEn }
                                                     	<img src="<%=cp %>/resources/images/bedroom/${dto.imageIndex}.jpg" alt="Product">	
                                                     </figure>
                                                     <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
@@ -144,10 +142,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.html" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

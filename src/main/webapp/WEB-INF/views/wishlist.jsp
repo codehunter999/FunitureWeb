@@ -153,6 +153,20 @@
                 </div>
             </div>
         </div>
+        <!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					카트에 담으시겠습니까?<br>
+    					<button class="btn btn-size-sm" onclick="cartsubmit()">예</button>
+    					<button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <!-- Qicuk View Modal End -->
         <!-- Main Content Wrapper Start -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%> 

@@ -84,48 +84,48 @@
                                         ]'>
                                        <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=15&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=15&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/애니테이블.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=16&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=16&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/아이테이블.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=17&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=17&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/데이테이블.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=20&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=20&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/베이직테이블.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                                 
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=21&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=21&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/조이체어.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=22&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=22&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/데이체어.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=23&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=23&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/라인체어.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=24&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=24&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/클립체어.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_rnl_details.fu?imageIndex=25&cate=리놀륨 테이블">
+                                                <a href="dining_rnl_details.fu?imageIndex=25&cateEn=rnl">
                                                 	<img src="<%=cp %>/resources/images/dining/허그체어.jpg" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
@@ -162,7 +162,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_rnl_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_rnl_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -187,16 +187,16 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_rnl_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_rnl_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

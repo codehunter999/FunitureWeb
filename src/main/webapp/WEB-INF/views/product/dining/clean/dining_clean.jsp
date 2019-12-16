@@ -84,43 +84,43 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=3&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=3&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE301테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=4&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=4&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE301테이블_2.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=7&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=7&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE006테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=8&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=8&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE006테이블_2.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                                 
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=11&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=11&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE309테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=12&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=12&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE309테이블_2.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=13&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=13&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/웨이브트레이.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_clean_details.fu?imageIndex=14&cate=클린터치 테이블">
+                                                <a href="dining_clean_details.fu?imageIndex=14&cateEn=clean">
                                                 	<img src="<%=cp %>/resources/images/dining/WAVE원형테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -157,7 +157,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_clean_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_clean_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -183,16 +183,16 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_clean_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_clean_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>

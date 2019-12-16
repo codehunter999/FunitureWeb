@@ -83,32 +83,32 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_light_details.fu?imageIndex=411&cate=조명">
+                                                <a href="deco_light_details.fu?imageIndex=411&cateEn=light">
                                                 	<img src="<%=cp %>/resources/images/deco/LouisPoulsenPH5MiniPendants.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_light_details.fu?imageIndex=412&cate=조명">
+                                                <a href="deco_light_details.fu?imageIndex=412&cateEn=light">
                                                 	<img src="<%=cp %>/resources/images/deco/LouispoulsenPH80.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_light_details.fu?imageIndex=413&cate=조명">
+                                                <a href="deco_light_details.fu?imageIndex=413&cateEn=light">
                                                 	<img src="<%=cp %>/resources/images/deco/LouispoulsenPH5contemporary.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_light_details.fu?imageIndex=415&cate=조명">
+                                                <a href="deco_light_details.fu?imageIndex=415&cateEn=light">
                                                 	<img src="<%=cp %>/resources/images/deco/LouispoulsenVL45.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_light_details.fu?imageIndex=418&cate=조명">
+                                                <a href="deco_light_details.fu?imageIndex=418&cateEn=light">
                                                 	<img src="<%=cp %>/resources/images/deco/LouisPoulsenNJP TableLamp.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="deco_light_details.fu?imageIndex=420&cate=조명">
+                                                <a href="deco_light_details.fu?imageIndex=420&cateEn=light">
                                                 	<img src="<%=cp %>/resources/images/deco/LouisPoulsenCollage_white.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -145,7 +145,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/deco/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="deco_light_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="deco_light_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -160,16 +160,16 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="deco_light_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="deco_light_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                    							<span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
