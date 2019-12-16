@@ -16,7 +16,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cateEn=sunbrella&imageIndex=2&price=348000&imagetype=/resources/images/dining/601오크사이드체어.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=선브렐라%20체어&itemname=601%20오크%20사이드%20체어&price=%20%20%20%20%20348,000&imagepath=/resources/images/dining/601오크사이드체어.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -55,7 +55,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cateEn=sunbrella&imageIndex=1&price=462000&imagetype=/resources/images/dining/602오크사이드체어.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=선브렐라%20체어&itemname=602%20오크%20사이드%20체어&price=%20%20%20%20%20462,000&imagepath=/resources/images/dining/602오크사이드체어.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -94,7 +94,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cateEn=clean&imageIndex=7&price=994000&imagetype=/resources/images/dining/WAVE006테이블.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=클린터치%20테이블&itemname=WAVE%20006%20테이블_스킨&price=%20%20%20%20%20973,000&imagepath=/resources/images/dining/WAVE006테이블.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -133,7 +133,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cateEn=table&imageIndex=38&price=577000&imagetype=/resources/images/dining/301철제오크테이블.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=테이블%20/%20식탁&itemname=301%20철제%20오크%20테이블&price=%20%20%20%20%20577,000&imagepath=/resources/images/dining/301철제오크테이블.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">

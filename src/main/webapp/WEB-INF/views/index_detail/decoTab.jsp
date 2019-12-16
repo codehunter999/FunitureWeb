@@ -16,7 +16,7 @@
                        <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                            <i class="la la-eye"></i>
                        </a> -->
-                       <a href="wishlist.fu?cateEn=light&imageIndex=420&price=1740000&imagetype=/resources/images/deco/LouisPoulsenCollage_white.jpg" class="action-btn">
+                       <a href="wishlist.fu?cate=조명&itemname=Louis%20poulsen%20Collage-white&price=%20%20%201,740,000&imagepath=/resources/images/deco/LouisPoulsenCollage_white.jpg" class="action-btn">
                            <i class="la la-heart-o"></i>
                         </a>
                        <!--<a href="wishlist.fu" class="action-btn">
@@ -55,7 +55,7 @@
                        <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                            <i class="la la-eye"></i>
                        </a> -->
-                       <a href="wishlist.fu?cateEn=light&imageIndex=417&price=750000&imagetype=/resources/images/deco/LouisPoulsenDoo_wap.jpg" class="action-btn">
+                       <a href="wishlist.fu?cate=조명&itemname=Louis%20poulsen%20Doo-wap&price=%20%20%20%20%20750,000&imagepath=/resources/images/deco/LouisPoulsenDoo_wap.jpg" class="action-btn">
                            <i class="la la-heart-o"></i>
                         </a>
                        <!--<a href="wishlist.fu" class="action-btn">
@@ -94,7 +94,7 @@
                        <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                            <i class="la la-eye"></i>
                        </a> -->
-                       <a href="wishlist.fu?cateEn=light&imageIndex=414&price=950000&imagetype=/resources/images/deco/LouisPoulsenLCShutters.jpg" class="action-btn">
+                       <a href="wishlist.fu?cate=조명&itemname=Louis%20poulsen%20LC%20Shutters%20%5BWhite/Colored%5D&price=%20%20%20%20%20950,000&imagepath=/resources/images/deco/LouisPoulsenLCShutters.jpg" class="action-btn">
                            <i class="la la-heart-o"></i>
                         </a>
                        <!--<a href="wishlist.fu" class="action-btn">
@@ -133,7 +133,7 @@
                        <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                            <i class="la la-eye"></i>
                        </a> -->
-                       <a href="wishlist.fu?cateEn=light&imageIndex=418&price=750000&imagetype=/resources/images/deco/LouisPoulsenNJP TableLamp.jpg" class="action-btn">
+                       <a href="wishlist.fu?cate=조명&itemname=Louis%20poulsen%20NJP%20Table%20Lamp&price=%20%20%20%20%20750,000&imagepath=/resources/images/deco/LouisPoulsenNJP%20TableLamp.jpg" class="action-btn">
                            <i class="la la-heart-o"></i>
                         </a>
                        <!--<a href="wishlist.fu" class="action-btn">

@@ -64,12 +64,17 @@
                                                 <div class="single-post__meta">
                                                     <div class="posted-by">
                                                         <span class="byline">by</span>
-                                                        <a href="blog-details-image.html">
+                                                        
                                                             <span><%=dto.getName() %>'s Review</span>
-                                                        </a>
+                                                        
                                                     </div>
                                                     <div class="social">
-                                                        <!-- <a href="https://www.facebook.com" class="social__link">
+                                                        <a href="<%=cp %>/reviewdelete.fu?id=<%=dto.getId() %>">
+	                                    					<img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
+	                                    				</a>
+                                                        
+                                                        <!-- 
+                                                        <a href="https://www.facebook.com" class="social__link">
                                                             <i class="la la-facebook"></i>
                                                         </a>
                                                         <a href="https://www.twitter.com" class="social__link">
