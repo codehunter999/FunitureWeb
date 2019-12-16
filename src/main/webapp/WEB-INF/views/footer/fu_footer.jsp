@@ -194,7 +194,7 @@
                         </div>
                         <div class="mini-cart__buttons">
                             <a href="wishlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">Wish List</font></a>
-                            <a href="cart.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">View Cart</font></a>
+                            <a href="cartlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">View Cart</font></a>
                             <a href="payment.fu" class="btn btn-fullwidth btn-bg-primary"><font size="5">Payment</font></a>
                         </div>
                     </div>
@@ -218,6 +218,24 @@
             </div>
         </div>
         <!-- Searchform Popup End -->
+        
+        
+        <!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					카트에 담으시겠습니까?<br>
+    					<button class="btn btn-size-sm" onclick="cartsubmit()">예</button>
+    					<button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <!-- Qicuk View Modal End -->
+        
+        
 
         <!-- Global Overlay Start -->
         <div class="global-overlay"></div>

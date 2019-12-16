@@ -260,11 +260,11 @@
                                             <div class="blog__media">
                                                 <figure class="image">
                                                     <img src="<%=cp %>/resources/images/deco/월간카레클린트1월호.jpg" alt="Blog" class="w-100">
-                                                    <a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트" class="item-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=400&cateEn=monthly" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트">월간카레클린트1월호</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=400&cateEn=monthly">월간카레클린트1월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
@@ -275,11 +275,11 @@
                                             <div class="blog__media">
                                                 <figure class="image">
                                                     <img src="<%=cp %>/resources/images/deco/월간카레클린트2월호.jpg" alt="Blog" class="w-100">
-                                                    <a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트" class="item-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=401&cateEn=monthly" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트">월간카레클린트2월호</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=401&cateEn=monthly">월간카레클린트2월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
@@ -290,11 +290,11 @@
                                             <div class="blog__media">
                                                 <figure class="image">
                                                     <img src="<%=cp %>/resources/images/deco/월간카레클린트3월호.jpg" alt="Blog" class="w-100">
-                                                    <a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트" class="item-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=402&cateEn=monthly" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트">월간카레클린트3월호</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=402&cateEn=monthly">월간카레클린트3월호</a></h2>
                                             </div>
                                         </div>
                                     </article>

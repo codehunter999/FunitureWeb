@@ -11,7 +11,7 @@
                         <figure class="product-image--holder">
                             <img src="<%=dining %>/resources/images/dining/601오크사이드체어.jpg" alt="Product">
                         </figure>
-                        <a href="dining_chair_details.fu?imageIndex=2&cateEn=sunbrella" class="product-overlay"></a>
+                        <a href="dining_sunbrella_details.fu?imageIndex=2&cateEn=sunbrella" class="product-overlay"></a>
                         <div class="product-action">
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
@@ -26,17 +26,17 @@
                     </div>
                     <div class="product-info">
                         <div class="product-category">
-                            <a href="dining_chair_details.fu?imageIndex=2&cateEn=sunbrella">선브렐라 체어</a>
+                            <a href="dining_sunbrella_details.fu?imageIndex=2&cateEn=sunbrella">선브렐라 체어</a>
                         </div>
-                        <h3 class="product-title"><a href="dining_chair_details.fu?imageIndex=2&cateEn=sunbrella">601 오크 사이드 체어</a></h3>
+                        <h3 class="product-title"><a href="dining_sunbrella_details.fu?imageIndex=2&cateEn=sunbrella">601 오크 사이드 체어</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
                                 <span class="money">348,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                         <figure class="product-image--holder">
                             <img src="<%=dining %>/resources/images/dining/602오크사이드체어.jpg" alt="Product">
                         </figure>
-                        <a href="dining_chair_details.fu?imageIndex=1&cateEn=sunbrella" class="product-overlay"></a>
+                        <a href="dining_sunbrella_details.fu?imageIndex=1&cateEn=sunbrella" class="product-overlay"></a>
                         <div class="product-action">
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
@@ -65,17 +65,17 @@
                     </div>
                     <div class="product-info">
                         <div class="product-category">
-                            <a href="dining_chair_details.fu?imageIndex=1&cateEn=sunbrella">선브렐라 체어</a>
+                            <a href="dining_sunbrella_details.fu?imageIndex=1&cateEn=sunbrella">선브렐라 체어</a>
                         </div>
-                        <h3 class="product-title"><a href="dining_chair_details.fu?imageIndex=1&cateEn=sunbrella">602 오크 사이드 체어</a></h3>
+                        <h3 class="product-title"><a href="dining_sunbrella_details.fu?imageIndex=1&cateEn=sunbrella">602 오크 사이드 체어</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
                                 <span class="money">462,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -111,10 +111,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">994,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -145,15 +145,15 @@
                         <div class="product-category">
                             <a href="dining_table_details.fu?imageIndex=38&cateEn=table">테이블 / 식탁</a>
                         </div>
-                        <h3 class="product-title"><a href="dining_clean_details.fu?imageIndex=38&cateEn=table">301 철제 오크 테이블</a></h3>
+                        <h3 class="product-title"><a href="dining_table_details.fu?imageIndex=38&cateEn=table">301 철제 오크 테이블</a></h3>
                         <div class="product-info-bottom">
                             <div class="product-price-wrapper">
                                 <span class="money">577,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
