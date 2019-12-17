@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp1 = request.getContextPath();
@@ -206,7 +207,7 @@
         <!-- Global Overlay Start -->
         <a class="scroll-to-top" href=""><i class="la la-angle-double-up"></i></a>
         <!-- Global Overlay End -->
-    </div>
+   
     <!-- Main Wrapper End -->
  
 	<!-- Qicuk View Modal Start -->

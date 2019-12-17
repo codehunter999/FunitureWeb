@@ -186,7 +186,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                             <th class="text-right"><font size="3pt;"><strong>판매가</strong></font></th>
                                         </tr>
                                         <tr>
-                                            <c:if test="${cartlist != null}">
+                                            <c:if test="${!empty cartlist}">
 											<c:forEach var="row" items="${map.list}" varStatus="i">
                                             
                                                 <th>${row.productName}
@@ -198,7 +198,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                             
                                             </c:forEach>
 											</c:if>
-											<c:if test="${cartlist == null}">
+											<c:if test="${empty cartlist}">
 												<td>주문한 상품이 없습니다.</td>
 											</c:if>
                                         </tr>    

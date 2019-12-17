@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -159,8 +161,29 @@ public class FurnitureController {
 		return "event/event_5";
 	}
 
-	// 카트 장바구니 
 	
+	//��ٱ��� ���
+	@RequestMapping(value = "/fucart.fu", method = RequestMethod.GET)//list
+	public ModelAndView list(Locale locale, Model model,HttpSession session, ModelAndView mav) {
+		String email = (String) session.getAttribute("email");
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<OrderDTO> list = cartService.listCart(email);
+		int sumMoney = cartService.sumMoney(email);
+		int allSum = 0;
+		for (OrderDTO orderdto : list) {
+			allSum += orderdto.getPrice() * orderdto.getAmount();
+		}
+		
+		map.put("list", list);        //��ٱ��� ������ map�� ����
+		map.put("count", list.size());//��ٱ��� ��ǰ�� ����
+		map.put("sumMoney", sumMoney);//��ٱ��� ��ü�ݾ�
+		map.put("allSum", allSum);    //�ֹ���ǰ ���� �ݾ�
+		mav.setViewName("cart");      
+		mav.addObject("map",map);
+		return mav;
+	}
+
+	// 카트 장바구니 
 	@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
 		
