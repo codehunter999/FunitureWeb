@@ -83,7 +83,7 @@
                                         ]'>
                                       <c:forEach items="${catelists }" var="dto">
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}">
+                                                <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}">
                                                 	<img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" style="max-width: 70%;" alt="Products">
                                                 </a>
                                             </figure>
@@ -120,7 +120,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -135,13 +135,13 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_sunbrella_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="<%=cp %>/cart.fu" class="add-to-cart pr--15">
+                                                        <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
                                                         </a>

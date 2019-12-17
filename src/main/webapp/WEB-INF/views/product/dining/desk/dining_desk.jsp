@@ -83,37 +83,37 @@
                                         ]'>
                                         <!-- 베스트상품목록 -->
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=64&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=64&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/베이직테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=65&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=65&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/304오크서랍형책상.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=66&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=66&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/301철제오크테이블.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=68&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=68&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/301철제오크월넛사다리선반.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=70&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=70&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/트러스코너선반.png" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=71&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=71&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/302철제오크스툴.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
                                             <figure class="product-gallery__nav-image--single">
-                                                <a href="dining_desk_details.fu?imageIndex=72&cate=책상 / 선반">
+                                                <a href="dining_desk_details.fu?imageIndex=72&cateEn=desk">
                                                 	<img src="<%=cp %>/resources/images/dining/001북케이스벤치.jpg" style="max-width: 70%;" alt="">
                                                 </a>
                                             </figure>
@@ -150,7 +150,7 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/dining/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
@@ -165,13 +165,13 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate }&pageNum=${pageNum}">${dto.productName }</a>
+                                                        <a href="dining_desk_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a>
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                    							<span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.jsp" class="add-to-cart pr--15">
+                                                        <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
                                                         </a>

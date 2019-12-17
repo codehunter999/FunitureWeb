@@ -210,7 +210,6 @@
                 <p>검색할 제품 이름을 입력하세요.</p>
                 <form name="searchForm" class="searchform">
                     <input type="text" name="searchValue" id="search" class="searchform__input" placeholder="Search Entire Store...">
-                    <input type="hidden" name="cate" value="${cate }">
                     <input type="hidden" name="cateEn" value="${cateEn }">
                     <button type="submit" class="searchform__submit"><i class="la la-search"></i></button>
                     <!-- <input type="button" id="searchV" class="searchform__submit la la-search" value="◈" style="font-size: 20pt; color: green; border: 2px solid; border-color: green;"/> -->
