@@ -1,4 +1,7 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp1 = request.getContextPath();
@@ -123,9 +126,8 @@
             </div>
         </footer>
         <!-- Footer End-->
-
         <!-- OffCanvas Menu Start -->
-			<%@include file="/WEB-INF/views/footer/fu_offCanvas.jsp" %>
+		<%@include file="/WEB-INF/views/footer/fu_offCanvas.jsp" %>
         <!-- OffCanvas Menu End -->
 
         <!-- Mini Cart Start -->
@@ -138,63 +140,42 @@
                     <h3 class="mini-cart__heading mb--45"><font size="5">Shopping Cart</font></h3>
                     <div class="mini-cart__content">
                         <ul class="mini-cart__list">
-                        <c:if test="${map.count!=null}">
-                        <c:forEach var="row" items="#{map.list }" varStatus="i">
-                            <li class="mini-cart__product">
-                                <a href="#" class="mini-cart__product-remove">
-                                    <i class="la la-remove"></i>
-                                </a>
-                                <div class="mini-cart__product-image">
-                                    <img src="<%=cp1 %>/resources/assets/img/product/pro1.jpg" alt="products">
-                                </div>
-                                <div class="mini-cart__product-content">
-                                    <a class="mini-cart__product-title" href="product-details.fu">${row.productName}</a>
-                                    <span class="mini-cart__product-quantity">${row.amount} x ${row.price}</span>
-                                </div>
-                            </li>
-                        </c:forEach>
+		               	<c:if test="${empty cartlist}">
+								 <li><font size="5">주문한 상품이 없습니다.</font></li><br/>
+						</c:if> 
+				 <c:if test="${!empty cartlist }">
+              	<%
+                	 	List<String> minicartlist = (List<String>)session.getAttribute("cartlist");
+                       	if(minicartlist!=null){
+                       		Iterator iterator=minicartlist.iterator();
+                       		int buttonIndex = 0; 
+                       		int i=0;
+                       		while(iterator.hasNext()){
+                       			String result=(String)iterator.next();
+                       			String[] value = result.split(":");
+                       			value[2]  = value[2].replaceAll(",","");			                                        			
+				                                   
+              	%>
+                        	
+                        <li class="mini-cart__product">
+                            <div class="mini-cart__product-image">
+                                <img src="<%=cp1 %><%=value[3] %>" alt="products">
+                            </div>
+                            <div class="mini-cart__product-content">
+                                <a class="mini-cart__product-title" href="product-details.fu"><%=value[1]%></a>                       
+                            </div>
+                        </li>
+								<%
+			                       }
+								%>
+							<%
+		                      }
+							%>
                         </c:if>
-						<c:if test="${map.count == null}">
-							 <li><font size="5">주문한 상품이 없습니다.</font></li><br/>
-						</c:if>
-						
-							<!-- 예제 삭제하기 -->
-                             <li class="mini-cart__product">
-                                <a href="#" class="mini-cart__product-remove">
-                                    <i class="la la-remove"></i>
-                                </a>
-                                <div class="mini-cart__product-image">
-                                    <img src="<%=cp1 %>/resources/assets/img/product/pro2.jpg" alt="products">
-                                </div>
-                                <div class="mini-cart__product-content">
-                                    <a class="mini-cart__product-title" href="product-details.fu">[예제]Golden Easy Spot Chair.</a>
-                                    <span class="mini-cart__product-quantity">1 x 123,000원</span>
-                                </div>
-                            </li>
-                            <li class="mini-cart__product">
-                                <a href="#" class="mini-cart__product-remove">
-                                    <i class="la la-remove"></i>
-                                </a>
-                                <div class="mini-cart__product-image">
-                                    <img src="<%=cp1 %>/resources/assets/img/product/pro3.jpg" alt="products">
-                                </div>
-                                <div class="mini-cart__product-content">
-                                    <a class="mini-cart__product-title" href="product-details.fu">[예제]602 오크 사이드 체어</a>
-                                    <span class="mini-cart__product-quantity">${row.amount} x ${row.price}</span>
-                                </div>
-                            </li>
-                            <!-- 예제 삭제하기 -->
-                            
-                        </ul>
-                        <div class="mini-cart__total">
-                            <span><font size="4">결제예정금액</font> </span>
-                            <span class="ammount">
-                             <fmt:formatNumber value="${map.allSum }" pattern="###,###,###"/>123,000원
-                            </span>
-                        </div>
+                		</ul>
                         <div class="mini-cart__buttons">
                             <a href="wishlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">Wish List</font></a>
-                            <a href="cartlist_input.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">View Cart</font></a>
+                            <a href="cartlist.fu" class="btn btn-fullwidth btn-bg-primary mb--20"><font size="5">View Cart</font></a>
                             <a href="payment.fu" class="btn btn-fullwidth btn-bg-primary"><font size="5">Payment</font></a>
                         </div>
                     </div>
@@ -210,6 +191,7 @@
                 <p>검색할 제품 이름을 입력하세요.</p>
                 <form name="searchForm" class="searchform">
                     <input type="text" name="searchValue" id="search" class="searchform__input" placeholder="Search Entire Store...">
+                    <input type="hidden" name="cate" value="${cate }">
                     <input type="hidden" name="cateEn" value="${cateEn }">
                     <button type="submit" class="searchform__submit"><i class="la la-search"></i></button>
                     <!-- <input type="button" id="searchV" class="searchform__submit la la-search" value="◈" style="font-size: 20pt; color: green; border: 2px solid; border-color: green;"/> -->
@@ -217,9 +199,18 @@
             </div>
         </div>
         <!-- Searchform Popup End -->
+		 <!-- Global Overlay Start -->
+        <div class="global-overlay"></div>
+        <!-- Global Overlay End -->
 
-        <!-- Qicuk View Modal Start -->
-        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- Global Overlay Start -->
+        <a class="scroll-to-top" href=""><i class="la la-angle-double-up"></i></a>
+        <!-- Global Overlay End -->
+    </div>
+    <!-- Main Wrapper End -->
+ 
+	<!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
         		<div class="modal-content">
         			<div class="modal-body" align="center"><br><br><br>
@@ -232,18 +223,6 @@
     		</div>
     	</div>
         <!-- Qicuk View Modal End -->
-
-        <!-- Global Overlay Start -->
-        <div class="global-overlay"></div>
-        <!-- Global Overlay End -->
-
-        <!-- Global Overlay Start -->
-        <a class="scroll-to-top" href=""><i class="la la-angle-double-up"></i></a>
-        <!-- Global Overlay End -->
-    </div>
-    <!-- Main Wrapper End -->
- 
-
     <!-- ************************* JS Files ************************* -->
 
     <!-- jQuery JS -->
