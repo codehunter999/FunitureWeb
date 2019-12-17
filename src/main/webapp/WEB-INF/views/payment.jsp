@@ -326,4 +326,8 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
             </div>
         </div>
         <!-- Main Content Wrapper Start -->
-<%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>   
+<%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
+
+
+
+   

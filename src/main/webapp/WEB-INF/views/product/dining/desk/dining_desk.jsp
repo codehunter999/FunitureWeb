@@ -155,7 +155,7 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}" class="action-btn">
+                                                        <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/dining/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <!-- <a href="wishlist.jsp" class="action-btn">

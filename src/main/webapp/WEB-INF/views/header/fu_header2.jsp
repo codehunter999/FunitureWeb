@@ -408,7 +408,7 @@
                                                 <div class="header-toolbar__item header-toolbar--minicart-btn">
                                                     <a href="#miniCart" class="header-toolbar__btn toolbar-btn">
                                                         <i class="la la-shopping-cart"></i>
-                                                        <span>01</span>
+                                                        <!-- <span>01</span> -->
                                                     </a>
                                                 </div>
                                                 <div class="header-toolbar__item d-block d-lg-none">

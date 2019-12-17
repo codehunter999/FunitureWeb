@@ -198,8 +198,9 @@
                                     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                         <div class="product-description">
                                             <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_3.jpg"><br/>
-                                            <%-- <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_4.jpg"><br/>
+                                            <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_4.jpg"><br/>
                                             <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_5.jpg"><br/>
+                                            <%-- 
                                             <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_6.jpg"><br/>
                                             <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_7.jpg"><br/>
                                             <img alt="" src="<%=cp %>/resources/images/deco/detail/monthly/${dto.imageIndex}_details_8.jpg"><br/>

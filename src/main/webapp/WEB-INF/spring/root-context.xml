@@ -59,6 +59,10 @@
 	<bean class="com.funi.dao.QnADAO" id="qnadao">
 		<property ref="sqlSession" name="sessionTemplate"/>
 	</bean>
+	
+	<bean class="com.funi.dao.EventDAO" id="eventdao">
+		<property ref="sqlSession" name="sessionTemplate"/>
+	</bean>
 
 	<bean class="com.funi.util.MyUtil1" id="myUtil1"/>
 	

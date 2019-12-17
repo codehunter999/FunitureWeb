@@ -125,7 +125,7 @@
                                                     </figure>
                                                     <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">
+                                                        <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <!-- <a href="wishlist.html" class="action-btn">

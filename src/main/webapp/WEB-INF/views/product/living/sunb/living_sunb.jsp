@@ -1,4 +1,4 @@
-<%@page import="com.funi.domain.FurnitureDTO"%>
+f<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -129,20 +129,20 @@
                                                     <div class="product-action">
                                                         <%
                                                             FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
-                                                    
-                                                            if(dto.getProductName().contains("[")){
+                                                            
+                                                             if(dto.getProductName().contains("[")){
                                                                 String str=dto.getProductName();
                                                                 str=str.replace("[", "%5B");
                                                                 str=str.replace("]", "%5D");
                                                     	%>
-                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                        <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">       
                                                                 <i class="la la-heart-o"></i>
                                                             </a>
-                                                        <%}else{ %>
-                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                            <%}else{ %>
+                                                            <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">       
                                                                 <i class="la la-heart-o"></i>
                                                             </a>
-                                                        <%} %>
+                                                            <%} %>
                                                         <!-- <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-repeat"></i>
                                                         </a> -->

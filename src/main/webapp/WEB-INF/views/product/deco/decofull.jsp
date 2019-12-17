@@ -73,11 +73,11 @@
                                                                 str=str.replace("[", "%5B");
                                                                 str=str.replace("]", "%5D");
                                                     	%>
-                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">       
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
                                                                     <i class="la la-heart-o"></i>
                                                                 </a>
                                                         <%}else{ %>
-                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">       
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
                                                                     <i class="la la-heart-o"></i>
                                                                 </a>
                                                         <%} %>
@@ -86,9 +86,9 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.cate }</a>
+                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.cate }</a>
                                                     </div>
-                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.productName }</a></h3>
+                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a></h3>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
