@@ -16,7 +16,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-		
+		// 상품별 +버튼 추가할때 수량 증가
 		$("[id^='add']").click(function(e){
 			var id_check = $(this).attr("id");			
 			var lastNum = id_check.substr(id_check.length - 1)
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			$('#map_sumMoney').val(totalNum);
 			$('#map_allSum').val(totalNum);
 		});	
-	
+		// 상품별 - 버튼 추가할때 수량 차감
 		$("[id^='min']").click(function(e){		
 			var id_check = $(this).attr("id");
 			var lastNum = id_check.substr(id_check.length-1)
@@ -55,9 +55,8 @@ $(document).ready(function(){
 				alert('더이상 내릴수 없습니다.');
 				num = 1;	
 			
-			}
-			$('#qty'+lastNum).val(num);	
-			
+			}		
+			$('#qty'+lastNum).val(num);				
 			var item_price = $("#item_price"+lastNum).val();	
 			item_price = item_price.substr(0, item_price.length -1); 
 			item_price = Number(item_price)
@@ -70,7 +69,9 @@ $(document).ready(function(){
 			$('#map_sumMoney').val(totalNum);
 			$('#map_allSum').val(totalNum);
 		});
-	
+		
+		
+		
 });
 
 </script>
@@ -84,7 +85,8 @@ $(document).ready(function(){
 		
 		data = new Array();
 		
-		$('div.modal').modal();
+		$('#productModal').modal();
+		
 		//반복하여 다가져오기 
 		var arrayQty =  new Array();
 		var arraytotalItem_price =  new Array();
@@ -100,25 +102,40 @@ $(document).ready(function(){
 			data[i]= "";		
 			data[i] = arrayQty[i]+":"+arraytotalItem_price[i];
 		}
-		
+	}
+	function cartsubmit(){
+		location.href="<%=cp%>/payment.fu?data="+data;		
 	}
 	
-	function cartsubmit(){
-		location.href="<%=cp%>/payment.fu?data="+data;
+	
+	// 상품 삭제 javascript  	
+	var id;
+	function clickremove() {	
+		$("[id ^= 'removeItem']").click(function(){
+			$('#removeModal').modal();
+			id = $(this).attr("id");		
+			id = id.substr(id.length-1);
+		});
+	}	
+	function removeItem() {		
+		location.href = "<%=cp%>/deletecart.fu?id="+id;
+	}
+	
+	// 카트 비우기 javascript  
+	function cleanCartModal(){
 		
+		$('#removeClear').modal();
 	}
 	
 	function cleanCart() {
-		var f = document.clearCartAll;
-		f.action = "<%=cp%>/removeAllcart.fu";
-		f.submit();
-	
+		location.href = "<%=cp%>/removeAllcart.fu";
+
 	}
-
-
+	
+	
 </script>
 
- <!-- Breadcrumb area Start -->
+ <!-- Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
             <div class="container">
                 <div class="row">
@@ -141,7 +158,7 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-lg-8 mb-md--50">
                           <c:choose >
-                             <c:when test="${cartlist == null}">
+                             <c:when test="${empty cartlist}">
                                   <b>장바구니가 비어있습니다.</b>
                              </c:when>
                               <c:otherwise>
@@ -170,17 +187,16 @@ $(document).ready(function(){
 			                                        		while(iterator.hasNext()){
 			                                        			String result=(String)iterator.next();
 			                                        			String[] value=result.split(":");
-			                                        			value[2]  = value[2].replaceAll(",","");
-			                                        			
+			                                        			value[2]  = value[2].replaceAll(",","");			                                        			
 				                                    %>
 													<tr>
-                                                        <td class="product-remove text-left"><a href="<%=cp%>/deletecart.fu?id=<%=buttonIndex%>"><i class="la la-remove"></i></a></td>
+                                                        <td class="product-remove text-left"><input type="button" id="removeItem<%=buttonIndex%>" style="border: none" class="la la-remove" value="X" onclick="clickremove();"></td>
                                                         <td class="product-thumbnail text-left">
                                                              <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html"><%=value[0] %><%=value[1] %></a>
+                                                                <a href="product-details.html"><%=value[0] %><%=value[1] %><%=value[4] %></a>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
@@ -192,8 +208,8 @@ $(document).ready(function(){
                                                         
                                                         <td class="product-quantity">     
                                                          	<button type="button" id="add<%=buttonIndex%>" class="btn-light" style="width: 15px;height: 20px;border: none"><b>+</b></button>                                                                                                                                      	   		
-                                                	   		<input  type="text"   id="qty<%=buttonIndex %>" name="qty-2" value="1" min="1" style="width: 10px;height: 20px;border: none;text-align: right">                    
-                                                	   		<button type="button" id="min<%=buttonIndex %>" class="btn-light" style="width: 13px;height: 20px;border: none"><b><font size="5">-</font></b></button>   
+                                                	   		<input  type="text"   id="qty<%=buttonIndex%>" name="qty-2" value="1" min="1" style="width: 10px;height: 20px;border: none;text-align: right">                    
+                                                	   		<button type="button" id="min<%=buttonIndex%>" class="btn-light" style="width: 13px;height: 20px;border: none"><b><font size="5">-</font></b></button>   
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
                                                                 <span class="money">
@@ -220,14 +236,12 @@ $(document).ready(function(){
 	                                            <button type="submit" class="cart-form__btn">Apply Coupon</button>
 	                                      	 </div>
 		                                    </div>
+		                                    <div class="col-sm-6 text-sm-right">
+		                                        <input type="button" class="cart-form__btn" onclick="cleanCartModal()" value="카트비우기" style="border: none">
+		                                    </div>
 		                                </div>
-		                            </form>
-                                    <form method="post" name="clearCartAll" action="">
-	                                    <div class="col-sm-6 text-sm-right">
-	                                        <button type="submit" class="cart-form__btn" onclick="cleanCart();">카트비우기</button>
-	                                    </div>
-	                                </form>
-                          </c:otherwise>
+		                            </form>                              
+                          	</c:otherwise>
                           </c:choose>
                         </div>
                         
@@ -259,7 +273,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-                                            		<input type="text" value="<%=map_sumMoney%>"  id="map_sumMoney" style="border: none" /> 
+                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none" /> 
                                                 </span>
                                             </div>
                                         </div>
@@ -277,7 +291,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                              		<input type="text" value="<%=map_sumMoney %>" style="border: none" id="map_allSum"/>
+                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none" id="map_allSum"/>
                                                 </span>
                                             </div>
                                         </div>
@@ -293,4 +307,37 @@ $(document).ready(function(){
             </div>
         </div>
         <!-- Main Content Wrapper Start -->
+                <!-- Main Content Wrapper Start -->
+        
+        <!-- Cart Item Delete Modal Start -->
+        <div class="modal fade product-modal" id="removeModal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					해당 상품을 카트에서 지우겠습니까?<br><br/>
+    					<button class="btn btn-size-sm" onclick="removeItem()">예</button>
+    					<button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <!--Cart Item Delete Modal End -->
+        
+        <!-- Cart Item All Clear Modal Start -->
+        <div class="modal fade product-modal" id="removeClear" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					모든 상품을 카트에서 지우겠습니까?<br><br/>
+    					<button class="btn btn-size-sm" onclick="cleanCart();">예</button>
+    					<button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <!--Cart Item All Clear Modal End -->
+        
+        
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
