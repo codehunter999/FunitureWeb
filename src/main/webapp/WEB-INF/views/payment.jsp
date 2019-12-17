@@ -60,12 +60,12 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
         
      	<!-- Qicuk View Modal Start -->
 	        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-	          <div class="modal-dialog" role="document" style="width: 300">
+	          <div class="modal-dialog" role="document" style="width: 150">
 	            <div class="modal-content">
 	              <div class="modal-body" align="center">
 	              <br><br><br>
 	                	결제를 진행하겠습니까?
-	                <br><br>
+	                <br>
 	                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
 	                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
 	              	<br><br><br>                      
@@ -326,8 +326,4 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
             </div>
         </div>
         <!-- Main Content Wrapper Start -->
-<%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
-
-
-
-   
+<%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>   

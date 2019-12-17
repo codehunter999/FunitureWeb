@@ -61,13 +61,13 @@ public class EventController {
 
 		eventdao.insertData(dto);
 
-		// 실제경로:
+		// �떎�젣寃쎈줈:
 		//D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\furnitureproject\resources\images\event
 		Path path1 = Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\event");
 
 		String path = request.getSession().getServletContext().getRealPath("/images/event");
 
-		if (file != null && file.getSize() > 0) { // 파일이 있으면
+		if (file != null && file.getSize() > 0) { // �뙆�씪�씠 �엳�쑝硫�
 
 			try {
 
@@ -103,7 +103,7 @@ public class EventController {
 	@RequestMapping(value = "/event_list.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView event_list(HttpServletRequest request) throws Exception {
 
-		//페이징 & 검색
+		//�럹�씠吏� & 寃��깋
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -128,12 +128,12 @@ public class EventController {
 
 		System.out.println("test searchValue: " + searchValue);
 
-		//전체 데이터 갯수
+		//�쟾泥� �뜲�씠�꽣 媛��닔
 		int dataCount = eventdao.getDataCount(searchValue);
 
 		System.out.println("number of all data: " + eventdao.getDataCount(searchValue)); // 27
 
-		//전체 페이지 수
+		//�쟾泥� �럹�씠吏� �닔
 		int numPerPage = 12;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -145,7 +145,7 @@ public class EventController {
 
 		List<FurnitureDTO> lists = eventdao.getLists(start, end, searchValue);
 
-		//페이징 처리
+		//�럹�씠吏� 泥섎━
 		String param = "";
 		if (!searchValue.equals("")) {
 			param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -161,7 +161,7 @@ public class EventController {
 		System.out.println("test2");
 
 		/*
-		//글보기 주소 정리
+		//湲�蹂닿린 二쇱냼 �젙由�
 		String eventUrl = 
 			cp + "/event_" + dto.getCateEn() +"_details?pageNum=" + currentPage;
 
