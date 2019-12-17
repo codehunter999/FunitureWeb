@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -121,7 +122,7 @@
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.jsp'">
+                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="window.location.href='cart.fu'">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -276,12 +277,22 @@
                                                 </figure>
                                                 <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                 <div class="product-action">
-                                                    <a href="wishlist.jsp" class="action-btn">
-                                                        <i class="la la-heart-o"></i>
-                                                    </a>
-                                                    <a href="wishlist.jsp" class="action-btn">
-                                                        <i class="la la-repeat"></i>
-                                                    </a>
+                                                    <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                            
+                                                            if(dto.getProductName().contains("[")){
+                                                    	        String str=dto.getProductName();
+                                                    	        str=str.replace("[", "%5B");
+                                                    	        str=str.replace("]", "%5D");
+                                                    	%>
+                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                            <i class="la la-heart-o"></i>
+                                                        </a>
+                                                            <%}else{ %>
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                            <%} %>
                                                 </div>
                                             </div>
                                             <div class="product-info">
@@ -293,7 +304,7 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <a href="cart.fu" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
 						                      

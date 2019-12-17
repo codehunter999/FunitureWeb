@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -127,9 +128,22 @@
                                                     </figure>
                                                     <a href="bed_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }" class="product-overlay"></a>
                                                     <div class="product-action">
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">
+                                                        <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                            
+                                                            if(dto.getProductName().contains("[")){
+                                                    	        String str=dto.getProductName();
+                                                    	        str=str.replace("[", "%5B");
+                                                    	        str=str.replace("]", "%5D");
+                                                    	%>
+                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
                                                             <i class="la la-heart-o"></i>
                                                         </a>
+                                                            <%}else{ %>
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                            <%} %>
                                                         <!-- <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-repeat"></i>
                                                         </a> -->
@@ -164,7 +178,7 @@
                                     	${pageIndexList }
                                     </c:if>
                                     <c:if test="${dataCount==0 }">
-                                    	등록된 게시물이 없습니다.
+                                    	<font color="gray">찾으시는 제품이 없습니다.</font>
                                     </c:if>
                                 </ul>
                             </nav>

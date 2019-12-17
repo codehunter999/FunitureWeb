@@ -62,21 +62,20 @@
                                                     <div class="product-action">
                                                         <%
                                                             FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
-                                                        	
+                                                            
                                                             if(dto.getProductName().contains("[")){
-                                                                String str=dto.getProductName();
-                                                                str=str.replace("[", "%5B");
-                                                                str=str.replace("]", "%5D");
-                                                                
+                                                    	        String str=dto.getProductName();
+                                                    	        str=str.replace("[", "%5B");
+                                                    	        str=str.replace("]", "%5D");
                                                     	%>
-                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
-                                                                <i class="la la-heart-o"></i>
-                                                            </a>
-                                                        <%}else{ %>
-                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
-                                                                <i class="la la-heart-o"></i>
-                                                            </a>
-                                                        <%} %>
+                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                            <i class="la la-heart-o"></i>
+                                                        </a>
+                                                            <%}else{ %>
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                            <%} %>
                                                         <!-- <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-repeat"></i>
                                                         </a> -->
@@ -109,7 +108,7 @@
                                     	${pageIndexList }
                                     </c:if>
                                     <c:if test="${dataCount==0 }">
-                                    	등록된 게시물이 없습니다.
+                                    	<font color="gray">찾으시는 제품이 없습니다.</font>
                                     </c:if>
                                 </ul>
                             </nav>
