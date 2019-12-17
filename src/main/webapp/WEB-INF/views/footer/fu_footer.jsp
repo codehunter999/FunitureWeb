@@ -144,27 +144,27 @@
 								 <li><font size="5">주문한 상품이 없습니다.</font></li><br/>
 						</c:if> 
 				 <c:if test="${!empty cartlist }">
-              	<%
-                	 	List<String> minicartlist = (List<String>)session.getAttribute("cartlist");
-                       	if(minicartlist!=null){
-                       		Iterator iterator=minicartlist.iterator();
-                       		int buttonIndex = 0; 
-                       		int i=0;
-                       		while(iterator.hasNext()){
-                       			String result=(String)iterator.next();
-                       			String[] value = result.split(":");
-                       			value[2]  = value[2].replaceAll(",","");			                                        			
-				                                   
-              	%>
+		              	<%
+		                	 	List<String> minicartlist = (List<String>)session.getAttribute("cartlist");
+		                       	if(minicartlist!=null){
+		                       		Iterator iterator=minicartlist.iterator();
+		                       		int buttonIndex = 0; 
+		                       		int i=0;
+		                       		while(iterator.hasNext()){
+		                       			String result=(String)iterator.next();
+		                       			String[] value = result.split(":");
+		                       			value[2]  = value[2].replaceAll(",","");			                                        			
+						                                   
+		              	%>
                         	
-                        <li class="mini-cart__product">
-                            <div class="mini-cart__product-image">
-                                <img src="<%=cp1 %><%=value[3] %>" alt="products">
-                            </div>
-                            <div class="mini-cart__product-content">
-                                <a class="mini-cart__product-title" href="product-details.fu"><%=value[1]%></a>                       
-                            </div>
-                        </li>
+	                        <li class="mini-cart__product">
+	                            <div class="mini-cart__product-image">
+	                                <img src="<%=cp1 %><%=value[3] %>" alt="products">
+	                            </div>
+	                            <div class="mini-cart__product-content">
+	                                <a class="mini-cart__product-title" href="product-details.fu"><%=value[1]%></a>                       
+	                            </div>
+	                        </li>
 								<%
 			                       }
 								%>
