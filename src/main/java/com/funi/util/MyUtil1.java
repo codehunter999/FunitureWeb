@@ -2,12 +2,12 @@ package com.funi.util;
 
 import org.springframework.stereotype.Component;
 
-/*@Component("MyUtil")*/
+@Component("MyUtil")
 public class MyUtil1 {
 	
-	//전체 페이지수 구하기
-	//numPerPage : 한화면에 표시할 데이터의 갯수
-	//dataCount : 전체 데이터의 갯수
+	//�쟾泥� �럹�씠吏��닔 援ы븯湲�
+	//numPerPage : �븳�솕硫댁뿉 �몴�떆�븷 �뜲�씠�꽣�쓽 媛��닔
+	//dataCount : �쟾泥� �뜲�씠�꽣�쓽 媛��닔
 	public int getPageCount(int numPerPage, int dataCount){
 		
 		int pageCount = 0;
@@ -20,42 +20,42 @@ public class MyUtil1 {
 		
 	}
 	
-	//페이징 처리 메소드
-	//currentPage :현재 표시할 페이지
-	//totalPage : 전체 페이지수
-	//listUrl : 링크를 설정할 url
+	//�럹�씠吏� 泥섎━ 硫붿냼�뱶
+	//currentPage :�쁽�옱 �몴�떆�븷 �럹�씠吏�
+	//totalPage : �쟾泥� �럹�씠吏��닔
+	//listUrl : 留곹겕瑜� �꽕�젙�븷 url
 	public String pageIndexList(int currentPage, int totalPage, String listUrl){
 		
-		int numPerBlock = 5; //1◀이전 6 7 8 9 10 다음▶11(6-10까지 표시되는 페이지 갯수)
-		int currentPageSetup; //표시할 첫 페이지(6)의 – 1 해준 값(5,10,15,20...)
+		int numPerBlock = 5; //1���씠�쟾 6 7 8 9 10 �떎�쓬�뼳11(6-10源뚯� �몴�떆�릺�뒗 �럹�씠吏� 媛��닔)
+		int currentPageSetup; //�몴�떆�븷 泥� �럹�씠吏�(6)�쓽 �� 1 �빐以� 媛�(5,10,15,20...)
 		int page;
 		
 		StringBuffer sb = new StringBuffer();
 		
-		if(currentPage==0 || totalPage==0)	//데이터가 없을 경우
+		if(currentPage==0 || totalPage==0)	//�뜲�씠�꽣媛� �뾾�쓣 寃쎌슦
 			return "";
 		
 		//abc.jsp?a=1
-		if(listUrl.indexOf("?") != -1)  //주소줄에 ?표가 있다면
+		if(listUrl.indexOf("?") != -1)  //二쇱냼以꾩뿉 ?�몴媛� �엳�떎硫�
 			listUrl = listUrl + "&";
 		else
 			listUrl = listUrl + "?";
 		
-		//표시할 첫 페이지의 – 1 해준 값
+		//�몴�떆�븷 泥� �럹�씠吏��쓽 �� 1 �빐以� 媛�
 		currentPageSetup = (currentPage/numPerBlock)*numPerBlock;
 		
 		if(currentPage % numPerBlock == 0)
 			currentPageSetup = currentPageSetup - numPerBlock;
 		
-		//◀이전
+		//���씠�쟾
 		if(totalPage > numPerBlock && currentPageSetup > 0){
 						
 			sb.append("<li><a class=\"page-number\" href=\"" + listUrl + "pageNum=" 
-					+ currentPageSetup + "\">◀</a><li>&nbsp;");
+					+ currentPageSetup + "\">��</a><li>&nbsp;");
 			
 		}
 		
-		//바로가기 페이지
+		//諛붾줈媛�湲� �럹�씠吏�
 		page = currentPageSetup + 1;
 		
 		while(page <= totalPage && page <= (currentPageSetup + numPerBlock)){
@@ -75,10 +75,10 @@ public class MyUtil1 {
 			
 		}		
 		
-		//다음▶
+		//�떎�쓬�뼳
 		if(totalPage - currentPageSetup > numPerBlock){
 						
-			sb.append("<a class=\"page-number\" href=\"" + listUrl + "pageNum=" + page + "\">▶</a>&nbsp;");
+			sb.append("<a class=\"page-number\" href=\"" + listUrl + "pageNum=" + page + "\">�뼳</a>&nbsp;");
 			
 		}
 		
