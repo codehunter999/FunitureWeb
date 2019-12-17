@@ -69,7 +69,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">Wishlist</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>Wishlist</span></li>
                         </ul>
                     </div>
@@ -99,7 +99,6 @@
                                     <tbody>
       
                                         <%
-                                        	
                                         	//Use List
                                         	List<String> wishitem=(List<String>)request.getAttribute("wishitem");
                                         	if(wishitem!=null){
@@ -153,6 +152,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Qicuk View Modal Start -->
         <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
@@ -167,6 +167,7 @@
     		</div>
     	</div>
         <!-- Qicuk View Modal End -->
+        
         <!-- Main Content Wrapper Start -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%> 

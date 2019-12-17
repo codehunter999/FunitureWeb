@@ -58,9 +58,9 @@
                                                         <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="action-btn">
+                                                        <!-- <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
@@ -72,10 +72,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">2,782,000원</span>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,9 +111,9 @@
                                                         <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="action-btn">
+                                                        <!-- <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
@@ -125,10 +125,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">348,000원</span>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -194,9 +194,9 @@
                                                         <a href="wishlist.fu" class="ml--20 action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="ml--20 action-btn">
+                                                        <!-- <a href="wishlist.fu" class="ml--20 action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>                                            
                                                 </div>
                                             </div>
@@ -217,9 +217,9 @@
                                                         <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="action-btn">
+                                                        <!-- <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
@@ -231,10 +231,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">110,000원</span>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -302,9 +302,9 @@
                                                         <a href="wishlist.fu" class="ml--20 action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="ml--20 action-btn">
+                                                        <!-- <a href="wishlist.fu" class="ml--20 action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>                                            
                                                 </div>
                                             </div>
@@ -325,9 +325,9 @@
                                                         <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="action-btn">
+                                                        <!-- <a href="wishlist.fu" class="action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
@@ -339,10 +339,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money"></span>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -410,9 +410,9 @@
                                                         <a href="wishlist.fu" class="ml--20 action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
-                                                        <a href="wishlist.fu" class="ml--20 action-btn">
+                                                        <!-- <a href="wishlist.fu" class="ml--20 action-btn">
                                                             <i class="la la-repeat"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </div>                                            
                                                 </div>
                                             </div>
