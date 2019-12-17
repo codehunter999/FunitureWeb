@@ -13,31 +13,31 @@ public class CartService {
 	@Autowired
 	OrderDAO orderDao;
 	
-	//Àå¹Ù±¸´Ï Ãß°¡
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	public void insert(OrderDTO dto) {
 		orderDao.insertData(dto);
 	}
-	//Àå¹Ù±¸´Ï ¸ñ·Ï
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public List<OrderDTO> listCart(String email){
 		return orderDao.listCart(email);
 	}
-	//Àå¹Ù±¸´Ï »èÁ¦
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void delete(int ordernum) {
 		orderDao.delete(ordernum);
 	}
-	//Àå¹Ù±¸´Ï ¼öÁ¤
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void orderUpdateData(OrderDTO dto) {
 		orderDao.orderUpdateData(dto);
 	}
-	//Àå¹Ù±¸´Ï ±Ý¾× ÇÕ°è
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ ï¿½Õ°ï¿½
 	public int sumMoney(String email) {
 		return orderDao.sumMoney(email);
 	}
-	//Àå¹Ù±¸´Ï »óÇ° È®ÀÎ
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° È®ï¿½ï¿½
 	public int countCart(int imageIndex, String email) {
 		return orderDao.countCart(imageIndex, email);
 	}
-	//Àå¹Ù±¸´Ï »óÇ° ¼ö·® º¯°æ
+	//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public void updateCart(OrderDTO dto) {
 		orderDao.updataeCart(dto);
 	}
