@@ -198,7 +198,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
-                                            <h3 class="review__title">1 review for Black Blazer</h3>
+                                            <!-- <h3 class="review__title">1 review for Black Blazer</h3> -->
                                             <%-- <ul class="review__list">
                                                 <li class="review__item">
                                                     <div class="review__container">
