@@ -186,7 +186,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                             <th class="text-right"><font size="3pt;"><strong>판매가</strong></font></th>
                                         </tr>
                                         <tr>
-                                            <c:if test="${cartlist != null}">
+                                            <c:if test="${!empty cartlist}">
 											<c:forEach var="row" items="${map.list}" varStatus="i">
                                             
                                                 <th>${row.productName}
@@ -198,7 +198,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                             
                                             </c:forEach>
 											</c:if>
-											<c:if test="${cartlist == null}">
+											<c:if test="${empty cartlist}">
 												<td>주문한 상품이 없습니다.</td>
 											</c:if>
                                         </tr>    
@@ -217,16 +217,16 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 	                                        			String result=(String)iterator.next();
 	                                        			String[] value=result.split(":");
 	                                        			value[2]  = value[2].replaceAll(",","");
-	                                        			Itemtotal = Integer.parseInt(value[4])*Integer.parseInt(value[2]);
+	                                        			Itemtotal = Integer.parseInt(value[5])*Integer.parseInt(value[2]);
 	                                        			totalSum += Itemtotal;
 	                                        			//paymentdto 상품정보 상품별 가격,상품 수량
 	                                        			paymentdto.setProductInfo(value[1]);
-	                                        			paymentdto.setProductEa(Integer.parseInt(value[4]));
+	                                        			paymentdto.setProductEa(Integer.parseInt(value[5]));
 	                                        			paymentdto.setProductPrice(Integer.parseInt(value[2]));  			
 	                               			%>                  
                                             <tr>
                                                 <th><%=value[0] %><%=value[1] %>
-                                                    <strong><span>&#10005;</span><%=value[4]%></strong>
+                                                    <strong><span>&#10005;</span><%=value[5]%></strong>
                                                 </th>
                                                 <td class="text-right"><%=Itemtotal %></td>
                                             </tr>
