@@ -209,7 +209,7 @@ function check(cp){
 					                                    
 				                                        <tr >
 				                                            <th class=""><%=paydto.getPaydate() %></th>
-				                                            <th class="">
+				                                            <th class="" style="text-align: left;">
 				                                            <img src="<%=cp%><%=paydto.getImagePath()%>" style="width: 10%;height: 10%">
 				                                            <%=paydto.getProductInfo() %></th> 
 				                                            <th class=""><%=paydto.getPaytype() %></th>
