@@ -1,6 +1,6 @@
 package com.funi.domain;
 
-import java.util.List;
+
 
 public class PaymentDTO {
 	
@@ -12,9 +12,21 @@ public class PaymentDTO {
 	private int productEa;
 	private int productPrice;
 	private String deliveryMessage;
+	private String paydate;
 	
-
-
+	
+	public String getPaytype() {
+		return paytype;
+	}
+	public void setPaytype(String paytype) {
+		this.paytype = paytype;
+	}
+	public String getPaydate() {
+		return paydate;
+	}
+	public void setPaydate(String paydate) {
+		this.paydate = paydate;
+	}
 	public String getImagePath() {
 		return imagePath;
 	}
@@ -33,12 +45,6 @@ public class PaymentDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getPaytype() {
-		return paytype;
-	}
-	public void setPaytype(String paytype) {
-		this.paytype = paytype;
 	}
 	public String getProductInfo() {
 		return productInfo;
