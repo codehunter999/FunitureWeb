@@ -44,7 +44,7 @@
                                         <tr class="order-total">
                                             <th >최종결제금액</th>
                                             <th class="text-left" style="background-color: white">
-                                            <font size="4">${price}</font>원</th>
+                                            <font size="4">${paySumAndpayType.paysum}</font>원</th>
                                             <th class="text-left"style="background-color: white"></th> 
                                             <th style="background-color: white"></th>
                                             <th style="background-color: white"></th>                                            
@@ -52,7 +52,7 @@
                                         </tr>
                                         <tr height="30">
                                             <th>결제수단</th>
-                                            <th class="text-left" style="background-color: white">${paytype }</th>
+                                            <th class="text-left" style="background-color: white">${paySumAndpayType.paytype }</th>
                                             <th class="text-left"style="background-color: white"></th> 
                                             <th style="background-color: white"></th>
                                             <th style="background-color: white"></th>                                            
@@ -80,9 +80,9 @@
                                         </tr>
                                     </thead>
                                         <%
-                                         		List<PaymentDTO> listdto=(List<PaymentDTO>)request.getAttribute("listdto");
-	                                   			 for(int i=0;i<listdto.size();i++) {
-	                                   			PaymentDTO dto=listdto.get(i);
+                                         		List<PaymentDTO> paylist = (List<PaymentDTO>)request.getAttribute("paylist");
+	                                   			for(int i=0;i<paylist.size();i++) {
+	                                   				PaymentDTO dto = paylist.get(i);
                                    		 %>
                                    			 <tr>
                                             <td class="product-thumbnail text-left">
@@ -104,15 +104,13 @@
                                             </td>
                                             <td class="product-stock">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money"><%=dto.getProductPrice() %></span>
+                                                    <span class="money"><%=dto.getProductPrice() %>원</span>
                                                 </span>
                                             </td>
-                                        </tr> 
-                                   			 
-                                   			 
-                                   			 <%
-                                   		 }
-                                   			 %>
+                                        </tr>                                                          			 
+                                   		 <%
+                                   			 }
+                                   		 %>
                                      </tbody>
                                 </table>
                             </div>  

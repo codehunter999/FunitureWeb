@@ -24,6 +24,21 @@
 		}
     </script>
     
+    	<!-- Breadcrumb area Start -->
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/QnaBackground.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">Wish List</h1>
+                        <ul class="breadcrumb">
+                        	<li class="current"><span></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    	<!-- Breadcrumb area End -->
+    
         <!-- Main Content Wrapper Start -->
         <div class="main-content-wrapper">
             <div class="page-content-inner ptb--80 ptb-md--60">
