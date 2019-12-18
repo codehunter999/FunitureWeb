@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion.jpg">
@@ -44,7 +45,9 @@
                                         <tr class="order-total">
                                             <th >최종결제금액</th>
                                             <th class="text-left" style="background-color: white">
-                                            <font size="4">${paySumAndpayType.paysum}</font>원</th>
+                                            <font size="4">
+                                            <fmt:formatNumber value="${paySumAndpayType.paysum}" pattern="###,###,###"/>
+                                            </font>원</th>
                                             <th class="text-left"style="background-color: white"></th> 
                                             <th style="background-color: white"></th>
                                             <th style="background-color: white"></th>                                            
@@ -96,7 +99,9 @@
                                             <td ></td>
                                             <td class="product-price">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money"><%=dto.getProductPrice()/dto.getProductEa() %>원</span>
+                                                    <span class="money">
+                                                    <fmt:formatNumber value="<%=dto.getProductPrice()/dto.getProductEa() %>" pattern="###,###,###"/>
+				                                    원</span>
                                                 </span>
                                             </td>
                                             <td class="product-stock">
@@ -104,7 +109,9 @@
                                             </td>
                                             <td class="product-stock">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money"><%=dto.getProductPrice() %>원</span>
+                                                    <span class="money">
+                                                    <fmt:formatNumber value="<%=dto.getProductPrice() %>" pattern="###,###,###"/>
+                                                    원</span>
                                                 </span>
                                             </td>
                                         </tr>                                                          			 

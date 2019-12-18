@@ -11,11 +11,14 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 		insert into fupayment (payId,email,paytype,imagePath,productInfo,productEa,productPrice,deliveryMessage,paydate)
 		values (#{payId},#{email},#{paytype},#{imagePath},#{productInfo},#{productEa},#{productPrice},#{deliveryMessage},sysdate)
 	</insert>
-	<select id="getlist" parameterType="String" resultType="com.funi.domain.PaymentDTO">
+	<select id="getpaylist" parameterType="String" resultType="com.funi.domain.PaymentDTO">
 		select * from fupayment where paydate = (select max(paydate) from fupayment) and email=#{email}
 	</select>
 	<select id="paySumAndpayType" resultType="com.funi.domain.PaymentpaySum_payType" parameterType="String">
 		select paytype,sum(productprice) paysum from fupayment where paydate = (select max(paydate) from fupayment) and email=#{email} group by paytype
+	</select>
+	<select id="getTotalList" parameterType="String" resultType="com.funi.domain.PaymentDTO">
+		select * from fupayment where email=#{email}
 	</select>
 </mapper>
 

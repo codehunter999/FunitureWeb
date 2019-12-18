@@ -16,7 +16,12 @@
 	var data;
 	var paytype;
 	
-	function payment() {	
+	function payment() {
+		
+		if($("[id = 'cardType']").val()=="default"){
+			alert("카드를 선택하세요.");
+			return;
+		}
 		
 		$('#paymentModal').modal();
 		//paytype 결제 
@@ -256,8 +261,8 @@
                                                 <label class="payment-label" for="bank">카드결제</label>
                                             </div>
                                             <div class="payment-info" data-method="bank">
-												<select name="cartType">
-													<option value="국민카드" >카드를 선택하세요</option>
+												<select name="cartType" id="cardType">
+													<option value="default" >카드를 선택하세요</option>
 													<option value="KB카드">KB카드</option>
 													<option value="BC카드">BC카드</option>
 													<option value="삼성카드">삼성카드</option>
