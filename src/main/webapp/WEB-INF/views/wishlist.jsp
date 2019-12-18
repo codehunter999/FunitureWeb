@@ -31,7 +31,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">wishlist</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>wishlist</span></li>
                         </ul>
                     </div>

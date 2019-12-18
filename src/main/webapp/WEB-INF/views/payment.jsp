@@ -49,7 +49,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">Payment</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>Payment</span></li>
                         </ul>
                     </div>

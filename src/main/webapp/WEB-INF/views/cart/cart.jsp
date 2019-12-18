@@ -142,7 +142,7 @@ $(document).ready(function(){
                     <div class="col-12 text-center">
                         <h1 class="page-title">Cart</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>Cart</span></li>
                         </ul>
                     </div>
@@ -190,21 +190,19 @@ $(document).ready(function(){
 			                                        			value[2]  = value[2].replaceAll(",","");			                                        			
 				                                    %>
 													<tr>
-                                                        <td class="product-remove text-left"><input type="button" id="removeItem<%=buttonIndex%>" style="border: none" class="la la-remove" value="X" onclick="clickremove();"></td>
+                                                        <td class="product-remove text-left"><input type="button" id="removeItem<%=buttonIndex%>" style="border: none; background-color: rgb(255,255,255);" class="la la-remove" value="X" onclick="clickremove();"></td>
                                                         <td class="product-thumbnail text-left">
                                                              <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html">
-                                                                	<br/><%=value[1] %><br/>
-                                                                	<font style="color: rgb(255,81,81);">option</font> : <%=value[4] %>
-                                                                </a>
+                                                                <br/><%=value[1] %><br/>
+                                                               	<font style="color: rgb(255,81,81);">option</font> : <%=value[4] %>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                	<input type="text" value="<%=value[2] %>원" id="item_price<%=buttonIndex%>" style="border: none;text-align: left"/>
+                                                                	&nbsp;&nbsp;<input type="text" value="<%=value[2] %>원" id="item_price<%=buttonIndex%>" style="border: none;text-align: center"/>
                                                                 </span>
                                                             </span>
                                                         </td>
@@ -216,7 +214,7 @@ $(document).ready(function(){
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
                                                                 <span class="money">
-                                                                	<input type="text" value="<%=value[2] %>원" id="totalItem_price<%=buttonIndex%>" style="border: none;text-align: center"/>
+                                                                	<input type="text" value="<%=value[2] %>" id="totalItem_price<%=buttonIndex%>" style="border: none;text-align: center"/>
                                                               </span>
                                                             </span>
                                                         </td>
@@ -259,7 +257,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none" /> 
+                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" />원
                                                 </span>
                                             </div>
                                         </div>
@@ -268,7 +266,7 @@ $(document).ready(function(){
                                                 <span>배송비</span>
                                             </div>
                                             <div class="cart-calculator__item--value">
-                                                <span>+0원</span>
+                                                <span style="text-align: right;">+0원&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             </div>
                                         </div>
                                         <div class="cart-calculator__item order-total">
@@ -277,7 +275,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none" id="map_allSum"/>
+                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>원
                                                 </span>
                                             </div>
                                         </div>

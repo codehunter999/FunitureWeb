@@ -93,7 +93,7 @@
                                             </td>
                                             <td class="product-name text-left wide-column">
                                                 <h3>
-                                                    <a href="product-details.html"><%=dto.getProductInfo() %></a>
+                                                    <%=dto.getProductInfo() %>
                                                 </h3>
                                             </td>
                                             <td ></td>
