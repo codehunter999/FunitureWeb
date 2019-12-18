@@ -9,7 +9,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">홈데코 / 리빙</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>월간 카레클린트│조명│PLASTIC 체어</span></li>
                         </ul>
                     </div>

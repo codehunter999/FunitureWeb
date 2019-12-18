@@ -8,7 +8,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">HOME DECO</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>PLASTIC 체어</span></li>
                         </ul>
                     </div>

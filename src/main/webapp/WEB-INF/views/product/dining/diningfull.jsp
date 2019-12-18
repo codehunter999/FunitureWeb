@@ -9,7 +9,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">주방/다이닝룸</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>선브렐라 체어│클린터치 테이블│리놀륨 테이블│테이블│체어│장식장│책상/선반</span></li>
                         </ul>
                     </div>

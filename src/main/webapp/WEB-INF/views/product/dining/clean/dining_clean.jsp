@@ -9,7 +9,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">DINING ROOM</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>클린터치 테이블</span></li>
                         </ul>
                     </div>

@@ -1,20 +1,67 @@
 <%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+FurnitureDTO dto2=(FurnitureDTO)request.getAttribute("dto");
+if(dto2.getProductName().contains("[")){       
+	 dto2.setProductName(dto2.getProductName().replace("[", "%5B"));
+	 dto2.setProductName(dto2.getProductName().replace("]", "%5D"));
+} 
+dto2.setPrice(dto2.getPrice().replaceAll(",",""));
+
+%>
 <script type="text/javascript">
 	
 	var data; 
 	
 	function clickevent(eventdata){
+		
 			data = eventdata;
-			data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
-			data += ":" + $("[id = 'qty']").val();
-			$('div.modal').modal();	
-			alert(data);
+			
+			//alert(eventdata);
+			//alert($("[id = 'optionV']").val());
+			
+			if($("[id = 'optionV']").val()=="default"){
+				alert("옵션을 선택하세요.");
+				return;
+			}else{
+				data += ":"+$("[id = 'optionV']").val();
+			}
+			
+			//data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
+			//data += ":" + $("[id = 'qty']").val();
+			data += ":1";
+			
+			$('div#productModal').modal();
+			
+			//alert(data);
 	}
+	
+<%-- 	function buynowevent(eventdata){
+		
+		d = eventdata;
+		
+		if($("[id = 'optionV']").val()=="default"){
+			alert("옵션을 선택해주세요.");
+			return;
+		}
+		
+		//data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
+		d = $("[id = 'qty']").val();
+		d += ":" + <%=dto2.getPrice()%>;
+		
+		$('div#payModal').modal();	
+		alert(d);
+		
+	} --%>
+	
 	function cartsubmit(){
 		location.href="<%=cp%>/cartlist_input.fu?data="+data;
 	}
+	
+	<%-- function paysubmit(){
+		location.href="<%=cp%>/payment.fu?data="+d;
+	} --%>
 
 	
 </script>
@@ -26,7 +73,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">${dto.productName }</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>${dto.cate }</span></li>
                         </ul>
                     </div>
@@ -140,7 +187,7 @@
                                         <div class="product-size-variation variation-wrapper">
                                         	<c:if test="${dto.imageIndex==411}">
                                             <select id="optionV">
-                                            	<option selected="selected">- [색상] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [색상] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="classic">classic</option>
                                             	<option value="blue">blue</option>
@@ -160,7 +207,7 @@
                                             </c:if>
                                             <c:if test="${dto.imageIndex==413 }">
                                         	<select id="optionV">
-                                            	<option selected="selected">- [색상] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [색상] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="white/rose">white/rose</option>
                                             	<option value="rose/green">rose/green</option>
@@ -170,7 +217,7 @@
                                             </c:if>
                                             <c:if test="${dto.imageIndex==414 }">
                                         	<select id="optionV">
-                                            	<option selected="selected">- [색상] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [색상] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="화이트">화이트</option>
                                             	<option value="컬러">컬러</option>
@@ -178,7 +225,7 @@
                                             </c:if>
                                             <c:if test="${dto.imageIndex==415 }">
                                         	<select id="optionV">
-                                            	<option selected="selected">- [필수] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [필수] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="250">250</option>
                                             </select>
@@ -191,7 +238,7 @@
                                             </c:if>
                                             <c:if test="${dto.imageIndex==417 }">
                                         	<select id="optionV">
-                                            	<option selected="selected">- [색상] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [색상] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="white">white</option>
                                             	<option value="black">black</option>
@@ -202,7 +249,7 @@
                                             </c:if>
                                             <c:if test="${dto.imageIndex==418 }">
                                         	<select id="optionV">
-                                            	<option selected="selected">- [색상] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [색상] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="white">white</option>
                                             	<option value="black">black</option>
@@ -216,7 +263,7 @@
                                             </c:if>
                                             <c:if test="${dto.imageIndex==420 }">
                                         	<select id="optionV">
-                                            	<option selected="selected">- [사이즈] 옵션을 선택해주세요 -</option>
+                                            	<option selected="selected" value="default">- [사이즈] 옵션을 선택해주세요 -</option>
                                             	<option disabled="disabled">-----------------------------------</option>
                                             	<option value="college450">college450</option>
                                             </select>
@@ -232,12 +279,12 @@
                                     <a href="" class="reset_variations">Clear</a>
                                 </form>
                                 <div class="product-action d-flex flex-sm-row align-items-sm-center flex-column align-items-start mb--30">
-                                    <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
+                                    <!-- <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
                                         <label class="quantity-label" for="qty">Quantity:</label>
                                         <div class="quantity">
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
-                                    </div>
+                                    </div> -->
                                      <%  
                                     				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
 		                                             if(dto1.getProductName().contains("[")){       
@@ -246,7 +293,7 @@
 		                                             } 
 		                                             dto1.setPrice(dto1.getPrice().trim());
                                      %>
-                                    <button type="button" class="btn btn-size-sm btn-shape-square" onclick="clickevent('${dto.cateEn}:<%=dto1.getProductName() %>:<%=dto1.getPrice()%>:/resources/images/deco/${dto.saveFileName}');">
+                                    <button type="button" id="cart" class="btn btn-size-sm btn-shape-square" onclick="clickevent('${dto.cateEn}:<%=dto1.getProductName() %>:<%=dto1.getPrice()%>:/resources/images/deco/${dto.saveFileName}');">
                                         Add To Cart
                                     </button>
                                 </div>  
@@ -403,11 +450,11 @@
                                                                 str=str.replace("[", "%5B");
                                                                 str=str.replace("]", "%5D");
                                                     	%>
-                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">       
+                                                            <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
                                                                 <i class="la la-heart-o"></i>
                                                             </a>
                                                             <%}else{ %>
-                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">       
+                                                            <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
                                                                 <i class="la la-heart-o"></i>
                                                             </a>
                                                             <%} %>
@@ -443,7 +490,10 @@
             </div>
         </div>
         <!-- Main Content Wrapper End -->
-              <!-- Qicuk View Modal Start -->
+        
+        
+        <!-- Qicuk View Modal Start -->
+        
         <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
         		<div class="modal-content">
@@ -456,6 +506,20 @@
     			</div>
     		</div>
     	</div>
+    	
+    	<div class="modal fade product-modal" id="payModal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					결제하시겠습니까?<br>
+    					<button class="btn btn-size-sm" onclick="paysubmit()">예</button>
+    					<button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	
         <!-- Qicuk View Modal End -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>
