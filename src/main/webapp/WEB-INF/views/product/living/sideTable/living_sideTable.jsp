@@ -9,8 +9,8 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">BED ROOM</h1>
                         <ul class="breadcrumb">
-                            <li><a href="<%=cp%>/">Home</a></li>
-                            <li class="current"><span>선브렐라 소파</span></li>
+                            <li><a href="/furnitureweb/home.fu">Home</a></li>
+                            <li class="current"><span>사이드 테이블</span></li>
                         </ul>
                     </div>
                 </div>

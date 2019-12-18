@@ -9,7 +9,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">LIVING ROOM</h1>
                         <ul class="breadcrumb">
-                            <li><a href="<%=cp%>/">Home</a></li>
+                            <li><a href="/furnitureweb/home.fu">Home</a></li>
                             <li class="current"><span>선브렐라 소파│가죽 소파│데우스 소파│사이드 테이블│TV 장│선반│북케이스</span></li>
                         </ul>
                     </div>

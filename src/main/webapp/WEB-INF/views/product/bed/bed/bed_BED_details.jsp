@@ -6,12 +6,26 @@
 	var data; 
 	
 	function clickevent(eventdata){
-			data = eventdata;
-			data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
-			data += ":" + $("[id = 'qty']").val();
-			$('div.modal').modal();	
-			alert(data);
-	}
+		
+		data = eventdata;
+		
+		//alert(eventdata);
+		//alert($("[id = 'optionV']").val());
+		
+		if($("[id = 'optionV']").val()=="default"){
+			alert("옵션을 선택하세요.");
+			return;
+		}else{
+			data += ":"+$("[id = 'optionV']").val();
+		}
+		
+		//data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
+		data += ":1";
+		
+		$('div#productModal').modal();	
+		
+		//alert(data);
+}
 	function cartsubmit(){
 		location.href="<%=cp%>/cartlist_input.fu?data="+data;
 	}
@@ -25,7 +39,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">${dto.productName }</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="/furnitureweb/home.fu">Home</a></li>
                             <li class="current"><span>${dto.cate }</span></li>
                         </ul>
                     </div>
@@ -91,7 +105,7 @@
 	                                        <p class="variation-label">헤드보드 옵션:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
 	                                        	<select id="optionV">
-	                                            	<option selected="selected">- [필수] 옵션을 선택해주세요 -</option>
+	                                            	<option selected="selected" value="default">- [필수] 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="A TYPE - 스테디페브릭 딤그레이">A TYPE - 스테디페브릭 딤그레이</option>
 	                                            	<option value="A TYPE - 스테디페브릭 차콜그레이">A TYPE - 스테디페브릭 차콜그레이</option>
@@ -107,7 +121,7 @@
 	                                        <p class="variation-label">옵션:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
 	                                        	<select id="optionV">
-	                                            	<option selected="selected">- [필수] 옵션을 선택해주세요 -</option>
+	                                            	<option selected="selected" value="default">- [필수] 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="Q(1500*2000)">Q(1500*2000)</option>
 	                                            	<option value="K(1670*2080)">K(1670*2080)</option>
@@ -121,7 +135,7 @@
 	                                        <p class="variation-label">옵션:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
 	                                        	<select id="optionV">
-	                                            	<option selected="selected">- [필수] 옵션을 선택해주세요 -</option>
+	                                            	<option selected="selected" value="default">- [필수] 옵션을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="Q(1500*2000)">Q(1500*2000)</option>
 	                                            	
@@ -132,12 +146,12 @@
                                     <a href="" class="reset_variations">Clear</a>
                                 </form>
                                 <div class="product-action d-flex flex-sm-row align-items-sm-center flex-column align-items-start mb--30">
-                                    <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
+                                    <!-- <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
                                         <label class="quantity-label" for="qty">Quantity:</label>
                                         <div class="quantity">
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <%  
                                    				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
 	                                             if(dto1.getProductName().contains("[")){       
@@ -309,11 +323,11 @@
                                                                 str=str.replace("[", "%5B");
                                                                 str=str.replace("]", "%5D");
                                                     	%>
-                                                   		 <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg" class="action-btn">       
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                             <%}else{ %>
-                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/bedroom/${dto.imageIndex}.jpg"class="action-btn">       
                                                                     <i class="la la-heart-o"></i>
                                                                 </a>
                                                             <%} %>
