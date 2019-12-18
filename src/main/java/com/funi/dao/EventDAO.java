@@ -36,11 +36,11 @@ public class EventDAO {
 
 	}
 
-	public List<FurnitureDTO> getCateLists(String cate,String searchValue,int start,int end){
+	public List<FurnitureDTO> getCateLists(String cateEn,String searchValue,int start,int end){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 		params.put("searchValue", searchValue);
 		params.put("start", start);
 		params.put("end", end);
@@ -51,23 +51,23 @@ public class EventDAO {
 
 	}
 	
-	public List<FurnitureDTO> getDetailLists(String cate){
+	public List<FurnitureDTO> getDetailLists(String cateEn){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 
 		List<FurnitureDTO> detailLists = sessionTemplate.selectList("eventMapper.getDetailLists", params);
 
 		return detailLists;
 	}
 	
-	public FurnitureDTO getReadData(int imageIndex,String cate){
+	public FurnitureDTO getReadData(int imageIndex,String cateEn){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
 		params.put("imageIndex", imageIndex);
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 
 		FurnitureDTO dto = sessionTemplate.selectOne("eventMapper.getReadData", params);
 
@@ -87,11 +87,11 @@ public class EventDAO {
 
 	}
 	
-	public int getCateDataCount(String cate,String searchValue){
+	public int getCateDataCount(String cateEn,String searchValue){
 
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
-		params.put("cate", cate);
+		params.put("cateEn", cateEn);
 		params.put("searchValue", searchValue);
 
 		int result = sessionTemplate.selectOne("eventMapper.getCateDataCount",params);

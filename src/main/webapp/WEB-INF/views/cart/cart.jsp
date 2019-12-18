@@ -136,7 +136,7 @@ $(document).ready(function(){
 </script>
 
  <!-- Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/홈데코리빙.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -245,23 +245,7 @@ $(document).ready(function(){
                           </c:choose>
                         </div>
                         
-                        <!-- Qicuk View Modal Start -->
-				        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-				          <div class="modal-dialog" role="document" style="width: 150">
-				            <div class="modal-content">
-				              <div class="modal-body" align="center">
-				              <br><br><br>
-				                	결제를 진행하겠습니까?
-				                <br>
-				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
-				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
-				              	<br><br><br>                      
-				              </div>
-				            </div>
-				          </div>
-				        </div>
-				        
-				        <!-- Qicuk View Modal End -->
+                       
                         <div class="col-lg-4">
                             <div class="cart-collaterals">
                                 <div class="cart-totals">
@@ -308,7 +292,23 @@ $(document).ready(function(){
         </div>
         <!-- Main Content Wrapper Start -->
                 <!-- Main Content Wrapper Start -->
-        
+         <!-- Qicuk View Modal Start -->
+				        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+				          <div class="modal-dialog" role="document" style="width: 300">
+				            <div class="modal-content">
+				              <div class="modal-body" align="center">
+				              <br><br><br>
+				                	결제를 진행하겠습니까?
+				                <br>
+				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
+				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
+				              	<br><br><br>                      
+				              </div>
+				            </div>
+				          </div>
+				        </div>
+				        
+				        <!-- Qicuk View Modal End -->
         <!-- Cart Item Delete Modal Start -->
         <div class="modal fade product-modal" id="removeModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">

@@ -128,7 +128,7 @@ public class PaymentController {
 		String email = (String)session.getAttribute("email");
 		PaymentpaySum_payType paymenpaySum_payType = null;
 		try {
-			List<PaymentDTO> paylist = paymentdao.getList(email);
+			List<PaymentDTO> paylist = paymentdao.getPayList(email);
 			paymenpaySum_payType = paymentdao.search_paySum_paytype(email);
 			mav.addObject("paylist",paylist);
 			mav.addObject("paySumAndpayType",paymenpaySum_payType);

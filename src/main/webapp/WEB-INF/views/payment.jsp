@@ -38,7 +38,7 @@
 </script>
 
 	 <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/product/shop1.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/홈데코리빙.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">

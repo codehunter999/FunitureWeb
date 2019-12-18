@@ -61,13 +61,13 @@ public class EventController {
 
 		eventdao.insertData(dto);
 
-		// �떎�젣寃쎈줈:
+		
 		//D:\sts-bundle\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\furnitureproject\resources\images\event
 		Path path1 = Paths.get("D:\\sts-bundle\\work\\FurnitureWeb\\src\\main\\webapp\\resources\\images\\event");
 
 		String path = request.getSession().getServletContext().getRealPath("/images/event");
 
-		if (file != null && file.getSize() > 0) { // �뙆�씪�씠 �엳�쑝硫�
+		if (file != null && file.getSize() > 0) { 
 
 			try {
 
@@ -103,7 +103,6 @@ public class EventController {
 	@RequestMapping(value = "/event_list.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView event_list(HttpServletRequest request) throws Exception {
 
-		//�럹�씠吏� & 寃��깋
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -128,13 +127,13 @@ public class EventController {
 
 		System.out.println("test searchValue: " + searchValue);
 
-		//�쟾泥� �뜲�씠�꽣 媛��닔
+		//전체 데이터갯수
 		int dataCount = eventdao.getDataCount(searchValue);
 
 		System.out.println("number of all data: " + eventdao.getDataCount(searchValue)); // 27
 
-		//�쟾泥� �럹�씠吏� �닔
-		int numPerPage = 12;
+		//전체 페이지수
+		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
 		if (currentPage > totalPage)
@@ -145,7 +144,7 @@ public class EventController {
 
 		List<FurnitureDTO> lists = eventdao.getLists(start, end, searchValue);
 
-		//�럹�씠吏� 泥섎━
+		//페이징 처리
 		String param = "";
 		if (!searchValue.equals("")) {
 			param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -161,7 +160,7 @@ public class EventController {
 		System.out.println("test2");
 
 		/*
-		//湲�蹂닿린 二쇱냼 �젙由�
+		//글보기 주소 정리
 		String eventUrl = 
 			cp + "/event_" + dto.getCateEn() +"_details?pageNum=" + currentPage;
 
@@ -177,6 +176,8 @@ public class EventController {
 		mav.addObject("dataCount", dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
 		mav.addObject("pageNum", pageNum);
+		
+		mav.addObject("searchValue", searchValue);
 
 		return mav;
 
@@ -189,11 +190,11 @@ public class EventController {
 		ModelAndView mav = new ModelAndView();
 
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
-		String cate = request.getParameter("cate");
 
-		List<FurnitureDTO> catelists = eventdao.getDetailLists(cate);
+		String cateEn = request.getParameter("cateEn");
+		List<FurnitureDTO> catelists = eventdao.getDetailLists(cateEn);
 
-		FurnitureDTO dto = eventdao.getReadData(imageIndex, cate);
+		FurnitureDTO dto = eventdao.getReadData(imageIndex, cateEn);
 
 		mav.setViewName("event/event_details");
 		mav.addObject("dto", dto);

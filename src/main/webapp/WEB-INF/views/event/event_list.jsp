@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
@@ -59,22 +60,37 @@
                                                     <figure class="product-image--holder">
                                                         <img src="<%=cp %>/resources/images/event/${dto.saveFileName}" alt="Product">
                                                     </figure>
-                                                    <a href="${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}" class="product-overlay"></a>
+                                                    <a href="${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}" class="product-overlay"></a>
                                                     <div class="product-action">
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/event/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">
-                                                            <i class="la la-heart-o"></i>
-                                                        </a>
-                                                        
+                                                        <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                    
+                                                            if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
+                                                    	%>
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/event/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                        <%}else{ %>
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/event/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                        <%} %>
+                                                        <!-- <a href="wishlist.html" class="action-btn">
+                                                            <i class="la la-repeat"></i>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.cate }</a>
+                                                        <a href="${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}">${dto.cate }</a>
                                                     </div>
-                                                    <h3 class="product-title"><a href="${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cate=${dto.cate}&pageNum=${pageNum}">${dto.productName }</a></h3>
+                                                    <h3 class="product-title"><a href="${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}">${dto.productName }</a></h3>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>

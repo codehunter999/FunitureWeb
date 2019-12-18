@@ -19,8 +19,12 @@ private SqlSessionTemplate sessionTemplate;
 		int result= sessionTemplate.selectOne("paymentMapper.selectId");
 		return result;
 	}
-	public List<PaymentDTO> getList(String email){
-		List<PaymentDTO> result=sessionTemplate.selectList("paymentMapper.getlist", email);
+	public List<PaymentDTO> getTotalList(String email){
+		List<PaymentDTO> result=sessionTemplate.selectList("paymentMapper.getTotalList",email);
+		return result;
+	}
+	public List<PaymentDTO> getPayList(String email){
+		List<PaymentDTO> result=sessionTemplate.selectList("paymentMapper.getpaylist",email);
 		return result;
 	}
 	public void setList(List<PaymentDTO> list) {		
