@@ -2,6 +2,7 @@ package com.funi.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funi.dao.MemberDAO;
+import com.funi.dao.PaymentDAO;
 import com.funi.domain.MemberDTO;
+import com.funi.domain.PaymentDTO;
 import com.funi.service.Email;
 import com.funi.service.EmailSender;
 import com.funi.service.KakaoAPI;
@@ -45,7 +48,9 @@ public class MemberController {
 	@Qualifier("email")
 	Email email;
 	
-	
+	@Autowired
+	@Qualifier("paymentdao")
+	PaymentDAO paymentdao;
 
 	// login-register
 
@@ -67,12 +72,10 @@ public class MemberController {
 		ModelAndView loginmav = new ModelAndView(); 
 		MemberDTO memberdto = null; 
 		
-		try {
-			
+		try {		
 			boolean flag = memberdao.searchID(paramdto.getEmail());
 			System.out.println("flag : " + paramdto.getEmail()); 
-			String message = null;
-			
+			String message = null;		
 			if (!flag) { 
 				message = "회원 정보를 찾을수 없습니다."; 
 				loginmav.addObject("message", message); 
@@ -188,19 +191,19 @@ public class MemberController {
 			return mav; 
 		}
 	
-	@RequestMapping(value = "/myinfo.fu", method = { RequestMethod.GET,	RequestMethod.POST }) 
+	@RequestMapping(value = "/myinfo.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
 	public ModelAndView myinfo(ModelMap model, HttpSession session) throws Exception { 
 		
 		ModelAndView myinfomav = new ModelAndView();
-		
-		myinfomav.setViewName("member/myinfo"); 
-		
 		String email = (String)session.getAttribute("email"); 
 		MemberDTO memberdto = memberdao.searchMember(email); 
-		System.out.println("myinfo email " + email);
-		System.out.println("myinfo addr1 " + email);
-		System.out.println("myinfo addr2 " + email);
-		System.out.println("myinfo addr3 " + email); myinfomav.addObject("memberdto", memberdto); return myinfomav; }
+		List<PaymentDTO> paylist =  paymentdao.getTotalList(email);
+		
+		myinfomav.addObject("paylist",paylist);
+		myinfomav.addObject("memberdto", memberdto); 
+		myinfomav.setViewName("mypage"); 
+		return myinfomav; 
+	}
 
 
 	// ȸ�� ���� ����

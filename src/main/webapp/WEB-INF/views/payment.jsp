@@ -8,16 +8,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
-PaymentDTO paymentdto = null;
-List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
+	PaymentDTO paymentdto = null;
+	List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 %>
 <script type="text/javascript">
 		
 	var data;
 	var paytype;
-	function payment(paylist) {	
-		//var f = document.paymentInfo;
-		$('div.modal').modal();
+	
+	function payment() {	
+		
+		$('#paymentModal').modal();
 		//paytype 결제 
 		var radioVal = $(':radio[name="payment-method"]:checked').val();		
 		if(radioVal == 'bank'){				
@@ -25,19 +26,13 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 		}else{		
 			paytype = $(':radio[name="payment-method"]:checked').val();
 		}
-		f.action = "<%=cp%>/orderlist.fu?paytype="+paytype;
-		f.submit();
+		alert(paytype);
 	}
-	//function payment() {	
-		//var f = document.paymentInfo;
-	//	$('div.modal').modal();
-	//	data = paylist;
-	//	f.action = "<%=cp%>/payment_input.fu";
-	//	f.submit();
-	//}
-	function cartsubmit(){
-		location.href="<%=cp%>/orderlist.fu?paytype="+paytype;
-		
+	
+	function paysubmit(){
+		var f = document.paymentInfo;
+		f.action = "<%=cp%>/payment_input.fu?paytype="+paytype;
+		f.submit();		
 	}
 	
 </script>
@@ -59,14 +54,14 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
         <!-- Breadcrumb area End -->
         
      	<!-- Qicuk View Modal Start -->
-	        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+	        <div class="modal fade product-modal" id="paymentModal" tabindex="-1" role="dialog" aria-hidden="true">
 	          <div class="modal-dialog" role="document" style="width: 150">
 	            <div class="modal-content">
 	              <div class="modal-body" align="center">
 	              <br><br><br>
 	                	결제를 진행하겠습니까?
 	                <br>
-	                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
+	                <button class="btn btn-size-sm" onclick="paysubmit();">예</button>&nbsp;
 	                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
 	              	<br><br><br>                      
 	              </div>
@@ -186,7 +181,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                             <th class="text-right"><font size="3pt;"><strong>판매가</strong></font></th>
                                         </tr>
                                         <tr>
-                                            <c:if test="${!empty cartlist}">
+                                            <c:if test="${cartlist != null}">
 											<c:forEach var="row" items="${map.list}" varStatus="i">
                                             
                                                 <th>${row.productName}
@@ -204,8 +199,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                         </tr>    
                                             <%
 				                                int totalSum = 0;
-                                            	List<String> cartlist=(List<String>)request.getAttribute("cartlist");
-                                           		//List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
+                                            	List<String> cartlist=(List<String>)request.getAttribute("cartlist");                                          	
                                             	if(cartlist!=null){
 	                                        		Iterator iterator=cartlist.iterator();
 	                                        		int buttonIndex = 0; 
@@ -217,16 +211,12 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
 	                                        			String result=(String)iterator.next();
 	                                        			String[] value=result.split(":");
 	                                        			value[2]  = value[2].replaceAll(",","");
-	                                        			Itemtotal = Integer.parseInt(value[4])*Integer.parseInt(value[2]);
-	                                        			totalSum += Itemtotal;
-	                                        			//paymentdto 상품정보 상품별 가격,상품 수량
-	                                        			paymentdto.setProductInfo(value[1]);
-	                                        			paymentdto.setProductEa(Integer.parseInt(value[4]));
-	                                        			paymentdto.setProductPrice(Integer.parseInt(value[2]));  			
+	                                        			Itemtotal = Integer.parseInt(value[6])*Integer.parseInt(value[2]);
+	                                        			totalSum += Itemtotal;			
 	                               			%>                  
                                             <tr>
                                                 <th><%=value[0] %><%=value[1] %>
-                                                    <strong><span>&#10005;</span><%=value[4]%></strong>
+                                                    <strong><span>&#10005;</span><%=value[6]%></strong>
                                                 </th>
                                                 <td class="text-right"><%=Itemtotal %></td>
                                             </tr>
@@ -262,11 +252,11 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                     <form action="" class="payment-form" name="paymentInfo" method="post">
                                         <div class="payment-group mb--10">
                                             <div class="payment-radio">
-                                                <input type="radio" value="bank" name="payment-method" id="bank" checked>
+                                                <input type="radio" value="bank" name="payment-method" id="bank" checked="checked">
                                                 <label class="payment-label" for="bank">카드결제</label>
                                             </div>
                                             <div class="payment-info" data-method="bank">
-												<select name="cardType">
+												<select name="cartType">
 													<option value="국민카드" >카드를 선택하세요</option>
 													<option value="KB카드">KB카드</option>
 													<option value="BC카드">BC카드</option>
@@ -292,7 +282,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                         </div>
                                         <div class="payment-group mb--10">
                                             <div class="payment-radio">
-                                                <input type="radio" value="cheque" name="payment-method" id="cheque">
+                                                <input type="radio" value="실시간계좌이체" name="payment-method" id="cheque">
                                                 <label class="payment-label" for="cheque">
                                                     실시간 계좌이체
                                                 </label>
@@ -303,7 +293,7 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                         </div>
                                         <div class="payment-group mb--10">
                                             <div class="payment-radio">
-                                                <input type="radio" value="cash" name="payment-method" id="cash">
+                                                <input type="radio" value="무통장입금" name="payment-method" id="cash">
                                                 <label class="payment-label" for="cash">
                                                     무통장입금
                                                 </label>
@@ -312,9 +302,9 @@ List<PaymentDTO> paylist = new ArrayList<PaymentDTO>();
                                                 <p>최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
                                             </div>
                                         </div>
-                                        <div class="payment-group mt--20">										  
-                                            <input type="button" class="btn btn-size-md btn-fullwidth" 
-                                            			onclick="payment('<%=paylist %>')" value="결제하기"/>
+                                        <div class="payment-group mt--20">								
+                                        	<input type="hidden" value="${memberdto.email }"  name="email" id="billing_company" class="form__input">		  
+                                            <input type="button" class="btn btn-size-md btn-fullwidth"  onclick="payment()" value="결제하기"/>
                                         </div>
                                     </form>
                                 </div>
