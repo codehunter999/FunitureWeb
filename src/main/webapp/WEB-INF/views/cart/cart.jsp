@@ -17,7 +17,7 @@
 
 $(document).ready(function(){
 		// 상품별 +버튼 추가할때 수량 증가
-		$("[id^='add']").click(function(e){
+		$("[id ^='add']").click(function(e){
 			var id_check = $(this).attr("id");			
 			var lastNum = id_check.substr(id_check.length - 1)
 			e.preventDefault();				
@@ -28,12 +28,14 @@ $(document).ready(function(){
 			alert('더이상 늘릴수 없습니다.');
 				num = 5;	
 			}
+			
 			$('#qty'+lastNum).val(num);
 			//버튼별 데이터 움직이는거 확인 
 			var item_price = $("#item_price"+lastNum).val();	
 			item_price = item_price.substr(0, item_price.length -1); 
 			item_price = Number(item_price)
 			var totalItem_price_Num = item_price*num;		
+			
 			totalItem_price = String(totalItem_price_Num)+"원"
 			$('#totalItem_price'+lastNum).val(totalItem_price);
 			var map_sumMoney = $('#map_sumMoney').val();
@@ -43,7 +45,7 @@ $(document).ready(function(){
 			$('#map_allSum').val(totalNum);
 		});	
 		// 상품별 - 버튼 추가할때 수량 차감
-		$("[id^='min']").click(function(e){		
+		$("[id ^='min']").click(function(e){		
 			var id_check = $(this).attr("id");
 			var lastNum = id_check.substr(id_check.length-1)
 			e.preventDefault();
@@ -85,16 +87,13 @@ $(document).ready(function(){
 		
 		data = new Array();
 		
-		$('#productModal').modal();
-		
+		$('#productModal').modal();	
 		//반복하여 다가져오기 
 		var arrayQty =  new Array();
 		var arraytotalItem_price =  new Array();
-		
 		$("[id^='qty']").each(function(indexQty){
 			arrayQty[indexQty] = $(this).val();
 		});
-		
 		$("[id^='totalItem_price']").each(function(indexSumMoney){
 			arraytotalItem_price[indexSumMoney] = $(this).val();
 		});
@@ -189,6 +188,8 @@ $(document).ready(function(){
 			                                        			String[] value=result.split(":");
 			                                        			value[2]  = value[2].replaceAll(",","");			                                        			
 				                                    %>
+				                                    
+				                                    
 													<tr>
                                                         <td class="product-remove text-left"><input type="button" id="removeItem<%=buttonIndex%>" style="border: none; background-color: rgb(255,255,255);" class="la la-remove" value="X" onclick="clickremove();"></td>
                                                         <td class="product-thumbnail text-left">
@@ -202,7 +203,7 @@ $(document).ready(function(){
                                                         </td>
                                                         <td class="product-price" >
                                                             <span class="product-price-wrapper">
-                                                                	&nbsp;&nbsp;<input type="text" value="<%=value[2] %>" id="item_price<%=buttonIndex%>" style="border: none;text-align: center;"/>
+                                                                	&nbsp;&nbsp;<input type="text" value="<%=value[2] %>원" id="item_price<%=buttonIndex%>" style="border: none;text-align: center;"/>
                                                                 </span>
                                                             </span>
                                                         </td>
@@ -214,7 +215,7 @@ $(document).ready(function(){
                                                         <td class="product-total-price" style="padding-top: 33px;">
                                                             <span class="product-price-wrapper">
                                                                 <span class="money">
-                                                                	<input type="text" value="<%=value[2] %>" id="totalItem_price<%=buttonIndex%>" style="border: none;text-align: center"/>
+                                                                	<input type="text" value="<%=value[2] %>원" id="totalItem_price<%=buttonIndex%>" style="border: none;text-align: center"/>
                                                               </span>
                                                             </span>
                                                         </td>
@@ -245,7 +246,7 @@ $(document).ready(function(){
                           	</c:otherwise>
                           </c:choose>
                         </div>
-
+						
                         <div class="col-lg-4">
                             <div class="cart-collaterals">
                                 <div class="cart-totals">
@@ -257,7 +258,12 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" /> 
+                                            	<c:if test="${not empty cartlist }">
+                                            		<input type="text" value="<%=map_sumMoney%>원" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" /> 
+                                                </c:if>
+                                                <c:if test="${empty cartlist }">
+                                            		<input type="text" value="0원" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" /> 
+                                               	</c:if>
                                                 </span>
                                             </div>
                                         </div>
@@ -265,8 +271,10 @@ $(document).ready(function(){
                                             <div class="cart-calculator__item--head">
                                                 <span>배송비</span>
                                             </div>
-                                            <div class="cart-calculator__item--value">
-                                                <span>+0원</span>
+                                            <div class="cart-calculator__item--value" >
+                                                <span>
+                                                	<input type="text" value="+0원" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;"/>       	
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="cart-calculator__item order-total">
@@ -275,7 +283,12 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>
+                                              	<c:if test="${not empty cartlist }">
+                                              		<input type="text" value="<%=map_sumMoney%>원" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>
+                                                </c:if>
+                                                <c:if test="${empty cartlist }">
+                                              		<input type="text" value="0원" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>
+                                                </c:if>
                                                 </span>
                                             </div>
                                         </div>
@@ -290,26 +303,24 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-        <!-- Main Content Wrapper Start -->
-                <!-- Main Content Wrapper Start -->
-                                
-                        <!-- Qicuk View Modal Start -->
-				        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-				          <div class="modal-dialog" role="document" style="width: 300">
-				            <div class="modal-content">
-				              <div class="modal-body" align="center">
-				              <br><br><br>
-				                	상품을 주문하시겠습니까?
-				                <br>
-				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
-				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
-				              	<br><br><br>                      
-				              </div>
-				            </div>
-				          </div>
-				        </div>
-				        
-				        <!-- Qicuk View Modal End -->
+       <!-- Main Content Wrapper Start -->                     
+       <!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document" style="width: 300">
+            <div class="modal-content">
+              <div class="modal-body" align="center">
+              <br><br><br>
+                	상품을 주문하시겠습니까?
+                <br>
+                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
+                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
+              	<br><br><br>                      
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Qicuk View Modal End -->
         <!-- Cart Item Delete Modal Start -->
         <div class="modal fade product-modal" id="removeModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
