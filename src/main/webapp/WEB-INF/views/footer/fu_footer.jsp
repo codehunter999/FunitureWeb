@@ -211,7 +211,7 @@
     <!-- Main Wrapper End -->
  
 	<!-- Qicuk View Modal Start -->
-        <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
         		<div class="modal-content">
         			<div class="modal-body" align="center"><br><br><br>
@@ -222,7 +222,7 @@
     				</div>
     			</div>
     		</div>
-    	</div>
+    	</div> -->
         <!-- Qicuk View Modal End -->
     <!-- ************************* JS Files ************************* -->
 

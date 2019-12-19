@@ -31,6 +31,7 @@ dto2.setPrice(dto2.getPrice().replaceAll(",",""));
 			//data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
 			//data += ":" + $("[id = 'qty']").val();
 			data += ":1";
+			data += ":" + ${dto.imageIndex};
 			
 			$('div#productModal').modal();
 			

@@ -200,18 +200,18 @@ $(document).ready(function(){
                                                                	<font style="color: rgb(255,81,81);">option</font> : <%=value[4] %>
                                                             </h3>
                                                         </td>
-                                                        <td class="product-price">
+                                                        <td class="product-price" >
                                                             <span class="product-price-wrapper">
-                                                                	&nbsp;&nbsp;<input type="text" value="<%=value[2] %>원" id="item_price<%=buttonIndex%>" style="border: none;text-align: center"/>
+                                                                	&nbsp;&nbsp;<input type="text" value="<%=value[2] %>" id="item_price<%=buttonIndex%>" style="border: none;text-align: center;"/>
                                                                 </span>
                                                             </span>
                                                         </td>
                                                         
-                                                        <td class="product-quantity">     
-                                                         	<button type="button" id="add<%=buttonIndex%>" class="btn-light" style="width: 15px;height: 20px;border: none"><b>+</b></button>                                                                                                                                      	   		
+                                                        <td class="product-quantity" style="padding-top: 33px;">     
+                                                         	<button type="button" id="add<%=buttonIndex%>" class="btn-light" style="width: 15px;height: 20px;border: none">+</button>                                                                                                                                      	   		
                                                 	   		<input  type="text"   id="qty<%=buttonIndex%>" name="qty-2" value="1" min="1" style="width: 10px;height: 20px;border: none;text-align: right">                    
-                                                	   		<button type="button" id="min<%=buttonIndex%>" class="btn-light" style="width: 13px;height: 20px;border: none"><b><font size="5">-</font></b></button>   
-                                                        <td class="product-total-price">
+                                                	   		<button type="button" id="min<%=buttonIndex%>" class="btn-light" style="width: 13px;height: 20px;border: none">-</button>   
+                                                        <td class="product-total-price" style="padding-top: 33px;">
                                                             <span class="product-price-wrapper">
                                                                 <span class="money">
                                                                 	<input type="text" value="<%=value[2] %>" id="totalItem_price<%=buttonIndex%>" style="border: none;text-align: center"/>
@@ -257,7 +257,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" />원
+                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" /> 
                                                 </span>
                                             </div>
                                         </div>
@@ -266,7 +266,7 @@ $(document).ready(function(){
                                                 <span>배송비</span>
                                             </div>
                                             <div class="cart-calculator__item--value">
-                                                <span style="text-align: right;">+0원&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                <span>+0원</span>
                                             </div>
                                         </div>
                                         <div class="cart-calculator__item order-total">
@@ -275,7 +275,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>원
+                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>
                                                 </span>
                                             </div>
                                         </div>
