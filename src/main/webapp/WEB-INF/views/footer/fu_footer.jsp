@@ -144,18 +144,20 @@
 		               	<c:if test="${empty cartlist}">
 								 <li><font size="5">주문한 상품이 없습니다.</font></li><br/>
 						</c:if> 
-				 <c:if test="${!empty cartlist }">
+						 <c:if test="${not empty cartlist }">
 		              	<%
 		                	 	List<String> minicartlist = (List<String>)session.getAttribute("cartlist");
 		                       	if(minicartlist!=null){
 		                       		Iterator iterator=minicartlist.iterator();
 		                       		int buttonIndex = 0; 
 		                       		int i=0;
+		                       		String cateurl = null;
 		                       		while(iterator.hasNext()){
 		                       			String result=(String)iterator.next();
 		                       			String[] value = result.split(":");
 		                       			value[2]  = value[2].replaceAll(",","");			                                        			
-						                                   
+
+						               
 		              	%>
                         	
 	                        <li class="mini-cart__product">
@@ -163,9 +165,106 @@
 	                                <img src="<%=cp1 %><%=value[3] %>" alt="products">
 	                            </div>
 	                            <div class="mini-cart__product-content">
-	                                <div class="mini-cart__product-title"><%=value[1]%></div>                       
-	                            </div>
-	                        </li>
+	                                <div class="mini-cart__product-title">
+	                             <c:set var="cateEn" value="<%=value[0] %>"/>
+                                                <c:choose> 
+                                                <c:when test="${cateEn eq 'BED' }">
+                                                    <a href="bed_BED_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'chiff' }">
+                                                    <a href="bed_chiff_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'dressingTable' }">
+                                                    <a href="bed_dressingTable_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'ht' }">
+                                                    <a href="bed_ht_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                
+                                                
+                                                <c:when test="${cateEn eq 'light' }">
+                                                    <a href="deco_light_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <br><br/><%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'monthly' }">
+                                                    <a href="deco_monthly_details.fu?imageIndex=<%=value[6]%>&cateEn=<%=value[0] %>">
+                                                    <br><br/><%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'plasticch' }">
+                                                    <a href="deco_plasticch_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <br><br/><%=value[1] %></a>
+                                                </c:when>
+                                                
+                                                
+                                                <c:when test="${cateEn eq 'chair' }">
+                                                    <a href="dining_chair_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'clean' }">
+                                                    <a href="dining_clean_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'deco' }">
+                                                    <a href="dining_deco_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'desk' }">
+                                                    <a href="dining_desk_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'rnl' }">
+                                                    <a href="dining_rnl_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'sunbrella' }">
+                                                    <a href="dining_sunbrella_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'table' }">
+                                                    <a href="dining_table_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+
+                                                <c:when test="${cateEn eq 'bookcase' }">
+                                                    <a href="living_bookcase_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'deus' }">
+                                                    <a href="living_deus_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'fabric' }">
+                                                    <a href="living_fabric_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'leather' }">
+                                                    <a href="living_leather_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'shelf' }">
+                                                    <a href="living_shelf_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'sideTable' }">
+                                                    <a href="living_sideTable_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'sunb' }">
+                                                    <a href="living_sunb_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                <c:when test="${cateEn eq 'TV' }">
+                                                    <a href="living_TV_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[6]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
+                                                </c:choose>
+			                                </div>                       
+			                            </div>
+			                        </li>
 								<%
 			                       }
 								%>
@@ -211,7 +310,7 @@
     <!-- Main Wrapper End -->
  
 	<!-- Qicuk View Modal Start -->
-        <!-- <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
         		<div class="modal-content">
         			<div class="modal-body" align="center"><br><br><br>
@@ -222,7 +321,7 @@
     				</div>
     			</div>
     		</div>
-    	</div> -->
+    	</div>
         <!-- Qicuk View Modal End -->
     <!-- ************************* JS Files ************************* -->
 
