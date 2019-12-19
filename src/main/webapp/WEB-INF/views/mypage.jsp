@@ -39,11 +39,11 @@ function check(cp){
 	}
 	
 	var addr1 = f.addr1.value;
-	alert(addr1);
+	//alert(addr1);
 	var addr2 = f.addr2.value;
-	alert(addr2);
+	//alert(addr2);
 	var addr3 = f.addr3.value;
-	alert(addr3);
+	//alert(addr3);
 	
 	
 	f.action = cp+"/myinfo_ok.fu";
@@ -255,15 +255,15 @@ function check(cp){
 									                                  </div>
 									             						<div class="form__group mb--20">
 									                                      <label class="form__label" for="email"><b>이메일주소</b></label>
-									                                      <input type="text" class="form__input" id="email" name="email" style="size: 50px" value="${memberdto.email }" >
+									                                      <input type="text" class="form__input" id="email" name="email" style="size: 50px" value="${memberdto.email }" readonly="readonly">
 									                                  </div>
 									                                  <div class="form__group mb--20">
 									                                     <label class="form__label" for="password"><b>패스워드</b></label>
-									                                      <input type="password" class="form__input" id="password" name="pwd" value="${memberdto.pwd }">
+									                                      <input type="password" class="form__input" id="password" name="pwd" value="${memberdto.pwd }" onfocus="this.value=''">
 									                                  </div>
 									                                  <div class="form__group mb--20">
 									                                     <label class="form__label" for="name"><b>이  름</b></label>
-									                                      <input type="text" class="form__input" id="name" name="name" value="${memberdto.name }">
+									                                      <input type="text" class="form__input" id="name" name="name" value="${memberdto.name }" readonly="readonly">
 									                                  </div>
 									                                  <div class="form__group mb--20">
 									                                     <label class="form__label" ><b>휴대전화</b></label>
@@ -275,24 +275,24 @@ function check(cp){
 																		<option value="018">018</option>
 																		<option value="019">019</option>
 																	</select>
-																	<input type="text" class="form__input" id="phone2" name="phone2" maxlength="8" placeholder="'-'를 제외하고 입력하세요" value="${memberdto.phone}">
+																	<input type="text" class="form__input" id="phone2" name="phone2" maxlength="8" placeholder="'-'를 제외하고 입력하세요" value="${memberdto.phone}" readonly="readonly">
 									                                  </div>
 									                                  
 									                                  <div class="form__group mb--20">
 									                                  &nbsp;
 									                                  </div>
 									                                  <div class="form__group mb--20">
-									                           			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addr1" class="form__input" style="width: 150px" value="${memberdto.addr1 }">
-																		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="form__input" style="width: 130px;text-align: center;vertical-align: right"><br>
+									                           			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addr1" class="form__input" style="width: 150px" value="${memberdto.addr1 }" readonly="readonly">
+																		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="form__input" style="width: 130px;text-align: center;vertical-align: right" readonly="readonly"><br>
 											                          </div>
 											                          <div class="form__group mb--20">
 																		<input type="text" id="sample4_roadAddress" name="addr2"  placeholder="도로명주소" class="form__input" style="width: 220px;" value="${memberdto.addr2 }">
-																		<input type="text" id="sample4_extraAddress"  placeholder="참고주소" class="form__input" style="width: 136px;">
-																		<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
+																		<input type="text" id="sample4_extraAddress"  placeholder="참고주소" class="form__input" style="width: 136px;" readonly="readonly">
+																		<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소" readonly="readonly">
 																		<span id="guide" style="color:#999;display:none"></span>
 																	  </div>
 																	  <div class="form__group mb--20"> 
-																		<input type="text" id="sample4_detailAddress"  name="addr3"  placeholder="상세주소" class="form__input" style="height: 50px" value="${memberdto.addr3 }"><br/>
+																		<input type="text" id="sample4_detailAddress"  name="addr3"  placeholder="상세주소" class="form__input" style="height: 50px" value="${memberdto.addr3 }" readonly="readonly"><br/>
 									                                  </div>
 									                                  
 									                                  <div class="form__group mb--20">            
