@@ -30,7 +30,7 @@
             <div class="inner-page-content ptb--80 ptb-md--60">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-9">
+                        <div class="col-lg-9" style="padding-left: 22px;">
                         	<div class="col-12">
                         		<h3>Question And Answers</h3>
 							</div>
@@ -42,7 +42,7 @@
                         		<thead>
                                 	<tr>
                                 		<th>&nbsp;</th>
-                                        <th style="font-size: 16px"><b>제&nbsp;&nbsp;&nbsp;목</b></th>
+                                        <th style="font-size: 16px"><b>내&nbsp;&nbsp;&nbsp;용</b></th>
                                         <th style="font-size: 16px"><b>작성자</b></th>
                                         <th style="font-size: 16px"><b>작성일</b></th>
                                     </tr>
@@ -55,9 +55,9 @@
                                        <td class="product-name text-left wide-column">
                                            <h3>
                                            		<%if(request.getParameter("pageNum")==null){ %>
-													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getSubject() %></a>
+													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getContent() %></a>
 												<%}else {%>
-													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getSubject() %></a>
+													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getContent() %></a>
 												<%} %>                                           
                                            </h3>
                                        </td>
@@ -80,8 +80,8 @@
 
                                 <div class="related-post__info">
                                 	<div class="row">
-	                                	<div class="col-12 text-center">
-	                                    	<ul class="pagination">
+	                                	<div class="col-12 text-center" >
+	                                    	<ul class="pagination" style="padding-left: 100px;">
 			                                    <c:if test="${dataCount!=0 }">
 													${pageIndexList }
 												</c:if>
