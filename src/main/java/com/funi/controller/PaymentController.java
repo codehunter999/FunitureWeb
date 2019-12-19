@@ -107,8 +107,8 @@ public class PaymentController {
 				paydto.setPaytype(paymentType);
 				paydto.setImagePath(cartdata[3]);
 				paydto.setProductInfo(cartdata[1]+cartdata[4]);
-				paydto.setProductEa(Integer.parseInt(cartdata[6]));
-				int price = (Integer.parseInt(cartdata[7].replace("¿ø","")));
+				paydto.setProductEa(Integer.parseInt(cartdata[7]));
+				int price = (Integer.parseInt(cartdata[8].replace("¿ø","")));
 				paydto.setProductPrice(price);
 				paydto.setDeliveryMessage(request.getParameter("message"));
 				paysum += price;

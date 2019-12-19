@@ -18,22 +18,21 @@
 	
 	function payment() {
 		
-		if($("[id = 'cardType']").val()=="default"){
-			alert("카드를 선택하세요.");
-			return;
-		}
-		
-		$('#paymentModal').modal();
-		//paytype 결제 
-		var radioVal = $(':radio[name="payment-method"]:checked').val();		
-		if(radioVal == 'bank'){				
-			paytype = $(":selected").val();		
-		}else{		
+		//alert($("input:radio[name='payment-method']:checked ").val())
+		//if($("[id = 'cardType']").val()=="default" ){
+		if($(":radio[name ='payment-method']:checked").val() == 'bank') {
+			if($(":selected").val() == 'default'){
+				alert("카드를 선택하세요.");
+			}else{
+				paytype = $(":selected").val();
+			}
+		}else if($(":radio[name='payment-method']:checked ").val() == '실시간계좌이체'){
+			paytype = $(':radio[name="payment-method"]:checked').val();
+		}else if($(":radio[name='payment-method']:checked ").val() == '무통장입금'){
 			paytype = $(':radio[name="payment-method"]:checked').val();
 		}
-		alert(paytype);
+		$('#paymentModal').modal();
 	}
-	
 	function paysubmit(){
 		var f = document.paymentInfo;
 		f.action = "<%=cp%>/payment_input.fu?paytype="+paytype;
@@ -216,12 +215,12 @@
 	                                        			String result=(String)iterator.next();
 	                                        			String[] value=result.split(":");
 	                                        			value[2]  = value[2].replaceAll(",","");
-	                                        			Itemtotal = Integer.parseInt(value[6])*Integer.parseInt(value[2]);
+	                                        			Itemtotal = Integer.parseInt(value[7])*Integer.parseInt(value[2]);
 	                                        			totalSum += Itemtotal;			
 	                               			%>                  
                                             <tr>
                                                 <th><%=value[0] %><%=value[1] %>
-                                                    <strong><span>&#10005;</span><%=value[6]%></strong>
+                                                    <strong><span>&#10005;</span><%=value[7]%></strong>
                                                 </th>
                                                 <td class="text-right"><%=Itemtotal %></td>
                                             </tr>

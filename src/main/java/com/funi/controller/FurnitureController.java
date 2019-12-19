@@ -63,9 +63,12 @@ public class FurnitureController {
 	@Qualifier("cartdao")
 	CartDAO cartdao;
 
+
+
 	@Autowired
 	@Qualifier("qnadao")
 	QnADAO qnadao;
+
 
 	@Autowired
 	@Qualifier("kakao")
@@ -110,10 +113,9 @@ public class FurnitureController {
 	// 지점안내
 	@RequestMapping(value = "/blog.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String blog(Locale locale, Model model, HttpServletRequest request) {
-		
 		String location = request.getParameter("location");
 		System.out.println("location : " + location);
-		if (location.equals("Gangnam") || location.equals("") || location == null) {
+		if (location.equals("Gangnam")) {
 			return "location/blog_GangNam";
 		}
 		if (location.equals("Hongdae")) {
@@ -144,6 +146,7 @@ public class FurnitureController {
 	// 카트 장바구니 
 	@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
+		
 		List cartlist = null;
 		ModelAndView cartlistmav = new ModelAndView();
 		cartlistmav.setViewName("cart/cart");
@@ -179,7 +182,7 @@ public class FurnitureController {
 			while(iterator.hasNext()){			
 				String result=(String)iterator.next();			
 				if(result.contains(request.getParameter("data"))) {
-					System.out.println("overlap cartlist ");			
+					System.out.println("�씠誘� 異붽��맂 �긽�뭹�엯�땲�떎. ");			
 					flag=false;
 				}		
 			}
