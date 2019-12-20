@@ -229,13 +229,13 @@ public class MemberController {
 		return deletemav; 
 	}
 
-	@RequestMapping(value = "/deleteMember_ok.fu", method = { RequestMethod.GET,
-			RequestMethod.POST }) public ModelAndView deleteMeber(ModelMap model,
-					HttpSession session) throws Exception { ModelAndView deletemav = new
-					ModelAndView(); String email = (String) session.getAttribute("email");
-					memberdao.delete_member(email); session.removeAttribute("email");
-					deletemav.setViewName("redirect:/login.fu"); deletemav.addObject("message",
-							"ȸ���� Ż��Ǿ����ϴ�."); return deletemav; }
+	@RequestMapping(value = "/deleteMember_ok.fu", method = { RequestMethod.GET,RequestMethod.POST }) 
+	public ModelAndView deleteMeber(ModelMap model, HttpSession session) throws Exception { 
+		ModelAndView deletemav = new ModelAndView(); String email = (String) session.getAttribute("email");
+		memberdao.delete_member(email); session.removeAttribute("email");
+		deletemav.setViewName("redirect:/login.fu"); deletemav.addObject("message", "ȸ���� Ż��Ǿ����ϴ�.");
+		return deletemav;
+	}
 
 	// 회원가입
 	@RequestMapping(value = "/register.fu", method = RequestMethod.GET)
