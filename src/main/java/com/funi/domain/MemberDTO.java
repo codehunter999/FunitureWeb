@@ -10,6 +10,7 @@ public class MemberDTO {
 	private String addr1;
 	private String addr2;
 	private String addr3;
+	
 	public String getEmail() {
 		return email;
 	}

@@ -1,3 +1,4 @@
+<%@page import="com.funi.domain.FurnitureDTO"%>
 <%@include file="/WEB-INF/views/header/fu_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
@@ -8,7 +9,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">홈데코 / 리빙</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>월간 카레클린트│조명│PLASTIC 체어</span></li>
                         </ul>
                     </div>
@@ -64,25 +65,38 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">
-                                                            <i class="la la-heart-o"></i>
-                                                        </a>
+                                                        <%
+                                                            FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
+                                                    
+                                                            if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
+                                                    	%>
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                        <%}else{ %>
+                                                                <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                    <i class="la la-heart-o"></i>
+                                                                </a>
+                                                        <%} %>
                                                         
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
                                                     <div class="product-category">
-                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}">${dto.cate }</a>
+                                                        <a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.cate }</a>
                                                     </div>
-                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn}&pageNum=${pageNum}">${dto.productName }</a></h3>
+                                                    <h3 class="product-title"><a href="deco_${dto.cateEn }_details.fu?imageIndex=${dto.imageIndex }&cateEn=${dto.cateEn }&pageNum=${pageNum}">${dto.productName }</a></h3>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,6 +114,9 @@
                                     <li><a href="#" class="page-number">16</a></li> -->
                                     <c:if test="${dataCount!=0 }">
                                     	${pageIndexList }
+                                    </c:if>
+                                    <c:if test="${dataCount==0 }">
+                                    	찾으시는 제품이 없습니다.
                                     </c:if>
                                 </ul>
                             </nav>

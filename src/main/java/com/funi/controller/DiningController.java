@@ -143,7 +143,7 @@ public class DiningController {
 		System.out.println("number of all data: " + diningdao.getDataCount(searchValue)); //72
 
 		//전체 페이지 수
-		int numPerPage = 12;
+		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
 		if(currentPage > totalPage)
@@ -393,6 +393,7 @@ public class DiningController {
 	public ModelAndView dining_clean_details(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
+
 		int imageIndex = Integer.parseInt(request.getParameter("imageIndex"));
 		String cateEn = request.getParameter("cateEn");
 

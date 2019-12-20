@@ -72,10 +72,12 @@ public class MemberController {
 		ModelAndView loginmav = new ModelAndView(); 
 		MemberDTO memberdto = null; 
 		
-		try {		
+		try {
+			
 			boolean flag = memberdao.searchID(paramdto.getEmail());
 			System.out.println("flag : " + paramdto.getEmail()); 
-			String message = null;		
+			String message = null;
+			
 			if (!flag) { 
 				message = "회원 정보를 찾을수 없습니다."; 
 				loginmav.addObject("message", message); 
@@ -191,10 +193,13 @@ public class MemberController {
 			return mav; 
 		}
 	
-	@RequestMapping(value = "/myinfo.fu", method = {RequestMethod.GET,RequestMethod.POST}) 
+	@RequestMapping(value = "/mypage.fu", method = { RequestMethod.GET,	RequestMethod.POST }) 
 	public ModelAndView myinfo(ModelMap model, HttpSession session) throws Exception { 
 		
 		ModelAndView myinfomav = new ModelAndView();
+		
+		myinfomav.setViewName("member/mypage"); 
+		
 		String email = (String)session.getAttribute("email"); 
 		MemberDTO memberdto = memberdao.searchMember(email); 
 		List<PaymentDTO> paylist =  paymentdao.getTotalList(email);
@@ -203,30 +208,33 @@ public class MemberController {
 		myinfomav.addObject("memberdto", memberdto); 
 		myinfomav.setViewName("mypage"); 
 		return myinfomav; 
-	}
+		}
 
 
-	// ȸ�� ���� ����
-	@RequestMapping(value = "/myinfo_ok.fu", method = { RequestMethod.GET, RequestMethod.POST }) 
+	@RequestMapping(value = "/myinfo_ok.fu", method = {RequestMethod.POST }) 
 	public ModelAndView myinfo_ok(ModelMap model, HttpSession session, MemberDTO memberdto) throws Exception {
 
 		ModelAndView myinfomav = new ModelAndView();
+		String salt = SHA256Util.generateSalt(); 
+		memberdto.setSalt(salt); 
+		String password = memberdto.getPwd(); 
+		password = SHA256Util.getEncrypt(password, salt);
+		memberdto.setPwd(password);
+		memberdao.update_myinfo(memberdto);
 		myinfomav.setViewName("redirect:/home.fu"); 
-		
 		return myinfomav; 
 	}
 
-	// ȸ�� Ż�� ������
 	@RequestMapping(value = "/deleteMember.fu", method = { RequestMethod.GET, RequestMethod.POST }) 
 	public ModelAndView deleteMeber_ok(ModelMap model, HttpSession session) throws Exception { 
 		
 		ModelAndView deletemav = new ModelAndView(); 
+		
 		deletemav.setViewName("member/deleteMember"); 
 		
 		return deletemav; 
 	}
 
-	// ȸ�� Ż��
 	@RequestMapping(value = "/deleteMember_ok.fu", method = { RequestMethod.GET,
 			RequestMethod.POST }) public ModelAndView deleteMeber(ModelMap model,
 					HttpSession session) throws Exception { ModelAndView deletemav = new
@@ -236,7 +244,6 @@ public class MemberController {
 							"ȸ���� Ż��Ǿ����ϴ�."); return deletemav; }
 
 	// 회원가입
-
 	@RequestMapping(value = "/register.fu", method = RequestMethod.GET)
 	public String register(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 

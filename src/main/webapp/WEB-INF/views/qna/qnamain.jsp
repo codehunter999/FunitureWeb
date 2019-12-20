@@ -7,7 +7,25 @@
 %>
 <%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<script type="text/javascript">
+	function writeevent() {
+		
+		
+		if($('#session_login').text() == '로그인'){
+			$('div#loginModal').modal();
+		}
+		
+		else if($('#session_Names').text()!=null) {
+			$('div#qnaModal').modal();
+		}
+		
+	}
+	
+	function login() {
+		location.href="<%=cp%>/login.fu";
+		//return "redirect:/member/login";
+	}
+</script>
 
 
         <!-- Breadcrumb area Start -->
@@ -30,7 +48,7 @@
             <div class="inner-page-content ptb--80 ptb-md--60">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-9">
+                        <div class="col-lg-9" style="padding-left: 22px;">
                         	<div class="col-12">
                         		<h3>Question And Answers</h3>
 							</div>
@@ -80,8 +98,8 @@
 
                                 <div class="related-post__info">
                                 	<div class="row">
-	                                	<div class="col-12 text-center">
-	                                    	<ul class="pagination">
+	                                	<div class="col-12 text-center" >
+	                                    	<ul class="pagination" style="padding-left: 100px;">
 			                                    <c:if test="${dataCount!=0 }">
 													${pageIndexList }
 												</c:if>
@@ -91,7 +109,7 @@
 											</ul>
 										</div>
 										<div class="form__group mr--30">
-	                                		<input id="image" type="submit" value="글쓰기" class="btn btn-size-sm">
+	                                		<input type="submit" value="글쓰기" class="btn btn-size-sm" onclick="writeevent();">
 	                            		</div>
 									</div>
 	                            </div>
@@ -140,6 +158,18 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="modal fade product-modal" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					로그인해주세요.<br>
+    					<button class="btn btn-size-sm" onclick="login()">확인</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
 		
         <!-- Qicuk View Modal End -->
         

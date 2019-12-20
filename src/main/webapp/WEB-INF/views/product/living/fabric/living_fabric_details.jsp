@@ -1,15 +1,30 @@
 <%@page import="com.funi.domain.FurnitureDTO"%>
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	
 	var data; 
 	
 	function clickevent(eventdata){
+			
 			data = eventdata;
-			data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
-			data += ":" + $("[id = 'qty']").val();
-			$('div.modal').modal();	
+			
+			//alert(eventdata);
+			//alert($("[id = 'optionV']").val());
+			
+			if($("[id = 'optionV']").val()=="default"){
+				alert("옵션을 선택하세요.");
+				return;
+			}else{
+				data += ":"+$("[id = 'optionV']").val();
+			}
+			
+			//data += ":"+$("[id = 'optionV']").val(); //주소 창에 session으로 옵션을 붙엿습니다 옵션 넘어갑니다 짱짱	
+			data += ":1";
+			data += ":" + ${dto.imageIndex};
+			
+			$('div#productModal').modal();	
+			
 			alert(data);
 	}
 	function cartsubmit(){
@@ -17,6 +32,7 @@
 	}
 	
 </script>
+
         <!-- Breadcrumb area Start -->
         <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/images/bedroom/bedroomImage.jpg">
             <div class="container">
@@ -24,7 +40,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">${dto.productName }</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="/furnitureweb/home.fu">Home</a></li>
                             <li class="current"><span>${dto.cate }</span></li>
                         </ul>
                     </div>
@@ -91,7 +107,7 @@
 	                                        <p class="variation-label">수종:</p> 
 	                                        <div class="product-size-variation variation-wrapper">
 	                                        	<select id="optionV">
-	                                            	<option selected="selected">- [필수] 수종을 선택해주세요 -</option>
+	                                            	<option selected="selected" value="default">- [필수] 수종을 선택해주세요 -</option>
 	                                            	<option disabled="disabled">-----------------------------------</option>
 	                                            	<option value="오크">오크</option>
 	                                            </select>
@@ -103,7 +119,7 @@
 		                                        <p class="variation-label">사이즈:</p> 
 		                                        <div class="product-size-variation variation-wrapper">
 		                                        	<select id="optionV">
-		                                            	<option selected="selected">- [필수] 사이즈를 선택해주세요 -</option>
+		                                            	<option selected="selected" value="default">- [필수] 사이즈를 선택해주세요 -</option>
 		                                            	<option disabled="disabled">-----------------------------------</option>
 		                                            	<option value="3인 2P(일자형)">3인 2P(일자형)</option>
 		                                            	<option value="4인 3P(일자형)">4인 3P(일자형)</option>
@@ -117,7 +133,7 @@
 		                                        <p class="variation-label">색상:</p> 
 		                                        <div class="product-size-variation variation-wrapper">
 		                                        	<select id="optionV">
-		                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
+		                                            	<option selected="selected" value="default">- [필수] 색상을 선택해주세요 -</option>
 		                                            	<option disabled="disabled">-----------------------------------</option>
 		                                            	<option value="더티프리_웜그레이">더티프리_웜그레이</option>
 		                                            	<option value="더티프리_쉐도우">더티프리_쉐도우</option>
@@ -172,7 +188,7 @@
 		                                        <p class="variation-label">색상:</p> 
 		                                        <div class="product-size-variation variation-wrapper">
 		                                        	<select id="optionV">
-		                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
+		                                            	<option selected="selected" value="default">- [필수] 색상을 선택해주세요 -</option>
 		                                            	<option disabled="disabled">-----------------------------------</option>
 		                                            	<option value="썬브렐라더티프리_쿨그레이">썬브렐라더티프리_쿨그레이</option>
 		                                            	<option value="썬브렐라더티프리_데님블루">썬브렐라더티프리_데님블루</option>
@@ -185,7 +201,7 @@
 		                                        <p class="variation-label">옵션:</p> 
 		                                        <div class="product-size-variation variation-wrapper">
 		                                        	<select id="optionV">
-		                                            	<option selected="selected">- [필수] 옵션을 선택해주세요 -</option>
+		                                            	<option selected="selected" value="default">- [필수] 옵션을 선택해주세요 -</option>
 		                                            	<option disabled="disabled">-----------------------------------</option>
 		                                            	<option value="쿠로기 데님 에디션">쿠로기 데님 에디션</option>
 		                                            </select>
@@ -197,7 +213,7 @@
 		                                        <p class="variation-label">색상:</p> 
 		                                        <div class="product-size-variation variation-wrapper">
 		                                        	<select id="optionV">
-		                                            	<option selected="selected">- [필수] 색상을 선택해주세요 -</option>
+		                                            	<option selected="selected" value="default">- [필수] 색상을 선택해주세요 -</option>
 		                                            	<option disabled="disabled">-----------------------------------</option>
 		                                            	<option value="딤그레이">딤그레이</option>
 		                                            	<option value="오트밀">오트밀</option>
@@ -212,12 +228,12 @@
                                     <a href="" class="reset_variations">Clear</a>
                                 </form>
                                 <div class="product-action d-flex flex-sm-row align-items-sm-center flex-column align-items-start mb--30">
-                                    <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
+                                    <!-- <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
                                         <label class="quantity-label" for="qty">Quantity:</label>
                                         <div class="quantity">
                                             <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <%  
                                    				 FurnitureDTO dto1=(FurnitureDTO)request.getAttribute("dto");
 	                                             if(dto1.getProductName().contains("[")){       
@@ -415,19 +431,22 @@
                                                     <%
                                                             FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
                                                             
-                                                            if(dto.getProductName().contains("[")){
-                                                    	        String str=dto.getProductName();
-                                                    	        str=str.replace("[", "%5B");
-                                                    	        str=str.replace("]", "%5D");
+                                                             if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
                                                     	%>
-                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
-                                                            <i class="la la-heart-o"></i>
-                                                        </a>
+                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.saveFileName}" class="action-btn">       
+                                                                <i class="la la-heart-o"></i>
+                                                            </a>
                                                             <%}else{ %>
-                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
-                                                                    <i class="la la-heart-o"></i>
-                                                                </a>
+                                                            <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.saveFileName}" class="action-btn">       
+                                                                <i class="la la-heart-o"></i>
+                                                            </a>
                                                             <%} %>
+                                                    <!-- <a href="wishlist.jsp" class="action-btn">
+                                                        <i class="la la-repeat"></i>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                             <div class="product-info">
@@ -439,11 +458,11 @@
                                                     <div class="product-price-wrapper">
                                                         <span class="money">${dto.price }원</span>
                                                     </div>
-                                                    <a href="cart.jsp" class="add-to-cart pr--15">
+                                                    <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                         <i class="la la-plus"></i>
                                                         <span>Add To Cart</span>
 						                      
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -459,5 +478,19 @@
             </div>
         </div>
         <!-- Main Content Wrapper End -->
+              <!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-dialog" role="document" style="width: 300">
+        		<div class="modal-content">
+        			<div class="modal-body" align="center"><br><br><br>
+    					카트에 담으시겠습니까?<br>
+    					<button class="btn btn-size-sm" onclick="cartsubmit()">예</button>
+    					<button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>
+    					<br><br><br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <!-- Qicuk View Modal End -->
 
 <%@include file="/WEB-INF/views/footer/fu_footer.jsp"%>

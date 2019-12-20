@@ -32,12 +32,12 @@ public class BedController {
 	@Qualifier("myUtil1")
 	MyUtil1 myUtil1;
 	
-	// <Ä§ï¿½ï¿½ï¿½ï¿½Æ®>
-	//Ä§ï¿½ï¿½ total
+	// <Ä§½ÇÆÄÆ®>
+	//Ä§½Ç total
 	@RequestMapping(value = "/bed_total.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView bed_total(HttpServletRequest request) throws Exception {
 		
-		//searchKey ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½
+		//searchKey ´Ù »©ÁÖ±â
 		ModelAndView mav = new ModelAndView();
 		
 		String cp = request.getContextPath();
@@ -64,10 +64,10 @@ public class BedController {
 		
 		System.out.println("searchValue!!!!" + searchValue);
 		
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//ÀüÃ¼ µ¥ÀÌÅÍ °¹¼ö
 		int dataCount = bedDao.getDataCount(searchValue);
 		
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ÀüÃ¼ ÆäÀÌÁö¼ö
 		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 		
@@ -79,7 +79,7 @@ public class BedController {
 		
 		List<FurnitureDTO> lists = bedDao.bedImageList(start, end, searchValue);
 		
-		//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+		//ÆäÀÌÂ¡ Ã³¸®
 		String param = "";
 		if(!searchValue.equals("")) {
 			param = "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -92,7 +92,7 @@ public class BedController {
 		
 		String pageIndexList = myUtil1.pageIndexList(currentPage, totalPage, listUrl);
 		
-		//ï¿½Ûºï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//±Ûº¸±â ÁÖ¼Ò Á¤¸®
 		
 		//System.out.println("lists"+lists.size());
 		mav.setViewName("product/bed/bed_total");
@@ -104,11 +104,11 @@ public class BedController {
 		return mav;
 	}
 	
-	//Ä«ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
+	//Ä«Å×°í¸®¿Í µðÅ×ÀÏ µû·Î ÁÖ±â
 	@RequestMapping(value = "/bed_bed.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView bed_bed(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		//ï¿½ï¿½ï¿½ï¿½Â¡ & ï¿½Ë»ï¿½
+		//ÆäÀÌÂ¡ & °Ë»ö
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -137,13 +137,13 @@ public class BedController {
 		}
 		System.out.println("test searchValue: " + searchValue);
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+		//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 		int dataCount = bedDao.getCateDataCount(cateEn, searchValue);
 
 
 		System.out.println("number of all data: " + bedDao.getCateDataCount(cateEn,searchValue)); //
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		//ÀüÃ¼ ÆäÀÌÁö ¼ö
 		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -157,7 +157,7 @@ public class BedController {
 
 		System.out.println("size of lists:" + catelists.size());
 
-		//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+		//ÆäÀÌÂ¡ Ã³¸®
 		String param = "";
 		if(!searchValue.equals("")){
 			param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -182,6 +182,7 @@ public class BedController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
 		mav.addObject("cateEn", cateEn);
 		mav.addObject("searchValue", searchValue);
 
@@ -206,7 +207,7 @@ public class BedController {
 		List<FurnitureDTO> Lists = bedDao.cateEImageList(params);
 		
 		FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
-		System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+		System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 		mav.setViewName("product/bed/bed/bed_BED_details");
 		mav.addObject("dto", dto);
 		mav.addObject("Blists", Lists);
@@ -219,7 +220,7 @@ public class BedController {
 	@RequestMapping(value = "/bed_ht.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView bed_ht(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
-		//ï¿½ï¿½ï¿½ï¿½Â¡ & ï¿½Ë»ï¿½
+		//ÆäÀÌÂ¡ & °Ë»ö
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -248,13 +249,13 @@ public class BedController {
 		}
 		System.out.println("test searchValue: " + searchValue);
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+		//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 		int dataCount = bedDao.getCateDataCount(cateEn, searchValue);
 
 
 		System.out.println("number of all data: " + bedDao.getCateDataCount(cateEn,searchValue)); //
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		//ÀüÃ¼ ÆäÀÌÁö ¼ö
 		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -268,7 +269,7 @@ public class BedController {
 
 		System.out.println("size of lists:" + catelists.size());
 
-		//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+		//ÆäÀÌÂ¡ Ã³¸®
 		String param = "";
 		if(!searchValue.equals("")){
 			param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -292,6 +293,7 @@ public class BedController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
 		mav.addObject("cateEn", cateEn);
 		mav.addObject("searchValue", searchValue);
 
@@ -309,7 +311,7 @@ public class BedController {
 		
 		List<FurnitureDTO> bLists = bedDao.cateEImageList(params);
 		FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
-		System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+		System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 		mav.setViewName("product/bed/ht/bed_ht_details");
 		mav.addObject("dto", dto);
 		mav.addObject("Blists", bLists);
@@ -323,7 +325,7 @@ public class BedController {
 	@RequestMapping(value = "/bed_dressingTable.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView bed_dressingTable(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		//ï¿½ï¿½ï¿½ï¿½Â¡ & ï¿½Ë»ï¿½
+		//ÆäÀÌÂ¡ & °Ë»ö
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -352,13 +354,13 @@ public class BedController {
 		}
 		System.out.println("test searchValue: " + searchValue);
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+		//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 		int dataCount = bedDao.getCateDataCount(cateEn, searchValue);
 
 
 		System.out.println("number of all data: " + bedDao.getCateDataCount(cateEn,searchValue)); //
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		//ÀüÃ¼ ÆäÀÌÁö ¼ö
 		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -372,7 +374,7 @@ public class BedController {
 
 		System.out.println("size of lists:" + catelists.size());
 
-		//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+		//ÆäÀÌÂ¡ Ã³¸®
 		String param = "";
 		if(!searchValue.equals("")){
 			param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -396,6 +398,7 @@ public class BedController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
 		mav.addObject("cateEn", cateEn);
 		mav.addObject("searchValue", searchValue);
 
@@ -415,7 +418,7 @@ public class BedController {
 		List<FurnitureDTO> bedlists = bedDao.cateEImageList(params);
 		
 		FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
-		System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+		System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 		mav.setViewName("product/bed/dressing/bed_dressingTable_details");
 		mav.addObject("dto", dto);
 		mav.addObject("Blists", bedlists);
@@ -428,7 +431,7 @@ public class BedController {
 	@RequestMapping(value = "/bed_chiff.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView bed_chiff(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		//ï¿½ï¿½ï¿½ï¿½Â¡ & ï¿½Ë»ï¿½
+		//ÆäÀÌÂ¡ & °Ë»ö
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -457,13 +460,13 @@ public class BedController {
 		}
 		System.out.println("test searchValue: " + searchValue);
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½
+		//ÀüÃ¼ µ¥ÀÌÅÍ°¹¼ö
 		int dataCount = bedDao.getCateDataCount(cateEn, searchValue);
 
 
 		System.out.println("number of all data: " + bedDao.getCateDataCount(cateEn,searchValue)); //
 
-		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		//ÀüÃ¼ ÆäÀÌÁö ¼ö
 		int numPerPage = 8;
 		int totalPage = myUtil1.getPageCount(numPerPage, dataCount);
 
@@ -477,7 +480,7 @@ public class BedController {
 
 		System.out.println("size of lists:" + catelists.size());
 
-		//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½
+		//ÆäÀÌÂ¡ Ã³¸®
 		String param = "";
 		if(!searchValue.equals("")){
 			param= "searchValue=" + URLEncoder.encode(searchValue, "UTF-8");
@@ -501,6 +504,7 @@ public class BedController {
 		mav.addObject("pageNum",pageNum);
 		mav.addObject("dataCount",dataCount);
 		mav.addObject("pageIndexList", pageIndexList);
+		
 		mav.addObject("cateEn", cateEn);
 		mav.addObject("searchValue", searchValue);
 
@@ -519,7 +523,7 @@ public class BedController {
 		List<FurnitureDTO> Lists = bedDao.cateEImageList(params);
 		
 		FurnitureDTO dto = bedDao.getReadData(imageIndex,cateEn);
-		System.out.println("test ï¿½Ô´Ï´ï¿½ "+dto.getSaveFileName());
+		System.out.println("test ÀÔ´Ï´Ù "+dto.getSaveFileName());
 		mav.setViewName("product/bed/chiff/bed_chiff_details");
 		mav.addObject("dto", dto);
 		mav.addObject("Blists", Lists);

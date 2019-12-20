@@ -36,12 +36,8 @@ function check(cp){
 	}
 	
 	var addr1 = f.addr1.value;
-	alert(addr1);
 	var addr2 = f.addr2.value;
-	alert(addr2);
 	var addr3 = f.addr3.value;
-	alert(addr3);
-	
 	
 	f.action = cp+"/myinfo_ok.fu";
 	f.submit();
@@ -195,7 +191,7 @@ function check(cp){
 									<option value="018">018</option>
 									<option value="019">019</option>
 								</select>
-								<input type="text" class="form__input" id="phone2" name="phone2" maxlength="8" placeholder="'-'를 제외하고 입력하세요" value="${memberdto.phone}">
+								<input type="text" class="form__input" id="phone2" name="phone" maxlength="8" placeholder="'-'를 제외하고 입력하세요" value="${memberdto.phone}">
                                   </div>
                                   
                                   <div class="form__group mb--20">

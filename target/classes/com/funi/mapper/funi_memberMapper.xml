@@ -22,7 +22,11 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 		select email,pwd,name,substr(phone,4) phone,salt,addr1,addr2,addr3 from fumember where email=#{email}
 	</select>
 	<update id="update_pw" parameterType="com.funi.domain.MemberDTO">
-		update fumember set pwd = #{pwd} where email = #{email}
+		update fumember set pwd=#{pwd} where email = #{email}
+	</update>
+	<!-- 회원 수정  -->
+	<update id="update_myInfo" parameterType="com.funi.domain.MemberDTO">
+		update fumember set pwd=#{pwd},name=#{name},phone=#{phone},addr1=#{addr1},addr2=#{addr2},addr3=#{addr3} where email = #{email}
 	</update>
 	<delete id="deleteMember" parameterType="Map">
 		delete fumember where email=#{email}

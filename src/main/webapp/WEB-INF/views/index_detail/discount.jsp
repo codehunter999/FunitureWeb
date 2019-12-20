@@ -7,7 +7,7 @@
                 <div class="best-sale-product bg-color" data-bg-color="#f7f8f9">
                     <div class="best-sale-product__inner bg-color" data-bg-color="#ffffff">
                         <figure class="best-sale-product__img">
-                            <a href="dining_table_details.fu?imageIndex=34&cate=테이블%20/%20식탁">
+                            <a href="dining_table_details.fu?imageIndex=34&cateEn=table">
                                 <img src="/furnitureweb/resources/images/dining/503다이아몬드오크월넛테이블.jpg" alt="Best Sale Product">
                             </a>
                         </figure>
@@ -18,7 +18,7 @@
                             </h2>
                             <p class="best-sale-product__desc">12.26 - 1.2 단 일주일 간의 할인 특가! </p>
                             <p class="best-sale-product__desc">새해에는 KAALE KLINT와 함께 해보세요 </p>
-                            <a href="dining_table_details.fu?imageIndex=34&cate=테이블%20/%20식탁" class="btn btn-outline btn-size-md btn-color-primary btn-shape-round btn-hover-2">Shop Now</a>
+                            <a href="dining_table_details.fu?imageIndex=34&cateEn=table" class="btn btn-outline btn-size-md btn-color-primary btn-shape-round btn-hover-2">Shop Now</a>
                         </div>
                     </div>
                     

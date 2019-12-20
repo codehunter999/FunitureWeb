@@ -59,4 +59,9 @@ public class MemberDAO {
 		hMap.put("email",email);
 		return sessionTemplate.delete("funi_memberMapper.deleteMember",hMap);
 	}
+	public void update_myinfo(MemberDTO memberdto) throws Exception{
+		
+		sessionTemplate.update("funi_memberMapper.update_myInfo",memberdto);
+	
+	}
 }

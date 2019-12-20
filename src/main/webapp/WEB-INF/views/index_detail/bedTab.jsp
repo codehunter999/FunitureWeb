@@ -16,7 +16,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=침대&imageIndex=102&price=1923000&imagetype=/resources/images/bedroom/102.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=침대&itemname=301%20오크%20가로살%20침대&price=%20%20%201,923,000&imagepath=/resources/images/bedroom/102.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -33,10 +33,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">1,923,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=침대&imageIndex=103&price=1836000&imagetype=/resources/images/bedroom/103.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=침대&itemname=302%20오크%20세로살%20침대&price=%20%20%201,836,000&imagepath=/resources/images/bedroom/103.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -72,10 +72,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">1,836,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=침대&imageIndex=104&price=1489000&imagetype=/resources/images/bedroom/104.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=침대&itemname=키본시리즈%20303%20오크%20베드&price=%20%20%201,489,000&imagepath=/resources/images/bedroom/104.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -111,10 +111,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">1,489,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=서랍장&imageIndex=134&price=2125000&imagetype=/resources/images/bedroom/134.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=서랍장&itemname=302%20오크%204단8칸서랍장&price=%20%20%202,125,000&imagepath=/resources/images/bedroom/134.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -150,10 +150,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">2,125,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>

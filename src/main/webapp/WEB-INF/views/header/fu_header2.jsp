@@ -359,12 +359,12 @@
                                                 <c:choose> 
 												    <c:when test="${not empty sessionScope.email }">   
 												        <li class="mainmenu__item menu-item-has-children">
-												        	<a href="${pageContext.request.contextPath }/users/info.do" class="mainmenu__link">
-												        		<span class="mm-text">${sessionScope.email } 님</span>
+												        	<a href="${pageContext.request.contextPath }/home.fu" class="mainmenu__link">
+												        		<span class="mm-text" id="session_Names">${sessionScope.email } 님</span>
 												        	</a>
 												        	 <ul class="sub-menu">
 		                                                    	<li>
-		                                                            <a href="<%=cp%>/myinfo.fu">
+		                                                            <a href="<%=cp%>/mypage.fu">
 		                                                                <span class="mm-text">마이페이지</span>
 		                                                            </a>
 		                                                        </li>
@@ -384,7 +384,7 @@
 												    <c:otherwise>    
 													    <li class="mainmenu__item menu-item-has-children">
 		                                                    <a href="login.fu" class="mainmenu__link">
-		                                                        <span class="mm-text">로그인</span>
+		                                                        <span class="mm-text" id="session_login">로그인</span>
 		                                                    </a>
 		                                                </li>
 		                                                <li class="mainmenu__item menu-item-has-children">
@@ -408,7 +408,7 @@
                                                 <div class="header-toolbar__item header-toolbar--minicart-btn">
                                                     <a href="#miniCart" class="header-toolbar__btn toolbar-btn">
                                                         <i class="la la-shopping-cart"></i>
-                                                        <span>01</span>
+                                                        <!-- <span>01</span> -->
                                                     </a>
                                                 </div>
                                                 <div class="header-toolbar__item d-block d-lg-none">

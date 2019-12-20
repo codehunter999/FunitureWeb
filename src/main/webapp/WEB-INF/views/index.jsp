@@ -35,7 +35,7 @@
                                                         <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">307 월넛테이블</h1>
                                                     </div>
                                                     <div class="slider-content__btn">
-                                                        <a href="dining_table_details.fu?imageIndex=32&cate=테이블%20/%20식탁" class="btn btn-outline btn-brw-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
+                                                        <a href="dining_table_details.fu?imageIndex=32&cateEn=table" class="btn btn-outline btn-brw-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,11 +112,11 @@
                                 <div class="feature-product__inner bg-color" data-bg-color="#ffffff">
                                     <div class="feature-product__info">
                                         <p class="hastag">#Luxury Style</p>
-                                        <h2 class="feature-product__title"><a href="deco_light.fu?cate=조명">Louis Poulsen Light</a></h2>
+                                        <h2 class="feature-product__title"><a href="deco_light.fu?cateEn=light">Louis Poulsen Light</a></h2>
                                         
                                     </div>
                                     <figure class="feature-product__image mb-sm--30">
-                                        <a href="deco_light_details.fu?imageIndex=420&cate=조명">
+                                        <a href="deco_light_details.fu?imageIndex=420&cateEn=light">
                                             <img src="<%=cp %>/resources/images/deco/detail/light/420_details_10.jpg" alt="Feature Product">
                                         </a>
                                     </figure>
@@ -260,11 +260,11 @@
                                             <div class="blog__media">
                                                 <figure class="image">
                                                     <img src="<%=cp %>/resources/images/deco/월간카레클린트1월호.jpg" alt="Blog" class="w-100">
-                                                    <a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트" class="item-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=400&cateEn=monthly" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=400&cate=월간%20카레클린트">월간카레클린트1월호</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=400&cateEn=monthly">월간카레클린트1월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
@@ -275,11 +275,11 @@
                                             <div class="blog__media">
                                                 <figure class="image">
                                                     <img src="<%=cp %>/resources/images/deco/월간카레클린트2월호.jpg" alt="Blog" class="w-100">
-                                                    <a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트" class="item-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=401&cateEn=monthly" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=401&cate=월간%20카레클린트">월간카레클린트2월호</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=401&cateEn=monthly">월간카레클린트2월호</a></h2>
                                             </div>
                                         </div>
                                     </article>
@@ -290,11 +290,11 @@
                                             <div class="blog__media">
                                                 <figure class="image">
                                                     <img src="<%=cp %>/resources/images/deco/월간카레클린트3월호.jpg" alt="Blog" class="w-100">
-                                                    <a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트" class="item-overlay"></a>
+                                                    <a href="deco_monthly_details.fu?imageIndex=402&cateEn=monthly" class="item-overlay"></a>
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=402&cate=월간%20카레클린트">월간카레클린트3월호</a></h2>
+                                                <h2 class="blog__title"><a href="deco_monthly_details.fu?imageIndex=402&cateEn=monthly">월간카레클린트3월호</a></h2>
                                             </div>
                                         </div>
                                     </article>

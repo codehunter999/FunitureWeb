@@ -16,7 +16,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=sunb&imageIndex=201&price=2978000&imagetype=/resources/images/livingroom/201.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=선브렐라&itemname=601%203인%20소파%20%5B선브렐라%5D&price=%20%20%202,978,000&imagepath=/resources/images/livingroom/201.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -33,10 +33,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">2,978,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=sunb&imageIndex=202&price=2782000&imagetype=/resources/images/livingroom/202.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=선브렐라&itemname=603%203인%20소파%20%5B선브렐라%5D&price=%20%20%202,782,000&imagepath=/resources/images/livingroom/202.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -72,10 +72,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">2,782,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                             <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                 <i class="la la-eye"></i>
                             </a> -->
-                            <a href="wishlist.fu?cate=sunb&imageIndex=203&price=2782000&imagetype=/resources/images/livingroom/203.jpg" class="action-btn">
+                            <a href="wishlist.fu?cate=선브렐라&itemname=301%203인%20소파%20%5B선브렐라%5D&price=%20%20%202,782,000&imagepath=/resources/images/livingroom/203.jpg" class="action-btn">
                                 <i class="la la-heart-o"></i>
                              </a>
                             <!--<a href="wishlist.fu" class="action-btn">
@@ -111,10 +111,10 @@
                             <div class="product-price-wrapper">
                                 <span class="money">2,782,000원</span>
                             </div>
-                            <a href="cart.fu" class="add-to-cart pr--15">
+                            <!-- <a href="cart.fu" class="add-to-cart pr--15">
                                 <i class="la la-plus"></i>
                                 <span>Add To Cart</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>

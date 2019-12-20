@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +28,6 @@ import com.funi.dao.QnADAO;
 import com.funi.dao.ReviewDAO;
 import com.funi.domain.FurnitureDTO;
 import com.funi.domain.MemberDTO;
-import com.funi.domain.OrderDTO;
 import com.funi.domain.QnADTO;
 
 
@@ -66,12 +63,9 @@ public class FurnitureController {
 	@Qualifier("cartdao")
 	CartDAO cartdao;
 
-
-
 	@Autowired
 	@Qualifier("qnadao")
 	QnADAO qnadao;
-
 
 	@Autowired
 	@Qualifier("kakao")
@@ -94,11 +88,8 @@ public class FurnitureController {
 	// HOME PART
 	@RequestMapping(value = "/home.fu", method = RequestMethod.GET)
 	public ModelAndView home1(Locale locale, Model model) {
-
 		ModelAndView mav = new ModelAndView();
-
 		mav.setViewName("index");
-
 		return mav;
 	}
 
@@ -106,7 +97,6 @@ public class FurnitureController {
 	public String home2(Locale locale, Model model) {
 		return "index-02";
 	}
-
 
 
 	// COMPANY
@@ -120,9 +110,10 @@ public class FurnitureController {
 	// 지점안내
 	@RequestMapping(value = "/blog.fu", method = { RequestMethod.GET, RequestMethod.POST })
 	public String blog(Locale locale, Model model, HttpServletRequest request) {
+		
 		String location = request.getParameter("location");
 		System.out.println("location : " + location);
-		if (location.equals("Gangnam")) {
+		if (location.equals("Gangnam") || location.equals("") || location == null) {
 			return "location/blog_GangNam";
 		}
 		if (location.equals("Hongdae")) {
@@ -150,55 +141,24 @@ public class FurnitureController {
 	}
 
 
-	// EVENT PART
-	@RequestMapping(value = "/event_list.fu", method = RequestMethod.GET)
-	public String event_list(Locale locale, Model model) {
-		return "event/event_list";
-	}
-
-
-	@RequestMapping(value = "/event_5.fu", method = RequestMethod.GET)
-	public String event_5(Locale locale, Model model) {
-		return "event/event_5";
-	}
-
-	/*
-		@RequestMapping(value = "/fucart.fu", method = RequestMethod.GET)//list
-		public ModelAndView list(Locale locale, Model model,HttpSession session, ModelAndView mav) {
-			String email = (String) session.getAttribute("email");
-			Map<String, Object> map = new HashMap<String, Object>();
-			//List<OrderDTO> list = cartService.listCart(email);
-			//int sumMoney = cartService.sumMoney(email);
-			int allSum = 0;
-			for (OrderDTO orderdto : list) {
-				allSum += orderdto.getPrice() * orderdto.getAmount();
-			}
-			
-			map.put("list", list);        //��ٱ��� ������ map�� ����
-			map.put("count", list.size());//��ٱ��� ��ǰ�� ����
-			map.put("sumMoney", sumMoney);//��ٱ��� ��ü�ݾ�
-			map.put("allSum", allSum);    //�ֹ���ǰ ���� �ݾ�
-			mav.setViewName("cart");      
-			mav.addObject("map",map);
-			return mav;
-		}
-	 */
 	// 카트 장바구니 
 	@RequestMapping(value = "/cartlist.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView cartList(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
-		
+		List cartlist = null;
 		ModelAndView cartlistmav = new ModelAndView();
 		cartlistmav.setViewName("cart/cart");
-		List cartlist = (List<String>)session.getAttribute("cartlist");
-		if(cartlist.size() == 0) {
+		
+		if(session.getAttribute("cartlist") == null || session.getAttribute("cartlist").equals("")) {
 			return cartlistmav;
+		}else {
+			cartlist = (List<String>)session.getAttribute("cartlist");
 		}
-		cartlistmav.addObject("cartlistsize",cartlist.size());
+		//cartlistmav.addObject("cartlistsize",cartlist.size());
 		cartlistmav.addObject("cartlist",cartlist);
 		return cartlistmav;
 	}
 	
-	// 카트 장바구니 	
+	// 카트 장바구니
 	@RequestMapping(value = "/cartlist_input.fu", method = {RequestMethod.GET,RequestMethod.POST})
 	public String cartList_Input(Locale locale, Model model,HttpServletRequest request,HttpSession session) {			
 		//session.invalidate();
@@ -219,7 +179,7 @@ public class FurnitureController {
 			while(iterator.hasNext()){			
 				String result=(String)iterator.next();			
 				if(result.contains(request.getParameter("data"))) {
-					System.out.println("이미 추가된 상품입니다. ");			
+					System.out.println("overlap cartlist ");			
 					flag=false;
 				}		
 			}

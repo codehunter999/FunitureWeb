@@ -23,8 +23,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
     <!-- mybatis 설정 -->
-    <context:component-scan base-package="com.funi.exception"/>
-	
+    
     <bean id="paymentdao" class="com.funi.dao.PaymentDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>
@@ -32,6 +31,7 @@
 	<bean id="memberdao" class="com.funi.dao.MemberDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>
+	
 	<bean id="BedDAO" class="com.funi.dao.BedDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
@@ -39,6 +39,7 @@
 	<bean id="LivingDAO" class="com.funi.dao.LivingDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
+
 	<bean id="diningdao" class="com.funi.dao.DiningDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
 	</bean>	
@@ -56,6 +57,10 @@
 	</bean>
 
 	<bean class="com.funi.dao.QnADAO" id="qnadao">
+		<property ref="sqlSession" name="sessionTemplate"/>
+	</bean>
+	
+	<bean class="com.funi.dao.EventDAO" id="eventdao">
 		<property ref="sqlSession" name="sessionTemplate"/>
 	</bean>
 
@@ -82,11 +87,7 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
  	</bean>
- 	
  	<bean id="myUtil" class="com.funi.util.MyUtil"/>
- 	
- 	
- 	
  	<context:component-scan base-package="com.funi.service"/>
 	<bean id="kakao" class="com.funi.service.KakaoAPI"/>
     <!-- gmail -->

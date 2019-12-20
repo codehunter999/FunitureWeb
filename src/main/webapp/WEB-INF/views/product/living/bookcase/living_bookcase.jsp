@@ -9,7 +9,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">BED ROOM</h1>
                         <ul class="breadcrumb">
-                            <li><a href="<%=cp%>/">Home</a></li>
+                            <li><a href="/furnitureweb/home.fu">Home</a></li>
                             <li class="current"><span>북케이스</span></li>
                         </ul>
                     </div>
@@ -130,18 +130,18 @@
                                                         <%
                                                             FurnitureDTO dto=(FurnitureDTO)pageContext.getAttribute("dto");
                                                             
-                                                            if(dto.getProductName().contains("[")){
-                                                    	        String str=dto.getProductName();
-                                                    	        str=str.replace("[", "%5B");
-                                                    	        str=str.replace("]", "%5D");
+                                                             if(dto.getProductName().contains("[")){
+                                                                String str=dto.getProductName();
+                                                                str=str.replace("[", "%5B");
+                                                                str=str.replace("]", "%5D");
                                                     	%>
-                                                   		 <a href="wishlist.fu?cate=${dto.cate }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
-                                                            <i class="la la-heart-o"></i>
-                                                        </a>
+                                                        <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=<%=str %>&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                <i class="la la-heart-o"></i>
+                                                            </a>
                                                             <%}else{ %>
-                                                                <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg" class="action-btn">       
-                                                                    <i class="la la-heart-o"></i>
-                                                                </a>
+                                                            <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/livingroom/${dto.imageIndex}.jpg&imageIndex=${dto.imageIndex}" class="action-btn">       
+                                                                <i class="la la-heart-o"></i>
+                                                            </a>
                                                             <%} %>
                                                         <!-- <a href="wishlist.html" class="action-btn">
                                                             <i class="la la-repeat"></i>
@@ -157,10 +157,10 @@
                                                         <div class="product-price-wrapper">
                                                             <span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.html" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.html" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,7 +180,7 @@
                                     	${pageIndexList }
                                     </c:if>
                                     <c:if test="${dataCount==0 }">
-                                    	<font color="gray">찾으시는 제품이 없습니다.</font>
+                                    	등록된 게시물이 없습니다.
                                     </c:if>
                                 </ul>
                             </nav>

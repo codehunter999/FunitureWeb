@@ -2,7 +2,7 @@
 <%@page import="com.funi.domain.PaymentDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,19 +16,23 @@
 	var data;
 	var paytype;
 	
-	function payment() {	
+	function payment() {
 		
-		$('#paymentModal').modal();
-		//paytype 결제 
-		var radioVal = $(':radio[name="payment-method"]:checked').val();		
-		if(radioVal == 'bank'){				
-			paytype = $(":selected").val();		
-		}else{		
+		//alert($("input:radio[name='payment-method']:checked ").val())
+		//if($("[id = 'cardType']").val()=="default" ){
+		if($(":radio[name ='payment-method']:checked").val() == 'bank') {
+			if($(":selected").val() == 'default'){
+				alert("카드를 선택하세요.");
+			}else{
+				paytype = $(":selected").val();
+			}
+		}else if($(":radio[name='payment-method']:checked ").val() == '실시간계좌이체'){
+			paytype = $(':radio[name="payment-method"]:checked').val();
+		}else if($(":radio[name='payment-method']:checked ").val() == '무통장입금'){
 			paytype = $(':radio[name="payment-method"]:checked').val();
 		}
-		alert(paytype);
+		$('#paymentModal').modal();
 	}
-	
 	function paysubmit(){
 		var f = document.paymentInfo;
 		f.action = "<%=cp%>/payment_input.fu?paytype="+paytype;
@@ -38,13 +42,13 @@
 </script>
 
 	 <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/product/shop1.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/홈데코리빙.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h1 class="page-title">Payment</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>Payment</span></li>
                         </ul>
                     </div>
@@ -211,12 +215,12 @@
 	                                        			String result=(String)iterator.next();
 	                                        			String[] value=result.split(":");
 	                                        			value[2]  = value[2].replaceAll(",","");
-	                                        			Itemtotal = Integer.parseInt(value[6])*Integer.parseInt(value[2]);
+	                                        			Itemtotal = Integer.parseInt(value[7])*Integer.parseInt(value[2]);
 	                                        			totalSum += Itemtotal;			
 	                               			%>                  
                                             <tr>
                                                 <th><%=value[0] %><%=value[1] %>
-                                                    <strong><span>&#10005;</span><%=value[6]%></strong>
+                                                    <strong><span>&#10005;</span><%=value[7]%></strong>
                                                 </th>
                                                 <td class="text-right"><%=Itemtotal %></td>
                                             </tr>
@@ -256,8 +260,8 @@
                                                 <label class="payment-label" for="bank">카드결제</label>
                                             </div>
                                             <div class="payment-info" data-method="bank">
-												<select name="cartType">
-													<option value="국민카드" >카드를 선택하세요</option>
+												<select name="cartType" id="cardType">
+													<option value="default" >카드를 선택하세요</option>
 													<option value="KB카드">KB카드</option>
 													<option value="BC카드">BC카드</option>
 													<option value="삼성카드">삼성카드</option>

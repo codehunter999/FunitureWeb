@@ -8,7 +8,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">HOME DECO</h1>
                         <ul class="breadcrumb">
-                            <li><a href="/furnitureweb/">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>조명</span></li>
                         </ul>
                     </div>
@@ -150,7 +150,7 @@
                                                         <!-- <a data-toggle="modal" data-target="#productModal" class="action-btn">
                                                             <i class="la la-eye"></i>
                                                         </a> -->
-                                                        <a href="wishlist.fu?cate=${dto.cate }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}" class="action-btn">
+                                                        <a href="wishlist.fu?cateEn=${dto.cateEn }&itemname=${dto.productName }&price=${dto.price }&imagepath=/resources/images/deco/${dto.saveFileName}&imageIndex=${dto.imageIndex}" class="action-btn">
                                                             <i class="la la-heart-o"></i>
                                                         </a>
                                                         <!-- <a href="wishlist.jsp" class="action-btn">
@@ -166,10 +166,10 @@
                                                         <div class="product-price-wrapper">
                                    							<span class="money">${dto.price }원</span>
                                                         </div>
-                                                        <a href="cart.fu" class="add-to-cart pr--15">
+                                                        <!-- <a href="cart.jsp" class="add-to-cart pr--15">
                                                             <i class="la la-plus"></i>
                                                             <span>Add To Cart</span>
-                                                        </a>
+                                                        </a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -183,6 +183,9 @@
                                 <ul class="pagination">
                                     <c:if test="${dataCount!=0 }">
                                     	${pageIndexList }
+                                    </c:if>
+                                    <c:if test="${dataCount==0 }">
+                                    	찾으시는 제품이 없습니다.
                                     </c:if>
                                 </ul>
                             </nav>

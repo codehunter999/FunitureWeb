@@ -3,7 +3,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<%@include file="/WEB-INF/views/header/fu_header.jsp" %>
+<%@include file="/WEB-INF/views/header/fu_header2.jsp" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -17,7 +17,7 @@
 
 $(document).ready(function(){
 		// 상품별 +버튼 추가할때 수량 증가
-		$("[id^='add']").click(function(e){
+		$("[id ^='add']").click(function(e){
 			var id_check = $(this).attr("id");			
 			var lastNum = id_check.substr(id_check.length - 1)
 			e.preventDefault();				
@@ -26,24 +26,29 @@ $(document).ready(function(){
 			num++;
 			if(num>5){
 			alert('더이상 늘릴수 없습니다.');
-				num = 5;	
+				num = 5;
+				return;
 			}
+			
 			$('#qty'+lastNum).val(num);
 			//버튼별 데이터 움직이는거 확인 
 			var item_price = $("#item_price"+lastNum).val();	
 			item_price = item_price.substr(0, item_price.length -1); 
 			item_price = Number(item_price)
 			var totalItem_price_Num = item_price*num;		
+			
 			totalItem_price = String(totalItem_price_Num)+"원"
 			$('#totalItem_price'+lastNum).val(totalItem_price);
 			var map_sumMoney = $('#map_sumMoney').val();
+			map_sumMoney = map_sumMoney.substr(0,map_sumMoney.length-1);
 			var map_sumMoney_Num = Number(map_sumMoney); 
 			var totalNum = map_sumMoney_Num + item_price;
+			totalNum = String(totalNum)+"원";
 			$('#map_sumMoney').val(totalNum);
 			$('#map_allSum').val(totalNum);
 		});	
 		// 상품별 - 버튼 추가할때 수량 차감
-		$("[id^='min']").click(function(e){		
+		$("[id ^='min']").click(function(e){		
 			var id_check = $(this).attr("id");
 			var lastNum = id_check.substr(id_check.length-1)
 			e.preventDefault();
@@ -54,7 +59,7 @@ $(document).ready(function(){
 			
 				alert('더이상 내릴수 없습니다.');
 				num = 1;	
-			
+				return;
 			}		
 			$('#qty'+lastNum).val(num);				
 			var item_price = $("#item_price"+lastNum).val();	
@@ -64,8 +69,10 @@ $(document).ready(function(){
 			totalItem_price = String(totalItem_price)+"원"				
 			$('#totalItem_price'+lastNum).val(totalItem_price);
 			var map_sumMoney = $('#map_sumMoney').val();
+			map_sumMoney = map_sumMoney.substr(0,map_sumMoney.length-1);
 			var map_sumMoney_Num = Number(map_sumMoney); 
-			var totalNum = map_sumMoney_Num -item_price;
+			var totalNum = map_sumMoney_Num-item_price;
+			totalNum = String(totalNum)+"원";
 			$('#map_sumMoney').val(totalNum);
 			$('#map_allSum').val(totalNum);
 		});
@@ -85,16 +92,13 @@ $(document).ready(function(){
 		
 		data = new Array();
 		
-		$('#productModal').modal();
-		
+		$('#productModal').modal();	
 		//반복하여 다가져오기 
 		var arrayQty =  new Array();
 		var arraytotalItem_price =  new Array();
-		
 		$("[id^='qty']").each(function(indexQty){
 			arrayQty[indexQty] = $(this).val();
 		});
-		
 		$("[id^='totalItem_price']").each(function(indexSumMoney){
 			arraytotalItem_price[indexSumMoney] = $(this).val();
 		});
@@ -136,13 +140,13 @@ $(document).ready(function(){
 </script>
 
  <!-- Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/bg/page_title_bg.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/image/홈데코리빙.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h1 class="page-title">Cart</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="home.fu">Home</a></li>
                             <li class="current"><span>Cart</span></li>
                         </ul>
                     </div>
@@ -189,28 +193,31 @@ $(document).ready(function(){
 			                                        			String[] value=result.split(":");
 			                                        			value[2]  = value[2].replaceAll(",","");			                                        			
 				                                    %>
+				                                    
+				                                    
 													<tr>
-                                                        <td class="product-remove text-left"><input type="button" id="removeItem<%=buttonIndex%>" style="border: none" class="la la-remove" value="X" onclick="clickremove();"></td>
+                                                        <td class="product-remove text-left"><input type="button" id="removeItem<%=buttonIndex%>" style="border: none; background-color: rgb(255,255,255);" class="la la-remove" value="X" onclick="clickremove();"></td>
                                                         <td class="product-thumbnail text-left">
                                                              <img src="<%=cp %><%=value[3] %>" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html"><%=value[0] %><%=value[1] %><%=value[4] %></a>
+                                                                <br/><%=value[1] %><br/>
+                                                               	<font style="color: rgb(255,81,81);">option</font> : <%=value[4] %>
                                                             </h3>
                                                         </td>
-                                                        <td class="product-price">
+                                                        <td class="product-price" >
                                                             <span class="product-price-wrapper">
-                                                                	<input type="text" value="<%=value[2] %>원" id="item_price<%=buttonIndex%>" style="border: none;text-align: left"/>
+                                                                	&nbsp;&nbsp;<input type="text" value="<%=value[2] %>원" id="item_price<%=buttonIndex%>" style="border: none;text-align: center;"/>
                                                                 </span>
                                                             </span>
                                                         </td>
                                                         
-                                                        <td class="product-quantity">     
-                                                         	<button type="button" id="add<%=buttonIndex%>" class="btn-light" style="width: 15px;height: 20px;border: none"><b>+</b></button>                                                                                                                                      	   		
+                                                        <td class="product-quantity" style="padding-top: 33px;">     
+                                                         	<button type="button" id="add<%=buttonIndex%>" class="btn-light" style="width: 15px;height: 20px;border: none">+</button>                                                                                                                                      	   		
                                                 	   		<input  type="text"   id="qty<%=buttonIndex%>" name="qty-2" value="1" min="1" style="width: 10px;height: 20px;border: none;text-align: right">                    
-                                                	   		<button type="button" id="min<%=buttonIndex%>" class="btn-light" style="width: 13px;height: 20px;border: none"><b><font size="5">-</font></b></button>   
-                                                        <td class="product-total-price">
+                                                	   		<button type="button" id="min<%=buttonIndex%>" class="btn-light" style="width: 13px;height: 20px;border: none">-</button>   
+                                                        <td class="product-total-price" style="padding-top: 33px;">
                                                             <span class="product-price-wrapper">
                                                                 <span class="money">
                                                                 	<input type="text" value="<%=value[2] %>원" id="totalItem_price<%=buttonIndex%>" style="border: none;text-align: center"/>
@@ -244,24 +251,7 @@ $(document).ready(function(){
                           	</c:otherwise>
                           </c:choose>
                         </div>
-                        
-                        <!-- Qicuk View Modal Start -->
-				        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-				          <div class="modal-dialog" role="document" style="width: 150">
-				            <div class="modal-content">
-				              <div class="modal-body" align="center">
-				              <br><br><br>
-				                	결제를 진행하겠습니까?
-				                <br>
-				                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
-				                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
-				              	<br><br><br>                      
-				              </div>
-				            </div>
-				          </div>
-				        </div>
-				        
-				        <!-- Qicuk View Modal End -->
+						
                         <div class="col-lg-4">
                             <div class="cart-collaterals">
                                 <div class="cart-totals">
@@ -273,7 +263,12 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span>
-                                            		<input type="text" value="<%=map_sumMoney%>" id="map_sumMoney" style="border: none" /> 
+                                            	<c:if test="${not empty cartlist }">
+                                            		<input type="text" value="<%=map_sumMoney%>원" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" /> 
+                                                </c:if>
+                                                <c:if test="${empty cartlist }">
+                                            		<input type="text" value="0원" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;" /> 
+                                               	</c:if>
                                                 </span>
                                             </div>
                                         </div>
@@ -281,8 +276,10 @@ $(document).ready(function(){
                                             <div class="cart-calculator__item--head">
                                                 <span>배송비</span>
                                             </div>
-                                            <div class="cart-calculator__item--value">
-                                                <span>+0원</span>
+                                            <div class="cart-calculator__item--value" >
+                                                <span>
+                                                	<input type="text" value="+0원" id="map_sumMoney" style="border: none;background-color: rgb(246,246,246);text-align: right;"/>       	
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="cart-calculator__item order-total">
@@ -291,7 +288,12 @@ $(document).ready(function(){
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                              		<input type="text" value="<%=map_sumMoney%>" style="border: none" id="map_allSum"/>
+                                              	<c:if test="${not empty cartlist }">
+                                              		<input type="text" value="<%=map_sumMoney%>원" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>
+                                                </c:if>
+                                                <c:if test="${empty cartlist }">
+                                              		<input type="text" value="0원" style="border: none;background-color: rgb(246,246,246);text-align: right" id="map_allSum"/>
+                                                </c:if>
                                                 </span>
                                             </div>
                                         </div>
@@ -306,9 +308,24 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
-        <!-- Main Content Wrapper Start -->
-                <!-- Main Content Wrapper Start -->
+       <!-- Main Content Wrapper Start -->                     
+       <!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document" style="width: 300">
+            <div class="modal-content">
+              <div class="modal-body" align="center">
+              <br><br><br>
+                	상품을 주문하시겠습니까?
+                <br>
+                <button class="btn btn-size-sm" onclick="cartsubmit()">예</button>&nbsp;
+                <button class="btn btn-size-sm"  data-dismiss="modal">아니오</button>     
+              	<br><br><br>                      
+              </div>
+            </div>
+          </div>
+        </div>
         
+        <!-- Qicuk View Modal End -->
         <!-- Cart Item Delete Modal Start -->
         <div class="modal fade product-modal" id="removeModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
