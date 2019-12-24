@@ -21,8 +21,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
-    <!-- mybatis 설정 -->
+	<!-- mybatis 설정 -->
     
     <bean id="paymentdao" class="com.funi.dao.PaymentDAO">
 		<property name="sessionTemplate" ref="sqlSession"/>
@@ -88,7 +87,6 @@
 		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
  	</bean>
  	<bean id="myUtil" class="com.funi.util.MyUtil"/>
- 	<context:component-scan base-package="com.funi.service"/>
 	<bean id="kakao" class="com.funi.service.KakaoAPI"/>
     <!-- gmail -->
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
@@ -99,11 +97,17 @@
         <property name="password" value="wns7951355!@" />
         <property name="javaMailProperties">
             <props>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <prop key="mail.smtp.auth">true</prop> 
+	            <prop key="mail.transport.protocol">smtp</prop>
+	            <prop key="mail.smtp.auth">true</prop>
+	            <prop key="mail.smtp.starttls.enable">true</prop>
+	            <prop key="mail.debug">true</prop>
             </props>
         </property>
     </bean>
-    <bean id="email" class="com.funi.service.Email"/>
-    <bean id="emailSender" class="com.funi.service.EmailSender"/>
+	<bean id="emailService" class="com.funi.service.EmailService">
+		
+	</bean>
+	<context:component-scan base-package="com.exe.exception"/>	
+
+	<context:component-scan base-package="com.exe.util"/>
 </beans>

@@ -7,11 +7,12 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.funi.domain.MemberDTO;
+import com.funi.service.EmailImpl;
 
 
 
 
-public class MemberDAO {
+public class MemberDAO implements EmailDAOImpl{
 	
 	private SqlSessionTemplate sessionTemplate;
 	
@@ -20,8 +21,10 @@ public class MemberDAO {
 	}
 
 	public void insertData(MemberDTO memberdto) {
-		System.out.println(memberdto.getSalt());
-		sessionTemplate.insert("funi_memberMapper.insertData", memberdto);
+		sessionTemplate.insert("funi_memberMapper.insertData",memberdto);
+	}
+	public void SuccessAuth(MemberDTO memberdto) {
+		sessionTemplate.insert("funi_memberMapper.emailSuccess",memberdto);
 	}
 	
 	public MemberDTO searchMember(String email) {
@@ -39,7 +42,6 @@ public class MemberDAO {
 		HashMap<String,String> hMap = new HashMap<String,String>();
 		hMap.put("email",email);	
 		//email = sessionTemplate.selectOne("funi_memberMapper.searchID",hMap);
-
 		int searchIdCheck = sessionTemplate.selectOne("funi_memberMapper.searchID",hMap);
 		System.out.println("searchIdCheck : "+searchIdCheck);
 		if(searchIdCheck == 0) {
@@ -64,4 +66,39 @@ public class MemberDAO {
 		sessionTemplate.update("funi_memberMapper.update_myInfo",memberdto);
 	
 	}
+
+	@Override
+	public void insertUser(MemberDTO memberdto) throws Exception {
+		sessionTemplate.insert("funi_memberMapper.insertData",memberdto);
+		System.out.println("회원 등록 완료 !! ");
+	}
+	
+	//mail overlap
+	@Override
+	public MemberDTO authenticate(String str) throws Exception {	
+		return sessionTemplate.selectOne("funi_memberMapper.",str);
+	}
+
+	@Override
+	public void createAuthKey(String memberEmail, String memberAuthKey) throws Exception {
+		MemberDTO memberdto = new MemberDTO();
+		memberdto.setEmail(memberEmail);
+		memberdto.setAuthKey(memberAuthKey);
+		sessionTemplate.update("funi_memberMapper",memberdto);
+	}
+
+	@Override
+	public MemberDTO chkAuth(MemberDTO memberdto) throws Exception {
+		return sessionTemplate.selectOne("funi_memberMapper",memberdto);
+	}
+
+	@Override
+	public void userAuth(MemberDTO memberdto) throws Exception {
+		
+		System.out.println("인증하나요 ?? ");
+		sessionTemplate.update("funi_memberMapper",memberdto);
+		
+	}
+
+	
 }

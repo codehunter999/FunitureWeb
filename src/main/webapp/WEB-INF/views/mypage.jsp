@@ -146,7 +146,7 @@ function check(cp){
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31d857a43c06796d21fa6fd041d12cd6&libraries=services"></script>
 	
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion1.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -191,7 +191,7 @@ function check(cp){
 				                                            <th>결제금액</th>     
 				                                        </tr>
 				                                    </thead>
-				                             <%
+				                            		 <%
 				                                    	                                    		
 				                                    	List<PaymentDTO> paylist = (List<PaymentDTO>)request.getAttribute("paylist");
 				                                   		

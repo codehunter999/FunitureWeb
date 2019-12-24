@@ -5,11 +5,14 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 회원가입 -->
 <mapper namespace="funi_memberMapper">	
-	<insert id="insertData" parameterType="com.funi.domain.MemberDTO">
-		insert into fumember (email,pwd,name,phone,salt,addr1,addr2,addr3) 
-		values (#{email},#{pwd},#{name},#{phone},#{salt},#{addr1},#{addr2},#{addr3})
-	</insert>
 
+	<insert id="insertData" parameterType="com.funi.domain.MemberDTO">
+		insert into fumember (email,pwd,name,phone,salt,addr1,addr2,addr3,enableEmail) 
+		values (#{email},#{pwd},#{name},#{phone},#{salt},#{addr1},#{addr2},#{addr3},#{enableEmail})
+	</insert>
+	<update id="emailSuccess" parameterType="com.funi.domain.MemberDTO">
+		update fumember set enableEmail=1 where email=#{email}
+	</update>
 	<select id="getReadData" parameterType="Integer" resultType="com.funi.domain.MemberDTO">
 		select email from fumember where email=#{email}
 	</select>
@@ -19,7 +22,7 @@ PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 회원 조회  -->
 	<select id ="searchMember" parameterType="Map" resultType="com.funi.domain.MemberDTO">
-		select email,pwd,name,substr(phone,4) phone,salt,addr1,addr2,addr3 from fumember where email=#{email}
+		select email,pwd,name,substr(phone,4) phone,salt,addr1,addr2,addr3,enableEmail from fumember where email=#{email}
 	</select>
 	<update id="update_pw" parameterType="com.funi.domain.MemberDTO">
 		update fumember set pwd=#{pwd} where email = #{email}

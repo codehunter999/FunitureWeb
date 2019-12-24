@@ -16,24 +16,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.funi.dao.BedDAO;
 import com.funi.dao.CartDAO;
 import com.funi.dao.DecoDAO;
-import com.funi.dao.DiningDAO;
-import com.funi.dao.LivingDAO;
 import com.funi.dao.MemberDAO;
 import com.funi.dao.QnADAO;
-import com.funi.dao.ReviewDAO;
-import com.funi.domain.FurnitureDTO;
-import com.funi.domain.MemberDTO;
-import com.funi.domain.QnADTO;
 
-
-import com.funi.service.Email;
-import com.funi.service.EmailSender;
-import com.funi.service.KakaoAPI;
 
 
 @Controller
@@ -47,13 +36,6 @@ public class FurnitureController {
 	@Qualifier("BedDAO")
 	BedDAO bedDao;
 
-	@Autowired
-	@Qualifier("LivingDAO")
-	LivingDAO livingDao;
-
-	@Autowired
-	@Qualifier("diningdao")
-	DiningDAO diningdao;
 
 	@Autowired
 	@Qualifier("decodao")
@@ -67,17 +49,6 @@ public class FurnitureController {
 	@Qualifier("qnadao")
 	QnADAO qnadao;
 
-	@Autowired
-	@Qualifier("kakao")
-	KakaoAPI kakao;
-
-	@Autowired
-	@Qualifier("emailSender")
-	EmailSender emailSender;
-
-	@Autowired
-	@Qualifier("email")
-	Email email;
 
 	// Countdown
 	@RequestMapping(value = "/time.fu", method = { RequestMethod.GET, RequestMethod.POST })

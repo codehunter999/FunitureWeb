@@ -10,7 +10,19 @@ public class MemberDTO {
 	private String addr1;
 	private String addr2;
 	private String addr3;
+	private String authKey;
+	private int enableEmail;
 	
+	public int getEnableEmail() {
+		return enableEmail;
+	}
+	public void setEnableEmail(int enableEmail) {
+		this.enableEmail = enableEmail;
+	}
+	public String getAuthKey() {return authKey;}
+	public void setAuthKey(String authKey) {
+		this.authKey = authKey;
+	}
 	public String getEmail() {
 		return email;
 	}

@@ -36,11 +36,11 @@ function check(cp){
 	}
 	
 	var addr1 = f.addr1.value;
-	alert(addr1);
 	var addr2 = f.addr2.value;
-	alert(addr2);
 	var addr3 = f.addr3.value;
-	alert(addr3);
+	//alert(addr1);
+	//alert(addr2);
+	//alert(addr3);
 	
 	
 	f.action = cp+"/register_ok.fu";

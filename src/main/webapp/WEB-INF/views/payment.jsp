@@ -23,6 +23,7 @@
 		if($(":radio[name ='payment-method']:checked").val() == 'bank') {
 			if($(":selected").val() == 'default'){
 				alert("카드를 선택하세요.");
+				return;
 			}else{
 				paytype = $(":selected").val();
 			}

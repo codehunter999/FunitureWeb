@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
         <!-- Breadcrumb area Start -->
-        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion.jpg">
+        <section class="page-title-area bg-image ptb--80" data-bg-image="<%=cp %>/resources/assets/img/payment/completion1.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -119,6 +119,16 @@
                                    			 }
                                    		 %>
                                      </tbody>
+                                </table><hr/><br/><br/><br/>
+                                <table style="align-self: center;">
+                                	<tr align="center">
+                                		<td style="padding-left: 170%;">
+                                			<a href="home.fu"><input type="submit" value="홈" class="btn btn-bg-white btn-hover-2"/></a>
+                                		</td>
+                                		<td style="padding-left: 190%;">
+                                			<a href="mypage.fu"><input type="submit" value="구매내역" class="btn btn-bg-white btn-hover-2"/></a>
+                                		</td>
+                                	</tr>
                                 </table>
                             </div>  
                         </div>

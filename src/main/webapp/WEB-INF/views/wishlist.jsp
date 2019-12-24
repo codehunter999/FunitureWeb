@@ -172,6 +172,10 @@
                                                     <a href="living_TV_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[4]%>">
                                                     <br><br/><%=value[1] %></a>
                                                 </c:when>
+                                                <c:when test="${cateEn eq 'event' }">
+                                                    <a href="event_details.fu?cateEn=<%=value[0] %>&imageIndex=<%=value[4]%>">
+                                                    <%=value[1] %></a>
+                                                </c:when>
                                                 </c:choose>
                                                 </h3>
                                             </td>

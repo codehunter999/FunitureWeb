@@ -12,12 +12,11 @@
 <script type="text/javascript">
 	
 	function checkEmail(cp){
-		
 		var f = document.searchPassword;
-		var email = f.email.value;
-		if(email=="" || email==null){
+		var pwd  = f.pwd.value;
+		if(pwd=="" || pwd==null){
 			alert("패스워드를 입력하세요을 입력하세요");
-			f.email.focus();
+			f.pwd.focus();
 			return;
 		}
 		
@@ -53,11 +52,11 @@
                 				<h3 class="heading__terriary mb--30" style="text-align: center">패스워드찾기</h3>
                					<form class="form form--login"  method="post" name="searchPassword">
                					  <div class="form__group mb--20">
-               					  		<input type="text" class="form__input" id="username_email" name="email" style="size: 50px" value="tb25271@gmail.com">
+                                       <input type="hidden" value="${email}">
                                        <label class="form__label" for="username_email"><b>새 패스워드</b></label>
-                                       <input type="text" class="form__input" id="username_email" name="pwd" style="size: 50px">
+                                       <input type="password" class="form__input" id="username_email" name="pwd" style="size: 50px">
                                        <label class="form__label" for="username_email"><b>패스워드 확인 </b></label>
-                                       <input type="text" class="form__input" id="username_email" name="pwdcheck" style="size: 50px">
+                                       <input type="password" class="form__input" id="username_email" name="pwdcheck" style="size: 50px">
                                   </div>
 								   <div class="form__group mb--20">            
 		                                <input type="button" class="form__input" value="패스워드변경" style="background-color: #FF5151; font-size:13pt; color:#ffffff;" onclick="checkEmail('<%=cp%>');">    
