@@ -141,7 +141,7 @@
                                     <div class="col-md-5 mb-sm--30 mb-xs--10">
                                         <div class="shop-toolbar__left">
                                             <div class="product-ordering">
-                                                <b>클린터치 테이블 / 식탁</b>
+                                                <b>리놀륨 테이블</b>
                                             </div>
                                         </div>
                                     </div>

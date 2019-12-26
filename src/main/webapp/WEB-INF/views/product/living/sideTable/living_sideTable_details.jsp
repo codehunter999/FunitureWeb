@@ -9,9 +9,7 @@
 			
 			data = eventdata;
 			
-			//alert(eventdata);
-			//alert($("[id = 'optionV']").val());
-			
+	
 			if($("[id = 'optionV']").val()=="default"){
 				alert("옵션을 선택하세요.");
 				return;

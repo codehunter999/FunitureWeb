@@ -9,8 +9,7 @@
 		
 		data = eventdata;
 		
-		//alert(eventdata);
-		//alert($("[id = 'optionV']").val());
+	
 		
 		if($("[id = 'optionV']").val()=="default"){
 			alert("옵션을 선택하세요.");
@@ -24,8 +23,7 @@
 		data += ":" + ${dto.imageIndex};
 		
 		$('div#productModal').modal();	
-		
-		//alert(data);
+
 }
 	function cartsubmit(){
 		location.href="<%=cp%>/cartlist_input.fu?data="+data;

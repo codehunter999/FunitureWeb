@@ -67,7 +67,7 @@ public class EmailService implements EmailImpl{
 					new StringBuffer().append("<html>")
 									  .append("<body>")
 									  .append("<br/><br/><img src=\"cid:mailKlogo.jpg\" style=\"width: 800px;height: 500px\" ><br/>")								  					                 
-									  .append("<h2><a href=\"http://localhost:8080/furnitureweb/changPwd.fu?email="+memberdto.getEmail()+"\">Check Email Link</a></h2>")
+									  .append("<h2><a href=\"http://192.168.16.12:8080/furnitureweb/changPwd.fu?email="+memberdto.getEmail()+"\">Check Email Link</a></h2>")
 					                  .append("</body></html>").toString());
 		
 		sendMail.setFrom("tb25271@gmail.com","service center");

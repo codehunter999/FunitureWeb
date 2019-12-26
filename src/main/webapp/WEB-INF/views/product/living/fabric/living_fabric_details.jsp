@@ -24,8 +24,7 @@
 			data += ":" + ${dto.imageIndex};
 			
 			$('div#productModal').modal();	
-			
-			alert(data);
+
 	}
 	function cartsubmit(){
 		location.href="<%=cp%>/cartlist_input.fu?data="+data;
