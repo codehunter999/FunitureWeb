@@ -14,12 +14,17 @@
 	function checkEmail(cp){
 		var f = document.searchPassword;
 		var pwd  = f.pwd.value;
+		var pwdcheck  = f.pwdcheck.value;
 		if(pwd=="" || pwd==null){
 			alert("패스워드를 입력하세요을 입력하세요");
 			f.pwd.focus();
 			return;
 		}
-		
+		if(pwdcheck != pwd){
+			alert("패스워드가 다릅니다 패스워드를 확인해주세요");
+			f.pwd.focus();
+			return;
+		}	
 		f.action = cp+"/changePwd_ok.fu";
 		f.submit();
 	}	
@@ -52,7 +57,7 @@
                 				<h3 class="heading__terriary mb--30" style="text-align: center">패스워드찾기</h3>
                					<form class="form form--login"  method="post" name="searchPassword">
                					  <div class="form__group mb--20">
-                                       <input type="hidden" value="${email}">
+                                       <input type="hidden" value="${email}" name="email">
                                        <label class="form__label" for="username_email"><b>새 패스워드</b></label>
                                        <input type="password" class="form__input" id="username_email" name="pwd" style="size: 50px">
                                        <label class="form__label" for="username_email"><b>패스워드 확인 </b></label>

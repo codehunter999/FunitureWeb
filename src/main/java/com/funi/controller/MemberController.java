@@ -69,7 +69,9 @@ public class MemberController {
 		MemberDTO memberdto = null; 
 		try {
 			boolean flag = memberdao.searchID(paramdto.getEmail());
+			
 			String message = null;
+			
 			if (!flag) { 
 				message = "회원 정보를 찾을수 없습니다."; 
 				loginmav.addObject("message", message); 
@@ -131,12 +133,14 @@ public class MemberController {
 	@RequestMapping(value = "/sendpw.fu", method = {RequestMethod.POST }) 
 	public ModelAndView sendEmailAction(ModelMap model,	MemberDTO memberdto,RedirectAttributes rttr) throws Exception {
 		ModelAndView searchpwdmav = new ModelAndView();
-		searchpwdmav.setViewName("member/emailConfirm");
 		try {
 			emailService.searchPwdMail(memberdto);
+			rttr.addFlashAttribute("message","인증메일을 보냈습니다.");
+			searchpwdmav.setViewName("redirect:/login.fu");
 		} catch (Exception e) {
 			System.out.println(e.toString());
-			rttr.addFlashAttribute("msg" , "가입시 사용한 이메일로 인증해주세요");
+			rttr.addFlashAttribute("message","가입시 사용한 이메일로 인증해주세요");
+			searchpwdmav.setViewName("member/login");
 		}		
 		return searchpwdmav;
 	}
@@ -153,10 +157,12 @@ public class MemberController {
 	public ModelAndView changePwd_ok(String email,String pwd,String pwdcheck) { 
 		ModelAndView changePwdmav = new ModelAndView();
 		try {
-			
-			MemberDTO memberdto = memberdao.searchMember(email);			
-			memberdto.setPwd(SHA256Util.getEncrypt(memberdto.getPwd(),memberdto.getSalt())); 
-			memberdao.update_pw(memberdto); 
+			MemberDTO memberdto = memberdao.searchMember(email);
+			String salt = SHA256Util.generateSalt(); 
+			memberdto.setSalt(salt);
+			memberdto.setPwd(SHA256Util.getEncrypt(pwd,salt)); 
+			memberdao.update_pw(memberdto);
+			changePwdmav.addObject("message","패스워드가 변경되었습니다.");
 		} 
 		catch (Exception e)	{ 
 			System.out.println(e.toString()); 
@@ -171,8 +177,7 @@ public class MemberController {
 			myinfomav.setViewName("member/mypage"); 
 			String email = (String)session.getAttribute("email"); 
 			MemberDTO memberdto = memberdao.searchMember(email); 
-			List<PaymentDTO> paylist =  paymentdao.getTotalList(email);
-			
+			List<PaymentDTO> paylist =  paymentdao.getTotalList(email);		
 			myinfomav.addObject("paylist",paylist);
 			myinfomav.addObject("memberdto", memberdto); 
 			myinfomav.setViewName("mypage"); 

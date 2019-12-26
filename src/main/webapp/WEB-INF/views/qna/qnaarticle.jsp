@@ -44,7 +44,7 @@
                                         <div class="single-post__header-meta">
                                             <span class="posted-on">Date: <%=dto.getCreated_at() %></span>
                                             <span class="post-category">
-                                                <a href="blog-details-image.html"><%=dto.getSubject() %></a>
+                                                <%=dto.getSubject() %>
                                             </span>
                                         </div>
                                     </header>

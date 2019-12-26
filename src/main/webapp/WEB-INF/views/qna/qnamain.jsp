@@ -60,7 +60,7 @@
                         		<thead>
                                 	<tr>
                                 		<th>&nbsp;</th>
-                                        <th style="font-size: 16px"><b>내&nbsp;&nbsp;&nbsp;용</b></th>
+                                        <th style="font-size: 16px"><b>제&nbsp;목</b></th>
                                         <th style="font-size: 16px"><b>작성자</b></th>
                                         <th style="font-size: 16px"><b>작성일</b></th>
                                     </tr>
@@ -73,9 +73,9 @@
                                        <td class="product-name text-left wide-column">
                                            <h3>
                                            		<%if(request.getParameter("pageNum")==null){ %>
-													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getContent() %></a>
+                                           			<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=1"> <%=dto.getSubject() %></a>
 												<%}else {%>
-													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getContent() %></a>
+													<a href="<%=cp %>/qnaarticle.fu?id=<%=dto.getId() %>&pageNum=<%=request.getParameter("pageNum")%>"> <%=dto.getSubject() %></a>
 												<%} %>                                           
                                            </h3>
                                        </td>

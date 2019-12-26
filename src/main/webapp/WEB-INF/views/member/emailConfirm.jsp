@@ -35,6 +35,13 @@
                                 	<tr>
 										<td><img src="<%=cp %>/resources/assets/img/payment/email1.png" ></td>
                                 	</tr>
+                                	<tr>
+                                		<td>
+                                		<div class="form__group mb--20">            
+	                                    	 <input type="button" class="form__input" value="로그인창으로 돌아가기" style="background-color: #FF5151; font-size:13pt; color:#ffffff;width: 50%" onclick="location.href='<%=cp%>/login.fu'">    
+	                                 	</div>
+	                                 </td>
+                                	</tr>
                                	</table>
                             </div>  
                         </div>

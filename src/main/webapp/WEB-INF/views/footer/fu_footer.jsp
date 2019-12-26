@@ -28,9 +28,9 @@
                                 <div class="footer-widget">
                                     <ul class="footer-menu">
                                         <li><a href="company.fu">About Us</a></li>
-                                        <li><a href="blog.fu">location</a></li> <!-- *************실행X -->
+                                        <li><a href="reviewmain.fu">Review</a></li> <!-- *************실행X -->
                                         <!-- <li><a href="company.fu">Careers</a></li> -->
-                                        <li><a href="contact-us.fu">Contact</a></li>
+                                        <li><a href="event_list.fu">Event</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="footer-widget">
                                     <ul class="footer-menu">
                                         <li><a href="living_total.fu">거실 / 리빙룸</a></li>
-                                        <li><a href="dininigfull.fu">주방 / 다이닝룸</a></li>
+                                        <li><a href="diningfull.fu">주방 / 다이닝룸</a></li>
                                         <li><a href="bed_total.fu">침실 / 베드룸</a></li>
                                         <li><a href="decofull.fu">홈데코 / 리빙</a></li>
                                     </ul>
@@ -312,7 +312,7 @@
     <!-- Main Wrapper End -->
  
 	<!-- Qicuk View Modal Start -->
-        <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- <div class="modal fade product-modal" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
         	<div class="modal-dialog" role="document" style="width: 300">
         		<div class="modal-content">
         			<div class="modal-body" align="center"><br><br><br>
@@ -323,7 +323,7 @@
     				</div>
     			</div>
     		</div>
-    	</div>
+    	</div> -->
         <!-- Qicuk View Modal End -->
     <!-- ************************* JS Files ************************* -->
 
