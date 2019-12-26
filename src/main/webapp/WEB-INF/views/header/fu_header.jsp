@@ -108,7 +108,7 @@
     <div class="wrapper">
         <!-- Header Start -->
         <header class="header">
-            <div class="header__inner fixed-header">
+            <div class="header__inner fixed-header" style="width: 1700px">
                 <div class="header__main">
                     <div class="container-fluid">
                         <div class="row">
@@ -360,7 +360,7 @@
                                                 </li>
                                                 
                                                 <li class="mainmenu__item menu-item-has-children">
-                                                   <span class="mm-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                  <!--  <span class="mm-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
                                                 </li>
 
                                                 <c:choose> 

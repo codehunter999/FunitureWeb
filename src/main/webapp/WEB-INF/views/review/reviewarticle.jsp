@@ -47,14 +47,15 @@
                                             	<%}else{ %>
                                             		<img src="<%=cp %>/resources/assets/img/reviewimg/defaultImg2.png" alt="Blog" >
                                             	<%} %>
-                                            	<!-- <img src="assets/img/blog/blog-09.jpg" alt="Blog Image" class="w-100"> -->
-                                            		<a href="blog-details-image.html" class="item-overlay"></a>
+                                            	<!-- <img src="assets/img/blog/blog-09.jpg" alt="Blog Image" class="w-100">  -->
+                                            		<!-- <a href="blog-details-image.html" class="item-overlay"></a> -->
                                             </div>                 
                                         </div>
                                         <div class="single-post__header-meta">
                                             <span class="posted-on">Date: <%=dto.getCreated_at() %></span>
+                                            <br/>
                                             <span class="post-category">
-                                                <a href="blog-details-image.html"><%=dto.getSubject() %></a>
+                                                <h3><%=dto.getSubject() %></h3>
                                             </span>
                                         </div>
                                     </header>

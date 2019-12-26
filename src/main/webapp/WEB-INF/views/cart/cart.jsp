@@ -299,7 +299,7 @@ $(document).ready(function(){
                                         </div>
                                     </div>
                                 </div>                             
-                               	<div name="addcart" class="btn btn-size-lg" onclick="clickevent()" style="width: 355px">
+                               	<div name="addcart" class="btn btn-size-lg" onclick="clickevent()" style="width: 370px">
 	                                   상품주문
 	                            </div> 
                             </div>

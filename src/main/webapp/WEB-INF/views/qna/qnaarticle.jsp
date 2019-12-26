@@ -38,13 +38,11 @@
                                 <!-- Single Post Start -->
                                 <article class="single-post mb--75 mb-md--55 pb--75 pb-md--55">
                                     <header class="single-post__header">
-                                        <h5 style="font-size: 25px" class="single-post__title">고객님, 궁금한 사항이 있으신가요? 답변은 E-mail로 보내드립니다.</h5>
-                                        
-                                        
+                                        <h5 style="font-size: 30px" class="single-post__title">고객님, 궁금한 사항이 있으신가요? 답변은 E-mail로 보내드립니다.</h5>
                                         <div class="single-post__header-meta">
                                             <span class="posted-on">Date: <%=dto.getCreated_at() %></span>
                                             <span class="post-category">
-                                                <%=dto.getSubject() %>
+                                               <%=dto.getSubject() %>
                                             </span>
                                         </div>
                                     </header>
@@ -53,15 +51,13 @@
                                             <div class="col-lg-4 col-md-4 pl--45 pl-sm--15">
                                                 <div class="single-post__meta">
                                                     <div class="posted-by">
-                                                        <span class="byline">by</span>
-                                                        
-                                                            <span><%=dto.getName() %>'s QnA</span>
-                                                        
+                                                        <span class="byline">by</span>                                                       
+                                                            <span><%=dto.getName() %>'s QnA</span>                                                     
                                                     </div>
                                                     <div class="social">
-                                                    	<a href="<%=cp %>/qnadelete.fu?id=<%=dto.getId() %>">
+                                                    	<a href="<%=cp %>/qnadelete.fu?id=<%=dto.getId() %>"> 
                                     						<img src="<%=cp %>/resources/assets/img/reviewimg/delete.jpg" width=50 height=50>
-                                    					</a>
+                                    				 	</a>
                                                         <!-- 
                                                         <a href="https://www.facebook.com" class="social__link">
                                                             <i class="la la-facebook"></i>
